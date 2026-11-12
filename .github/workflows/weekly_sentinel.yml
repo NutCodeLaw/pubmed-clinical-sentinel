@@ -1,0 +1,54 @@
+name: Weekly PubMed Clinical Sentinel
+
+on:
+  schedule:
+    # 00:00 UTC on Mondays = 07:00 AM Bangkok Time (UTC+7)
+    - cron: '0 0 * * 1'
+  workflow_dispatch: # Allows manual trigger from GitHub Actions tab
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "clinical-sentinel"
+  cancel-in-progress: false
+
+jobs:
+  surveillance-and-report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Clinical Sentinel Surveillance
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          python scripts/sentinel.py
+
+      - name: Commit and Push Updated Reports
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "PubMed Sentinel Bot"
+          git add README.md reports/ docs/ data/seen_pmids.json
+          if git diff --staged --quiet; then
+            echo "No new changes to commit."
+          else
+            git commit -m "chore(surveillance): automated weekly clinical briefing [skip ci]"
+            git push
+          fi

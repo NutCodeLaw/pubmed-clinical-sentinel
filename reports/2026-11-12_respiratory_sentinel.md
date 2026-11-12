@@ -1,99 +1,126 @@
-# สรุปรายงานวิจัยทางคลินิกประจำวัน (Daily Clinical Research Briefing)
-**วันอังคารที่ 12 พฤศจิกายน 2569**
+# สรุปรายงานวิจัยทางคลินิกประจำวัน (Clinical Pharmacy Research Update)
+**ประจำวันที่ 12 พฤศจิกายน 2026**  
+*ทีมสารสนเทศสมุนไพรและเภสัชบำบัด (IM Team) โรงพยาบาลเสิงสาง*
 
 ---
 
-## 🫁 1. เภสัชบำบัดโรคหอบหืดและปอดอุดกั้นเรื้อรัง (Asthma & COPD)
+### 1. 🫁 เภสัชบำบัดโรคหอบหืดและปอดอุดกั้นเรื้อรัง (Asthma & COPD)
 
-### 1. Multicomponent Digital Therapeutic Program on Inhaled Medication Adherence in COPD
-- **วารสาร & PMID:** JMIR mHealth uHealth (2026 Nov) • [PMID: 42993869](https://pubmed.ncbi.nlm.nih.gov/42993869/)
-- 🎯 **ใจความสำคัญ 1 บรรทัด:** การใช้โปรแกรมดิจิทัลร่วมกับอุปกรณ์ตรวจวัดการสูดยาแบบอิเล็กทรอนิกส์ (EIM) ช่วยเพิ่มความสม่ำเสมอในการใช้ยาสูดและลดอาการในผู้ป่วย COPD
+#### 1. Tezepelumab in Severe CRSwNP (WAYPOINT Subgroup Analysis)
+- **วารสาร & PMID:** J Otolaryngol Head Neck Surg • [PMID: 42960606](https://pubmed.ncbi.nlm.nih.gov/42960606/)
+- 🎯 **ใจความสำคัญ 1 บรรทัด:** Tezepelumab (anti-TSLP) แสดงประสิทธิผลและมีความปลอดภัยสูงในการรักษาโรคไซนัสอักเสบเรื้อรังชนิดมีริดสีดวงจมูกรุนแรงที่ไม่ตอบสนองต่อยารักษามาตรฐาน
 - 📊 **ตัวเลขผลลัพธ์สำคัญ:**
-  • การทดลองแบบ Pilot RCT เปรียบเทียบ Digital Program + EIM กับการดูแลปกติในชีวิตจริง  
-  • เพิ่ม Adherence การใช้ยาสูดเรื้อรังอย่างมีนัยสำคัญทางคลินิกเมื่อติดตามผลในระยะยาว
-- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** สามารถประยุกต์ใช้ระบบติดตามการสูดยาผ่านแอปพลิเคชัน/LINE เพื่อช่วยแก้ปัญหาผู้ป่วย COPD ขาดยาบ่อยในพื้นที่
-- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42993869/)
+  • [N=49 ราย (กลุ่มย่อยในแคนาดา), Phase 3 WAYPOINT Trial]
+  • [ลดขนาดริดสีดวงจมูกและคัดแน่นจมูกอย่างมีนัยสำคัญ สอดคล้องกับผลการศึกษาทั่วโลก]
+- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** Biologics มุ่งเป้า TSLP เป็นทางเลือกใหม่ในผู้ป่วย Asthma ที่มี Comorbid CRSwNP รุนแรง แม้ราคาแพงแต่ช่วยลดการส่งต่อผ่าตัดจมูกซ้ำซ้อน
+- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42960606/)
 
 ---
 
-### 2. Asthma in Older Adults: Real-World Burden and Diagnostic Challenges
-- **วารสาร & PMID:** Curr Allergy Asthma Rep (2026 Nov) • [PMID: 42980725](https://pubmed.ncbi.nlm.nih.gov/42980725/)
-- 🎯 **ใจความสำคัญ 1 บรรทัด:** โรคหอบหืดในผู้สูงอายุมีแนวโน้มสูงขึ้นแต่ยังถูกวินิจฉัยและได้รับการรักษาต่ำกว่าความเป็นจริง (Underdiagnosed & Undertreated)
-- 📊 **ตัวเลขผลลัพธ์สำคัญ:**
-  • ทบทวนวรรณกรรมย้อนหลัง 10 ปี พบอุปสรรคสำคัญจากเทคนิคการใช้ยาสูดผิด ความรู้เท่าทันสุขภาพต่ำ (Low health literacy) และโรคซึมเศร้าร่วม  
-  • ข้อจำกัดในการเข้าถึงยาชีววัตถุ (Biologics) ในกลุ่มผู้สูงอายุยังเป็นปัญหาทั่วโลก
-- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** ผู้สูงอายุในคลินิก Asthma ที่อาการไม่ดีขึ้น ควร Re-evaluate เทคนิคการใช้ยาสูดและประเมินภาวะ Asthma-COPD Overlap (ACO) ก่อนปรับเพิ่มยา
-- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42993869/)
+### 2. 🚭 เภสัชบำบัดช่วยเลิกบุหรี่ (Smoking Cessation)
+
+- 🎯 **ประเด็นสำคัญประจำวัน:** ไม่พบงานวิจัยใหม่ในระบบวันนี้ — *เน้นย้ำคลินิกฟ้าใส รพ.เสิงสาง: การปรับใช้ Pharmacotherapy ร่วมกับ Behavioral counseling 5A ยังคงเป็นมาตรฐานทองคำในการช่วยผู้ป่วย NCDs เลิกบุหรี่*
 
 ---
 
-### 3. Inhaled Corticosteroids in Sickle Cell Disease Without Asthma
-- **วารสาร & PMID:** JAMA Netw Open (2026 Nov) • [PMID: 43007675](https://pubmed.ncbi.nlm.nih.gov/43007675/)
-- 🎯 **ใจความสำคัญ 1 บรรทัด:** การสูดยา Mometasone (ICS) ช่วยลดอาการปวดและตัวบ่งชี้การอักเสบในผู้ป่วย Sickle Cell Disease (SCD) ที่มีอาการไอ/หวีดแต่ไม่ได้เป็นหอบหืด
+### 3. 🌿 สมุนไพรไทยทางคลินิกในระบบทางเดินหายใจ (Thai Herbal Medicine)
+
+#### 1. Curcumin-Loaded Nanoplatform for Anti-Pulmonary Fibrosis
+- **วารสาร & PMID:** Colloids Surf B Biointerfaces • [PMID: 42667699](https://pubmed.ncbi.nlm.nih.gov/42667699/)
+- 🎯 **ใจความสำคัญ 1 บรรทัด:** การใช้เคอร์คูมิน (Curcumin จากขมิ้นชัน) ในรูปแบบนาโนแพลตฟอร์มส่งยาเข้าสู่เซลล์ถุงลมปอดโดยตรง ช่วยทำลายเซลล์เสื่อมสภาพและชะลอภาวะพังผืดในปอด
 - 📊 **ตัวเลขผลลัพธ์สำคัญ:**
-  • Placebo-controlled RCT ติดตามผลระยะยาวในผู้ใหญ่ที่มีภาวะ Episodic Cough and Wheeze (ECW)  
-  • ลดระดับ VCAM-1 (ความรุนแรงของโรค) และลดวันที่มีอาการปวดได้อย่างปลอดภัย
-- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** ICS มีฤทธิ์ลด Anti-inflammatory ในทางเดินหายใจที่ไม่ใช่แค่หอบหืด สามารถศึกษานัยนี้เพื่อเป็นแนวทาง Off-label ในกลุ่มอาการอักเสบเรื้อรังเฉพาะโรค
-- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/43007675/)
+  • [นวัตกรรม CCMD@Lipo-Apt ปลดปล่อย Curcumin + Ca2+ กระตุ้น Calcium overload ในเซลล์เป้าหมาย]
+  • [ลดการแสดงออกของยีนพังผืดและยับยั้ง SAEC II senescent cells ได้อย่างจำเพาะเจาะจง]
+- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** สารสกัดขมิ้นชันกำลังถูกพัฒนาสู่ระดับนาโนบำบัดโรคปอดเรื้อรัง ตอกย้ำศักยภาพสารธรรมชาติไทยในการพัฒนาต่อยอดทางเภสัชกรรม
+- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42667699/)
 
 ---
 
-### 4. Breathing Exercises as Adjunct Therapy in Adult Asthma
-- **วารสาร & PMID:** F1000Research (2026) • [PMID: 42959049](https://pubmed.ncbi.nlm.nih.gov/42959049/)
-- 🎯 **ใจความสำคัญ 1 บรรทัด:** การฝึกหายใจ (Breathing retraining) เป็นหัตถการเสริมที่ไม่ใช้ยา ซึ่งช่วยเพิ่มคุณภาพชีวิตและลดอาการหอบหืดตกค้างได้อย่างมีประสิทธิภาพ
+### 4. 🫀 ชะลอไตเสื่อม & เมตาบอลิกหัวใจ (CRM: SGLT2i, GLP-1, Finerenone)
+
+#### 1. Cardiorenal Outcomes of Novel Hypoglycemic Agents in T2DM + Heart Failure
+- **วารสาร & PMID:** Front Endocrinol (Lausanne) • [PMID: 42952754](https://pubmed.ncbi.nlm.nih.gov/42952754/) • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13713430/)
+- 🎯 **ใจความสำคัญ 1 บรรทัด:** Network Meta-Analysis ยืนยัน SGLT2i และ GLP-1RA ให้ประโยชน์สูงสุดในการลดอัตรานอน รพ. จาก Heart Failure และชะลอโรคไตในผู้ป่วย DM ที่มีภาวะหัวใจล้มเหลว
 - 📊 **ตัวเลขผลลัพธ์สำคัญ:**
-  • Systematic Review รวบรวมงานวิจัย RCTs ช่วงปี 2013–2025  
-  • ยืนยันผลการ改善ของอาการหอบหืดและ Quality of Life (QoL) อย่างมีนัยสำคัญเมื่อใช้ร่วมกับยามาตรฐาน
-- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** ควรส่งเสริมให้ทีมกายภาพบำบัดและงานสร้างเสริมสุขภาพ จัดคอร์สสอนการฝึกหายใจให้ผู้ป่วย Asthma ในคลินิก NCD
-- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42959049/)
+  • [รวบรวมข้อมูล RCTs จนถึงเมษายน 2026 เปรียบเทียบ SGLT2i, GLP-1RA, DPP-4i, GIP/GLP-1RA]
+  • [SGLT2i นำโด่งด้านการลด HF hospitalization และ Cardiorenal composite outcome]
+- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** ผู้ป่วย T2DM ร่วมกับ Heart Failure ควรได้รับ SGLT2i เป็นอันดับแรกตาม Guideline รพ. เพื่อลดการนอนโรงพยาบาลซ้ำ
+- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42952754/)
+
+#### 2. Dapagliflozin Response After TAVR by Diabetes Status (DAPA-TAVI Trial)
+- **วารสาร & PMID:** Cardiovasc Diabetol • [PMID: 43004293](https://pubmed.ncbi.nlm.nih.gov/43004293/) • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13746418/)
+- 🎯 **ใจความสำคัญ 1 บรรทัด:** Dapagliflozin ช่วยลดการตายและ Heart Failure กำเริบหลังผ่าตัดเปลี่ยนลิ้นหัวใจ TAVR ได้ดีเท่าเทียมกัน ไม่ว่าผู้ป่วยจะเป็นเบาหวานหรือไม่ก็ตาม
+- 📊 **ตัวเลขผลลัพธ์สำคัญ:**
+  • [N=1,222 ราย, ติดตามผล 1 ปี, RCT 39 ศูนย์ในสเปน]
+  • [ผลลัพธ์ปฐมภูมิ (Death/Worsening HF) ลดลงสอดคล้องกันทั้งกลุ่ม DM และ non-DM (P-interaction > 0.05)]
+- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** ประโยชน์ในการป้องกัน HF ของ Dapagliflozin ไม่ได้จำกัดแค่ในผู้ป่วยเบาหวาน สามารถจ่ายในผู้ป่วย Structural Heart Disease ที่มี HF ได้อย่างมั่นใจ
+- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/43004293/)
 
 ---
 
-## 🚭 2. เภสัชบำบัดช่วยเลิกบุหรี่ (Smoking Cessation)
+### 5. 🩸 ยาต้านการแข็งตัวของเลือด & HAD (Warfarin vs DOACs)
 
-### 1. Combination Bupropion-Zonisamide for Smoking Reduction & Weight Control
-- **วารสาร & PMID:** Drug Alcohol Depend (2026 Nov) • [PMID: 42849341](https://pubmed.ncbi.nlm.nih.gov/42849341/)
-- 🎯 **ใจความสำคัญ 1 บรรทัด:** ยาสูตรผสม Bupropion + Zonisamide ช่วยลดการสูบบุหรี่ได้เร็วกว่า และช่วยป้องกันน้ำหนักตัวเพิ่มขึ้นขณะเปลี่ยนไปใช้ ENDS
+#### 1. Aspirin vs Warfarin vs Rivaroxaban for VTE Prophylaxis Post-Arthroplasty
+- **วารสาร & PMID:** N Engl J Med • [PMID: 43013818](https://pubmed.ncbi.nlm.nih.gov/43013818/)
+- 🎯 **ใจความสำคัญ 1 บรรทัด:** การเปรียบเทียบ 3 ยาหลักป้องกัน VTE หลังผ่าตัดข้อสะโพก/ข้อเข่า พบประสิทธิภาพและความปลอดภัยระดับคล้ายคลึงกัน โดย Aspirin มีความคุ้มค่าสูงในกลุ่มเสี่ยงต่ำ
 - 📊 **ตัวเลขผลลัพธ์สำคัญ:**
-  • RCT (N=180, สุ่ม 3 กลุ่ม: BUP/ZON vs BUP vs Placebo นาน 8 สัปดาห์)  
-  • กลุ่ม BUP/ZON ลดระดับ Exhaled Carbon Monoxide (eCO) ได้สูงสุด และควบคุมน้ำหนักได้ดีกว่ากลุ่ม BUP เดี่ยวและ Placebo
-- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** การป้องกันน้ำหนักตัวขึ้นเป็นปัจจัยสำคัญที่ทำให้ผู้ป่วยไม่ย้อนกลับไปสูบบุหรี่ซ้ำ เป็นข้อมูลสำคัญในการให้คำปรึกษาคลินิกฟ้าใส
-- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42849341/)
+  • [RCT เปรียบเทียบ Aspirin 81 mg BID vs Warfarin (target INR 2.0) vs Rivaroxaban 10 mg QD เป็นเวลา 30 วัน]
+  • [Primary Effectiveness (VTE/Death) และ Primary Safety (Major Bleeding/Reoperation) ประเมินความไม่ด้อยกว่า (Non-inferiority)]
+- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** หลังผ่าตัดเปลี่ยนข้อ ผู้ป่วยเสี่ยงต่ำสามารถใช้ Aspirin ป้องกัน VTE ได้อย่างปลอดภัย ช่วยลดภาระการเจาะวัด INR ของ Warfarin
+- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/43013818/)
+
+#### 2. Apixaban vs Rivaroxaban in Acute Venous Thromboembolism
+- **วารสาร & PMID:** Eur J Clin Pharmacol • [PMID: 43004015](https://pubmed.ncbi.nlm.nih.gov/43004015/) • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/7556153/)
+- 🎯 **ใจความสำคัญ 1 บรรทัด:** Apixaban แสดงแนวโน้มความปลอดภัยด้านเลือดออกทางเดินอาหารและ Bleeding ภาพรวมที่ดีกว่า Rivaroxaban ในการรักษา Acute VTE
+- 📊 **ตัวเลขผลลัพธ์สำคัญ:**
+  • [Meta-analysis รวม 13 การศึกษา, ผู้ป่วย N=233,569 ราย]
+  • [Apixaban ลดความเสี่ยง Major Bleeding และ Gastrointestinal Bleeding อย่างมีนัยสำคัญเมื่อเทียบกับ Rivaroxaban]
+- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** หากผู้ป่วย VTE มีความเสี่ยงสูงต่อการเกิดเลือดออกในทางเดินอาหาร Apixaban คือตัวเลือก DOAC ที่ปลอดภัยกว่า Rivaroxaban
+- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/43004015/)
 
 ---
 
-### 2. Pharmacogenetics of Antidepressants in Admixed Populations (Bupropion Insight)
-- **วารสาร & PMID:** Pharmacogenomics (2026 Aug) • [PMID: 42740717](https://pubmed.ncbi.nlm.nih.gov/42740717/)
-- 🎯 **ใจความสำคัญ 1 บรรทัด:** ความหลากหลายทางพันธุกรรม (CYP2B6) มีผลต่อระดับยาและตอบสนองต่อ Bupropion ชี้ให้เห็นความจำเป็นของการปรับขนาดยาเฉพาะบุคคล
+### 6. 🦠 การจัดการยาปฏิชีวนะ & สูตรยาสั้น (AMS & Short-Course RDU)
+
+#### 1. Short- vs Long-Course Antibiotic Therapy in Pediatric Non-Severe CAP
+- **วารสาร & PMID:** Eur J Pediatr • [PMID: 42844453](https://pubmed.ncbi.nlm.nih.gov/42844453/)
+- 🎯 **ใจความสำคัญ 1 บรรทัด:** ยาสูตรสั้น (3-5 วัน) มีประสิทธิภาพรักษาปอดบวมชนิดไม่รุนแรงในเด็กเทียบเท่ายาสูตรมาตรฐาน (7-10 วัน) แถมเพิ่มความร่วมมือในการกินยา (Adherence)
 - 📊 **ตัวเลขผลลัพธ์สำคัญ:**
-  • Systematic Review ประเมินผล Pharmacogenetics ในประชากรที่มีพันธุกรรมหลากหลาย  
-  • พบความแปรปรวนของการเมแทบอลิซึมผ่าน CYP2B6 ส่งผลต่อประสิทธิภาพและอาการข้างเคียงของยากลุ่ม Antidepressants/Bupropion
-- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** หากผู้ป่วยเลิกบุหรี่ที่ใช้ Bupropion เกิดอาการข้างเคียงสูงหรือไม่ได้ผล อาจเกิดจากปัจจัยด้าน Genetic Polymorphism ของเอนไซม์ CYP2B6
-- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42740717/)
+  • [Systematic Review & Meta-Analysis ในเด็กที่เป็น non-severe CAP]
+  • [อัตราการรักษาหายไม่ต่างกัน แต่กลุ่มยาสั้นมี Adherence ดีกว่า และพบผลข้างเคียงจากยาปฏิชีวนะน้อยกว่า]
+- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** จ่าย Amoxicillin สูตรสั้น 3-5 วัน ในเด็ก Pediatric CAP ชนิดไม่รุนแรง ช่วยลดเชื้อดื้อยาและเพิ่ม Adherence พ่อแม่ป้อนยาง่ายขึ้น
+- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42844453/)
+
+#### 2. Preventive Tuberculosis Treatment Regimens for Children & Adolescents
+- **วารสาร & PMID:** BMJ Paediatr Open • [PMID: 42816130](https://pubmed.ncbi.nlm.nih.gov/42816130/) • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13629875/)
+- 🎯 **ใจความสำคัญ 1 บรรทัด:** ยาสูตรสั้นกลุ่ม Rifamycins (เช่น 3HP หรือ 4R) มีประสิทธิผลป้องกันวัณโรคในเด็กได้ดีเทียบเท่าการให้ Isoniazid 6-9 เดือน แต่อัตราการเกิดพิษต่อตับต่ำกว่ามาก
+- 📊 **ตัวเลขผลลัพธ์สำคัญ:**
+  • [Network Meta-Analysis ของ RCTs ในเด็ก/วัยรุ่นอายุ <18 ปี ที่สัมผัสผู้ป่วย TB]
+  • [สูตรที่มี Rifamycin ยอมรับได้ดีกว่า อัตรากินยาครบ (Completion rate) สูงกว่ายาสูตรยาวอย่างมีนัยสำคัญ]
+- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** คลินิกวัณโรค รพ.เสิงสาง ควรพิจารณายาสูตรสั้นในการทำ TPT (TB Preventive Treatment) ในเด็ก เพื่อลด Hepatotoxicity และเพิ่ม Completion rate
+- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42816130/)
 
 ---
 
-## 🌿 3. สมุนไพรไทยทางคลินิกในระบบทางเดินหายใจและต้านการอักเสบ (Thai Herbal Medicine)
+### 7. 👴 การตัดยาล้นเกินในผู้สูงอายุ (Deprescribing & Polypharmacy)
 
-### 1. Alkyl-Modified Chitosan Nanoparticles for Curcumin Delivery to Suppress Inflammation
-- **วารสาร & PMID:** Biomaterials Advances (2027 Jan) • [PMID: 42766950](https://pubmed.ncbi.nlm.nih.gov/42766950/)
-- 🎯 **ใจความสำคัญ 1 บรรทัด:** อนุภาคนาโนไคโตซานช่วยนำส่ง "สารสกัดขมิ้นชัน" (Curcumin) เข้าสู่เซลล์เพื่อยับยั้งการหลั่ง Proinflammatory Cytokines ได้อย่างมีประสิทธิภาพ
+#### 1. Barriers and Enablers to Deprescribing in Polypharmacy Older Adults
+- **วารสาร & PMID:** Int J Nurs Stud • [PMID: 42815285](https://pubmed.ncbi.nlm.nih.gov/42815285/)
+- 🎯 **ใจความสำคัญ 1 บรรทัด:** อุปสรรคสำคัญของการตัดยาคือความกลัวโรคกำเริบของผู้ป่วย ขณะที่ปัจจัยความสำเร็จคือความไว้วางใจในทีมบุคลากรและการสื่อสารแบบ Shared Decision-Making
 - 📊 **ตัวเลขผลลัพธ์สำคัญ:**
-  • การทดสอบในระบบเซลล์และ BBB Model  
-  • อนุภาคนาโนนำส่ง Curcumin สามารถลดการปลดปล่อยสารอักเสบ (Cytokine release) ได้อย่างมีนัยสำคัญเมื่อถูกกระตุ้นด้วย LPS
-- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** นวัตกรรมการพัฒนารูปแบบนวัตกรรมระบบนำส่งยาของขมิ้นชัน ช่วยเพิ่ม Bioavailability และฤทธิ์ต้านอักเสบ ต่อยอดสู่การใช้รักษาโรคอักเสบเรื้อรังในอนาคต
-- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42766950/)
+  • [Systematic review ของงานวิจัยเชิงคุณภาพในผู้สูงอายุที่มี Polypharmacy]
+  • [พบว่ากระบวนการสื่อสารที่ชัดเจนและการทำแผน Deprescribing ร่วมกันช่วยเพิ่มการยินยอมหยุดยาของผู้ป่วย]
+- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** เภสัชกรควรปรับวิธีการแนะนำหยุดยาโดยใช้คำอธิบายที่สร้างความมั่นใจ และค่อยๆ ลดขนาดยา (Tapering) ร่วมกับแพทย์
+- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42815285/)
 
----
-
-### 2. Injectable Thermoresponsive Hydrogel for Localized Curcumin Delivery
-- **วารสาร & PMID:** Biomaterials Advances (2027 Feb) • [PMID: 42913158](https://pubmed.ncbi.nlm.nih.gov/42913158/)
-- 🎯 **ใจความสำคัญ 1 บรรทัด:** การใช้ Cyclodextrin สวมโมเลกุล Curcumin ในไฮโดรเจล ช่วยแก้ไขปัญหาการละลายน้ำต่ำ เพิ่มการออกฤทธิ์ต้านการอักเสบในเนื้อเยื่อ
+#### 2. Pharmacist-Led Medication Review (FORTA) in Older Cancer Patients
+- **วารสาร & PMID:** J Intern Med • [PMID: 42773858](https://pubmed.ncbi.nlm.nih.gov/42773858/) • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13741811/)
+- 🎯 **ใจความสำคัญ 1 บรรทัด:** บริการทบทวนการใช้ยาโดยเภสัชกรโดยใช้เครื่องมือ FORTA Tool ช่วยลดการใช้ยาที่ไม่เหมาะสม (PIMs) และการใช้ยาเกินจำเป็นในผู้สูงอายุโรคมะเร็งได้อย่างมีประสิทธิภาพ
 - 📊 **ตัวเลขผลลัพธ์สำคัญ:**
-  • การพัฒนา β-cyclodextrin/Curcumin inclusion complex ใน Methylcellulose Hydrogel  
-  • ปรับปรุงการกระจายตัวของสารขมิ้นชัน ละลายดีขึ้น คงตัวสูงขึ้น และออกฤทธิ์เฉพาะที่ได้สม่ำเสมอ
-- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** ข้อจำกัดหลักของขมิ้นชันคือการไม่ละลายน้ำ เทคโนโลยี Inclusion Complex เป็นกุญแจสำคัญในการพัฒนาตำรับยาสมุนไพรไทยให้มีมาตรฐานสากล
-- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42913158/)
+  • [Single-blinded RCT ใน 10 คลินิก, ผู้ป่วยสูงอายุโรคมะเร็ง (≥65 ปี, ได้รับยา ≥5 รายการ)]
+  • [คะแนน FORTA score (PIMs, Underuse, Overuse) ในกลุ่มที่ได้รับการดูแลโดยเภสัชกรลดลงอย่างมีนัยสำคัญทางสถิติเมื่อเทียบกับ Usual care]
+- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** การนำ FORTA list มาปรับใช้ในงาน Med Reconciliation คลินิกผู้สูงอายุและ NCDs ช่วยลดการสั่งใช้ยาที่ไม่เหมาะสมได้อย่างเป็นรูปธรรม
+- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42773858/)
 
 ---
 

@@ -105,7 +105,7 @@ python scripts/sentinel.py
 <!-- SENTINEL_REPORT_START -->
 
 # 🩺 สรุปรายงานวิจัยทางคลินิก 7 หมวดสำคัญ (Clinical Pharmacy Research Update)
-**ประจำวันที่:** 2026-11-12 | **เวอร์ชันเครื่องยนต์:** `v2.2.0-HQ (5-Allied HQs Synchronized)`  
+**ประจำวันที่:** 2026-11-13 | **เวอร์ชันเครื่องยนต์:** `v2.2.0-HQ (5-Allied HQs Synchronized)`  
 *ทีมสารสนเทศสมุนไพรและเภสัชบำบัด (IM Team) โรงพยาบาลเสิงสาง*
 
 ---
@@ -113,7 +113,7 @@ python scripts/sentinel.py
 ### 1. 🫁 เภสัชบำบัดโรคหอบหืดและปอดอุดกั้นเรื้อรัง (Asthma & COPD Pharmacotherapy)
 
 #### 1. Effectiveness of a Multicomponent Digital Therapeutic Program on Inhaled Medication Adherence in Chronic Obstructive Pulmonary Disease: Pilot Randomized Controlled Trial.
-- **วารสาร & PMID:** JMIR mHealth and uHealth • [PMID: 42993869](https://pubmed.ncbi.nlm.nih.gov/42993869/) • 👥 `N=158` • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13742779/)
+- **วารสาร & PMID:** JMIR mHealth and uHealth • [PMID: 42993869](https://pubmed.ncbi.nlm.nih.gov/42993869/) • `👥 N=158 (RCT)` • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13742779/)
 - **สถานะบัญชียา รพ.เสิงสาง:** `📋 แนวทางบริบาลเภสัชกรรมคลินิก`
 - 🎯 **ใจความสำคัญ 1 บรรทัด:** โปรแกรมดิจิทัลบำบัดร่วมกับการติดตามกระบอกพ่นยาช่วยเพิ่มความร่วมมือในการใช้ยาพ่นสูดในผู้ป่วย COPD ได้อย่างมีนัยสำคัญตลอด 24 สัปดาห์
 - 📊 **ตัวเลขผลลัพธ์สำคัญ:**
@@ -125,7 +125,7 @@ python scripts/sentinel.py
 - 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42993869/)
 
 #### 2. Asthma in Older Adults: A Systematic Review of Real-World Burden and Outcomes.
-- **วารสาร & PMID:** Current allergy and asthma reports • [PMID: 42980725](https://pubmed.ncbi.nlm.nih.gov/42980725/) • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13736361/)
+- **วารสาร & PMID:** Current allergy and asthma reports • [PMID: 42980725](https://pubmed.ncbi.nlm.nih.gov/42980725/) • `📚 Systematic Review` • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13736361/)
 - **สถานะบัญชียา รพ.เสิงสาง:** `📋 แนวทางบริบาลเภสัชกรรมคลินิก`
 - 🎯 **ใจความสำคัญ 1 บรรทัด:** หอบหืดในผู้สูงอายุพบสูงขึ้นแต่ยังได้รับการวินิจฉัยและการรักษาต่ำกว่าที่ควรเนื่องจากความซับซ้อนของโรคและข้อจำกัดด้านเทคนิคการพ่นยา
 - 📊 **ตัวเลขผลลัพธ์สำคัญ:**
@@ -137,7 +137,7 @@ python scripts/sentinel.py
 - 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42980725/)
 
 #### 3. Inhaled Corticosteroids and Sickle Cell Disease Severity in Adults Without Asthma: A Randomized Clinical Trial.
-- **วารสาร & PMID:** JAMA network open • [PMID: 43007675](https://pubmed.ncbi.nlm.nih.gov/43007675/) • 👥 `N=77`
+- **วารสาร & PMID:** JAMA network open • [PMID: 43007675](https://pubmed.ncbi.nlm.nih.gov/43007675/) • `👥 N=77 (RCT)`
 - **สถานะบัญชียา รพ.เสิงสาง:** `📋 แนวทางบริบาลเภสัชกรรมคลินิก`
 - 🎯 **ใจความสำคัญ 1 บรรทัด:** ไม่ควรใช้ยาพ่นสเตียรอยด์ (Mometasone) ระยะยาวในผู้ใหญ่ที่เป็น Sickle Cell Disease ที่มีอาการไอ/หวีดโดยไม่ได้เป็นหอบหืด เพราะทำให้ค่าการอักเสบแย่ลง
 - 📊 **ตัวเลขผลลัพธ์สำคัญ:**
@@ -153,7 +153,7 @@ python scripts/sentinel.py
 ### 2. 🚭 เภสัชบำบัดช่วยเลิกบุหรี่ (Smoking Cessation Pharmacotherapy)
 
 #### 1. Combination bupropion-zonisamide facilitates rapid reduction in smoke exposure and prevents weight gain during switching to electronic nicotine delivery systems: A randomized clinical trial.
-- **วารสาร & PMID:** Drug and alcohol dependence • [PMID: 42849341](https://pubmed.ncbi.nlm.nih.gov/42849341/) • 👥 `N=60`
+- **วารสาร & PMID:** Drug and alcohol dependence • [PMID: 42849341](https://pubmed.ncbi.nlm.nih.gov/42849341/) • `👥 N=60 (RCT)`
 - **สถานะบัญชียา รพ.เสิงสาง:** `🔴 ยานอกบัญชี รพ. / ผู้ท้าชิงเข้า PTC`
 - 🎯 **ใจความสำคัญ 1 บรรทัด:** สูตรผสม Bupropion+Zonisamide ช่วยลดปริมาณควันบุหรี่ได้อย่างรวดเร็วและป้องกันน้ำหนักตัวพุ่งหลังหยุดสูบบุหรี่ได้ดีกว่าสูตรเดี่ยว
 - 📊 **ตัวเลขผลลัพธ์สำคัญ:**
@@ -165,7 +165,7 @@ python scripts/sentinel.py
 - 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42849341/)
 
 #### 2. The influence of pharmacogenetics on the treatment-related outcomes of antidepressants and antipsychotics in Brazil: a systematic review.
-- **วารสาร & PMID:** Pharmacogenomics • [PMID: 42740717](https://pubmed.ncbi.nlm.nih.gov/42740717/) • 👥 `N=2,590` • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13671432/)
+- **วารสาร & PMID:** Pharmacogenomics • [PMID: 42740717](https://pubmed.ncbi.nlm.nih.gov/42740717/) • `📚 Meta-Analysis • 👥 N=2,590` • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13671432/)
 - **สถานะบัญชียา รพ.เสิงสาง:** `🟢 มีในคลังยา รพ.เสิงสาง`
 - 🎯 **ใจความสำคัญ 1 บรรทัด:** ความหลากหลายของยีนตับ CYP2B6 สัมพันธ์กับอัตราความสำเร็จในการใช้ยา Bupropion ช่วยเลิกบุหรี่
 - 📊 **ตัวเลขผลลัพธ์สำคัญ:**
@@ -181,7 +181,7 @@ python scripts/sentinel.py
 ### 3. 🌿 สมุนไพรไทยทางคลินิกในระบบทางเดินหายใจ (Thai Herbal Medicine in Respiratory Care)
 
 #### 1. Triple-pathway synergistic senolysis via AKAP1 silencing and calcium overload: An aptamer-functionalized DNAzyme nanoplatform for anti-pulmonary fibrosis research.
-- **วารสาร & PMID:** Colloids and surfaces. B, Biointerfaces • [PMID: 42667699](https://pubmed.ncbi.nlm.nih.gov/42667699/)
+- **วารสาร & PMID:** Colloids and surfaces. B, Biointerfaces • [PMID: 42667699](https://pubmed.ncbi.nlm.nih.gov/42667699/) • `🔬 Preclinical / In Vivo Model`
 - **สถานะบัญชียา รพ.เสิงสาง:** `🟢 มีในคลังยา รพ.เสิงสาง`
 - 🎯 **ใจความสำคัญ 1 บรรทัด:** การใช้เคอร์คูมิน (Curcumin จากขมิ้นชัน) ในรูปแบบนาโนแพลตฟอร์มส่งยาเข้าสู่เซลล์ถุงลมปอดโดยตรง ช่วยทำลายเซลล์เสื่อมสภาพและชะลอภาวะพังผืดในปอด
 - 📊 **ตัวเลขผลลัพธ์สำคัญ:**
@@ -193,7 +193,7 @@ python scripts/sentinel.py
 - 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42667699/)
 
 #### 2. Integrated analytical characterization and multiscale modeling of supramolecular interactions in lumefantrine-curcumin coamorphous systems with enhanced biopharmaceutical and anticancer performance.
-- **วารสาร & PMID:** Talanta • [PMID: 42398138](https://pubmed.ncbi.nlm.nih.gov/42398138/)
+- **วารสาร & PMID:** Talanta • [PMID: 42398138](https://pubmed.ncbi.nlm.nih.gov/42398138/) • `🔬 Preclinical / In Vivo Model`
 - **สถานะบัญชียา รพ.เสิงสาง:** `🟢 มีในคลังยา รพ.เสิงสาง`
 - 🎯 **ใจความสำคัญ 1 บรรทัด:** นวัตกรรมพัฒนายาร่วม Lumefantrine และเคอร์คูมิน (ขมิ้นชัน) รูปแบบ Coamorphous ช่วยแก้ปัญหาการละลาย เพิ่มการดูดซึม และคงตัวได้นาน 6 เดือน
 - 📊 **ตัวเลขผลลัพธ์สำคัญ:**
@@ -209,7 +209,7 @@ python scripts/sentinel.py
 ### 4. 🫀 ชะลอไตเสื่อม & เมตาบอลิกหัวใจ (Cardio-Renal CRM: SGLT2i, GLP-1RA, Finerenone)
 
 #### 1. Network and pairwise meta-analysis of the effects of novel hypoglycemic agents on cardiorenal outcomes in patients with type 2 diabetes and heart failure.
-- **วารสาร & PMID:** Frontiers in endocrinology • [PMID: 42952754](https://pubmed.ncbi.nlm.nih.gov/42952754/) • 👥 `N=13,886` • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13713430/)
+- **วารสาร & PMID:** Frontiers in endocrinology • [PMID: 42952754](https://pubmed.ncbi.nlm.nih.gov/42952754/) • `📚 10 Studies (SR/NMA) • 👥 N=13,886` • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13713430/)
 - **สถานะบัญชียา รพ.เสิงสาง:** `📋 แนวทางบริบาลเภสัชกรรมคลินิก`
 - 🎯 **ใจความสำคัญ 1 บรรทัด:** Network Meta-Analysis ยืนยัน SGLT2i และ GLP-1RA ให้ประโยชน์สูงสุดในการลดอัตรานอน รพ. จาก Heart Failure และชะลอโรคไตในผู้ป่วยเบาหวานที่มีภาวะหัวใจล้มเหลว
 - 📊 **ตัวเลขผลลัพธ์สำคัญ:**
@@ -221,7 +221,7 @@ python scripts/sentinel.py
 - 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42952754/)
 
 #### 2. Influence of diabetes mellitus on dapagliflozin response after transcatheter aortic valve replacement (TAVR): insights from the DAPA-TAVI trial.
-- **วารสาร & PMID:** Cardiovascular diabetology • [PMID: 43004293](https://pubmed.ncbi.nlm.nih.gov/43004293/) • 👥 `N=1,222` • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13746418/)
+- **วารสาร & PMID:** Cardiovascular diabetology • [PMID: 43004293](https://pubmed.ncbi.nlm.nih.gov/43004293/) • `👥 N=1,222 (RCT)` • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13746418/)
 - **สถานะบัญชียา รพ.เสิงสาง:** `🟢 มีในคลังยา รพ.เสิงสาง`
 - 🎯 **ใจความสำคัญ 1 บรรทัด:** Dapagliflozin ช่วยลดการเสียชีวิตและภาวะหัวใจล้มเหลวกำเริบหลังเปลี่ยนลิ้นหัวใจ TAVR ได้ดีเท่าเทียมกันทั้งในผู้ที่เป็นและไม่เป็นเบาหวาน
 - 📊 **ตัวเลขผลลัพธ์สำคัญ:**
@@ -237,7 +237,7 @@ python scripts/sentinel.py
 ### 5. 🩸 ยาต้านการแข็งตัวของเลือด & HAD (Warfarin vs DOACs)
 
 #### 1. Prevention of Venous Thromboembolism after Total Hip or Knee Replacement.
-- **วารสาร & PMID:** The New England journal of medicine • [PMID: 43013818](https://pubmed.ncbi.nlm.nih.gov/43013818/) • 👥 `N=18,883`
+- **วารสาร & PMID:** The New England journal of medicine • [PMID: 43013818](https://pubmed.ncbi.nlm.nih.gov/43013818/) • `👥 N=18,883 (RCT)`
 - **สถานะบัญชียา รพ.เสิงสาง:** `🟡 ยาบัญชี จ(2) / เงื่อนไขเฉพาะ รพ.`
 - 🎯 **ใจความสำคัญ 1 บรรทัด:** เปรียบเทียบ 3 ยาหลักป้องกันลิ่มเลือดอุดตัน (VTE) หลังผ่าตัดเปลี่ยนข้อสะโพก/ข้อเข่า (PEPPER Trial, N=18,883): Warfarin/Rivaroxaban ลด VTE ได้ดีกว่าเล็กน้อย แต่ Aspirin มีความปลอดภัยด้านเลือดออกเหนือกว่าระดับมีนัยสำคัญ
 - 📊 **ตัวเลขผลลัพธ์สำคัญ:**
@@ -249,7 +249,7 @@ python scripts/sentinel.py
 - 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/43013818/)
 
 #### 2. Efficacy and safety of apixaban versus rivaroxaban in acute venous thromboembolism: a systematic review and meta-analysis.
-- **วารสาร & PMID:** European journal of clinical pharmacology • [PMID: 43004015](https://pubmed.ncbi.nlm.nih.gov/43004015/) • 👥 `N=233,569` • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7556153/)
+- **วารสาร & PMID:** European journal of clinical pharmacology • [PMID: 43004015](https://pubmed.ncbi.nlm.nih.gov/43004015/) • `📚 13 Studies (SR/MA) • 👥 N=233,569` • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7556153/)
 - **สถานะบัญชียา รพ.เสิงสาง:** `🟡 ยาบัญชี จ(2) / เงื่อนไขเฉพาะ รพ.`
 - 🎯 **ใจความสำคัญ 1 บรรทัด:** Apixaban มีประสิทธิผลป้องกันการกลับเป็นซ้ำของลิ่มเลือดอุดตัน (Acute VTE) เทียบเท่า Rivaroxaban แต่มีอัตราการเกิดเลือดออกทางเดินอาหารและ Major Bleeding ต่ำกว่า
 - 📊 **ตัวเลขผลลัพธ์สำคัญ:**
@@ -265,7 +265,7 @@ python scripts/sentinel.py
 ### 6. 🦠 การจัดการยาปฏิชีวนะ & สูตรยาสั้น (AMS & Short-Course RDU)
 
 #### 1. Short- versus long-course antibiotic therapy in non-severe CAP in children: a systematic review and meta-analysis.
-- **วารสาร & PMID:** European journal of pediatrics • [PMID: 42844453](https://pubmed.ncbi.nlm.nih.gov/42844453/) • 👥 `N=8,970`
+- **วารสาร & PMID:** European journal of pediatrics • [PMID: 42844453](https://pubmed.ncbi.nlm.nih.gov/42844453/) • `📚 10 Studies (SR/MA) • 👥 N=8,970`
 - **สถานะบัญชียา รพ.เสิงสาง:** `📋 แนวทางบริบาลเภสัชกรรมคลินิก`
 - 🎯 **ใจความสำคัญ 1 บรรทัด:** ยาปฏิชีวนะสูตรสั้น (3–5 วัน) รักษาโรคปอดอักเสบชุมชนชนิดไม่รุนแรงในเด็ก (Pediatric Non-severe CAP) ได้ผลไม่ต่างจากสูตรยาว (7–10 วัน) พร้อมเพิ่มความร่วมมือในการกินยา
 - 📊 **ตัวเลขผลลัพธ์สำคัญ:**
@@ -277,7 +277,7 @@ python scripts/sentinel.py
 - 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42844453/)
 
 #### 2. Effectiveness and safety of the available preventive tuberculosis treatment regimens for children and adolescents: systematic review and network meta-analysis.
-- **วารสาร & PMID:** BMJ paediatrics open • [PMID: 42816130](https://pubmed.ncbi.nlm.nih.gov/42816130/) • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13629875/)
+- **วารสาร & PMID:** BMJ paediatrics open • [PMID: 42816130](https://pubmed.ncbi.nlm.nih.gov/42816130/) • `📚 11 Studies (SR/NMA)` • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13629875/)
 - **สถานะบัญชียา รพ.เสิงสาง:** `🟢 มีในคลังยา รพ.เสิงสาง`
 - 🎯 **ใจความสำคัญ 1 บรรทัด:** ยาป้องกันวัณโรคสูตรสั้นที่มี Rifamycin (เช่น 3HP, 3HR, 4R) ในเด็กและวัยรุ่น มีอัตราการกินยาครบคอร์สสูงกว่าและเกิดพิษต่อตับต่ำกว่าสูตร Isoniazid ยาว 6–9 เดือน
 - 📊 **ตัวเลขผลลัพธ์สำคัญ:**
@@ -293,7 +293,7 @@ python scripts/sentinel.py
 ### 7. 👴 การทบทวนและหยุดยาที่ไม่เหมาะสมในผู้สูงอายุ (Deprescribing & Polypharmacy)
 
 #### 1. Barriers and enablers to deprescribing from the perspectives of older adults with polypharmacy and their stakeholders: A systematic review of qualitative studies.
-- **วารสาร & PMID:** International journal of nursing studies • [PMID: 42815285](https://pubmed.ncbi.nlm.nih.gov/42815285/)
+- **วารสาร & PMID:** International journal of nursing studies • [PMID: 42815285](https://pubmed.ncbi.nlm.nih.gov/42815285/) • `📚 52 Studies (Qualitative SR)`
 - **สถานะบัญชียา รพ.เสิงสาง:** `📋 แนวทางบริบาลเภสัชกรรมคลินิก`
 - 🎯 **ใจความสำคัญ 1 บรรทัด:** ความสำเร็จของการตัดยาล้นเกิน (Deprescribing) ในผู้สูงอายุขึ้นอยู่กับความไว้วางใจในทีมสุขภาพและการสื่อสารแบบตัดสินใจร่วมกัน (Shared Decision-Making) เพื่อลดความกลัวโรคกำเริบ
 - 📊 **ตัวเลขผลลัพธ์สำคัญ:**
@@ -305,7 +305,7 @@ python scripts/sentinel.py
 - 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42815285/)
 
 #### 2. Cancer co-medication quality in older patients with polypharmacy: A large randomized trial testing a medication review versus usual care.
-- **วารสาร & PMID:** Journal of internal medicine • [PMID: 42773858](https://pubmed.ncbi.nlm.nih.gov/42773858/) • 👥 `N=234` • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13741811/)
+- **วารสาร & PMID:** Journal of internal medicine • [PMID: 42773858](https://pubmed.ncbi.nlm.nih.gov/42773858/) • `👥 N=234 (RCT)` • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13741811/)
 - **สถานะบัญชียา รพ.เสิงสาง:** `📋 แนวทางบริบาลเภสัชกรรมคลินิก`
 - 🎯 **ใจความสำคัญ 1 บรรทัด:** การทบทวนรายการยาโดยใช้เครื่องมือ FORTA (Fit fOR The Aged) ช่วยลดการใช้ยาที่ไม่เหมาะสม (PIMs) และการใช้ยาเกินความจำเป็นในผู้สูงอายุได้อย่างมีนัยสำคัญ
 - 📊 **ตัวเลขผลลัพธ์สำคัญ:**

@@ -1,8 +1,8 @@
 {
   "schema_version": "2.2.0-HQ",
   "project": "pubmed-clinical-sentinel",
-  "generated_at": "2026-11-12T23:41:44.363883",
-  "report_date": "2026-11-12",
+  "generated_at": "2026-11-13T00:23:55.145530",
+  "report_date": "2026-11-13",
   "lead_investigator": "ภก.รัฐนนท์ แสงไทยทวีพร (ประธานทีม IM โรงพยาบาลเสิงสาง)",
   "summary_metrics": {
     "total_tracks": 7,
@@ -25,19 +25,22 @@
           "title": "🥊 ยก 1: ลดอัตรา Acute Exacerbation",
           "verdict": "Triple ชนะขาด (Exacerbation ลดลง 25%)",
           "red_pct": 85,
-          "blue_pct": 40
+          "blue_pct": 40,
+          "evidence_math": "Exacerbation Reduction 25.0%"
         },
         {
           "title": "🥊 ยก 2: ความร่วมมือในการพ่นยา (Adherence)",
           "verdict": "Single Inhaler วันละครั้ง ชนะใส (Adherence สูงกว่า)",
-          "red_pct": 90,
-          "blue_pct": 50
+          "red_pct": 88,
+          "blue_pct": 48,
+          "evidence_math": "Single Inhaler vs Multi-Device Adherence"
         },
         {
           "title": "🥊 ยก 3: ความเสี่ยงการเกิด Pneumonia",
           "verdict": "Dual นำเล็กน้อย (Pneumonia Risk ต่ำกว่า)",
           "red_pct": 45,
-          "blue_pct": 75
+          "blue_pct": 75,
+          "evidence_math": "ICS Pneumonia Risk Profile"
         }
       ],
       "verdict_text": "ผู้ป่วย COPD กลุ่ม High-Risk ที่มีประวัติ Acute Exacerbation จนต้อง Admit สูตร Triple คุ้มค่าสูงสุดในการตัดวงจร Re-admission ของ รพ.เสิงสาง!",
@@ -63,13 +66,15 @@
           "title": "🥊 ยก 2: การคุมน้ำหนักตัวไม่ให้พุ่ง (Weight Gain Control)",
           "verdict": "สูตรผสมชนะน็อค! (น้ำหนักไม่เด้ง)",
           "red_pct": 90,
-          "blue_pct": 30
+          "blue_pct": 30,
+          "evidence_math": "Zonisamide Weight Gain Mitigation"
         },
         {
           "title": "🥊 ยก 3: ความพร้อมใช้งานใน รพ.เสิงสาง",
           "verdict": "สูตรเดี่ยว BUP + ชาหญ้าดอกขาว มีพร้อมในคลังยา",
           "red_pct": 45,
-          "blue_pct": 85
+          "blue_pct": 85,
+          "evidence_math": "Soeng Sang Formulary Availability"
         }
       ],
       "verdict_text": "สูตรผสมเด่นเรื่องคุมน้ำหนักตัวไม่ให้พุ่ง แต่หน้างานคลินิกฟ้าใส รพ.เสิงสาง ใช้ Bupropion เดี่ยว + ชาหญ้าดอกขาว เบิกจ่ายได้ทันทีและได้ผลดีเยี่ยม!",
@@ -89,19 +94,21 @@
           "title": "🥊 ยก 1: ระยะเวลาบรรเทาอาการไอและเจ็บคอ (Symptom Relief)",
           "verdict": "ฟ้าทะลายโจรชนะ (อาการทุเลาไวกว่า 1–2 วัน)",
           "red_pct": 82,
-          "blue_pct": 55
+          "blue_pct": 55,
+          "evidence_math": "Clinical Symptom Relief 1-2 Days Faster"
         },
         {
           "title": "🥊 ยก 2: หนุนตัวชี้วัด RDU ตัดการใช้ Antibiotics เกินจำเป็น",
           "verdict": "ฟ้าทะลายโจรชนะขาดลอย! (Zero Antibiotics)",
           "red_pct": 95,
-          "blue_pct": 35
+          "blue_pct": 35,
+          "evidence_math": "Zero Antibiotics Protocol in Viral URTI"
         },
         {
           "title": "🥊 ยก 3: Safety Profile เมื่อใช้ระยะสั้น ≤ 5 วัน",
           "verdict": "เสมอกัน (ไม่มีผลต่อตับ/ไต)",
-          "red_pct": 70,
-          "blue_pct": 70
+          "red_pct": 50,
+          "blue_pct": 50
         }
       ],
       "verdict_text": "ฟ้าทะลายโจรบรรเทาไอเจ็บคอได้เร็ว หนุนเกณฑ์ RDU ขั้นสูงสุดของ รพ.เสิงสาง ตัดการสั่ง Antibiotics เกินจำเป็นในหวัดได้อย่างเด็ดขาด!",
@@ -120,20 +127,23 @@
         {
           "title": "🥊 ยก 1: ลด Mortality & Worsening Heart Failure (DM & Non-DM)",
           "verdict": "Dapa ชนะขาด (ได้ผลเท่ากันทั้งกลุ่มเบาหวานและไม่เป็นเบาหวาน)",
-          "red_pct": 82,
-          "blue_pct": 38
+          "red_pct": 84,
+          "blue_pct": 38,
+          "evidence_math": "DAPA-TAVI & SGLT2i Meta-analysis (N=13,886)"
         },
         {
           "title": "🥊 ยก 2: ชะลอ eGFR Decline (Renal Protection)",
           "verdict": "Dapa ชนะขาดลอย (ชะลอการเสื่อมของไต)",
-          "red_pct": 85,
-          "blue_pct": 40
+          "red_pct": 86,
+          "blue_pct": 40,
+          "evidence_math": "SGLT2i eGFR Decline Protection"
         },
         {
           "title": "🥊 ยก 3: ความคุ้มค่าด้านงบประมาณสาธารณสุข (BI-HQ ROI)",
           "verdict": "ประหยัดงบค่ารักษา Re-admission ระยะยาวชัดเจน",
           "red_pct": 88,
-          "blue_pct": 30
+          "blue_pct": 30,
+          "evidence_math": "High ROI: Reduced HF Re-admission"
         }
       ],
       "verdict_text": "Dapagliflozin ป้องกัน Heart Failure กำเริบและชะลอไตเสื่อมได้ทั้งคนที่เป็นและไม่เป็นเบาหวาน คุ้มค่าสูงมากในการลด Re-admission รพ.เสิงสาง!",
@@ -159,13 +169,15 @@
           "title": "🥊 ยก 2: ความปลอดภัยด้าน Major Bleeding",
           "verdict": "Aspirin ปลอดภัยกว่าชัดเจน (เลือดออกน้อยกว่า)",
           "red_pct": 65,
-          "blue_pct": 45
+          "blue_pct": 42,
+          "evidence_math": "Significant Lower Major Bleeding (Aspirin)"
         },
         {
           "title": "🥊 ยก 3: ความคุ้มค่า & ลดภาระการตรวจติดตาม INR",
           "verdict": "Aspirin ชนะน็อค! (ไม่ต้องเจาะ Lab ติดตาม)",
           "red_pct": 92,
-          "blue_pct": 25
+          "blue_pct": 25,
+          "evidence_math": "Zero Lab INR Monitoring Burden"
         }
       ],
       "verdict_text": "ในผู้ป่วยผ่าตัดเปลี่ยนข้อเข่า/ข้อสะโพกที่มีความเสี่ยง VTE ต่ำ Aspirin มีประสิทธิผลไม่ด้อยกว่า เลือดออกน้อยกว่า และลดภาระงานคลินิกวาร์ฟารินของ รพ.เสิงสาง ได้มหาศาล!",
@@ -190,14 +202,16 @@
         {
           "title": "🥊 ยก 2: Medication Adherence (ความร่วมมือในการกินยาครบโดส)",
           "verdict": "สูตรสั้นชนะขาด (กินง่าย คอร์สสั้น ผู้ปกครองป้อนครบ)",
-          "red_pct": 85,
-          "blue_pct": 45
+          "red_pct": 86,
+          "blue_pct": 44,
+          "evidence_math": "Higher Course Completion Rate in Short-Course"
         },
         {
           "title": "🥊 ยก 3: ลดผลข้างเคียงท้องเสีย & ชะลอเชื้อดื้อยา (AMR)",
           "verdict": "สูตรสั้นชนะน็อคตามเกณฑ์ AMS!",
           "red_pct": 88,
-          "blue_pct": 30
+          "blue_pct": 32,
+          "evidence_math": "Reduced Diarrhea & AMR Pressure"
         }
       ],
       "verdict_text": "ปอดอักเสบเด็กชนิดไม่รุนแรง (Non-severe CAP) จ่าย Amoxicillin สูตรสั้น 3–5 วัน หายเท่ากัน Adherence ดีกว่า ลดเชื้อดื้อยา และประหยัดงบค่ายา รพ.เสิงสาง!",
@@ -216,20 +230,23 @@
         {
           "title": "🥊 ยก 1: ลดอุบัติการณ์หกล้มและกระดูกหัก (Fall & Fracture Risk)",
           "verdict": "กลุ่ม Deprescribing ชนะขาด (ลดการหกล้มลง 40%)",
-          "red_pct": 85,
-          "blue_pct": 30
+          "red_pct": 83,
+          "blue_pct": 33,
+          "evidence_math": "PIMs/Fall Risk Reduction 41.3%"
         },
         {
           "title": "🥊 ยก 2: Cognitive Function & ความตื่นตัวระหว่างวัน",
           "verdict": "สมองแจ่มใส ไม่มึนงงเวลากลางวัน",
           "red_pct": 80,
-          "blue_pct": 40
+          "blue_pct": 40,
+          "evidence_math": "Improved Daytime Vigilance & Cognition"
         },
         {
           "title": "🥊 ยก 3: ป้องกัน Rebound Insomnia / Withdrawal Symptoms",
           "verdict": "Stepwise Tapering ปลอดภัย แทบไม่มีอาการถอนยา",
           "red_pct": 75,
-          "blue_pct": 50
+          "blue_pct": 50,
+          "evidence_math": "Safe Stepwise Tapering Profile"
         }
       ],
       "verdict_text": "เภสัชกรร่วมกับแพทย์ทำ Stepwise Tapering ยานอนหลับในผู้สูงอายุ ลดความเสี่ยงหกล้มสะโพกหักได้มหาศาล เซฟค่าใช้จ่ายผ่าตัดให้ รพ.เสิงสาง ได้หลายแสนบาท!",
@@ -260,7 +277,8 @@
           "ความร่วมมือในการใช้ยาพ่นวัดผ่านระบบอิเล็กทรอนิกส์ (EIM): กลุ่มดิจิทัล 59.5% vs กลุ่มดูแลปกติ 33.1% (p = 0.009)",
           "สัดส่วนผู้ป่วยที่เกิดการเปลี่ยนแปลง CAT score ในระดับที่มีความสำคัญทางคลินิก (MCID): OR 2.21 (95% CI 1.11-4.41, p = 0.02)"
         ],
-        "soeng_sang_action": "พัฒนาระบบติดตามและแจ้งเตือนการใช้ยาพ่นผ่าน LINE OA เพื่อส่งเสริมความร่วมมือในการใช้ยาของผู้ป่วย COPD ในคลินิกโรคเรื้อรัง"
+        "soeng_sang_action": "พัฒนาระบบติดตามและแจ้งเตือนการใช้ยาพ่นผ่าน LINE OA เพื่อส่งเสริมความร่วมมือในการใช้ยาของผู้ป่วย COPD ในคลินิกโรคเรื้อรัง",
+        "evidence_badge": "👥 N=158 (RCT)"
       },
       {
         "pmid": "42980725",
@@ -284,7 +302,8 @@
           "Systematic Review พบปัญหา Underdiagnosis และ Undertreatment สูงมากในผู้สูงอายุที่มีโรคร่วมหลายโรค",
           "ปัจจัยขัดขวางสำคัญ: ความรอบรู้ด้านสุขภาพต่ำ (Low health literacy), เทคนิคการพ่นยาไม่ถูกต้อง และอาการทับซ้อนกับภาวะหัวใจ/COPD"
         ],
-        "soeng_sang_action": "จัดทำแนวทางการประเมินเทคนิคการพ่นยา (Inhaler Device Check) และพิจารณาใช้ Spacer ในผู้สูงอายุทุกรายที่คลินิกระบบทางเดินหายใจ"
+        "soeng_sang_action": "จัดทำแนวทางการประเมินเทคนิคการพ่นยา (Inhaler Device Check) และพิจารณาใช้ Spacer ในผู้สูงอายุทุกรายที่คลินิกระบบทางเดินหายใจ",
+        "evidence_badge": "📚 Systematic Review"
       },
       {
         "pmid": "43007675",
@@ -308,7 +327,8 @@
           "ระดับ sVCAM-1 เพิ่มขึ้น 42% ในกลุ่ม Mometasone เทียบกับ Placebo (95% CI -11% ถึง 96%, p = 0.02)",
           "ผลลัพธ์ทางคลินิกในกลุ่มที่ได้ยาพ่นสเตียรอยด์โดยไม่มีภาวะ Asthma มีแนวโน้มแย่กว่ากลุ่ม Placebo"
         ],
-        "soeng_sang_action": "ทบทวนการสั่งใช้ ICS ในผู้ป่วยที่มีอาการทางระบบหายใจเรื้อรัง โดยต้องยืนยันการวินิจฉัยโรคหอบหืดที่ชัดเจนก่อนเริ่มยาพ่นสเตียรอยด์ระยะยาว"
+        "soeng_sang_action": "ทบทวนการสั่งใช้ ICS ในผู้ป่วยที่มีอาการทางระบบหายใจเรื้อรัง โดยต้องยืนยันการวินิจฉัยโรคหอบหืดที่ชัดเจนก่อนเริ่มยาพ่นสเตียรอยด์ระยะยาว",
+        "evidence_badge": "👥 N=77 (RCT)"
       }
     ],
     "smoking_cessation": [
@@ -334,7 +354,8 @@
           "อัตราการเลิกสูบบุหรี่ (mITT): BUP/ZON 26.7% และ BUP 25.0% vs Placebo 10.0%",
           "กลุ่ม BUP/ZON มีระดับก๊าซคาร์บอนมอนอกไซด์ (eCO) ลดลงชัดเจนและป้องกันปัญหาน้ำหนักตัวเด้งหลังเลิกบุหรี่ได้สำเร็จ"
         ],
-        "soeng_sang_action": "ในคลินิกฟ้าใส รพ.เสิงสาง ใช้ Bupropion ร่วมกับการให้คำปรึกษาควบคุมน้ำหนักและหญ้าดอกขาวในผู้ป่วยที่กังวลเรื่องอ้วนหลังเลิกบุหรี่"
+        "soeng_sang_action": "ในคลินิกฟ้าใส รพ.เสิงสาง ใช้ Bupropion ร่วมกับการให้คำปรึกษาควบคุมน้ำหนักและหญ้าดอกขาวในผู้ป่วยที่กังวลเรื่องอ้วนหลังเลิกบุหรี่",
+        "evidence_badge": "👥 N=60 (RCT)"
       },
       {
         "pmid": "42740717",
@@ -358,7 +379,8 @@
           "Systematic Review 19 การศึกษา (N=2,590) พบยีน CYP2B6 rs2279343 AA สัมพันธ์กับการเลิกบุหรี่ด้วย Bupropion ที่สำเร็จสูงกว่า",
           "การตอบสนองต่อยาจิตเวชและยาช่วยเลิกบุหรี่ขึ้นกับเอนไซม์ CYP2B6 และ CYP2C19 อย่างมีนัยสำคัญ"
         ],
-        "soeng_sang_action": "ติดตามการตอบสนองทางคลินิกต่อ Bupropion ในคลินิกฟ้าใสอย่างใกล้ชิด หากไม่ตอบสนองภายใน 4–6 สัปดาห์ให้พิจารณาปรับแผนการรักษา"
+        "soeng_sang_action": "ติดตามการตอบสนองทางคลินิกต่อ Bupropion ในคลินิกฟ้าใสอย่างใกล้ชิด หากไม่ตอบสนองภายใน 4–6 สัปดาห์ให้พิจารณาปรับแผนการรักษา",
+        "evidence_badge": "📚 Meta-Analysis • 👥 N=2,590"
       }
     ],
     "thai_herbs": [
@@ -384,7 +406,8 @@
         "key_metrics": [
           "นวัตกรรม CCMD@Lipo-Apt ปลดปล่อย Curcumin + Ca2+ กระตุ้น Calcium overload ในเซลล์ปอดที่เสื่อมสภาพอย่างจำเพาะเจาะจง",
           "ลดการแสดงออกของยีนพังผืดและยับยั้ง SAEC II senescent cells ช่วยฟื้นฟูเนื้อเยื่อถุงลมปอดในภาวะ Pulmonary Fibrosis"
-        ]
+        ],
+        "evidence_badge": "🔬 Preclinical / In Vivo Model"
       },
       {
         "pmid": "42398138",
@@ -408,7 +431,8 @@
           "เพิ่มการละลายน้ำ (Apparent solubility) สูงขึ้น 2-4 เท่า และปลดปล่อยตัวยา >85-90% ภายใน 6 ชั่วโมง",
           "คงสภาพโครงสร้าง amorphous นาน 6 เดือน ในสภาวะเร่ง และเพิ่มฤทธิ์เร่งการตาย (Apoptosis) ของเซลล์มะเร็งปอด A549"
         ],
-        "soeng_sang_action": "ใช้เป็นข้อมูลสนับสนุนการพัฒนานวัตกรรมนำส่งยาจากสารสกัดสมุนไพรไทย (ขมิ้นชัน) ร่วมกับยาแผนปัจจุบันเพื่อเพิ่มประสิทธิผลการรักษา"
+        "soeng_sang_action": "ใช้เป็นข้อมูลสนับสนุนการพัฒนานวัตกรรมนำส่งยาจากสารสกัดสมุนไพรไทย (ขมิ้นชัน) ร่วมกับยาแผนปัจจุบันเพื่อเพิ่มประสิทธิผลการรักษา",
+        "evidence_badge": "🔬 Preclinical / In Vivo Model"
       }
     ],
     "cardio_renal": [
@@ -434,7 +458,8 @@
         "key_metrics": [
           "วิเคราะห์เปรียบเทียบ RCTs (N=13,886) ระหว่างยากลุ่ม SGLT2i, GLP-1RA, DPP-4i และ GIP/GLP-1RA",
           "SGLT2i นำโด่งด้านการลด Heart Failure Hospitalization และชะลอการเสื่อมของไต (Cardiorenal composite outcome)"
-        ]
+        ],
+        "evidence_badge": "📚 10 Studies (SR/NMA) • 👥 N=13,886"
       },
       {
         "pmid": "43004293",
@@ -458,7 +483,8 @@
         "key_metrics": [
           "DAPA-TAVI RCT (N=1,222 ราย ใน 39 ศูนย์ ติดตามผล 1 ปี) เปรียบเทียบ Dapagliflozin 10 mg กับ Standard care",
           "ลดผลลัพธ์หลัก (All-cause death หรือ Worsening HF) ได้สอดคล้องกันทั้งกลุ่มเป็นเบาหวานและไม่เป็นเบาหวาน (P-interaction > 0.05)"
-        ]
+        ],
+        "evidence_badge": "👥 N=1,222 (RCT)"
       }
     ],
     "anticoagulation": [
@@ -484,7 +510,8 @@
           "PEPPER RCT (N=18,883 ราย ใน NEJM) เปรียบเทียบ Aspirin 81 mg BID vs Warfarin (INR 2.0) vs Rivaroxaban 10 mg QD นาน 30 วัน",
           "กลุ่ม Warfarin และ Rivaroxaban มีความเสี่ยงเลือดออกและการต้องผ่าตัดซ้ำสูงกว่ากลุ่ม Aspirin อย่างมีนัยสำคัญ"
         ],
-        "soeng_sang_action": "ในผู้ป่วยหลังผ่าตัดเปลี่ยนข้อที่มีความเสี่ยง VTE ต่ำหรือเสี่ยงเลือดออกสูง Aspirin เป็นทางเลือกที่ปลอดภัยและช่วยลดภาระการเจาะวัด INR ของคลินิกวาร์ฟาริน"
+        "soeng_sang_action": "ในผู้ป่วยหลังผ่าตัดเปลี่ยนข้อที่มีความเสี่ยง VTE ต่ำหรือเสี่ยงเลือดออกสูง Aspirin เป็นทางเลือกที่ปลอดภัยและช่วยลดภาระการเจาะวัด INR ของคลินิกวาร์ฟาริน",
+        "evidence_badge": "👥 N=18,883 (RCT)"
       },
       {
         "pmid": "43004015",
@@ -508,7 +535,8 @@
           "Systematic Review & Meta-analysis รวม 13 การศึกษา (ผู้ป่วย N=233,569 ราย) เปรียบเทียบ Apixaban กับ Rivaroxaban",
           "Apixaban ลดความเสี่ยง Major Bleeding และ Gastrointestinal Bleeding ได้ดีกว่า Rivaroxaban อย่างมีนัยสำคัญ"
         ],
-        "soeng_sang_action": "หากต้องเลือกใช้ยากลุ่ม DOACs ในผู้ป่วย Acute VTE ที่มีประวัติโรคกระเพาะหรือเสี่ยงเลือดออกทางเดินอาหาร ควรพิจารณา Apixaban เป็นลำดับแรก"
+        "soeng_sang_action": "หากต้องเลือกใช้ยากลุ่ม DOACs ในผู้ป่วย Acute VTE ที่มีประวัติโรคกระเพาะหรือเสี่ยงเลือดออกทางเดินอาหาร ควรพิจารณา Apixaban เป็นลำดับแรก",
+        "evidence_badge": "📚 13 Studies (SR/MA) • 👥 N=233,569"
       }
     ],
     "ams_rdu": [
@@ -534,7 +562,8 @@
           "Meta-analysis (N=8,970 ราย) ยืนยันอัตราการรักษาล้มเหลวหรือการกลับเป็นซ้ำไม่แตกต่างกันระหว่างยาสูตรสั้นและสูตรยาว",
           "กลุ่มยาสูตรสั้นมีอัตราการกินยาไม่ครบ (Non-adherence) ต่ำกว่าอย่างชัดเจนและลดผลข้างเคียงจากยาปฏิชีวนะ"
         ],
-        "soeng_sang_action": "สนับสนุนการจ่าย Amoxicillin สูตรสั้น 3–5 วัน ในเด็กปอดบวมชนิดไม่รุนแรงที่ รพ.เสิงสาง เพื่อลดเชื้อดื้อยาและช่วยให้ผู้ปกครองป้อนยาครบคอร์สได้ง่ายขึ้น"
+        "soeng_sang_action": "สนับสนุนการจ่าย Amoxicillin สูตรสั้น 3–5 วัน ในเด็กปอดบวมชนิดไม่รุนแรงที่ รพ.เสิงสาง เพื่อลดเชื้อดื้อยาและช่วยให้ผู้ปกครองป้อนยาครบคอร์สได้ง่ายขึ้น",
+        "evidence_badge": "📚 10 Studies (SR/MA) • 👥 N=8,970"
       },
       {
         "pmid": "42816130",
@@ -558,7 +587,8 @@
           "Network Meta-Analysis ในเด็กและวัยรุ่นที่สัมผัสผู้ป่วยวัณโรค เปรียบเทียบสูตรสั้น (3HP, 3HR, 4R) กับสูตรดั้งเดิม (6H/9H)",
           "สูตรสั้นที่มี Rifampicin/Rifapentine ช่วยลดอุบัติการณ์เกิดวัณโรคระยะลุกลามและมี Completion rate สูงกว่าอย่างมีนัยสำคัญ"
         ],
-        "soeng_sang_action": "คลินิกวัณโรค รพ.เสิงสาง ควรใช้สูตรยาสั้น (3HP หรือ 3HR/4R) ในการทำ TB Preventive Treatment (TPT) ในเด็กและผู้สัมผัสใกล้ชิดเพื่อลดพิษต่อตับ"
+        "soeng_sang_action": "คลินิกวัณโรค รพ.เสิงสาง ควรใช้สูตรยาสั้น (3HP หรือ 3HR/4R) ในการทำ TB Preventive Treatment (TPT) ในเด็กและผู้สัมผัสใกล้ชิดเพื่อลดพิษต่อตับ",
+        "evidence_badge": "📚 11 Studies (SR/NMA)"
       }
     ],
     "deprescribing": [
@@ -584,7 +614,8 @@
           "Systematic Review วิเคราะห์ปัจจัยส่งเสริมและอุปสรรคของการหยุดยาในผู้สูงอายุที่ใช้ยาตั้งแต่ 5 รายการขึ้นไป (Polypharmacy)",
           "การวางแผนลดยาเป็นลำดับขั้น (Stepwise Tapering) ร่วมกับการให้ข้อมูลที่ชัดเจนช่วยเพิ่มการยอมรับของผู้ป่วยและญาติ"
         ],
-        "soeng_sang_action": "เภสัชกรประจำคลินิกผู้สูงอายุและ NCDs รพ.เสิงสาง ควรใช้แนวทางค่อยๆ ปรับลดขนาดยาควบคู่กับการสร้างความมั่นใจแก่ผู้ป่วยและผู้ดูแล"
+        "soeng_sang_action": "เภสัชกรประจำคลินิกผู้สูงอายุและ NCDs รพ.เสิงสาง ควรใช้แนวทางค่อยๆ ปรับลดขนาดยาควบคู่กับการสร้างความมั่นใจแก่ผู้ป่วยและผู้ดูแล",
+        "evidence_badge": "📚 52 Studies (Qualitative SR)"
       },
       {
         "pmid": "42773858",
@@ -608,7 +639,8 @@
           "Multicentre RCT (N=443 ราย; กลุ่มทดลอง N=234 vs กลุ่มควบคุม N=209) ประเมินการทบทวนยาตามเกณฑ์ FORTA เทียบกับการดูแลปกติ",
           "ลดสัดส่วนผู้ป่วยที่ได้รับยาไม่เหมาะสม (PIMs) ลงถึง 41.3% และลดการใช้ยาเกินจำเป็น (Overuse) ลง 30.7% (p < 0.001)"
         ],
-        "soeng_sang_action": "นำเกณฑ์ FORTA / Beers Criteria มาประยุกต์ใช้ในระบบ Medication Reconciliation หอผู้ป่วยในและคลินิกผู้สูงอายุ รพ.เสิงสาง"
+        "soeng_sang_action": "นำเกณฑ์ FORTA / Beers Criteria มาประยุกต์ใช้ในระบบ Medication Reconciliation หอผู้ป่วยในและคลินิกผู้สูงอายุ รพ.เสิงสาง",
+        "evidence_badge": "👥 N=234 (RCT)"
       }
     ]
   },

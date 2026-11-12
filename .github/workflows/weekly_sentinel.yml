@@ -1,9 +1,9 @@
-name: Weekly PubMed Clinical Sentinel & Telegram Dispatch
+name: Daily PubMed Clinical Sentinel & Telegram Dispatch
 
 on:
   schedule:
-    # 01:00 UTC every Monday = 08:00 AM Bangkok Time (UTC+7) on Monday
-    - cron: '0 1 * * 1'
+    # 01:00 UTC Daily = 08:00 AM Bangkok Time (UTC+7) every morning
+    - cron: '0 1 * * *'
   workflow_dispatch: # Allows manual trigger from GitHub Actions tab
 
 permissions:

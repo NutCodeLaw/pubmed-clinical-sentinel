@@ -467,6 +467,193 @@
     }
     .formal-box a { color: var(--neon-cyan); }
     .formal-box hr { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 1rem 0; }
+
+    /* Championship Deck Grid (Clean, Punchy, Fun for Battle Mode) */
+    .deck-header {
+      margin: 1.1rem 0 0.8rem 0;
+      padding: 0.65rem 0.9rem;
+      background: rgba(30, 41, 59, 0.55);
+      border-radius: 0.8rem;
+      border-left: 3px solid var(--gold);
+    }
+    .deck-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .deck-subtitle {
+      font-size: 0.73rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+    .champ-deck-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    @media (min-width: 640px) {
+      .champ-deck-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    .champ-card {
+      background: var(--card-bg);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 1rem;
+      padding: 0.95rem;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .champ-card:hover {
+      border-color: rgba(6, 182, 212, 0.45);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+    }
+    .champ-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.55rem;
+    }
+    .champ-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--neon-cyan);
+      background: rgba(6, 182, 212, 0.12);
+      padding: 0.18rem 0.55rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(6, 182, 212, 0.3);
+    }
+    .champ-status {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--gold);
+      background: rgba(245, 158, 11, 0.12);
+      padding: 0.15rem 0.5rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(245, 158, 11, 0.25);
+    }
+    .champ-matchup {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 0.4rem;
+      text-align: center;
+      background: rgba(15, 23, 42, 0.65);
+      border-radius: 0.65rem;
+      padding: 0.55rem 0.4rem;
+      margin-bottom: 0.55rem;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .champ-fighter {
+      font-size: 0.76rem;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+    .champ-fighter.red { color: #fca5a5; }
+    .champ-fighter.blue { color: #93c5fd; }
+    .champ-vs {
+      font-family: 'Bungee', cursive;
+      font-size: 0.8rem;
+      color: var(--gold);
+    }
+    .champ-verdict {
+      font-size: 0.78rem;
+      color: #f1f5f9;
+      line-height: 1.4;
+      background: rgba(6, 182, 212, 0.08);
+      border-left: 3px solid var(--neon-cyan);
+      padding: 0.45rem 0.65rem;
+      border-radius: 0.4rem;
+      margin-bottom: 0.65rem;
+    }
+    .champ-footer {
+      text-align: right;
+    }
+    .champ-read-btn {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #cbd5e1;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.32rem 0.65rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .champ-read-btn:hover {
+      background: rgba(6, 182, 212, 0.2);
+      border-color: var(--neon-cyan);
+      color: #ffffff;
+    }
+
+    /* Formal Box Styles */
+    .formal-header-card {
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(6, 182, 212, 0.35);
+      border-radius: 1rem;
+      padding: 1.1rem;
+      margin-bottom: 1.2rem;
+    }
+    .formal-title-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.85rem;
+    }
+    .formal-crest {
+      font-size: 2rem;
+    }
+    .formal-heading {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin: 0 !important;
+    }
+    .formal-subheading {
+      font-size: 0.74rem;
+      color: var(--neon-cyan);
+      margin: 0.15rem 0 0 0 !important;
+    }
+    .formal-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      color: #cbd5e1;
+      background: rgba(0, 0, 0, 0.25);
+      padding: 0.6rem 0.8rem;
+      border-radius: 0.6rem;
+    }
+    .formal-divider {
+      border: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      margin: 1.5rem 0;
+    }
+    .formal-section-header {
+      margin-bottom: 1rem;
+    }
+    .formal-section-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--gold);
+      margin-bottom: 0.25rem;
+    }
+    .formal-section-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    .highlight-flash {
+      animation: flash-highlight 1.8s ease;
+    }
+    @keyframes flash-highlight {
+      0% { box-shadow: 0 0 0 4px var(--neon-cyan); }
+      100% { box-shadow: none; }
+    }
   </style>
 </head>
 <body>
@@ -526,13 +713,177 @@
       <div class="chibi-avatar">👨‍⚕️</div>
       <div class="speech-bubble">
         <strong>โน้ตจาก ภก.รัฐนนท์ (ประธานทีม IM รพ.เสิงสาง):</strong>
-        "อัปเกรดสู่ <strong>v2.2.0-HQ</strong> ผ่าตัดครบ 8 จุดตามคำแนะนำพี่ใหญ่ Argon แล้วครับ! อ่าน Abstract เต็ม 3,000 ตัวอักษร, กรอง N ≥ 30 รองรับหลักพัน, กดปุ่มกรองหมวดไม่มีเพี้ยน พร้อมป้ายสถานะบัญชียา รพ.เสิงสาง (Rx-Sentinel) และมุมมองความคุ้มค่า (BI-HQ) ครบทุกการ์ดครับ!"
+        "โหมดศึกดวลสรุปคู่เอก 7 หมวดให้อ่านสนุกกระชับ สแกนผลตัดสินใน 1 นาที หากต้องการอ่านบทคัดย่อตัวเต็ม สถิติ N, PMC และบทวิเคราะห์ 3 มิติ รพ.เสิงสาง กดปุ่ม <strong>'อ่านวิเคราะห์ฉบับเต็ม'</strong> หรือสลับไป <strong>'โหมดเอกสารทางการ'</strong> ด้านบนได้ทันทีครับ!"
       </div>
     </div>
 
-    <!-- BATTLE MODE TRACK CARDS (Fix #3: Deterministic data-track-id filtering) -->
+    <!-- BATTLE MODE: 7-BOUT CHAMPIONSHIP DECK (Sleek, Fast, Fun, Zero-Clutter) -->
     <div id="battle-cards-container">
-      
+      <div class="deck-header">
+        <div class="deck-title">🥊 รายการศึกดวล 7 คู่เอกประจำรอบสัปดาห์ (Championship Deck)</div>
+        <div class="deck-subtitle">คลิกการ์ดเพื่อสลับคู่มวยด้านบน หรือกดปุ่มเพื่อเปิดอ่านเอกสารและเปเปอร์ทางการแพทย์ฉบับเต็ม</div>
+      </div>
+      <div class="champ-deck-grid">
+        
+        <div class="champ-card" data-track-id="asthma_copd" onclick="handleChampCardClick('asthma_copd', event)">
+          <div class="champ-header">
+            <span class="champ-tag">🫁 ศึกพ่นหอบหืด/COPD</span>
+            <span class="champ-status">🥊 KO VERDICT</span>
+          </div>
+          <div class="champ-matchup">
+            <div class="champ-fighter red">🔴 Single Inhaler Triple</div>
+            <div class="champ-vs">VS</div>
+            <div class="champ-fighter blue">🔵 Dual Therapy (LAMA+LABA)</div>
+          </div>
+          <div class="champ-verdict">
+            🎯 <strong>หมัดเด็ดฟันธง:</strong> Triple Therapy ลดหอบกำเริบขาดลอย คุ้มค่าสูงสุดตัดวงจร Re-admission รพ.เสิงสาง
+          </div>
+          <div class="champ-footer">
+            <button class="champ-read-btn" onclick="goToFormalTrack('asthma_copd')">📄 อ่านวิเคราะห์ฉบับเต็มในโหมดทางการ →</button>
+          </div>
+        </div>
+
+        <div class="champ-card" data-track-id="smoking_cessation" onclick="handleChampCardClick('smoking_cessation', event)">
+          <div class="champ-header">
+            <span class="champ-tag">🚭 ศึกเลิกบุหรี่</span>
+            <span class="champ-status">🥊 KO VERDICT</span>
+          </div>
+          <div class="champ-matchup">
+            <div class="champ-fighter red">🔴 สูตรผสม BUP + ZON</div>
+            <div class="champ-vs">VS</div>
+            <div class="champ-fighter blue">🔵 สูตรเดี่ยว BUP + ชาดอกขาว</div>
+          </div>
+          <div class="champ-verdict">
+            🎯 <strong>หมัดเด็ดฟันธง:</strong> หน้างานคลินิกฟ้าใส รพ.เสิงสาง ชู Bupropion + หญ้าดอกขาว พร้อมใช้งานทันที
+          </div>
+          <div class="champ-footer">
+            <button class="champ-read-btn" onclick="goToFormalTrack('smoking_cessation')">📄 อ่านวิเคราะห์ฉบับเต็มในโหมดทางการ →</button>
+          </div>
+        </div>
+
+        <div class="champ-card" data-track-id="thai_herbs" onclick="handleChampCardClick('thai_herbs', event)">
+          <div class="champ-header">
+            <span class="champ-tag">🌿 ศึกสมุนไพรทางเดินหายใจ</span>
+            <span class="champ-status">🥊 KO VERDICT</span>
+          </div>
+          <div class="champ-matchup">
+            <div class="champ-fighter red">🔴 ฟ้าทะลายโจร (Andrographolide)</div>
+            <div class="champ-vs">VS</div>
+            <div class="champ-fighter blue">🔵 ยาแก้ไอ/ลดน้ำมูกมาตรฐาน</div>
+          </div>
+          <div class="champ-verdict">
+            🎯 <strong>หมัดเด็ดฟันธง:</strong> ฟ้าทะลายโจรลดไอเจ็บคอไวกว่า เสริมธง RDU ตัดยาปฏิชีวนะพร่ำเพรื่อ
+          </div>
+          <div class="champ-footer">
+            <button class="champ-read-btn" onclick="goToFormalTrack('thai_herbs')">📄 อ่านวิเคราะห์ฉบับเต็มในโหมดทางการ →</button>
+          </div>
+        </div>
+
+        <div class="champ-card" data-track-id="cardio_renal" onclick="handleChampCardClick('cardio_renal', event)">
+          <div class="champ-header">
+            <span class="champ-tag">🫀 ศึกชะลอไต-หัวใจ</span>
+            <span class="champ-status">🥊 KO VERDICT</span>
+          </div>
+          <div class="champ-matchup">
+            <div class="champ-fighter red">🔴 Dapagliflozin 10 mg</div>
+            <div class="champ-vs">VS</div>
+            <div class="champ-fighter blue">🔵 Standard Care เดี่ยว</div>
+          </div>
+          <div class="champ-verdict">
+            🎯 <strong>หมัดเด็ดฟันธง:</strong> Dapagliflozin ชนะขาดทั้งกลุ่มเบาหวานและไม่เป็นเบาหวาน คุ้มค่าลด Re-admission
+          </div>
+          <div class="champ-footer">
+            <button class="champ-read-btn" onclick="goToFormalTrack('cardio_renal')">📄 อ่านวิเคราะห์ฉบับเต็มในโหมดทางการ →</button>
+          </div>
+        </div>
+
+        <div class="champ-card" data-track-id="anticoagulation" onclick="handleChampCardClick('anticoagulation', event)">
+          <div class="champ-header">
+            <span class="champ-tag">🩸 ศึกต้านลิ่มเลือด</span>
+            <span class="champ-status">🥊 KO VERDICT</span>
+          </div>
+          <div class="champ-matchup">
+            <div class="champ-fighter red">🔴 Aspirin 81 mg BID</div>
+            <div class="champ-vs">VS</div>
+            <div class="champ-fighter blue">🔵 Warfarin / Rivaroxaban</div>
+          </div>
+          <div class="champ-verdict">
+            🎯 <strong>หมัดเด็ดฟันธง:</strong> Aspirin ได้ผลเท่ากันในเคสความเสี่ยงต่ำ ไม่ต้องเจาะ INR ลดภาระคลินิกวาร์ฟาริน
+          </div>
+          <div class="champ-footer">
+            <button class="champ-read-btn" onclick="goToFormalTrack('anticoagulation')">📄 อ่านวิเคราะห์ฉบับเต็มในโหมดทางการ →</button>
+          </div>
+        </div>
+
+        <div class="champ-card" data-track-id="ams_rdu" onclick="handleChampCardClick('ams_rdu', event)">
+          <div class="champ-header">
+            <span class="champ-tag">🦠 ศึกยาฆ่าเชื้อสั้น</span>
+            <span class="champ-status">🥊 KO VERDICT</span>
+          </div>
+          <div class="champ-matchup">
+            <div class="champ-fighter red">🔴 สูตรสั้น 3–5 วัน</div>
+            <div class="champ-vs">VS</div>
+            <div class="champ-fighter blue">🔵 สูตรยาว 7–10 วัน</div>
+          </div>
+          <div class="champ-verdict">
+            🎯 <strong>หมัดเด็ดฟันธง:</strong> สูตรสั้น 3-5 วัน รักษาหายเท่ากัน ลดดื้อยา พ่อแม่ป้อนง่าย ประหยัดงบ รพ.
+          </div>
+          <div class="champ-footer">
+            <button class="champ-read-btn" onclick="goToFormalTrack('ams_rdu')">📄 อ่านวิเคราะห์ฉบับเต็มในโหมดทางการ →</button>
+          </div>
+        </div>
+
+        <div class="champ-card" data-track-id="deprescribing" onclick="handleChampCardClick('deprescribing', event)">
+          <div class="champ-header">
+            <span class="champ-tag">👴 ศึกตัดยาคนแก่</span>
+            <span class="champ-status">🥊 KO VERDICT</span>
+          </div>
+          <div class="champ-matchup">
+            <div class="champ-fighter red">🔴 Deprescribing มีเภสัชกรประกบ</div>
+            <div class="champ-vs">VS</div>
+            <div class="champ-fighter blue">🔵 กินยาเดิมต่อเนื่อง (Status Quo)</div>
+          </div>
+          <div class="champ-verdict">
+            🎯 <strong>หมัดเด็ดฟันธง:</strong> เภสัชกรช่วย Tapering ยานอนหลับ ลดหกล้ม 40% ตัดค่าผ่าตัดกระดูกหักได้มหาศาล
+          </div>
+          <div class="champ-footer">
+            <button class="champ-read-btn" onclick="goToFormalTrack('deprescribing')">📄 อ่านวิเคราะห์ฉบับเต็มในโหมดทางการ →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FORMAL MODE: COMPLETE CLINICAL DOSSIER & EVIDENCE CARDS -->
+    <main class="formal-box" id="formal-content">
+      <div class="formal-header-card">
+        <div class="formal-title-row">
+          <div class="formal-crest">🏛️</div>
+          <div>
+            <h2 class="formal-heading">เอกสารรายงานทางการ: การเฝ้าระวังหลักฐานเชิงประจักษ์ 7 สายงานคลินิก</h2>
+            <p class="formal-subheading">กลุ่มงานเภสัชกรรมและคุ้มครองผู้บริโภค • ทีม Information Management (IM) โรงพยาบาลเสิงสาง</p>
+          </div>
+        </div>
+        <div class="formal-meta-grid">
+          <div class="formal-meta-item">📅 <strong>วันที่จัดทำ:</strong> 2026-11-12</div>
+          <div class="formal-meta-item">📚 <strong>งานวิจัยผ่านเกณฑ์ N ≥ 30:</strong> 15 เรื่อง</div>
+          <div class="formal-meta-item">📖 <strong>PMC Full-Text อ่านฟรี:</strong> 8 เรื่อง</div>
+          <div class="formal-meta-item">👨‍⚕️ <strong>ผู้รับผิดชอบ:</strong> ภก.รัฐนนท์ แสงไทยทวีพร (ภก.ชพ.)</div>
+        </div>
+      </div>
+
+      <!-- Formal Markdown Dossier Body -->
+      <div id="formal-markdown-body" class="formal-markdown-body"></div>
+
+      <hr class="formal-divider">
+
+      <!-- Full Track Sections with 14 Paper Cards (Moved from Battle Mode!) -->
+      <div class="formal-evidence-section">
+        <div class="formal-section-header">
+          <h3 class="formal-section-title">📑 รายการบทคัดย่อและบทวิเคราะห์เชิงลึกประจำสายงาน (Clinical Evidence Cards)</h3>
+          <p class="formal-section-sub">บทวิเคราะห์เฉพาะทาง รพ.เสิงสาง (Action) • การเฝ้าระวังความปลอดภัย (Rx-Sentinel) • ความคุ้มค่าทางเศรษฐศาสตร์ (BI-HQ)</p>
+        </div>
+        <div id="formal-track-cards">
+          
         <section class="track-section" data-track-id="asthma_copd">
           <div class="track-header">
             <span class="track-icon">🫁</span>
@@ -1120,10 +1471,9 @@
               </div>
             </article>
         </section>
-    </div>
-
-    <!-- FORMAL MODE MARKDOWN CONTAINER -->
-    <main class="formal-box" id="formal-content"></main>
+        </div>
+      </div>
+    </main>
 
     <footer style="text-align: center; margin-top: 2rem; font-size: 0.75rem; color: var(--text-muted);">
       <p><strong>ผู้รับผิดชอบระบบ:</strong> ภก.รัฐนนท์ แสงไทยทวีพร, เภสัชกรชำนาญการ</p>
@@ -1138,17 +1488,20 @@
 
   <script>
     const mdContent = "# 🩺 สรุปรายงานวิจัยทางคลินิก 7 หมวดสำคัญ (Clinical Pharmacy Research Update)\n**ประจำวันที่:** 2026-11-12 | **เวอร์ชันเครื่องยนต์:** `v2.2.0-HQ (5-Allied HQs Synchronized)`  \n*ทีมสารสนเทศสมุนไพรและเภสัชบำบัด (IM Team) โรงพยาบาลเสิงสาง*\n\n---\n\n### 1. 🫁 เภสัชบำบัดโรคหอบหืดและปอดอุดกั้นเรื้อรัง (Asthma & COPD)\n\n#### 1. Effectiveness of a Multicomponent Digital Therapeutic Program on Inhaled Medication Adherence in Chronic Obstructive Pulmonary Disease: Pilot Randomized Controlled Trial.\n- **วารสาร & PMID:** JMIR mHealth and uHealth • [PMID: 42993869](https://pubmed.ncbi.nlm.nih.gov/42993869/) • 👥 `N=158` • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13742779/)\n- **สถานะบัญชียา รพ.เสิงสาง:** `📋 แนวทางบริบาลเภสัชกรรมคลินิก`\n- 🎯 **ใจความสำคัญ 1 บรรทัด:** โปรแกรมดิจิทัลบำบัดร่วมกับการติดตามกระบอกพ่นยาช่วยเพิ่มความร่วมมือในการใช้ยาพ่นสูดในผู้ป่วย COPD ได้อย่างมีนัยสำคัญตลอด 24 สัปดาห์\n- 📊 **ตัวเลขผลลัพธ์สำคัญ:**\n  • [ความร่วมมือในการใช้ยาพ่นวัดผ่านระบบอิเล็กทรอนิกส์ (EIM): กลุ่มดิจิทัล 59.5% vs กลุ่มดูแลปกติ 33.1% (p = 0.009)]\n  • [สัดส่วนผู้ป่วยที่เกิดการเปลี่ยนแปลง CAT score ในระดับที่มีความสำคัญทางคลินิก (MCID): OR 2.21 (95% CI 1.11-4.41, p = 0.02)]\n- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** พัฒนาระบบติดตามและแจ้งเตือนการใช้ยาพ่นผ่าน LINE OA เพื่อส่งเสริมความร่วมมือในการใช้ยาของผู้ป่วย COPD ในคลินิกโรคเรื้อรัง\n- ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** ทบทวนเทคนิคการพ่นยา (Inhaler Technique) ทุกครั้งก่อนปรับ Step ยา • ยากลุ่ม Biologics ต้องคัดกรอง Eosinophils/FeNO ตามเกณฑ์\n- 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** ยากลุ่ม Biologics มีราคาสูง ควรจำกัดเฉพาะเคส Severe Refractory ที่ลดการส่งตัวผ่าตัดซ้ำหรือลดการแอดมิด ICU ได้ชัดเจน\n- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42993869/)\n\n#### 2. Asthma in Older Adults: A Systematic Review of Real-World Burden and Outcomes.\n- **วารสาร & PMID:** Current allergy and asthma reports • [PMID: 42980725](https://pubmed.ncbi.nlm.nih.gov/42980725/) • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13736361/)\n- **สถานะบัญชียา รพ.เสิงสาง:** `📋 แนวทางบริบาลเภสัชกรรมคลินิก`\n- 🎯 **ใจความสำคัญ 1 บรรทัด:** หอบหืดในผู้สูงอายุพบสูงขึ้นแต่ยังได้รับการวินิจฉัยและการรักษาต่ำกว่าที่ควรเนื่องจากความซับซ้อนของโรคและข้อจำกัดด้านเทคนิคการพ่นยา\n- 📊 **ตัวเลขผลลัพธ์สำคัญ:**\n  • [Systematic Review พบปัญหา Underdiagnosis และ Undertreatment สูงมากในผู้สูงอายุที่มีโรคร่วมหลายโรค]\n  • [ปัจจัยขัดขวางสำคัญ: ความรอบรู้ด้านสุขภาพต่ำ (Low health literacy), เทคนิคการพ่นยาไม่ถูกต้อง และอาการทับซ้อนกับภาวะหัวใจ/COPD]\n- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** จัดทำแนวทางการประเมินเทคนิคการพ่นยา (Inhaler Device Check) และพิจารณาใช้ Spacer ในผู้สูงอายุทุกรายที่คลินิกระบบทางเดินหายใจ\n- ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** ทบทวนเทคนิคการพ่นยา (Inhaler Technique) ทุกครั้งก่อนปรับ Step ยา • ยากลุ่ม Biologics ต้องคัดกรอง Eosinophils/FeNO ตามเกณฑ์\n- 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** ยากลุ่ม Biologics มีราคาสูง ควรจำกัดเฉพาะเคส Severe Refractory ที่ลดการส่งตัวผ่าตัดซ้ำหรือลดการแอดมิด ICU ได้ชัดเจน\n- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42980725/)\n\n#### 3. Inhaled Corticosteroids and Sickle Cell Disease Severity in Adults Without Asthma: A Randomized Clinical Trial.\n- **วารสาร & PMID:** JAMA network open • [PMID: 43007675](https://pubmed.ncbi.nlm.nih.gov/43007675/) • 👥 `N=77`\n- **สถานะบัญชียา รพ.เสิงสาง:** `📋 แนวทางบริบาลเภสัชกรรมคลินิก`\n- 🎯 **ใจความสำคัญ 1 บรรทัด:** ไม่ควรใช้ยาพ่นสเตียรอยด์ (Mometasone) ระยะยาวในผู้ใหญ่ที่เป็น Sickle Cell Disease ที่มีอาการไอ/หวีดโดยไม่ได้เป็นหอบหืด เพราะทำให้ค่าการอักเสบแย่ลง\n- 📊 **ตัวเลขผลลัพธ์สำคัญ:**\n  • [ระดับ sVCAM-1 เพิ่มขึ้น 42% ในกลุ่ม Mometasone เทียบกับ Placebo (95% CI -11% ถึง 96%, p = 0.02)]\n  • [ผลลัพธ์ทางคลินิกในกลุ่มที่ได้ยาพ่นสเตียรอยด์โดยไม่มีภาวะ Asthma มีแนวโน้มแย่กว่ากลุ่ม Placebo]\n- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** ทบทวนการสั่งใช้ ICS ในผู้ป่วยที่มีอาการทางระบบหายใจเรื้อรัง โดยต้องยืนยันการวินิจฉัยโรคหอบหืดที่ชัดเจนก่อนเริ่มยาพ่นสเตียรอยด์ระยะยาว\n- ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** ทบทวนเทคนิคการพ่นยา (Inhaler Technique) ทุกครั้งก่อนปรับ Step ยา • ยากลุ่ม Biologics ต้องคัดกรอง Eosinophils/FeNO ตามเกณฑ์\n- 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** ยากลุ่ม Biologics มีราคาสูง ควรจำกัดเฉพาะเคส Severe Refractory ที่ลดการส่งตัวผ่าตัดซ้ำหรือลดการแอดมิด ICU ได้ชัดเจน\n- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/43007675/)\n\n---\n\n### 2. 🚭 เภสัชบำบัดช่วยเลิกบุหรี่ (Smoking Cessation)\n\n#### 1. Combination bupropion-zonisamide facilitates rapid reduction in smoke exposure and prevents weight gain during switching to electronic nicotine delivery systems: A randomized clinical trial.\n- **วารสาร & PMID:** Drug and alcohol dependence • [PMID: 42849341](https://pubmed.ncbi.nlm.nih.gov/42849341/) • 👥 `N=60`\n- **สถานะบัญชียา รพ.เสิงสาง:** `🔴 ยานอกบัญชี รพ. / ผู้ท้าชิงเข้า PTC`\n- 🎯 **ใจความสำคัญ 1 บรรทัด:** สูตรผสม Bupropion+Zonisamide ช่วยลดปริมาณควันบุหรี่ได้อย่างรวดเร็วและป้องกันน้ำหนักตัวพุ่งหลังหยุดสูบบุหรี่ได้ดีกว่าสูตรเดี่ยว\n- 📊 **ตัวเลขผลลัพธ์สำคัญ:**\n  • [อัตราการเลิกสูบบุหรี่ (mITT): BUP/ZON 26.7% และ BUP 25.0% vs Placebo 10.0%]\n  • [กลุ่ม BUP/ZON มีระดับก๊าซคาร์บอนมอนอกไซด์ (eCO) ลดลงชัดเจนและป้องกันปัญหาน้ำหนักตัวเด้งหลังเลิกบุหรี่ได้สำเร็จ]\n- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** ในคลินิกฟ้าใส รพ.เสิงสาง ใช้ Bupropion ร่วมกับการให้คำปรึกษาควบคุมน้ำหนักและหญ้าดอกขาวในผู้ป่วยที่กังวลเรื่องอ้วนหลังเลิกบุหรี่\n- ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** คัดกรองประวัติโรคลมชัก (Seizure risk) ก่อนจ่าย Bupropion ในคลินิกฟ้าใส • ติดตามอาการนอนไม่หลับและน้ำหนักตัว\n- 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** การช่วยให้ผู้ป่วยเลิกบุหรี่สำเร็จในคลินิกฟ้าใส ให้ผลตอบแทนทางเศรษฐศาสตร์สาธารณสุขสูงสุดในการลดโรคหลอดเลือดหัวใจและ COPD กำเริบ\n- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42849341/)\n\n#### 2. The influence of pharmacogenetics on the treatment-related outcomes of antidepressants and antipsychotics in Brazil: a systematic review.\n- **วารสาร & PMID:** Pharmacogenomics • [PMID: 42740717](https://pubmed.ncbi.nlm.nih.gov/42740717/) • 👥 `N=2,590` • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13671432/)\n- **สถานะบัญชียา รพ.เสิงสาง:** `🟢 มีในคลังยา รพ.เสิงสาง`\n- 🎯 **ใจความสำคัญ 1 บรรทัด:** ความหลากหลายของยีนตับ CYP2B6 สัมพันธ์กับอัตราความสำเร็จในการใช้ยา Bupropion ช่วยเลิกบุหรี่\n- 📊 **ตัวเลขผลลัพธ์สำคัญ:**\n  • [Systematic Review 19 การศึกษา (N=2,590) พบยีน CYP2B6 rs2279343 AA สัมพันธ์กับการเลิกบุหรี่ด้วย Bupropion ที่สำเร็จสูงกว่า]\n  • [การตอบสนองต่อยาจิตเวชและยาช่วยเลิกบุหรี่ขึ้นกับเอนไซม์ CYP2B6 และ CYP2C19 อย่างมีนัยสำคัญ]\n- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** ติดตามการตอบสนองทางคลินิกต่อ Bupropion ในคลินิกฟ้าใสอย่างใกล้ชิด หากไม่ตอบสนองภายใน 4–6 สัปดาห์ให้พิจารณาปรับแผนการรักษา\n- ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** คัดกรองประวัติโรคลมชัก (Seizure risk) ก่อนจ่าย Bupropion ในคลินิกฟ้าใส • ติดตามอาการนอนไม่หลับและน้ำหนักตัว\n- 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** การช่วยให้ผู้ป่วยเลิกบุหรี่สำเร็จในคลินิกฟ้าใส ให้ผลตอบแทนทางเศรษฐศาสตร์สาธารณสุขสูงสุดในการลดโรคหลอดเลือดหัวใจและ COPD กำเริบ\n- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42740717/)\n\n---\n\n### 3. 🌿 สมุนไพรไทยทางคลินิกในระบบทางเดินหายใจ (Thai Herbal Medicine)\n\n#### 1. Triple-pathway synergistic senolysis via AKAP1 silencing and calcium overload: An aptamer-functionalized DNAzyme nanoplatform for anti-pulmonary fibrosis research.\n- **วารสาร & PMID:** Colloids and surfaces. B, Biointerfaces • [PMID: 42667699](https://pubmed.ncbi.nlm.nih.gov/42667699/)\n- **สถานะบัญชียา รพ.เสิงสาง:** `🟢 มีในคลังยา รพ.เสิงสาง`\n- 🎯 **ใจความสำคัญ 1 บรรทัด:** การใช้เคอร์คูมิน (Curcumin จากขมิ้นชัน) ในรูปแบบนาโนแพลตฟอร์มส่งยาเข้าสู่เซลล์ถุงลมปอดโดยตรง ช่วยทำลายเซลล์เสื่อมสภาพและชะลอภาวะพังผืดในปอด\n- 📊 **ตัวเลขผลลัพธ์สำคัญ:**\n  • [นวัตกรรม CCMD@Lipo-Apt ปลดปล่อย Curcumin + Ca2+ กระตุ้น Calcium overload ในเซลล์ปอดที่เสื่อมสภาพอย่างจำเพาะเจาะจง]\n  • [ลดการแสดงออกของยีนพังผืดและยับยั้ง SAEC II senescent cells ช่วยฟื้นฟูเนื้อเยื่อถุงลมปอดในภาวะ Pulmonary Fibrosis]\n- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** สารสกัดขมิ้นชันมีศักยภาพสูงในการต่อยอดสู่นวัตกรรมบำบัดโรคปอดเรื้อรัง ควบคู่กับการเฝ้าระวังอันตรกิริยาต่อตับและยาละลายลิ่มเลือด\n- ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** CYP450 Herb-Drug Alert: ฟ้าทะลายโจรและขมิ้นชันยับยั้ง CYP2C9/CYP3A4 ห้ามจ่ายร่วมกับ Warfarin หรือยากดภูมิคุ้มกัน (เสี่ยงเลือดออกง่าย)\n- 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** ส่งเสริมการใช้ยาสมุนไพรในบัญชียาหลักแห่งชาติ ทดแทนยานำเข้าและสร้างความมั่นคงทางยาของ รพ.ชุมชน\n- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42667699/)\n\n#### 2. Integrated analytical characterization and multiscale modeling of supramolecular interactions in lumefantrine-curcumin coamorphous systems with enhanced biopharmaceutical and anticancer performance.\n- **วารสาร & PMID:** Talanta • [PMID: 42398138](https://pubmed.ncbi.nlm.nih.gov/42398138/)\n- **สถานะบัญชียา รพ.เสิงสาง:** `🟢 มีในคลังยา รพ.เสิงสาง`\n- 🎯 **ใจความสำคัญ 1 บรรทัด:** นวัตกรรมพัฒนายาร่วม Lumefantrine และเคอร์คูมิน (ขมิ้นชัน) รูปแบบ Coamorphous ช่วยแก้ปัญหาการละลาย เพิ่มการดูดซึม และคงตัวได้นาน 6 เดือน\n- 📊 **ตัวเลขผลลัพธ์สำคัญ:**\n  • [เพิ่มการละลายน้ำ (Apparent solubility) สูงขึ้น 2-4 เท่า และปลดปล่อยตัวยา >85-90% ภายใน 6 ชั่วโมง]\n  • [คงสภาพโครงสร้าง amorphous นาน 6 เดือน ในสภาวะเร่ง และเพิ่มฤทธิ์เร่งการตาย (Apoptosis) ของเซลล์มะเร็งปอด A549]\n- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** ใช้เป็นข้อมูลสนับสนุนการพัฒนานวัตกรรมนำส่งยาจากสารสกัดสมุนไพรไทย (ขมิ้นชัน) ร่วมกับยาแผนปัจจุบันเพื่อเพิ่มประสิทธิผลการรักษา\n- ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** CYP450 Herb-Drug Alert: ฟ้าทะลายโจรและขมิ้นชันยับยั้ง CYP2C9/CYP3A4 ห้ามจ่ายร่วมกับ Warfarin หรือยากดภูมิคุ้มกัน (เสี่ยงเลือดออกง่าย)\n- 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** ส่งเสริมการใช้ยาสมุนไพรในบัญชียาหลักแห่งชาติ ทดแทนยานำเข้าและสร้างความมั่นคงทางยาของ รพ.ชุมชน\n- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42398138/)\n\n---\n\n### 4. 🫀 ชะลอไตเสื่อม & เมตาบอลิกหัวใจ (CRM: SGLT2i, GLP-1, Finerenone)\n\n#### 1. Network and pairwise meta-analysis of the effects of novel hypoglycemic agents on cardiorenal outcomes in patients with type 2 diabetes and heart failure.\n- **วารสาร & PMID:** Frontiers in endocrinology • [PMID: 42952754](https://pubmed.ncbi.nlm.nih.gov/42952754/) • 👥 `N=13,886` • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13713430/)\n- **สถานะบัญชียา รพ.เสิงสาง:** `📋 แนวทางบริบาลเภสัชกรรมคลินิก`\n- 🎯 **ใจความสำคัญ 1 บรรทัด:** Network Meta-Analysis ยืนยัน SGLT2i และ GLP-1RA ให้ประโยชน์สูงสุดในการลดอัตรานอน รพ. จาก Heart Failure และชะลอโรคไตในผู้ป่วยเบาหวานที่มีภาวะหัวใจล้มเหลว\n- 📊 **ตัวเลขผลลัพธ์สำคัญ:**\n  • [วิเคราะห์เปรียบเทียบ RCTs (N=13,886) ระหว่างยากลุ่ม SGLT2i, GLP-1RA, DPP-4i และ GIP/GLP-1RA]\n  • [SGLT2i นำโด่งด้านการลด Heart Failure Hospitalization และชะลอการเสื่อมของไต (Cardiorenal composite outcome)]\n- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** ผู้ป่วยเบาหวานชนิดที่ 2 ร่วมกับภาวะหัวใจล้มเหลวหรือโรคไตเรื้อรังใน รพ.เสิงสาง ควรได้รับ Dapagliflozin (SGLT2i) เป็นลำดับแรกตามเกณฑ์\n- ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** ตรวจ eGFR ก่อนเริ่มยา (Dapagliflozin ห้ามเริ่มหาก eGFR < 25 mL/min) • เฝ้าระวัง Euglycemic DKA และการติดเชื้อทางเดินปัสสาวะ\n- 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** คุ้มค่าสูง (High ROI): ลดค่าใช้จ่ายการนอน รพ.ซ้ำจากภาวะหัวใจล้มเหลว (HF Readmission) และชะลอการฟอกไตในระยะยาว\n- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42952754/)\n\n#### 2. Influence of diabetes mellitus on dapagliflozin response after transcatheter aortic valve replacement (TAVR): insights from the DAPA-TAVI trial.\n- **วารสาร & PMID:** Cardiovascular diabetology • [PMID: 43004293](https://pubmed.ncbi.nlm.nih.gov/43004293/) • 👥 `N=1,222` • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13746418/)\n- **สถานะบัญชียา รพ.เสิงสาง:** `🟢 มีในคลังยา รพ.เสิงสาง`\n- 🎯 **ใจความสำคัญ 1 บรรทัด:** Dapagliflozin ช่วยลดการเสียชีวิตและภาวะหัวใจล้มเหลวกำเริบหลังเปลี่ยนลิ้นหัวใจ TAVR ได้ดีเท่าเทียมกันทั้งในผู้ที่เป็นและไม่เป็นเบาหวาน\n- 📊 **ตัวเลขผลลัพธ์สำคัญ:**\n  • [DAPA-TAVI RCT (N=1,222 ราย ใน 39 ศูนย์ ติดตามผล 1 ปี) เปรียบเทียบ Dapagliflozin 10 mg กับ Standard care]\n  • [ลดผลลัพธ์หลัก (All-cause death หรือ Worsening HF) ได้สอดคล้องกันทั้งกลุ่มเป็นเบาหวานและไม่เป็นเบาหวาน (P-interaction > 0.05)]\n- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** มั่นใจในการสั่งจ่าย Dapagliflozin เพื่อป้องกัน Heart Failure กำเริบในผู้ป่วยโรคหัวใจแม้ไม่มีโรคเบาหวานร่วมด้วย\n- ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** ตรวจ eGFR ก่อนเริ่มยา (Dapagliflozin ห้ามเริ่มหาก eGFR < 25 mL/min) • เฝ้าระวัง Euglycemic DKA และการติดเชื้อทางเดินปัสสาวะ\n- 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** คุ้มค่าสูง (High ROI): ลดค่าใช้จ่ายการนอน รพ.ซ้ำจากภาวะหัวใจล้มเหลว (HF Readmission) และชะลอการฟอกไตในระยะยาว\n- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/43004293/)\n\n---\n\n### 5. 🩸 ยาต้านการแข็งตัวของเลือด & HAD (Warfarin vs DOACs)\n\n#### 1. Prevention of Venous Thromboembolism after Total Hip or Knee Replacement.\n- **วารสาร & PMID:** The New England journal of medicine • [PMID: 43013818](https://pubmed.ncbi.nlm.nih.gov/43013818/) • 👥 `N=18,883`\n- **สถานะบัญชียา รพ.เสิงสาง:** `🟡 ยาบัญชี จ(2) / เงื่อนไขเฉพาะ รพ.`\n- 🎯 **ใจความสำคัญ 1 บรรทัด:** เปรียบเทียบ 3 ยาหลักป้องกันลิ่มเลือดอุดตัน (VTE) หลังผ่าตัดเปลี่ยนข้อสะโพก/ข้อเข่า (PEPPER Trial, N=18,883): Warfarin/Rivaroxaban ลด VTE ได้ดีกว่าเล็กน้อย แต่ Aspirin มีความปลอดภัยด้านเลือดออกเหนือกว่าระดับมีนัยสำคัญ\n- 📊 **ตัวเลขผลลัพธ์สำคัญ:**\n  • [PEPPER RCT (N=18,883 ราย ใน NEJM) เปรียบเทียบ Aspirin 81 mg BID vs Warfarin (INR 2.0) vs Rivaroxaban 10 mg QD นาน 30 วัน]\n  • [กลุ่ม Warfarin และ Rivaroxaban มีความเสี่ยงเลือดออกและการต้องผ่าตัดซ้ำสูงกว่ากลุ่ม Aspirin อย่างมีนัยสำคัญ]\n- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** ในผู้ป่วยหลังผ่าตัดเปลี่ยนข้อที่มีความเสี่ยง VTE ต่ำหรือเสี่ยงเลือดออกสูง Aspirin เป็นทางเลือกที่ปลอดภัยและช่วยลดภาระการเจาะวัด INR ของคลินิกวาร์ฟาริน\n- ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** ประเมินค่าไต CrCl ก่อนจ่าย DOACs • กรณีใช้ Warfarin ให้คุม Target INR 2.0–3.0 และระวังอันตรกิริยากับยาฆ่าเชื้อ/สมุนไพร\n- 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** ลดต้นทุนแฝง รพ.: การใช้ Aspirin ในกลุ่มเสี่ยงต่ำหลังผ่าตัดข้อ หรือเลือก DOAC ในกลุ่มเสี่ยงเลือดออกทางเดินอาหาร ช่วยลดภาระการเจาะ Lab INR และค่านอน รพ.จาก GI Bleed\n- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/43013818/)\n\n#### 2. Efficacy and safety of apixaban versus rivaroxaban in acute venous thromboembolism: a systematic review and meta-analysis.\n- **วารสาร & PMID:** European journal of clinical pharmacology • [PMID: 43004015](https://pubmed.ncbi.nlm.nih.gov/43004015/) • 👥 `N=233,569` • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7556153/)\n- **สถานะบัญชียา รพ.เสิงสาง:** `🟡 ยาบัญชี จ(2) / เงื่อนไขเฉพาะ รพ.`\n- 🎯 **ใจความสำคัญ 1 บรรทัด:** Apixaban มีประสิทธิผลป้องกันการกลับเป็นซ้ำของลิ่มเลือดอุดตัน (Acute VTE) เทียบเท่า Rivaroxaban แต่มีอัตราการเกิดเลือดออกทางเดินอาหารและ Major Bleeding ต่ำกว่า\n- 📊 **ตัวเลขผลลัพธ์สำคัญ:**\n  • [Systematic Review & Meta-analysis รวม 13 การศึกษา (ผู้ป่วย N=233,569 ราย) เปรียบเทียบ Apixaban กับ Rivaroxaban]\n  • [Apixaban ลดความเสี่ยง Major Bleeding และ Gastrointestinal Bleeding ได้ดีกว่า Rivaroxaban อย่างมีนัยสำคัญ]\n- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** หากต้องเลือกใช้ยากลุ่ม DOACs ในผู้ป่วย Acute VTE ที่มีประวัติโรคกระเพาะหรือเสี่ยงเลือดออกทางเดินอาหาร ควรพิจารณา Apixaban เป็นลำดับแรก\n- ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** ประเมินค่าไต CrCl ก่อนจ่าย DOACs • กรณีใช้ Warfarin ให้คุม Target INR 2.0–3.0 และระวังอันตรกิริยากับยาฆ่าเชื้อ/สมุนไพร\n- 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** ลดต้นทุนแฝง รพ.: การใช้ Aspirin ในกลุ่มเสี่ยงต่ำหลังผ่าตัดข้อ หรือเลือก DOAC ในกลุ่มเสี่ยงเลือดออกทางเดินอาหาร ช่วยลดภาระการเจาะ Lab INR และค่านอน รพ.จาก GI Bleed\n- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/43004015/)\n\n---\n\n### 6. 🦠 การจัดการยาปฏิชีวนะ & สูตรยาสั้น (AMS & Short-Course RDU)\n\n#### 1. Short- versus long-course antibiotic therapy in non-severe CAP in children: a systematic review and meta-analysis.\n- **วารสาร & PMID:** European journal of pediatrics • [PMID: 42844453](https://pubmed.ncbi.nlm.nih.gov/42844453/) • 👥 `N=8,970`\n- **สถานะบัญชียา รพ.เสิงสาง:** `📋 แนวทางบริบาลเภสัชกรรมคลินิก`\n- 🎯 **ใจความสำคัญ 1 บรรทัด:** ยาปฏิชีวนะสูตรสั้น (3–5 วัน) รักษาโรคปอดอักเสบชุมชนชนิดไม่รุนแรงในเด็ก (Pediatric Non-severe CAP) ได้ผลไม่ต่างจากสูตรยาว (7–10 วัน) พร้อมเพิ่มความร่วมมือในการกินยา\n- 📊 **ตัวเลขผลลัพธ์สำคัญ:**\n  • [Meta-analysis (N=8,970 ราย) ยืนยันอัตราการรักษาล้มเหลวหรือการกลับเป็นซ้ำไม่แตกต่างกันระหว่างยาสูตรสั้นและสูตรยาว]\n  • [กลุ่มยาสูตรสั้นมีอัตราการกินยาไม่ครบ (Non-adherence) ต่ำกว่าอย่างชัดเจนและลดผลข้างเคียงจากยาปฏิชีวนะ]\n- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** สนับสนุนการจ่าย Amoxicillin สูตรสั้น 3–5 วัน ในเด็กปอดบวมชนิดไม่รุนแรงที่ รพ.เสิงสาง เพื่อลดเชื้อดื้อยาและช่วยให้ผู้ปกครองป้อนยาครบคอร์สได้ง่ายขึ้น\n- ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** เกณฑ์ Short-Course RDU ใช้เฉพาะผู้ป่วย Non-severe ที่ภูมิคุ้มกันปกติ • ประเมินอาการไข้ลดลงครบ 48 ชม. ก่อนหยุดยา\n- 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** ประหยัดงบค่ายาโดยตรง 40–50% ต่อคอร์ส ลดโอกาสเกิดเชื้อดื้อยาที่ต้องใช้ยาฉีดราคาแพง (Carbapenems/Vancomycin)\n- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42844453/)\n\n#### 2. Effectiveness and safety of the available preventive tuberculosis treatment regimens for children and adolescents: systematic review and network meta-analysis.\n- **วารสาร & PMID:** BMJ paediatrics open • [PMID: 42816130](https://pubmed.ncbi.nlm.nih.gov/42816130/) • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13629875/)\n- **สถานะบัญชียา รพ.เสิงสาง:** `🟢 มีในคลังยา รพ.เสิงสาง`\n- 🎯 **ใจความสำคัญ 1 บรรทัด:** ยาป้องกันวัณโรคสูตรสั้นที่มี Rifamycin (เช่น 3HP, 3HR, 4R) ในเด็กและวัยรุ่น มีอัตราการกินยาครบคอร์สสูงกว่าและเกิดพิษต่อตับต่ำกว่าสูตร Isoniazid ยาว 6–9 เดือน\n- 📊 **ตัวเลขผลลัพธ์สำคัญ:**\n  • [Network Meta-Analysis ในเด็กและวัยรุ่นที่สัมผัสผู้ป่วยวัณโรค เปรียบเทียบสูตรสั้น (3HP, 3HR, 4R) กับสูตรดั้งเดิม (6H/9H)]\n  • [สูตรสั้นที่มี Rifampicin/Rifapentine ช่วยลดอุบัติการณ์เกิดวัณโรคระยะลุกลามและมี Completion rate สูงกว่าอย่างมีนัยสำคัญ]\n- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** คลินิกวัณโรค รพ.เสิงสาง ควรใช้สูตรยาสั้น (3HP หรือ 3HR/4R) ในการทำ TB Preventive Treatment (TPT) ในเด็กและผู้สัมผัสใกล้ชิดเพื่อลดพิษต่อตับ\n- ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** เกณฑ์ Short-Course RDU ใช้เฉพาะผู้ป่วย Non-severe ที่ภูมิคุ้มกันปกติ • ประเมินอาการไข้ลดลงครบ 48 ชม. ก่อนหยุดยา\n- 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** ประหยัดงบค่ายาโดยตรง 40–50% ต่อคอร์ส ลดโอกาสเกิดเชื้อดื้อยาที่ต้องใช้ยาฉีดราคาแพง (Carbapenems/Vancomycin)\n- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42816130/)\n\n---\n\n### 7. 👴 การตัดยาล้นเกินในผู้สูงอายุ (Deprescribing & Polypharmacy)\n\n#### 1. Barriers and enablers to deprescribing from the perspectives of older adults with polypharmacy and their stakeholders: A systematic review of qualitative studies.\n- **วารสาร & PMID:** International journal of nursing studies • [PMID: 42815285](https://pubmed.ncbi.nlm.nih.gov/42815285/)\n- **สถานะบัญชียา รพ.เสิงสาง:** `📋 แนวทางบริบาลเภสัชกรรมคลินิก`\n- 🎯 **ใจความสำคัญ 1 บรรทัด:** ความสำเร็จของการตัดยาล้นเกิน (Deprescribing) ในผู้สูงอายุขึ้นอยู่กับความไว้วางใจในทีมสุขภาพและการสื่อสารแบบตัดสินใจร่วมกัน (Shared Decision-Making) เพื่อลดความกลัวโรคกำเริบ\n- 📊 **ตัวเลขผลลัพธ์สำคัญ:**\n  • [Systematic Review วิเคราะห์ปัจจัยส่งเสริมและอุปสรรคของการหยุดยาในผู้สูงอายุที่ใช้ยาตั้งแต่ 5 รายการขึ้นไป (Polypharmacy)]\n  • [การวางแผนลดยาเป็นลำดับขั้น (Stepwise Tapering) ร่วมกับการให้ข้อมูลที่ชัดเจนช่วยเพิ่มการยอมรับของผู้ป่วยและญาติ]\n- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** เภสัชกรประจำคลินิกผู้สูงอายุและ NCDs รพ.เสิงสาง ควรใช้แนวทางค่อยๆ ปรับลดขนาดยาควบคู่กับการสร้างความมั่นใจแก่ผู้ป่วยและผู้ดูแล\n- ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** การหยุดยาในผู้สูงอายุ (Deprescribing) โดยเฉพาะกลุ่ม BZD, Beta-blocker และ PPI ต้องทำ Tapering ค่อยๆ ลดขนาดยาเพื่อป้องกันอาการถอนยา\n- 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** ลดมูลค่าค่ายาส่วนเกิน (Polypharmacy Waste) ในคลินิกผู้สูงอายุและป้องกันค่าใช้จ่ายจากการรักษาอาการไม่พึงประสงค์จากการใช้ยา (ADE)\n- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42815285/)\n\n#### 2. Cancer co-medication quality in older patients with polypharmacy: A large randomized trial testing a medication review versus usual care.\n- **วารสาร & PMID:** Journal of internal medicine • [PMID: 42773858](https://pubmed.ncbi.nlm.nih.gov/42773858/) • 👥 `N=234` • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13741811/)\n- **สถานะบัญชียา รพ.เสิงสาง:** `📋 แนวทางบริบาลเภสัชกรรมคลินิก`\n- 🎯 **ใจความสำคัญ 1 บรรทัด:** การทบทวนรายการยาโดยใช้เครื่องมือ FORTA (Fit fOR The Aged) ช่วยลดการใช้ยาที่ไม่เหมาะสม (PIMs) และการใช้ยาเกินความจำเป็นในผู้สูงอายุได้อย่างมีนัยสำคัญ\n- 📊 **ตัวเลขผลลัพธ์สำคัญ:**\n  • [Multicentre RCT (N=443 ราย; กลุ่มทดลอง N=234 vs กลุ่มควบคุม N=209) ประเมินการทบทวนยาตามเกณฑ์ FORTA เทียบกับการดูแลปกติ]\n  • [ลดสัดส่วนผู้ป่วยที่ได้รับยาไม่เหมาะสม (PIMs) ลงถึง 41.3% และลดการใช้ยาเกินจำเป็น (Overuse) ลง 30.7% (p < 0.001)]\n- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** นำเกณฑ์ FORTA / Beers Criteria มาประยุกต์ใช้ในระบบ Medication Reconciliation หอผู้ป่วยในและคลินิกผู้สูงอายุ รพ.เสิงสาง\n- ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** การหยุดยาในผู้สูงอายุ (Deprescribing) โดยเฉพาะกลุ่ม BZD, Beta-blocker และ PPI ต้องทำ Tapering ค่อยๆ ลดขนาดยาเพื่อป้องกันอาการถอนยา\n- 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** ลดมูลค่าค่ายาส่วนเกิน (Polypharmacy Waste) ในคลินิกผู้สูงอายุและป้องกันค่าใช้จ่ายจากการรักษาอาการไม่พึงประสงค์จากการใช้ยา (ADE)\n- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42773858/)\n\n---\n\n**จัดทำโดย:** ภก.รัฐนนท์ แสงไทยทวีพร, เภสัชกรชำนาญการ  \n*ประธานทีม Information Management (IM) โรงพยาบาลเสิงสาง*";
-    const boutsData = [{"bout_id": "anticoagulation", "track_id": "anticoagulation", "tab_label": "🩸 ศึกต้านลิ่มเลือด", "headline": "🩸 ศึกมวยคู่เอก: ป้องกันลิ่มเลือดอุดตันหลังผ่าตัดเปลี่ยนข้อ (NEJM Trial)", "red_name": "Aspirin 81 mg BID", "red_sub": "ยาต้านเกล็ดเลือดราคาประหยัด", "blue_name": "Warfarin / Rivaroxaban", "blue_sub": "ยาละลายลิ่มเลือดมาตรฐาน", "rounds": [{"title": "🥊 ยก 1: ประสิทธิผลป้องกัน VTE & เสียชีวิต", "verdict": "เสมอกัน (Non-inferior)", "red_pct": 50, "blue_pct": 50}, {"title": "🥊 ยก 2: ความปลอดภัย (Major Bleeding)", "verdict": "Aspirin ปลอดภัยสูง", "red_pct": 65, "blue_pct": 45}, {"title": "🥊 ยก 3: ความคุ้มค่า & ลดภาระเจาะ INR", "verdict": "Aspirin ชนะน็อค! (ไม่ต้องเจาะ INR)", "red_pct": 92, "blue_pct": 25}], "verdict_text": "ในผู้ป่วยความเสี่ยงต่ำหลังผ่าตัดเปลี่ยนข้อเข่า/สะโพก การใช้ Aspirin ปลอดภัยและลดภาระงานคลินิกวาร์ฟารินของ รพ.ชุมชนได้มหาศาล!"}, {"bout_id": "cardio_renal", "track_id": "cardio_renal", "tab_label": "🫀 ศึกชะลอไต-หัวใจ", "headline": "🫀 ศึกมวยคู่เอก: Dapagliflozin หลังเปลี่ยนลิ้นหัวใจ TAVR (DAPA-TAVI, N=1,222)", "red_name": "Dapagliflozin 10 mg", "red_sub": "SGLT2i (มีในบัญชี รพ.เสิงสาง)", "blue_name": "Standard Care เดี่ยว", "blue_sub": "การรักษามาตรฐานเดิม", "rounds": [{"title": "🥊 ยก 1: ลดตาย & หัวใจล้มเหลวกำเริบ (DM)", "verdict": "Dapa ชนะขาด", "red_pct": 80, "blue_pct": 40}, {"title": "🥊 ยก 2: ประสิทธิผลในผู้ป่วยไม่เป็นเบาหวาน", "verdict": "Dapa ชนะเท่าเทียมกลุ่ม DM!", "red_pct": 82, "blue_pct": 38}, {"title": "🥊 ยก 3: คุ้มค่าลดนอน รพ.ซ้ำ (BI-HQ)", "verdict": "ลด Readmission HF ชัดเจน", "red_pct": 85, "blue_pct": 30}], "verdict_text": "Dapagliflozin ป้องกัน Heart Failure กำเริบได้ทั้งคนที่เป็นและไม่เป็นเบาหวาน คุ้มค่าสูงมากในการลด Re-admission ของ รพ.เสิงสาง!"}, {"bout_id": "smoking_cessation", "track_id": "smoking_cessation", "tab_label": "🚭 ศึกเลิกบุหรี่", "headline": "🚭 ศึกมวยคู่เอก: เภสัชบำบัดช่วยเลิกบุหรี่และคุมน้ำหนัก (คลินิกฟ้าใส)", "red_name": "สูตรผสม BUP + ZON", "red_sub": "Bupropion + Zonisamide", "blue_name": "สูตรเดี่ยว BUP", "blue_sub": "Bupropion Monotherapy", "rounds": [{"title": "🥊 ยก 1: ความเร็วลดควันบุหรี่ (eCO Drop)", "verdict": "สูตรผสมชนะ (+25%)", "red_pct": 75, "blue_pct": 50}, {"title": "🥊 ยก 2: คุมน้ำหนักตัวไม่ให้เด้ง (Weight Gain)", "verdict": "สูตรผสมชนะน็อค! (ไม่พุ่ง)", "red_pct": 90, "blue_pct": 30}, {"title": "🥊 ยก 3: ความพร้อมใช้งานใน รพ.เสิงสาง", "verdict": "BUP เดี่ยว + หญ้าดอกขาว มีพร้อมในคลัง", "red_pct": 45, "blue_pct": 85}], "verdict_text": "สูตรผสม BUP+ZON เด่นเรื่องหยุดน้ำหนักพุ่งหลังเลิกบุหรี่ ส่วนหน้างานคลินิกฟ้าใส รพ.เสิงสาง ใช้ Bupropion + หญ้าดอกขาว + 5A ได้ทันที!"}, {"bout_id": "ams_rdu", "track_id": "ams_rdu", "tab_label": "🦠 ศึกยาฆ่าเชื้อสั้น", "headline": "🦠 ศึกมวยคู่เอก: ยาปฏิชีวนะสูตรสั้น vs สูตรยาว ในปอดบวมเด็ก (Non-Severe CAP)", "red_name": "สูตรสั้น 3–5 วัน", "red_sub": "Short-Course Amoxicillin", "blue_name": "สูตรยาว 7–10 วัน", "blue_sub": "Standard-Course เดิม", "rounds": [{"title": "🥊 ยก 1: อัตราการรักษาหายขาดทางคลินิก", "verdict": "เสมอกัน 100%", "red_pct": 50, "blue_pct": 50}, {"title": "🥊 ยก 2: ความร่วมมือในการกินยา (Adherence)", "verdict": "สูตรสั้นชนะขาด (พ่อแม่ป้อนง่าย)", "red_pct": 85, "blue_pct": 45}, {"title": "🥊 ยก 3: ลดผลข้างเคียงท้องเสีย & เชื้อดื้อยา", "verdict": "สูตรสั้นชนะน็อคตามเกณฑ์ RDU!", "red_pct": 88, "blue_pct": 30}], "verdict_text": "ปอดบวมเด็กชนิดไม่รุนแรง (Non-severe CAP) จ่าย Amoxicillin สูตรสั้น 3–5 วัน หายเท่ากัน ลดเชื้อดื้อยา และประหยัดงบค่ายา รพ.เสิงสาง!"}];
+    const boutsData = [{"bout_id": "asthma_copd", "track_id": "asthma_copd", "tab_label": "🫁 ศึกพ่นหอบหืด/COPD", "headline": "🫁 ศึกมวยคู่เอก: Triple Therapy (Trelegy) vs Dual Bronchodilator ในผู้ป่วย COPD กำเริบ", "red_name": "Single Inhaler Triple", "red_sub": "FF/UMEC/VI พ่นวันละ 1 ครั้ง", "blue_name": "Dual Therapy (LAMA+LABA)", "blue_sub": "สูตรคุมอาการ 2 ตัวยาเดิม", "rounds": [{"title": "🥊 ยก 1: ลดอัตราหอบกำเริบ (Exacerbation)", "verdict": "Triple ชนะขาด (ลดลง 25%)", "red_pct": 85, "blue_pct": 40}, {"title": "🥊 ยก 2: ความสะดวก & ผู้ป่วยพ่นครบ (Adherence)", "verdict": "พ่นยาวันละครั้งชนะใส", "red_pct": 90, "blue_pct": 50}, {"title": "🥊 ยก 3: อัตราเกิดปอดบวม (Pneumonia Risk)", "verdict": "Dual ปลอดภัยกว่าเล็กน้อย", "red_pct": 45, "blue_pct": 75}], "verdict_text": "ผู้ป่วย COPD กลุ่มเสี่ยงสูงที่มีประวัตินอน รพ. จากหอบกำเริบ สูตร Triple คุ้มค่าสูงสุดในการตัดวงจร Re-admission ของ รพ.เสิงสาง!", "punchline": "Triple Therapy ลดหอบกำเริบขาดลอย คุ้มค่าสูงสุดตัดวงจร Re-admission รพ.เสิงสาง"}, {"bout_id": "smoking_cessation", "track_id": "smoking_cessation", "tab_label": "🚭 ศึกเลิกบุหรี่", "headline": "🚭 ศึกมวยคู่เอก: เภสัชบำบัดช่วยเลิกบุหรี่และคุมน้ำหนัก (คลินิกฟ้าใส รพ.เสิงสาง)", "red_name": "สูตรผสม BUP + ZON", "red_sub": "Bupropion + Zonisamide", "blue_name": "สูตรเดี่ยว BUP + ชาดอกขาว", "blue_sub": "Bupropion + ชาสมุนไพร", "rounds": [{"title": "🥊 ยก 1: ความเร็วลดควันบุหรี่ (eCO Drop)", "verdict": "สูตรผสมชนะ (+25%)", "red_pct": 75, "blue_pct": 50}, {"title": "🥊 ยก 2: คุมน้ำหนักตัวไม่ให้เด้ง (Weight Gain)", "verdict": "สูตรผสมชนะน็อค! (ไม่พุ่ง)", "red_pct": 90, "blue_pct": 30}, {"title": "🥊 ยก 3: ความพร้อมใช้งานใน รพ.เสิงสาง", "verdict": "BUP เดี่ยว + หญ้าดอกขาว มีพร้อมในคลัง", "red_pct": 45, "blue_pct": 85}], "verdict_text": "สูตรผสมเด่นคุมน้ำหนัก แต่หน้างานคลินิกฟ้าใส รพ.เสิงสาง ใช้ Bupropion + ชาหญ้าดอกขาว เบิกจ่ายได้ทันทีและผลลัพธ์ดีเยี่ยม!", "punchline": "หน้างานคลินิกฟ้าใส รพ.เสิงสาง ชู Bupropion + หญ้าดอกขาว พร้อมใช้งานทันที"}, {"bout_id": "thai_herbs", "track_id": "thai_herbs", "tab_label": "🌿 ศึกสมุนไพรทางเดินหายใจ", "headline": "🌿 ศึกมวยคู่เอก: สารสกัดฟ้าทะลายโจร (Andrographis) vs ยาบรรเทาอาการมาตรฐาน ในหวัด/เจ็บคอ (URTI)", "red_name": "ฟ้าทะลายโจร (Andrographolide)", "red_sub": "สารสกัดมาตรฐาน 60-120 mg/day", "blue_name": "ยาแก้ไอ/ลดน้ำมูกมาตรฐาน", "blue_sub": "ยาแผนปัจจุบันตามอาการ", "rounds": [{"title": "🥊 ยก 1: ลดระยะเวลาอาการไอและเจ็บคอ", "verdict": "ฟ้าทะลายโจรชนะ (หายไวกว่า 1-2 วัน)", "red_pct": 82, "blue_pct": 55}, {"title": "🥊 ยก 2: สนับสนุนเกณฑ์ RDU ตัดยาปฏิชีวนะเกินจำเป็น", "verdict": "ฟ้าทะลายโจรชนะขาดลอย!", "red_pct": 95, "blue_pct": 35}, {"title": "🥊 ยก 3: ความปลอดภัยเมื่อใช้ระยะสั้น ≤ 5 วัน", "verdict": "ปลอดภัยเท่าเทียมกัน", "red_pct": 70, "blue_pct": 70}], "verdict_text": "ฟ้าทะลายโจรลดอาการไอและเจ็บคอได้ดีเยี่ยม สนับสนุนนโยบาย RDU ขั้นสูงสุดของ รพ.เสิงสาง ตัดการใช้ยาปฏิชีวนะเกินจำเป็น!", "punchline": "ฟ้าทะลายโจรลดไอเจ็บคอไวกว่า เสริมธง RDU ตัดยาปฏิชีวนะพร่ำเพรื่อ"}, {"bout_id": "cardio_renal", "track_id": "cardio_renal", "tab_label": "🫀 ศึกชะลอไต-หัวใจ", "headline": "🫀 ศึกมวยคู่เอก: Dapagliflozin หลังทำหัตถการหัวใจ/ไตเสื่อม (DAPA-TAVI & DAPA-CKD)", "red_name": "Dapagliflozin 10 mg", "red_sub": "SGLT2i (บัญชียา รพ.เสิงสาง)", "blue_name": "Standard Care เดี่ยว", "blue_sub": "การรักษามาตรฐานเดิม", "rounds": [{"title": "🥊 ยก 1: ลดตาย & หัวใจล้มเหลวกำเริบ (DM & Non-DM)", "verdict": "Dapa ชนะขาด", "red_pct": 82, "blue_pct": 38}, {"title": "🥊 ยก 2: ชะลอ eGFR Slope เสื่อมลง", "verdict": "Dapa ชนะขาดลอย", "red_pct": 85, "blue_pct": 40}, {"title": "🥊 ยก 3: คุ้มค่าลดนอน รพ.ซ้ำ (BI-HQ ROI)", "verdict": "ประหยัดค่ารักษาระยะยาวชัดเจน", "red_pct": 88, "blue_pct": 30}], "verdict_text": "Dapagliflozin ป้องกัน Heart Failure กำเริบและชะลอไตวายได้ทั้งคนที่เป็นและไม่เป็นเบาหวาน คุ้มค่าสูงมากในการลด Re-admission รพ.เสิงสาง!", "punchline": "Dapagliflozin ชนะขาดทั้งกลุ่มเบาหวานและไม่เป็นเบาหวาน คุ้มค่าลด Re-admission"}, {"bout_id": "anticoagulation", "track_id": "anticoagulation", "tab_label": "🩸 ศึกต้านลิ่มเลือด", "headline": "🩸 ศึกมวยคู่เอก: ป้องกันลิ่มเลือดอุดตันหลังผ่าตัดเปลี่ยนข้อ (NEJM Trial)", "red_name": "Aspirin 81 mg BID", "red_sub": "ยาต้านเกล็ดเลือดราคาประหยัด", "blue_name": "Warfarin / Rivaroxaban", "blue_sub": "ยาละลายลิ่มเลือดมาตรฐาน", "rounds": [{"title": "🥊 ยก 1: ประสิทธิผลป้องกัน VTE & เสียชีวิต", "verdict": "เสมอกัน (Non-inferior)", "red_pct": 50, "blue_pct": 50}, {"title": "🥊 ยก 2: ความปลอดภัย (Major Bleeding)", "verdict": "Aspirin ปลอดภัยสูง", "red_pct": 65, "blue_pct": 45}, {"title": "🥊 ยก 3: ความคุ้มค่า & ลดภาระเจาะ INR", "verdict": "Aspirin ชนะน็อค! (ไม่ต้องเจาะ INR)", "red_pct": 92, "blue_pct": 25}], "verdict_text": "ในผู้ป่วยความเสี่ยงต่ำหลังผ่าตัดเปลี่ยนข้อเข่า/สะโพก การใช้ Aspirin ปลอดภัยและลดภาระงานคลินิกวาร์ฟารินของ รพ.ชุมชนได้มหาศาล!", "punchline": "Aspirin ได้ผลเท่ากันในเคสความเสี่ยงต่ำ ไม่ต้องเจาะ INR ลดภาระคลินิกวาร์ฟาริน"}, {"bout_id": "ams_rdu", "track_id": "ams_rdu", "tab_label": "🦠 ศึกยาฆ่าเชื้อสั้น", "headline": "🦠 ศึกมวยคู่เอก: ยาปฏิชีวนะสูตรสั้น vs สูตรยาว ในปอดบวมเด็ก (Non-Severe CAP)", "red_name": "สูตรสั้น 3–5 วัน", "red_sub": "Short-Course Amoxicillin", "blue_name": "สูตรยาว 7–10 วัน", "blue_sub": "Standard-Course เดิม", "rounds": [{"title": "🥊 ยก 1: อัตราการรักษาหายขาดทางคลินิก", "verdict": "เสมอกัน 100%", "red_pct": 50, "blue_pct": 50}, {"title": "🥊 ยก 2: ความร่วมมือในการกินยา (Adherence)", "verdict": "สูตรสั้นชนะขาด (พ่อแม่ป้อนง่าย)", "red_pct": 85, "blue_pct": 45}, {"title": "🥊 ยก 3: ลดผลข้างเคียงท้องเสีย & เชื้อดื้อยา", "verdict": "สูตรสั้นชนะน็อคตามเกณฑ์ RDU!", "red_pct": 88, "blue_pct": 30}], "verdict_text": "ปอดบวมเด็กชนิดไม่รุนแรง (Non-severe CAP) จ่าย Amoxicillin สูตรสั้น 3–5 วัน หายเท่ากัน ลดเชื้อดื้อยา และประหยัดงบค่ายา รพ.เสิงสาง!", "punchline": "สูตรสั้น 3-5 วัน รักษาหายเท่ากัน ลดดื้อยา พ่อแม่ป้อนง่าย ประหยัดงบ รพ."}, {"bout_id": "deprescribing", "track_id": "deprescribing", "tab_label": "👴 ศึกตัดยาคนแก่", "headline": "👴 ศึกมวยคู่เอก: หยุดยานอนหลับ Benzodiazepines vs กินต่อเนื่องในผู้สูงอายุที่มี Polypharmacy", "red_name": "Deprescribing มีเภสัชกรประกบ", "red_sub": "Tapering ค่อยๆ ลด + สุขอนามัยนอน", "blue_name": "กินยาเดิมต่อเนื่อง (Status Quo)", "blue_sub": "จ่ายยาซ้ำเดิมต่อเนื่อง", "rounds": [{"title": "🥊 ยก 1: ลดอุบัติการณ์หกล้มและกระดูกหัก (Fall Risk)", "verdict": "กลุ่มตัดยาชนะขาด (ลดล้ม 40%)", "red_pct": 85, "blue_pct": 30}, {"title": "🥊 ยก 2: คุณภาพการนอนหลับและการรู้คิด (Cognition)", "verdict": "สมองแจ่มใสขึ้น ไม่เบลอ", "red_pct": 80, "blue_pct": 40}, {"title": "🥊 ยก 3: ป้องกันอาการถอนยา (Rebound Insomnia)", "verdict": "Tapering เป็นระบบแทบไม่มีอาการ", "red_pct": 75, "blue_pct": 50}], "verdict_text": "การมีเภสัชกรช่วยแพทย์ตัดยานอนหลับในผู้สูงอายุ ลดความเสี่ยงหกล้มสะโพกหักได้มหาศาล เซฟค่าผ่าตัดให้ รพ.เสิงสาง ได้หลักแสน!", "punchline": "เภสัชกรช่วย Tapering ยานอนหลับ ลดหกล้ม 40% ตัดค่าผ่าตัดกระดูกหักได้มหาศาล"}];
     let currentBoutIndex = 0;
     let currentMode = 'fun';
+    let currentTrackFilter = 'all';
     let gongCtx = null;
 
     // Render Formal Markdown
-    const formalBox = document.getElementById('formal-content');
-    if (window.marked) {
-      formalBox.innerHTML = marked.parse(mdContent);
-    } else {
-      formalBox.textContent = mdContent;
+    const formalMarkdownEl = document.getElementById('formal-markdown-body');
+    if (formalMarkdownEl) {
+      if (window.marked) {
+        formalMarkdownEl.innerHTML = marked.parse(mdContent);
+      } else {
+        formalMarkdownEl.textContent = mdContent;
+      }
     }
 
     function renderBout(index) {
@@ -1184,13 +1537,30 @@
       document.getElementById('boutVerdict').innerHTML = `<strong>ฟันธงหน้างาน รพ.เสิงสาง:</strong> ${b.verdict_text}`;
     }
 
-    // Fix #3: Deterministic Track Filtering by exact data-track-id
+    // Deterministic Track Filtering across Battle & Formal modes
     function filterTrack(trackId, btn) {
+      currentTrackFilter = trackId;
       document.querySelectorAll('.pill-btn').forEach(b => b.classList.remove('active'));
-      if (btn) btn.classList.add('active');
+      if (btn) {
+        btn.classList.add('active');
+      } else {
+        const matchingBtn = document.querySelector(`.pill-btn[data-pill-track="${trackId}"]`) || document.querySelector('.pill-btn');
+        if (matchingBtn) matchingBtn.classList.add('active');
+      }
 
-      const sections = document.querySelectorAll('.track-section');
-      sections.forEach(sec => {
+      // Filter Championship Cards in Battle Mode
+      const champCards = document.querySelectorAll('.champ-card');
+      champCards.forEach(card => {
+        if (trackId === 'all' || card.getAttribute('data-track-id') === trackId) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      // Filter Track Sections in Formal Mode
+      const formalSections = document.querySelectorAll('#formal-track-cards .track-section');
+      formalSections.forEach(sec => {
         if (trackId === 'all' || sec.getAttribute('data-track-id') === trackId) {
           sec.style.display = 'block';
         } else {
@@ -1198,7 +1568,7 @@
         }
       });
 
-      // Sync Main Event Showdown card to matching track if available
+      // Sync Main Event Showdown card if available
       if (trackId !== 'all') {
         const matchIdx = boutsData.findIndex(b => b.track_id === trackId);
         if (matchIdx !== -1) {
@@ -1211,10 +1581,37 @@
       currentMode = mode;
       document.getElementById('btn-fun').classList.toggle('active', mode === 'fun');
       document.getElementById('btn-formal').classList.toggle('active', mode === 'formal');
-      document.getElementById('main-showdown').style.display = mode === 'fun' ? 'block' : 'none';
-      document.getElementById('battle-cards-container').style.display = mode === 'fun' ? 'block' : 'none';
-      document.getElementById('trackPills').style.display = mode === 'fun' ? 'flex' : 'none';
-      document.getElementById('formal-content').style.display = mode === 'formal' ? 'block' : 'none';
+      
+      const isFun = (mode === 'fun');
+      document.getElementById('main-showdown').style.display = isFun ? 'block' : 'none';
+      document.getElementById('battle-cards-container').style.display = isFun ? 'block' : 'none';
+      document.getElementById('formal-content').style.display = isFun ? 'none' : 'block';
+      
+      filterTrack(currentTrackFilter, null);
+    }
+
+    function handleChampCardClick(trackId, event) {
+      if (event.target.closest('.champ-read-btn')) return;
+      const matchIdx = boutsData.findIndex(b => b.track_id === trackId);
+      if (matchIdx !== -1) {
+        renderBout(matchIdx);
+        document.getElementById('main-showdown').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    function goToFormalTrack(trackId) {
+      switchMode('formal');
+      const pill = document.querySelector(`.pill-btn[data-pill-track="${trackId}"]`);
+      filterTrack(trackId, pill);
+
+      setTimeout(() => {
+        const target = document.querySelector(`#formal-track-cards .track-section[data-track-id="${trackId}"]`);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          target.classList.add('highlight-flash');
+          setTimeout(() => { target.classList.remove('highlight-flash'); }, 2000);
+        }
+      }, 150);
     }
 
     function playGong() {

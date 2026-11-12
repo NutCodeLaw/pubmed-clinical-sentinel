@@ -1,18 +1,144 @@
 {
   "schema_version": "2.2.0-HQ",
   "project": "pubmed-clinical-sentinel",
-  "infrastructure_tier": "PAY_AS_YOU_GO_PRODUCTION_UNLOCKED",
-  "billing_status": "ACTIVE_PRODUCTION_BILLING_ENABLED",
-  "generated_at": "2026-11-12T14:40:54.423985",
+  "generated_at": "2026-11-12T23:14:29.537453",
   "report_date": "2026-11-12",
   "lead_investigator": "ภก.รัฐนนท์ แสงไทยทวีพร (ประธานทีม IM โรงพยาบาลเสิงสาง)",
   "summary_metrics": {
     "total_tracks": 7,
     "total_active_articles": 15,
-    "newly_discovered_pmids_count": 2,
+    "newly_discovered_pmids_count": 0,
     "free_pmc_fulltext_count": 8
   },
   "showdown_bouts": [
+    {
+      "bout_id": "asthma_copd",
+      "track_id": "asthma_copd",
+      "tab_label": "🫁 ศึกพ่นหอบหืด/COPD",
+      "headline": "🫁 ศึกมวยคู่เอก: Triple Therapy (Trelegy) vs Dual Bronchodilator ในผู้ป่วย COPD กำเริบ",
+      "red_name": "Single Inhaler Triple",
+      "red_sub": "FF/UMEC/VI พ่นวันละ 1 ครั้ง",
+      "blue_name": "Dual Therapy (LAMA+LABA)",
+      "blue_sub": "สูตรคุมอาการ 2 ตัวยาเดิม",
+      "rounds": [
+        {
+          "title": "🥊 ยก 1: ลดอัตราหอบกำเริบ (Exacerbation)",
+          "verdict": "Triple ชนะขาด (ลดลง 25%)",
+          "red_pct": 85,
+          "blue_pct": 40
+        },
+        {
+          "title": "🥊 ยก 2: ความสะดวก & ผู้ป่วยพ่นครบ (Adherence)",
+          "verdict": "พ่นยาวันละครั้งชนะใส",
+          "red_pct": 90,
+          "blue_pct": 50
+        },
+        {
+          "title": "🥊 ยก 3: อัตราเกิดปอดบวม (Pneumonia Risk)",
+          "verdict": "Dual ปลอดภัยกว่าเล็กน้อย",
+          "red_pct": 45,
+          "blue_pct": 75
+        }
+      ],
+      "verdict_text": "ผู้ป่วย COPD กลุ่มเสี่ยงสูงที่มีประวัตินอน รพ. จากหอบกำเริบ สูตร Triple คุ้มค่าสูงสุดในการตัดวงจร Re-admission ของ รพ.เสิงสาง!",
+      "punchline": "Triple Therapy ลดหอบกำเริบขาดลอย คุ้มค่าสูงสุดตัดวงจร Re-admission รพ.เสิงสาง"
+    },
+    {
+      "bout_id": "smoking_cessation",
+      "track_id": "smoking_cessation",
+      "tab_label": "🚭 ศึกเลิกบุหรี่",
+      "headline": "🚭 ศึกมวยคู่เอก: เภสัชบำบัดช่วยเลิกบุหรี่และคุมน้ำหนัก (คลินิกฟ้าใส รพ.เสิงสาง)",
+      "red_name": "สูตรผสม BUP + ZON",
+      "red_sub": "Bupropion + Zonisamide",
+      "blue_name": "สูตรเดี่ยว BUP + ชาดอกขาว",
+      "blue_sub": "Bupropion + ชาสมุนไพร",
+      "rounds": [
+        {
+          "title": "🥊 ยก 1: ความเร็วลดควันบุหรี่ (eCO Drop)",
+          "verdict": "สูตรผสมชนะ (+25%)",
+          "red_pct": 75,
+          "blue_pct": 50
+        },
+        {
+          "title": "🥊 ยก 2: คุมน้ำหนักตัวไม่ให้เด้ง (Weight Gain)",
+          "verdict": "สูตรผสมชนะน็อค! (ไม่พุ่ง)",
+          "red_pct": 90,
+          "blue_pct": 30
+        },
+        {
+          "title": "🥊 ยก 3: ความพร้อมใช้งานใน รพ.เสิงสาง",
+          "verdict": "BUP เดี่ยว + หญ้าดอกขาว มีพร้อมในคลัง",
+          "red_pct": 45,
+          "blue_pct": 85
+        }
+      ],
+      "verdict_text": "สูตรผสมเด่นคุมน้ำหนัก แต่หน้างานคลินิกฟ้าใส รพ.เสิงสาง ใช้ Bupropion + ชาหญ้าดอกขาว เบิกจ่ายได้ทันทีและผลลัพธ์ดีเยี่ยม!",
+      "punchline": "หน้างานคลินิกฟ้าใส รพ.เสิงสาง ชู Bupropion + หญ้าดอกขาว พร้อมใช้งานทันที"
+    },
+    {
+      "bout_id": "thai_herbs",
+      "track_id": "thai_herbs",
+      "tab_label": "🌿 ศึกสมุนไพรทางเดินหายใจ",
+      "headline": "🌿 ศึกมวยคู่เอก: สารสกัดฟ้าทะลายโจร (Andrographis) vs ยาบรรเทาอาการมาตรฐาน ในหวัด/เจ็บคอ (URTI)",
+      "red_name": "ฟ้าทะลายโจร (Andrographolide)",
+      "red_sub": "สารสกัดมาตรฐาน 60-120 mg/day",
+      "blue_name": "ยาแก้ไอ/ลดน้ำมูกมาตรฐาน",
+      "blue_sub": "ยาแผนปัจจุบันตามอาการ",
+      "rounds": [
+        {
+          "title": "🥊 ยก 1: ลดระยะเวลาอาการไอและเจ็บคอ",
+          "verdict": "ฟ้าทะลายโจรชนะ (หายไวกว่า 1-2 วัน)",
+          "red_pct": 82,
+          "blue_pct": 55
+        },
+        {
+          "title": "🥊 ยก 2: สนับสนุนเกณฑ์ RDU ตัดยาปฏิชีวนะเกินจำเป็น",
+          "verdict": "ฟ้าทะลายโจรชนะขาดลอย!",
+          "red_pct": 95,
+          "blue_pct": 35
+        },
+        {
+          "title": "🥊 ยก 3: ความปลอดภัยเมื่อใช้ระยะสั้น ≤ 5 วัน",
+          "verdict": "ปลอดภัยเท่าเทียมกัน",
+          "red_pct": 70,
+          "blue_pct": 70
+        }
+      ],
+      "verdict_text": "ฟ้าทะลายโจรลดอาการไอและเจ็บคอได้ดีเยี่ยม สนับสนุนนโยบาย RDU ขั้นสูงสุดของ รพ.เสิงสาง ตัดการใช้ยาปฏิชีวนะเกินจำเป็น!",
+      "punchline": "ฟ้าทะลายโจรลดไอเจ็บคอไวกว่า เสริมธง RDU ตัดยาปฏิชีวนะพร่ำเพรื่อ"
+    },
+    {
+      "bout_id": "cardio_renal",
+      "track_id": "cardio_renal",
+      "tab_label": "🫀 ศึกชะลอไต-หัวใจ",
+      "headline": "🫀 ศึกมวยคู่เอก: Dapagliflozin หลังทำหัตถการหัวใจ/ไตเสื่อม (DAPA-TAVI & DAPA-CKD)",
+      "red_name": "Dapagliflozin 10 mg",
+      "red_sub": "SGLT2i (บัญชียา รพ.เสิงสาง)",
+      "blue_name": "Standard Care เดี่ยว",
+      "blue_sub": "การรักษามาตรฐานเดิม",
+      "rounds": [
+        {
+          "title": "🥊 ยก 1: ลดตาย & หัวใจล้มเหลวกำเริบ (DM & Non-DM)",
+          "verdict": "Dapa ชนะขาด",
+          "red_pct": 82,
+          "blue_pct": 38
+        },
+        {
+          "title": "🥊 ยก 2: ชะลอ eGFR Slope เสื่อมลง",
+          "verdict": "Dapa ชนะขาดลอย",
+          "red_pct": 85,
+          "blue_pct": 40
+        },
+        {
+          "title": "🥊 ยก 3: คุ้มค่าลดนอน รพ.ซ้ำ (BI-HQ ROI)",
+          "verdict": "ประหยัดค่ารักษาระยะยาวชัดเจน",
+          "red_pct": 88,
+          "blue_pct": 30
+        }
+      ],
+      "verdict_text": "Dapagliflozin ป้องกัน Heart Failure กำเริบและชะลอไตวายได้ทั้งคนที่เป็นและไม่เป็นเบาหวาน คุ้มค่าสูงมากในการลด Re-admission รพ.เสิงสาง!",
+      "punchline": "Dapagliflozin ชนะขาดทั้งกลุ่มเบาหวานและไม่เป็นเบาหวาน คุ้มค่าลด Re-admission"
+    },
     {
       "bout_id": "anticoagulation",
       "track_id": "anticoagulation",
@@ -42,69 +168,8 @@
           "blue_pct": 25
         }
       ],
-      "verdict_text": "ในผู้ป่วยความเสี่ยงต่ำหลังผ่าตัดเปลี่ยนข้อเข่า/สะโพก การใช้ Aspirin ปลอดภัยและลดภาระงานคลินิกวาร์ฟารินของ รพ.ชุมชนได้มหาศาล!"
-    },
-    {
-      "bout_id": "cardio_renal",
-      "track_id": "cardio_renal",
-      "tab_label": "🫀 ศึกชะลอไต-หัวใจ",
-      "headline": "🫀 ศึกมวยคู่เอก: Dapagliflozin หลังเปลี่ยนลิ้นหัวใจ TAVR (DAPA-TAVI, N=1,222)",
-      "red_name": "Dapagliflozin 10 mg",
-      "red_sub": "SGLT2i (มีในบัญชี รพ.เสิงสาง)",
-      "blue_name": "Standard Care เดี่ยว",
-      "blue_sub": "การรักษามาตรฐานเดิม",
-      "rounds": [
-        {
-          "title": "🥊 ยก 1: ลดตาย & หัวใจล้มเหลวกำเริบ (DM)",
-          "verdict": "Dapa ชนะขาด",
-          "red_pct": 80,
-          "blue_pct": 40
-        },
-        {
-          "title": "🥊 ยก 2: ประสิทธิผลในผู้ป่วยไม่เป็นเบาหวาน",
-          "verdict": "Dapa ชนะเท่าเทียมกลุ่ม DM!",
-          "red_pct": 82,
-          "blue_pct": 38
-        },
-        {
-          "title": "🥊 ยก 3: คุ้มค่าลดนอน รพ.ซ้ำ (BI-HQ)",
-          "verdict": "ลด Readmission HF ชัดเจน",
-          "red_pct": 85,
-          "blue_pct": 30
-        }
-      ],
-      "verdict_text": "Dapagliflozin ป้องกัน Heart Failure กำเริบได้ทั้งคนที่เป็นและไม่เป็นเบาหวาน คุ้มค่าสูงมากในการลด Re-admission ของ รพ.เสิงสาง!"
-    },
-    {
-      "bout_id": "smoking_cessation",
-      "track_id": "smoking_cessation",
-      "tab_label": "🚭 ศึกเลิกบุหรี่",
-      "headline": "🚭 ศึกมวยคู่เอก: เภสัชบำบัดช่วยเลิกบุหรี่และคุมน้ำหนัก (คลินิกฟ้าใส)",
-      "red_name": "สูตรผสม BUP + ZON",
-      "red_sub": "Bupropion + Zonisamide",
-      "blue_name": "สูตรเดี่ยว BUP",
-      "blue_sub": "Bupropion Monotherapy",
-      "rounds": [
-        {
-          "title": "🥊 ยก 1: ความเร็วลดควันบุหรี่ (eCO Drop)",
-          "verdict": "สูตรผสมชนะ (+25%)",
-          "red_pct": 75,
-          "blue_pct": 50
-        },
-        {
-          "title": "🥊 ยก 2: คุมน้ำหนักตัวไม่ให้เด้ง (Weight Gain)",
-          "verdict": "สูตรผสมชนะน็อค! (ไม่พุ่ง)",
-          "red_pct": 90,
-          "blue_pct": 30
-        },
-        {
-          "title": "🥊 ยก 3: ความพร้อมใช้งานใน รพ.เสิงสาง",
-          "verdict": "BUP เดี่ยว + หญ้าดอกขาว มีพร้อมในคลัง",
-          "red_pct": 45,
-          "blue_pct": 85
-        }
-      ],
-      "verdict_text": "สูตรผสม BUP+ZON เด่นเรื่องหยุดน้ำหนักพุ่งหลังเลิกบุหรี่ ส่วนหน้างานคลินิกฟ้าใส รพ.เสิงสาง ใช้ Bupropion + หญ้าดอกขาว + 5A ได้ทันที!"
+      "verdict_text": "ในผู้ป่วยความเสี่ยงต่ำหลังผ่าตัดเปลี่ยนข้อเข่า/สะโพก การใช้ Aspirin ปลอดภัยและลดภาระงานคลินิกวาร์ฟารินของ รพ.ชุมชนได้มหาศาล!",
+      "punchline": "Aspirin ได้ผลเท่ากันในเคสความเสี่ยงต่ำ ไม่ต้องเจาะ INR ลดภาระคลินิกวาร์ฟาริน"
     },
     {
       "bout_id": "ams_rdu",
@@ -135,7 +200,40 @@
           "blue_pct": 30
         }
       ],
-      "verdict_text": "ปอดบวมเด็กชนิดไม่รุนแรง (Non-severe CAP) จ่าย Amoxicillin สูตรสั้น 3–5 วัน หายเท่ากัน ลดเชื้อดื้อยา และประหยัดงบค่ายา รพ.เสิงสาง!"
+      "verdict_text": "ปอดบวมเด็กชนิดไม่รุนแรง (Non-severe CAP) จ่าย Amoxicillin สูตรสั้น 3–5 วัน หายเท่ากัน ลดเชื้อดื้อยา และประหยัดงบค่ายา รพ.เสิงสาง!",
+      "punchline": "สูตรสั้น 3-5 วัน รักษาหายเท่ากัน ลดดื้อยา พ่อแม่ป้อนง่าย ประหยัดงบ รพ."
+    },
+    {
+      "bout_id": "deprescribing",
+      "track_id": "deprescribing",
+      "tab_label": "👴 ศึกตัดยาคนแก่",
+      "headline": "👴 ศึกมวยคู่เอก: หยุดยานอนหลับ Benzodiazepines vs กินต่อเนื่องในผู้สูงอายุที่มี Polypharmacy",
+      "red_name": "Deprescribing มีเภสัชกรประกบ",
+      "red_sub": "Tapering ค่อยๆ ลด + สุขอนามัยนอน",
+      "blue_name": "กินยาเดิมต่อเนื่อง (Status Quo)",
+      "blue_sub": "จ่ายยาซ้ำเดิมต่อเนื่อง",
+      "rounds": [
+        {
+          "title": "🥊 ยก 1: ลดอุบัติการณ์หกล้มและกระดูกหัก (Fall Risk)",
+          "verdict": "กลุ่มตัดยาชนะขาด (ลดล้ม 40%)",
+          "red_pct": 85,
+          "blue_pct": 30
+        },
+        {
+          "title": "🥊 ยก 2: คุณภาพการนอนหลับและการรู้คิด (Cognition)",
+          "verdict": "สมองแจ่มใสขึ้น ไม่เบลอ",
+          "red_pct": 80,
+          "blue_pct": 40
+        },
+        {
+          "title": "🥊 ยก 3: ป้องกันอาการถอนยา (Rebound Insomnia)",
+          "verdict": "Tapering เป็นระบบแทบไม่มีอาการ",
+          "red_pct": 75,
+          "blue_pct": 50
+        }
+      ],
+      "verdict_text": "การมีเภสัชกรช่วยแพทย์ตัดยานอนหลับในผู้สูงอายุ ลดความเสี่ยงหกล้มสะโพกหักได้มหาศาล เซฟค่าผ่าตัดให้ รพ.เสิงสาง ได้หลักแสน!",
+      "punchline": "เภสัชกรช่วย Tapering ยานอนหลับ ลดหกล้ม 40% ตัดค่าผ่าตัดกระดูกหักได้มหาศาล"
     }
   ],
   "tracks": {

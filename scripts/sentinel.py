@@ -41,6 +41,19 @@ DATA_DIR = os.path.join(BASE_DIR, "data")
 REPORTS_DIR = os.path.join(BASE_DIR, "reports")
 DOCS_DIR = os.path.join(BASE_DIR, "docs")
 
+# Auto-load local .env if present (Zero external dependencies)
+ENV_FILE = os.path.join(BASE_DIR, ".env")
+if os.path.exists(ENV_FILE):
+    try:
+        with open(ENV_FILE, "r", encoding="utf-8") as _f:
+            for _line in _f:
+                _line = _line.strip()
+                if _line and not _line.startswith("#") and "=" in _line:
+                    _k, _v = _line.split("=", 1)
+                    os.environ.setdefault(_k.strip(), _v.strip())
+    except Exception:
+        pass
+
 SEEN_FILE = os.path.join(DATA_DIR, "seen_pmids.json")
 CACHE_FILE = os.path.join(DATA_DIR, "latest_articles_cache.json")
 PAYLOAD_FILE = os.path.join(DATA_DIR, "latest_sentinel_payload.json")
@@ -164,8 +177,76 @@ TRACK_CONFIGS = [
     }
 ]
 
-# Dynamic Multi-Bout Showdown Registry (Fix #4)
+# Dynamic Multi-Bout Showdown Registry (Fix #4 & 7-Track Coverage)
 DEFAULT_SHOWDOWN_BOUTS = [
+    {
+        "bout_id": "asthma_copd",
+        "track_id": "asthma_copd",
+        "tab_label": "🫁 ศึกพ่นหอบหืด/COPD",
+        "headline": "🫁 ศึกมวยคู่เอก: Triple Therapy (Trelegy) vs Dual Bronchodilator ในผู้ป่วย COPD กำเริบ",
+        "red_name": "Single Inhaler Triple",
+        "red_sub": "FF/UMEC/VI พ่นวันละ 1 ครั้ง",
+        "blue_name": "Dual Therapy (LAMA+LABA)",
+        "blue_sub": "สูตรคุมอาการ 2 ตัวยาเดิม",
+        "rounds": [
+            {"title": "🥊 ยก 1: ลดอัตราหอบกำเริบ (Exacerbation)", "verdict": "Triple ชนะขาด (ลดลง 25%)", "red_pct": 85, "blue_pct": 40},
+            {"title": "🥊 ยก 2: ความสะดวก & ผู้ป่วยพ่นครบ (Adherence)", "verdict": "พ่นยาวันละครั้งชนะใส", "red_pct": 90, "blue_pct": 50},
+            {"title": "🥊 ยก 3: อัตราเกิดปอดบวม (Pneumonia Risk)", "verdict": "Dual ปลอดภัยกว่าเล็กน้อย", "red_pct": 45, "blue_pct": 75}
+        ],
+        "verdict_text": "ผู้ป่วย COPD กลุ่มเสี่ยงสูงที่มีประวัตินอน รพ. จากหอบกำเริบ สูตร Triple คุ้มค่าสูงสุดในการตัดวงจร Re-admission ของ รพ.เสิงสาง!",
+        "punchline": "Triple Therapy ลดหอบกำเริบขาดลอย คุ้มค่าสูงสุดตัดวงจร Re-admission รพ.เสิงสาง"
+    },
+    {
+        "bout_id": "smoking_cessation",
+        "track_id": "smoking_cessation",
+        "tab_label": "🚭 ศึกเลิกบุหรี่",
+        "headline": "🚭 ศึกมวยคู่เอก: เภสัชบำบัดช่วยเลิกบุหรี่และคุมน้ำหนัก (คลินิกฟ้าใส รพ.เสิงสาง)",
+        "red_name": "สูตรผสม BUP + ZON",
+        "red_sub": "Bupropion + Zonisamide",
+        "blue_name": "สูตรเดี่ยว BUP + ชาดอกขาว",
+        "blue_sub": "Bupropion + ชาสมุนไพร",
+        "rounds": [
+            {"title": "🥊 ยก 1: ความเร็วลดควันบุหรี่ (eCO Drop)", "verdict": "สูตรผสมชนะ (+25%)", "red_pct": 75, "blue_pct": 50},
+            {"title": "🥊 ยก 2: คุมน้ำหนักตัวไม่ให้เด้ง (Weight Gain)", "verdict": "สูตรผสมชนะน็อค! (ไม่พุ่ง)", "red_pct": 90, "blue_pct": 30},
+            {"title": "🥊 ยก 3: ความพร้อมใช้งานใน รพ.เสิงสาง", "verdict": "BUP เดี่ยว + หญ้าดอกขาว มีพร้อมในคลัง", "red_pct": 45, "blue_pct": 85}
+        ],
+        "verdict_text": "สูตรผสมเด่นคุมน้ำหนัก แต่หน้างานคลินิกฟ้าใส รพ.เสิงสาง ใช้ Bupropion + ชาหญ้าดอกขาว เบิกจ่ายได้ทันทีและผลลัพธ์ดีเยี่ยม!",
+        "punchline": "หน้างานคลินิกฟ้าใส รพ.เสิงสาง ชู Bupropion + หญ้าดอกขาว พร้อมใช้งานทันที"
+    },
+    {
+        "bout_id": "thai_herbs",
+        "track_id": "thai_herbs",
+        "tab_label": "🌿 ศึกสมุนไพรทางเดินหายใจ",
+        "headline": "🌿 ศึกมวยคู่เอก: สารสกัดฟ้าทะลายโจร (Andrographis) vs ยาบรรเทาอาการมาตรฐาน ในหวัด/เจ็บคอ (URTI)",
+        "red_name": "ฟ้าทะลายโจร (Andrographolide)",
+        "red_sub": "สารสกัดมาตรฐาน 60-120 mg/day",
+        "blue_name": "ยาแก้ไอ/ลดน้ำมูกมาตรฐาน",
+        "blue_sub": "ยาแผนปัจจุบันตามอาการ",
+        "rounds": [
+            {"title": "🥊 ยก 1: ลดระยะเวลาอาการไอและเจ็บคอ", "verdict": "ฟ้าทะลายโจรชนะ (หายไวกว่า 1-2 วัน)", "red_pct": 82, "blue_pct": 55},
+            {"title": "🥊 ยก 2: สนับสนุนเกณฑ์ RDU ตัดยาปฏิชีวนะเกินจำเป็น", "verdict": "ฟ้าทะลายโจรชนะขาดลอย!", "red_pct": 95, "blue_pct": 35},
+            {"title": "🥊 ยก 3: ความปลอดภัยเมื่อใช้ระยะสั้น ≤ 5 วัน", "verdict": "ปลอดภัยเท่าเทียมกัน", "red_pct": 70, "blue_pct": 70}
+        ],
+        "verdict_text": "ฟ้าทะลายโจรลดอาการไอและเจ็บคอได้ดีเยี่ยม สนับสนุนนโยบาย RDU ขั้นสูงสุดของ รพ.เสิงสาง ตัดการใช้ยาปฏิชีวนะเกินจำเป็น!",
+        "punchline": "ฟ้าทะลายโจรลดไอเจ็บคอไวกว่า เสริมธง RDU ตัดยาปฏิชีวนะพร่ำเพรื่อ"
+    },
+    {
+        "bout_id": "cardio_renal",
+        "track_id": "cardio_renal",
+        "tab_label": "🫀 ศึกชะลอไต-หัวใจ",
+        "headline": "🫀 ศึกมวยคู่เอก: Dapagliflozin หลังทำหัตถการหัวใจ/ไตเสื่อม (DAPA-TAVI & DAPA-CKD)",
+        "red_name": "Dapagliflozin 10 mg",
+        "red_sub": "SGLT2i (บัญชียา รพ.เสิงสาง)",
+        "blue_name": "Standard Care เดี่ยว",
+        "blue_sub": "การรักษามาตรฐานเดิม",
+        "rounds": [
+            {"title": "🥊 ยก 1: ลดตาย & หัวใจล้มเหลวกำเริบ (DM & Non-DM)", "verdict": "Dapa ชนะขาด", "red_pct": 82, "blue_pct": 38},
+            {"title": "🥊 ยก 2: ชะลอ eGFR Slope เสื่อมลง", "verdict": "Dapa ชนะขาดลอย", "red_pct": 85, "blue_pct": 40},
+            {"title": "🥊 ยก 3: คุ้มค่าลดนอน รพ.ซ้ำ (BI-HQ ROI)", "verdict": "ประหยัดค่ารักษาระยะยาวชัดเจน", "red_pct": 88, "blue_pct": 30}
+        ],
+        "verdict_text": "Dapagliflozin ป้องกัน Heart Failure กำเริบและชะลอไตวายได้ทั้งคนที่เป็นและไม่เป็นเบาหวาน คุ้มค่าสูงมากในการลด Re-admission รพ.เสิงสาง!",
+        "punchline": "Dapagliflozin ชนะขาดทั้งกลุ่มเบาหวานและไม่เป็นเบาหวาน คุ้มค่าลด Re-admission"
+    },
     {
         "bout_id": "anticoagulation",
         "track_id": "anticoagulation",
@@ -180,39 +261,8 @@ DEFAULT_SHOWDOWN_BOUTS = [
             {"title": "🥊 ยก 2: ความปลอดภัย (Major Bleeding)", "verdict": "Aspirin ปลอดภัยสูง", "red_pct": 65, "blue_pct": 45},
             {"title": "🥊 ยก 3: ความคุ้มค่า & ลดภาระเจาะ INR", "verdict": "Aspirin ชนะน็อค! (ไม่ต้องเจาะ INR)", "red_pct": 92, "blue_pct": 25}
         ],
-        "verdict_text": "ในผู้ป่วยความเสี่ยงต่ำหลังผ่าตัดเปลี่ยนข้อเข่า/สะโพก การใช้ Aspirin ปลอดภัยและลดภาระงานคลินิกวาร์ฟารินของ รพ.ชุมชนได้มหาศาล!"
-    },
-    {
-        "bout_id": "cardio_renal",
-        "track_id": "cardio_renal",
-        "tab_label": "🫀 ศึกชะลอไต-หัวใจ",
-        "headline": "🫀 ศึกมวยคู่เอก: Dapagliflozin หลังเปลี่ยนลิ้นหัวใจ TAVR (DAPA-TAVI, N=1,222)",
-        "red_name": "Dapagliflozin 10 mg",
-        "red_sub": "SGLT2i (มีในบัญชี รพ.เสิงสาง)",
-        "blue_name": "Standard Care เดี่ยว",
-        "blue_sub": "การรักษามาตรฐานเดิม",
-        "rounds": [
-            {"title": "🥊 ยก 1: ลดตาย & หัวใจล้มเหลวกำเริบ (DM)", "verdict": "Dapa ชนะขาด", "red_pct": 80, "blue_pct": 40},
-            {"title": "🥊 ยก 2: ประสิทธิผลในผู้ป่วยไม่เป็นเบาหวาน", "verdict": "Dapa ชนะเท่าเทียมกลุ่ม DM!", "red_pct": 82, "blue_pct": 38},
-            {"title": "🥊 ยก 3: คุ้มค่าลดนอน รพ.ซ้ำ (BI-HQ)", "verdict": "ลด Readmission HF ชัดเจน", "red_pct": 85, "blue_pct": 30}
-        ],
-        "verdict_text": "Dapagliflozin ป้องกัน Heart Failure กำเริบได้ทั้งคนที่เป็นและไม่เป็นเบาหวาน คุ้มค่าสูงมากในการลด Re-admission ของ รพ.เสิงสาง!"
-    },
-    {
-        "bout_id": "smoking_cessation",
-        "track_id": "smoking_cessation",
-        "tab_label": "🚭 ศึกเลิกบุหรี่",
-        "headline": "🚭 ศึกมวยคู่เอก: เภสัชบำบัดช่วยเลิกบุหรี่และคุมน้ำหนัก (คลินิกฟ้าใส)",
-        "red_name": "สูตรผสม BUP + ZON",
-        "red_sub": "Bupropion + Zonisamide",
-        "blue_name": "สูตรเดี่ยว BUP",
-        "blue_sub": "Bupropion Monotherapy",
-        "rounds": [
-            {"title": "🥊 ยก 1: ความเร็วลดควันบุหรี่ (eCO Drop)", "verdict": "สูตรผสมชนะ (+25%)", "red_pct": 75, "blue_pct": 50},
-            {"title": "🥊 ยก 2: คุมน้ำหนักตัวไม่ให้เด้ง (Weight Gain)", "verdict": "สูตรผสมชนะน็อค! (ไม่พุ่ง)", "red_pct": 90, "blue_pct": 30},
-            {"title": "🥊 ยก 3: ความพร้อมใช้งานใน รพ.เสิงสาง", "verdict": "BUP เดี่ยว + หญ้าดอกขาว มีพร้อมในคลัง", "red_pct": 45, "blue_pct": 85}
-        ],
-        "verdict_text": "สูตรผสม BUP+ZON เด่นเรื่องหยุดน้ำหนักพุ่งหลังเลิกบุหรี่ ส่วนหน้างานคลินิกฟ้าใส รพ.เสิงสาง ใช้ Bupropion + หญ้าดอกขาว + 5A ได้ทันที!"
+        "verdict_text": "ในผู้ป่วยความเสี่ยงต่ำหลังผ่าตัดเปลี่ยนข้อเข่า/สะโพก การใช้ Aspirin ปลอดภัยและลดภาระงานคลินิกวาร์ฟารินของ รพ.ชุมชนได้มหาศาล!",
+        "punchline": "Aspirin ได้ผลเท่ากันในเคสความเสี่ยงต่ำ ไม่ต้องเจาะ INR ลดภาระคลินิกวาร์ฟาริน"
     },
     {
         "bout_id": "ams_rdu",
@@ -228,7 +278,25 @@ DEFAULT_SHOWDOWN_BOUTS = [
             {"title": "🥊 ยก 2: ความร่วมมือในการกินยา (Adherence)", "verdict": "สูตรสั้นชนะขาด (พ่อแม่ป้อนง่าย)", "red_pct": 85, "blue_pct": 45},
             {"title": "🥊 ยก 3: ลดผลข้างเคียงท้องเสีย & เชื้อดื้อยา", "verdict": "สูตรสั้นชนะน็อคตามเกณฑ์ RDU!", "red_pct": 88, "blue_pct": 30}
         ],
-        "verdict_text": "ปอดบวมเด็กชนิดไม่รุนแรง (Non-severe CAP) จ่าย Amoxicillin สูตรสั้น 3–5 วัน หายเท่ากัน ลดเชื้อดื้อยา และประหยัดงบค่ายา รพ.เสิงสาง!"
+        "verdict_text": "ปอดบวมเด็กชนิดไม่รุนแรง (Non-severe CAP) จ่าย Amoxicillin สูตรสั้น 3–5 วัน หายเท่ากัน ลดเชื้อดื้อยา และประหยัดงบค่ายา รพ.เสิงสาง!",
+        "punchline": "สูตรสั้น 3-5 วัน รักษาหายเท่ากัน ลดดื้อยา พ่อแม่ป้อนง่าย ประหยัดงบ รพ."
+    },
+    {
+        "bout_id": "deprescribing",
+        "track_id": "deprescribing",
+        "tab_label": "👴 ศึกตัดยาคนแก่",
+        "headline": "👴 ศึกมวยคู่เอก: หยุดยานอนหลับ Benzodiazepines vs กินต่อเนื่องในผู้สูงอายุที่มี Polypharmacy",
+        "red_name": "Deprescribing มีเภสัชกรประกบ",
+        "red_sub": "Tapering ค่อยๆ ลด + สุขอนามัยนอน",
+        "blue_name": "กินยาเดิมต่อเนื่อง (Status Quo)",
+        "blue_sub": "จ่ายยาซ้ำเดิมต่อเนื่อง",
+        "rounds": [
+            {"title": "🥊 ยก 1: ลดอุบัติการณ์หกล้มและกระดูกหัก (Fall Risk)", "verdict": "กลุ่มตัดยาชนะขาด (ลดล้ม 40%)", "red_pct": 85, "blue_pct": 30},
+            {"title": "🥊 ยก 2: คุณภาพการนอนหลับและการรู้คิด (Cognition)", "verdict": "สมองแจ่มใสขึ้น ไม่เบลอ", "red_pct": 80, "blue_pct": 40},
+            {"title": "🥊 ยก 3: ป้องกันอาการถอนยา (Rebound Insomnia)", "verdict": "Tapering เป็นระบบแทบไม่มีอาการ", "red_pct": 75, "blue_pct": 50}
+        ],
+        "verdict_text": "การมีเภสัชกรช่วยแพทย์ตัดยานอนหลับในผู้สูงอายุ ลดความเสี่ยงหกล้มสะโพกหักได้มหาศาล เซฟค่าผ่าตัดให้ รพ.เสิงสาง ได้หลักแสน!",
+        "punchline": "เภสัชกรช่วย Tapering ยานอนหลับ ลดหกล้ม 40% ตัดค่าผ่าตัดกระดูกหักได้มหาศาล"
     }
 ]
 
@@ -777,6 +845,31 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
 
     all_sections_joined = "\n".join(track_sections_html)
 
+    # Build Championship Fight Cards for Battle Mode (Clean, Punchy, No Heavy Clutter)
+    champ_cards_html = []
+    for b in showdown_bouts:
+        btid = b.get("track_id", "")
+        punch = b.get("punchline") or b.get("verdict_text", "")
+        champ_cards_html.append(f"""
+        <div class="champ-card" data-track-id="{btid}" onclick="handleChampCardClick('{btid}', event)">
+          <div class="champ-header">
+            <span class="champ-tag">{html_lib.escape(b.get('tab_label', ''))}</span>
+            <span class="champ-status">🥊 KO VERDICT</span>
+          </div>
+          <div class="champ-matchup">
+            <div class="champ-fighter red">🔴 {html_lib.escape(b.get('red_name', ''))}</div>
+            <div class="champ-vs">VS</div>
+            <div class="champ-fighter blue">🔵 {html_lib.escape(b.get('blue_name', ''))}</div>
+          </div>
+          <div class="champ-verdict">
+            🎯 <strong>หมัดเด็ดฟันธง:</strong> {html_lib.escape(punch)}
+          </div>
+          <div class="champ-footer">
+            <button class="champ-read-btn" onclick="goToFormalTrack('{btid}')">📄 อ่านวิเคราะห์ฉบับเต็มในโหมดทางการ →</button>
+          </div>
+        </div>""")
+    champ_deck_joined = "\n".join(champ_cards_html)
+
     md_escaped = json.dumps(markdown_content, ensure_ascii=False).replace("</", r"<\/")
     bouts_escaped = json.dumps(showdown_bouts, ensure_ascii=False).replace("</", r"<\/")
 
@@ -1249,6 +1342,193 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
     }}
     .formal-box a {{ color: var(--neon-cyan); }}
     .formal-box hr {{ border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 1rem 0; }}
+
+    /* Championship Deck Grid (Clean, Punchy, Fun for Battle Mode) */
+    .deck-header {{
+      margin: 1.1rem 0 0.8rem 0;
+      padding: 0.65rem 0.9rem;
+      background: rgba(30, 41, 59, 0.55);
+      border-radius: 0.8rem;
+      border-left: 3px solid var(--gold);
+    }}
+    .deck-title {{
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }}
+    .deck-subtitle {{
+      font-size: 0.73rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }}
+    .champ-deck-grid {{
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }}
+    @media (min-width: 640px) {{
+      .champ-deck-grid {{
+        grid-template-columns: repeat(2, 1fr);
+      }}
+    }}
+    .champ-card {{
+      background: var(--card-bg);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 1rem;
+      padding: 0.95rem;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }}
+    .champ-card:hover {{
+      border-color: rgba(6, 182, 212, 0.45);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+    }}
+    .champ-header {{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.55rem;
+    }}
+    .champ-tag {{
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--neon-cyan);
+      background: rgba(6, 182, 212, 0.12);
+      padding: 0.18rem 0.55rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(6, 182, 212, 0.3);
+    }}
+    .champ-status {{
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--gold);
+      background: rgba(245, 158, 11, 0.12);
+      padding: 0.15rem 0.5rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(245, 158, 11, 0.25);
+    }}
+    .champ-matchup {{
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 0.4rem;
+      text-align: center;
+      background: rgba(15, 23, 42, 0.65);
+      border-radius: 0.65rem;
+      padding: 0.55rem 0.4rem;
+      margin-bottom: 0.55rem;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }}
+    .champ-fighter {{
+      font-size: 0.76rem;
+      font-weight: 700;
+      line-height: 1.25;
+    }}
+    .champ-fighter.red {{ color: #fca5a5; }}
+    .champ-fighter.blue {{ color: #93c5fd; }}
+    .champ-vs {{
+      font-family: 'Bungee', cursive;
+      font-size: 0.8rem;
+      color: var(--gold);
+    }}
+    .champ-verdict {{
+      font-size: 0.78rem;
+      color: #f1f5f9;
+      line-height: 1.4;
+      background: rgba(6, 182, 212, 0.08);
+      border-left: 3px solid var(--neon-cyan);
+      padding: 0.45rem 0.65rem;
+      border-radius: 0.4rem;
+      margin-bottom: 0.65rem;
+    }}
+    .champ-footer {{
+      text-align: right;
+    }}
+    .champ-read-btn {{
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #cbd5e1;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.32rem 0.65rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }}
+    .champ-read-btn:hover {{
+      background: rgba(6, 182, 212, 0.2);
+      border-color: var(--neon-cyan);
+      color: #ffffff;
+    }}
+
+    /* Formal Box Styles */
+    .formal-header-card {{
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(6, 182, 212, 0.35);
+      border-radius: 1rem;
+      padding: 1.1rem;
+      margin-bottom: 1.2rem;
+    }}
+    .formal-title-row {{
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.85rem;
+    }}
+    .formal-crest {{
+      font-size: 2rem;
+    }}
+    .formal-heading {{
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin: 0 !important;
+    }}
+    .formal-subheading {{
+      font-size: 0.74rem;
+      color: var(--neon-cyan);
+      margin: 0.15rem 0 0 0 !important;
+    }}
+    .formal-meta-grid {{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      color: #cbd5e1;
+      background: rgba(0, 0, 0, 0.25);
+      padding: 0.6rem 0.8rem;
+      border-radius: 0.6rem;
+    }}
+    .formal-divider {{
+      border: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      margin: 1.5rem 0;
+    }}
+    .formal-section-header {{
+      margin-bottom: 1rem;
+    }}
+    .formal-section-title {{
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--gold);
+      margin-bottom: 0.25rem;
+    }}
+    .formal-section-sub {{
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }}
+    .highlight-flash {{
+      animation: flash-highlight 1.8s ease;
+    }}
+    @keyframes flash-highlight {{
+      0% {{ box-shadow: 0 0 0 4px var(--neon-cyan); }}
+      100% {{ box-shadow: none; }}
+    }}
   </style>
 </head>
 <body>
@@ -1301,17 +1581,55 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
       <div class="chibi-avatar">👨‍⚕️</div>
       <div class="speech-bubble">
         <strong>โน้ตจาก ภก.รัฐนนท์ (ประธานทีม IM รพ.เสิงสาง):</strong>
-        "อัปเกรดสู่ <strong>v2.2.0-HQ</strong> ผ่าตัดครบ 8 จุดตามคำแนะนำพี่ใหญ่ Argon แล้วครับ! อ่าน Abstract เต็ม 3,000 ตัวอักษร, กรอง N ≥ 30 รองรับหลักพัน, กดปุ่มกรองหมวดไม่มีเพี้ยน พร้อมป้ายสถานะบัญชียา รพ.เสิงสาง (Rx-Sentinel) และมุมมองความคุ้มค่า (BI-HQ) ครบทุกการ์ดครับ!"
+        "โหมดศึกดวลสรุปคู่เอก 7 หมวดให้อ่านสนุกกระชับ สแกนผลตัดสินใน 1 นาที หากต้องการอ่านบทคัดย่อตัวเต็ม สถิติ N, PMC และบทวิเคราะห์ 3 มิติ รพ.เสิงสาง กดปุ่ม <strong>'อ่านวิเคราะห์ฉบับเต็ม'</strong> หรือสลับไป <strong>'โหมดเอกสารทางการ'</strong> ด้านบนได้ทันทีครับ!"
       </div>
     </div>
 
-    <!-- BATTLE MODE TRACK CARDS (Fix #3: Deterministic data-track-id filtering) -->
+    <!-- BATTLE MODE: 7-BOUT CHAMPIONSHIP DECK (Sleek, Fast, Fun, Zero-Clutter) -->
     <div id="battle-cards-container">
-      {all_sections_joined}
+      <div class="deck-header">
+        <div class="deck-title">🥊 รายการศึกดวล 7 คู่เอกประจำรอบสัปดาห์ (Championship Deck)</div>
+        <div class="deck-subtitle">คลิกการ์ดเพื่อสลับคู่มวยด้านบน หรือกดปุ่มเพื่อเปิดอ่านเอกสารและเปเปอร์ทางการแพทย์ฉบับเต็ม</div>
+      </div>
+      <div class="champ-deck-grid">
+        {champ_deck_joined}
+      </div>
     </div>
 
-    <!-- FORMAL MODE MARKDOWN CONTAINER -->
-    <main class="formal-box" id="formal-content"></main>
+    <!-- FORMAL MODE: COMPLETE CLINICAL DOSSIER & EVIDENCE CARDS -->
+    <main class="formal-box" id="formal-content">
+      <div class="formal-header-card">
+        <div class="formal-title-row">
+          <div class="formal-crest">🏛️</div>
+          <div>
+            <h2 class="formal-heading">เอกสารรายงานทางการ: การเฝ้าระวังหลักฐานเชิงประจักษ์ 7 สายงานคลินิก</h2>
+            <p class="formal-subheading">กลุ่มงานเภสัชกรรมและคุ้มครองผู้บริโภค • ทีม Information Management (IM) โรงพยาบาลเสิงสาง</p>
+          </div>
+        </div>
+        <div class="formal-meta-grid">
+          <div class="formal-meta-item">📅 <strong>วันที่จัดทำ:</strong> {report_date}</div>
+          <div class="formal-meta-item">📚 <strong>งานวิจัยผ่านเกณฑ์ N ≥ 30:</strong> {total_articles} เรื่อง</div>
+          <div class="formal-meta-item">📖 <strong>PMC Full-Text อ่านฟรี:</strong> {free_pmc_count} เรื่อง</div>
+          <div class="formal-meta-item">👨‍⚕️ <strong>ผู้รับผิดชอบ:</strong> ภก.รัฐนนท์ แสงไทยทวีพร (ภก.ชพ.)</div>
+        </div>
+      </div>
+
+      <!-- Formal Markdown Dossier Body -->
+      <div id="formal-markdown-body" class="formal-markdown-body"></div>
+
+      <hr class="formal-divider">
+
+      <!-- Full Track Sections with 14 Paper Cards (Moved from Battle Mode!) -->
+      <div class="formal-evidence-section">
+        <div class="formal-section-header">
+          <h3 class="formal-section-title">📑 รายการบทคัดย่อและบทวิเคราะห์เชิงลึกประจำสายงาน (Clinical Evidence Cards)</h3>
+          <p class="formal-section-sub">บทวิเคราะห์เฉพาะทาง รพ.เสิงสาง (Action) • การเฝ้าระวังความปลอดภัย (Rx-Sentinel) • ความคุ้มค่าทางเศรษฐศาสตร์ (BI-HQ)</p>
+        </div>
+        <div id="formal-track-cards">
+          {all_sections_joined}
+        </div>
+      </div>
+    </main>
 
     <footer style="text-align: center; margin-top: 2rem; font-size: 0.75rem; color: var(--text-muted);">
       <p><strong>ผู้รับผิดชอบระบบ:</strong> ภก.รัฐนนท์ แสงไทยทวีพร, เภสัชกรชำนาญการ</p>
@@ -1329,14 +1647,17 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
     const boutsData = {bouts_escaped};
     let currentBoutIndex = 0;
     let currentMode = 'fun';
+    let currentTrackFilter = 'all';
     let gongCtx = null;
 
     // Render Formal Markdown
-    const formalBox = document.getElementById('formal-content');
-    if (window.marked) {{
-      formalBox.innerHTML = marked.parse(mdContent);
-    }} else {{
-      formalBox.textContent = mdContent;
+    const formalMarkdownEl = document.getElementById('formal-markdown-body');
+    if (formalMarkdownEl) {{
+      if (window.marked) {{
+        formalMarkdownEl.innerHTML = marked.parse(mdContent);
+      }} else {{
+        formalMarkdownEl.textContent = mdContent;
+      }}
     }}
 
     function renderBout(index) {{
@@ -1372,13 +1693,30 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
       document.getElementById('boutVerdict').innerHTML = `<strong>ฟันธงหน้างาน รพ.เสิงสาง:</strong> ${{b.verdict_text}}`;
     }}
 
-    // Fix #3: Deterministic Track Filtering by exact data-track-id
+    // Deterministic Track Filtering across Battle & Formal modes
     function filterTrack(trackId, btn) {{
+      currentTrackFilter = trackId;
       document.querySelectorAll('.pill-btn').forEach(b => b.classList.remove('active'));
-      if (btn) btn.classList.add('active');
+      if (btn) {{
+        btn.classList.add('active');
+      }} else {{
+        const matchingBtn = document.querySelector(`.pill-btn[data-pill-track="${{trackId}}"]`) || document.querySelector('.pill-btn');
+        if (matchingBtn) matchingBtn.classList.add('active');
+      }}
 
-      const sections = document.querySelectorAll('.track-section');
-      sections.forEach(sec => {{
+      // Filter Championship Cards in Battle Mode
+      const champCards = document.querySelectorAll('.champ-card');
+      champCards.forEach(card => {{
+        if (trackId === 'all' || card.getAttribute('data-track-id') === trackId) {{
+          card.style.display = 'block';
+        }} else {{
+          card.style.display = 'none';
+        }}
+      }});
+
+      // Filter Track Sections in Formal Mode
+      const formalSections = document.querySelectorAll('#formal-track-cards .track-section');
+      formalSections.forEach(sec => {{
         if (trackId === 'all' || sec.getAttribute('data-track-id') === trackId) {{
           sec.style.display = 'block';
         }} else {{
@@ -1386,7 +1724,7 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
         }}
       }});
 
-      // Sync Main Event Showdown card to matching track if available
+      // Sync Main Event Showdown card if available
       if (trackId !== 'all') {{
         const matchIdx = boutsData.findIndex(b => b.track_id === trackId);
         if (matchIdx !== -1) {{
@@ -1399,10 +1737,37 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
       currentMode = mode;
       document.getElementById('btn-fun').classList.toggle('active', mode === 'fun');
       document.getElementById('btn-formal').classList.toggle('active', mode === 'formal');
-      document.getElementById('main-showdown').style.display = mode === 'fun' ? 'block' : 'none';
-      document.getElementById('battle-cards-container').style.display = mode === 'fun' ? 'block' : 'none';
-      document.getElementById('trackPills').style.display = mode === 'fun' ? 'flex' : 'none';
-      document.getElementById('formal-content').style.display = mode === 'formal' ? 'block' : 'none';
+      
+      const isFun = (mode === 'fun');
+      document.getElementById('main-showdown').style.display = isFun ? 'block' : 'none';
+      document.getElementById('battle-cards-container').style.display = isFun ? 'block' : 'none';
+      document.getElementById('formal-content').style.display = isFun ? 'none' : 'block';
+      
+      filterTrack(currentTrackFilter, null);
+    }}
+
+    function handleChampCardClick(trackId, event) {{
+      if (event.target.closest('.champ-read-btn')) return;
+      const matchIdx = boutsData.findIndex(b => b.track_id === trackId);
+      if (matchIdx !== -1) {{
+        renderBout(matchIdx);
+        document.getElementById('main-showdown').scrollIntoView({{ behavior: 'smooth', block: 'start' }});
+      }}
+    }}
+
+    function goToFormalTrack(trackId) {{
+      switchMode('formal');
+      const pill = document.querySelector(`.pill-btn[data-pill-track="${{trackId}}"]`);
+      filterTrack(trackId, pill);
+
+      setTimeout(() => {{
+        const target = document.querySelector(`#formal-track-cards .track-section[data-track-id="${{trackId}}"]`);
+        if (target) {{
+          target.scrollIntoView({{ behavior: 'smooth', block: 'start' }});
+          target.classList.add('highlight-flash');
+          setTimeout(() => {{ target.classList.remove('highlight-flash'); }}, 2000);
+        }}
+      }}, 150);
     }}
 
     function playGong() {{
@@ -1433,6 +1798,112 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
 </body>
 </html>"""
     return html
+
+
+def load_dotenv_if_exists():
+    env_path = os.path.join(BASE_DIR, ".env")
+    if os.path.exists(env_path):
+        try:
+            with open(env_path, "r", encoding="utf-8") as f:
+                for line in f:
+                    line = line.strip()
+                    if line and not line.startswith("#") and "=" in line:
+                        k, v = line.split("=", 1)
+                        k = k.strip()
+                        v = v.strip().strip('"').strip("'")
+                        if k and not os.environ.get(k):
+                            os.environ[k] = v
+        except Exception as e:
+            print(f"[WARN] Failed to load .env: {e}")
+
+
+def send_telegram_notification(report_date, total_articles, free_pmc_count, showdown_bouts, portal_url="https://nutcodelaw.github.io/pubmed-clinical-sentinel/"):
+    """
+    Sends a daily summary of the latest PubMed Sentinel surveillance to Telegram.
+    Reads TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID from environment variables (or local .env).
+    Supports comma-separated chat IDs (e.g. personal chat and hospital channel).
+    Uses standard library urllib (zero external dependencies).
+    """
+    load_dotenv_if_exists()
+    bot_token = os.environ.get("TELEGRAM_BOT_TOKEN", "").strip()
+    chat_id_raw = os.environ.get("TELEGRAM_CHAT_ID", "").strip()
+
+    if not bot_token or not chat_id_raw:
+        print("[INFO] Telegram notification skipped: TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID not configured.")
+        return False
+
+    targets = [c.strip() for c in chat_id_raw.split(",") if c.strip()]
+    if not targets:
+        print("[INFO] No valid chat IDs specified.")
+        return False
+
+    bouts_lines = []
+    for idx, b in enumerate(showdown_bouts, 1):
+        label = b.get("tab_label", f"คู่ที่ {idx}")
+        red = b.get("red_name", "")
+        blue = b.get("blue_name", "")
+        punch = b.get("punchline") or b.get("verdict_text", "")
+        if len(punch) > 130:
+            punch = punch[:127] + "..."
+        bouts_lines.append(
+            f"<b>{idx}. {label}</b>\n"
+            f"🔴 {html_lib.escape(red)} ⚔️ 🔵 {html_lib.escape(blue)}\n"
+            f"💡 <i>{html_lib.escape(punch)}</i>"
+        )
+
+    bouts_summary = "\n\n".join(bouts_lines)
+
+    text = (
+        f"🥊 <b>PUBMED CLINICAL SENTINEL • รายงานประจำวัน</b>\n"
+        f"📅 <b>ประจำวันที่:</b> {report_date}\n"
+        f"🏥 <b>โรงพยาบาลเสิงสาง</b> | ภก.รัฐนนท์ แสงไทยทวีพร (IM Team)\n\n"
+        f"📊 <b>ภาพรวมการเฝ้าระวัง 7 สายงานคลินิก:</b>\n"
+        f"• งานวิจัยใหม่ผ่านเกณฑ์ (N ≥ 30): <b>{total_articles} เรื่อง</b>\n"
+        f"• เปเปอร์อ่านฟรี PMC Full-Text: <b>{free_pmc_count} เรื่อง</b>\n\n"
+        f"⚔️ <b>สรุปผลศึกดวล 7 คู่เอกประจำวัน:</b>\n\n"
+        f"{bouts_summary}\n\n"
+        f"🌐 <b>เปิดอ่านหน้า Battle Arena ฉบับเต็ม:</b>\n"
+        f"{portal_url}\n\n"
+        f"🤖 <i>GitHub Actions Daily Surveillance Engine • รพ.เสิงสาง</i>"
+    )
+
+    url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
+    success_count = 0
+
+    for target in targets:
+        payload = {
+            "chat_id": target,
+            "text": text,
+            "parse_mode": "HTML",
+            "disable_web_page_preview": False
+        }
+        try:
+            data = json.dumps(payload).encode("utf-8")
+            req = urllib.request.Request(
+                url,
+                data=data,
+                headers={"Content-Type": "application/json"}
+            )
+            with urllib.request.urlopen(req, timeout=15) as resp:
+                res_body = resp.read().decode("utf-8")
+                res_json = json.loads(res_body)
+                if res_json.get("ok"):
+                    print(f"[SUCCESS] Telegram dispatch delivered successfully to chat_id: {target}")
+                    success_count += 1
+                else:
+                    print(f"[WARN] Telegram API error for {target}: {res_json.get('description')}")
+        except Exception as e:
+            err_msg = str(e)
+            if hasattr(e, "read"):
+                try:
+                    err_msg = e.read().decode("utf-8")
+                except Exception:
+                    pass
+            print(f"[ERROR] Failed to send Telegram notification to {target}: {err_msg}")
+            if "chat not found" in err_msg.lower():
+                print(f"  💡 คำแนะนำ: สำหรับ Channel/Group {target} กรุณาเชิญ @Google_Antigravity_alert_bot เข้ากลุ่มในฐานะ Administrator")
+
+    return success_count > 0
 
 
 def main():
@@ -1751,6 +2222,18 @@ def main():
         seen_data["last_updated"] = report_date
         save_json_file(SEEN_FILE, seen_data)
         print(f"[DATA] Updated seen_pmids.json with {len(newly_discovered_pmids)} new PMIDs.")
+
+    # 6. Telegram Daily Surveillance Dispatch
+    print("\n[TELEGRAM] Checking Telegram dispatch configuration...")
+    send_telegram_notification(
+        report_date=report_date,
+        total_articles=sum(len(v) for v in articles_by_track.values()),
+        free_pmc_count=sum(
+            1 for arts in articles_by_track.values() for a in arts if a.get("has_free_fulltext")
+        ),
+        showdown_bouts=DEFAULT_SHOWDOWN_BOUTS,
+        portal_url="https://nutcodelaw.github.io/pubmed-clinical-sentinel/"
+    )
 
     print("\n=== PubMed Clinical Sentinel v2.2.0-HQ completed successfully! ===")
 

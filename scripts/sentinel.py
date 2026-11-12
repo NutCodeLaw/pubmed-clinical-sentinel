@@ -1837,35 +1837,31 @@ def send_telegram_notification(report_date, total_articles, free_pmc_count, show
         print("[INFO] No valid chat IDs specified.")
         return False
 
+    # Ultra-concise 1-line bullet points per track/bout (Compact scan, <1,200 chars total)
     bouts_lines = []
     for idx, b in enumerate(showdown_bouts, 1):
-        label = b.get("tab_label", f"คู่ที่ {idx}")
-        red = b.get("red_name", "")
-        blue = b.get("blue_name", "")
+        label = b.get("tab_label", f"คู่ที่ {idx}").strip()
         punch = b.get("punchline") or b.get("verdict_text", "")
-        if len(punch) > 130:
-            punch = punch[:127] + "..."
-        bouts_lines.append(
-            f"<b>{idx}. {label}</b>\n"
-            f"🔴 {html_lib.escape(red)} ⚔️ 🔵 {html_lib.escape(blue)}\n"
-            f"💡 <i>{html_lib.escape(punch)}</i>"
-        )
+        if len(punch) > 75:
+            punch = punch[:72] + "..."
+        bouts_lines.append(f"• {label}: <b>{html_lib.escape(punch)}</b>")
 
-    bouts_summary = "\n\n".join(bouts_lines)
+    bouts_summary = "\n".join(bouts_lines)
 
     text = (
-        f"🥊 <b>PUBMED CLINICAL SENTINEL • รายงานประจำวัน</b>\n"
-        f"📅 <b>ประจำวันที่:</b> {report_date}\n"
-        f"🏥 <b>โรงพยาบาลเสิงสาง</b> | ภก.รัฐนนท์ แสงไทยทวีพร (IM Team)\n\n"
-        f"📊 <b>ภาพรวมการเฝ้าระวัง 7 สายงานคลินิก:</b>\n"
-        f"• งานวิจัยใหม่ผ่านเกณฑ์ (N ≥ 30): <b>{total_articles} เรื่อง</b>\n"
-        f"• เปเปอร์อ่านฟรี PMC Full-Text: <b>{free_pmc_count} เรื่อง</b>\n\n"
-        f"⚔️ <b>สรุปผลศึกดวล 7 คู่เอกประจำวัน:</b>\n\n"
+        f"🥊 <b>PubMed Sentinel • สรุปกระชับประจำวัน</b>\n"
+        f"📅 <b>{report_date}</b> | รพ.เสิงสาง (IM Team)\n\n"
+        f"📊 <b>พบวิจัยใหม่ผ่านเกณฑ์ (N ≥ 30):</b> {total_articles} เรื่อง (PMC ฟรี {free_pmc_count})\n\n"
+        f"⚔️ <b>ไฮไลท์ศึกมวย 7 คู่เอก:</b>\n"
         f"{bouts_summary}\n\n"
-        f"🌐 <b>เปิดอ่านหน้า Battle Arena ฉบับเต็ม:</b>\n"
+        f"🌐 <b>อ่านฉบับเต็ม & ข้อมูลเชิงลึก:</b>\n"
         f"{portal_url}\n\n"
         f"🤖 <i>GitHub Actions Daily Surveillance Engine • รพ.เสิงสาง</i>"
     )
+
+    # Hard-safety guard: Telegram limit is 4,096 chars; cap strictly at 3,500 chars
+    if len(text) > 3500:
+        text = text[:3450] + "...\n\n<i>(คลิกอ่านรายละเอียดทั้งหมดได้ที่ลิงก์ด้านบน)</i>"
 
     url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
     success_count = 0

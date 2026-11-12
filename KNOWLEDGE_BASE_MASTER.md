@@ -1,5 +1,5 @@
 # 📚 PUBMED CLINICAL SENTINEL — KNOWLEDGE BASE MASTER
-## คลังองค์ความรู้แม่บท สถาปัตยกรรมระบบ และประวัติการพัฒนา (v2.1.0-HQ)
+## คลังองค์ความรู้แม่บท สถาปัตยกรรมระบบ และประวัติการพัฒนา (v2.2.0-HQ)
 **ภก.รัฐนนท์ แสงไทยทวีพร (เภสัชกรชำนาญการ, ประธานทีม IM โรงพยาบาลเสิงสาง)**  
 **Repository:** `c:\Users\LENOVO\OneDrive\Desktop\รวมไฟล์งาน\GitHub Projects\pubmed-clinical-sentinel`  
 
@@ -89,6 +89,7 @@
 ```python
 {
     "id": "new_track_id",
+    "pill_label": "🧬 สายงานใหม่",
     "name": "English Track Name",
     "name_th": "ชื่อสายคลินิกภาษาไทย",
     "icon": "🧬",

@@ -64,6 +64,13 @@
       "role": "54-Notebook Clinical Knowledge Graph, Clean-Room Evidence Distillation & Grounded Citations",
       "incoming_pipe": "Deep clinical corpus cross-referencing, historic Soeng Sang clinical data, Clean-room distillation",
       "outgoing_pipe": "Curated new PubMed PMIDs and abstracts for ingestion into NotebookLM corpus"
+    },
+    "github_project_qc_hq": {
+      "conversation_id": "82377efa-9006-4364-a69a-de48227d6995",
+      "name": "GitHub Project QC HQ",
+      "role": "Independent Software Quality Control, 10-Gate Forensic Audit & Continuous Quality Improvement (CQI)",
+      "incoming_pipe": "10-Gate Automated Audit Engine, CQI Rule Enforcement, Zero-Leniency Verification",
+      "outgoing_pipe": "Official Gate Certification Reports, Release Verification & Sentinel Integrity Scores"
     }
   },
   "automation": {

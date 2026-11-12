@@ -28,6 +28,8 @@ import os
 import sys
 import re
 import json
+import time
+import glob
 import html as html_lib
 import datetime
 import urllib.request
@@ -273,15 +275,17 @@ def extract_sample_size(title, abstract_text):
 
     # Pattern 2: "1,222 patients / participants / older adults / children"
     for match in re.finditer(
-        r'\b(\d[\d,]*)\s+(?:patients|participants|subjects|adults|children|adolescents|individuals|residents)\b',
+        r'(?<!in\s)(?<!since\s)(?<!during\s)(?<!year\s)\b(\d[\d,]*)\s+(?:patients|participants|subjects|adults|children|adolescents|individuals|residents)\b',
         combined,
         flags=re.IGNORECASE
     ):
-        raw_num = match.group(1).replace(",", "").strip()
+        raw_str = match.group(1).strip()
+        raw_num = raw_str.replace(",", "")
         if raw_num.isdigit():
             val = int(raw_num)
-            # Filter out likely calendar years unless large cohort
-            if val >= 10 and not (1990 <= val <= 2035):
+            has_comma = "," in raw_str
+            # Filter out likely calendar years unless separated by comma or large cohort
+            if val >= 10 and (has_comma or not (1990 <= val <= 2035)):
                 candidates.append(val)
 
     return max(candidates) if candidates else None
@@ -472,34 +476,40 @@ def fetch_pubmed_articles(pmids, track_id):
     return articles
 
 
-def parse_existing_markdown_summaries(md_path):
+def parse_existing_markdown_summaries(reports_dir):
     """Extracts previously generated Thai summaries per PMID from existing reports so cached articles retain their Thai clinical pearls."""
     summaries_by_pmid = {}
-    if not os.path.exists(md_path):
-        return summaries_by_pmid
-    try:
-        with open(md_path, "r", encoding="utf-8") as f:
-            content = f.read()
-        blocks = re.split(r'\n(?=####\s+\d+\.|###\s+\d+\.)', content)
-        for blk in blocks:
-            m_pmid = re.search(r'PMID:\s*(\d+)', blk)
-            if not m_pmid:
-                continue
-            pmid = m_pmid.group(1)
-            m_takeaway = re.search(r'ใจความสำคัญ 1 บรรทัด:\*\*\s*(.+)', blk)
-            m_action = re.search(r'สิ่งที่ต้องรู้ใน รพ\.เสิงสาง:\*\*\s*(.+)', blk)
-            metrics = re.findall(r'^\s+•\s*\[?([^\]\n]+)\]?', blk, flags=re.MULTILINE)
-            clean_metrics = [
-                m.strip() for m in metrics
-                if m.strip() and not m.strip().startswith("PMID:") and "อ่านฟรี PMC" not in m
-            ]
-            summaries_by_pmid[pmid] = {
-                "thai_takeaway": m_takeaway.group(1).strip() if m_takeaway else "",
-                "soeng_sang_action": m_action.group(1).strip() if m_action else "",
-                "key_metrics": clean_metrics[:3]
-            }
-    except Exception as e:
-        print(f"[WARN] Could not parse existing summaries: {e}")
+    if os.path.isdir(reports_dir):
+        report_files = sorted(glob.glob(os.path.join(reports_dir, "*_respiratory_sentinel.md")))
+    elif os.path.isfile(reports_dir):
+        report_files = [reports_dir]
+    else:
+        report_files = sorted(glob.glob(os.path.join(REPORTS_DIR, "*_respiratory_sentinel.md")))
+
+    for md_path in report_files:
+        try:
+            with open(md_path, "r", encoding="utf-8") as f:
+                content = f.read()
+            blocks = re.split(r'\n(?=####\s+\d+\.|###\s+\d+\.)', content)
+            for blk in blocks:
+                m_pmid = re.search(r'PMID:\s*(\d+)', blk)
+                if not m_pmid:
+                    continue
+                pmid = m_pmid.group(1)
+                m_takeaway = re.search(r'ใจความสำคัญ 1 บรรทัด:\*\*\s*(.+)', blk)
+                m_action = re.search(r'สิ่งที่ต้องรู้ใน รพ\.เสิงสาง:\*\*\s*(.+)', blk)
+                metrics = re.findall(r'^\s+•\s*\[?([^\]\n]+)\]?', blk, flags=re.MULTILINE)
+                clean_metrics = [
+                    m.strip() for m in metrics
+                    if m.strip() and not m.strip().startswith("PMID:") and "อ่านฟรี PMC" not in m
+                ]
+                summaries_by_pmid[pmid] = {
+                    "thai_takeaway": m_takeaway.group(1).strip() if m_takeaway else "",
+                    "soeng_sang_action": m_action.group(1).strip() if m_action else "",
+                    "key_metrics": clean_metrics[:3]
+                }
+        except Exception as e:
+            print(f"[WARN] Could not parse existing summaries from {md_path}: {e}")
     return summaries_by_pmid
 
 
@@ -766,6 +776,9 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
         </section>""")
 
     all_sections_joined = "\n".join(track_sections_html)
+
+    md_escaped = json.dumps(markdown_content, ensure_ascii=False).replace("</", r"<\/")
+    bouts_escaped = json.dumps(showdown_bouts, ensure_ascii=False).replace("</", r"<\/")
 
     html = f"""<!DOCTYPE html>
 <html lang="th">
@@ -1312,10 +1325,11 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
   </div>
 
   <script>
-    const mdContent = {json.dumps(markdown_content, ensure_ascii=False)};
-    const boutsData = {json.dumps(showdown_bouts, ensure_ascii=False)};
+    const mdContent = {md_escaped};
+    const boutsData = {bouts_escaped};
     let currentBoutIndex = 0;
     let currentMode = 'fun';
+    let gongCtx = null;
 
     // Render Formal Markdown
     const formalBox = document.getElementById('formal-content');
@@ -1393,18 +1407,23 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
 
     function playGong() {{
       try {{
-        const ctx = new (window.AudioContext || window.webkitAudioContext)();
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
+        if (!gongCtx) {{
+          gongCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }}
+        if (gongCtx.state === 'suspended') {{
+          gongCtx.resume();
+        }}
+        const osc = gongCtx.createOscillator();
+        const gain = gongCtx.createGain();
         osc.type = 'sine';
-        osc.frequency.setValueAtTime(440, ctx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(110, ctx.currentTime + 1.2);
-        gain.gain.setValueAtTime(0.8, ctx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 1.2);
+        osc.frequency.setValueAtTime(440, gongCtx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(110, gongCtx.currentTime + 1.2);
+        gain.gain.setValueAtTime(0.8, gongCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, gongCtx.currentTime + 1.2);
         osc.connect(gain);
-        gain.connect(ctx.destination);
+        gain.connect(gongCtx.destination);
         osc.start();
-        osc.stop(ctx.currentTime + 1.2);
+        osc.stop(gongCtx.currentTime + 1.2);
       }} catch(e) {{}}
     }}
 
@@ -1603,7 +1622,7 @@ def main():
         }
     }
     seed_summaries = existing_summaries
-    existing_summaries = parse_existing_markdown_summaries(latest_report_path)
+    existing_summaries = parse_existing_markdown_summaries(REPORTS_DIR)
     existing_summaries.update(seed_summaries)
 
     articles_by_track = {}
@@ -1615,35 +1634,49 @@ def main():
         print(f"\n[SCAN] Searching track: {tname} (Past {track['days']} days)...")
 
         pmids = search_pubmed_pmids(track["query"], reldate=track["days"], retmax=track["max_results"] * 3)
+        time.sleep(0.4)
         print(f"  Found {len(pmids)} PMIDs in PubMed search.")
 
-        top_pmids = pmids[:track["max_results"]]
-        to_fetch_pmids = [p for p in top_pmids if p not in cached_by_pmid]
+        # Candidate pool processing: fetch uncached PMIDs across full search pool
+        to_fetch_pmids = [p for p in pmids if p not in cached_by_pmid]
 
         fetched_map = {}
         if to_fetch_pmids:
-            print(f"  Fetching {len(to_fetch_pmids)} uncached top PMID(s): {to_fetch_pmids}")
+            print(f"  Fetching {len(to_fetch_pmids)} uncached candidate PMID(s): {to_fetch_pmids}")
             fetched_list = fetch_pubmed_articles(to_fetch_pmids, tid)
+            time.sleep(0.4)
             for fa in fetched_list:
                 fetched_map[fa["pmid"]] = fa
                 if fa["pmid"] not in seen_set:
                     newly_discovered_pmids.append(fa["pmid"])
 
-        track_articles = []
-        for p in top_pmids:
+        candidate_articles = []
+        for p in pmids:
             if p in cached_by_pmid:
                 a = cached_by_pmid[p]
                 a["extracted_n"] = extract_sample_size(a.get("title", ""), a.get("abstract", ""))
+                is_review_or_meta = any(
+                    kw in f"{a.get('title', '')} {a.get('abstract', '')}".lower()
+                    for kw in ["systematic review", "meta-analysis", "network meta-analysis", "guideline"]
+                )
+                if a.get("extracted_n") is not None and a["extracted_n"] < 30 and not is_review_or_meta:
+                    print(f"  [CACHE-DE-NOISER] Dropping cached study with N < 30 (N={a['extracted_n']}): {a.get('title', '')[:40]}...")
+                    continue
                 raw_pmc = (a.get("pmc_id") or "").strip()
                 if raw_pmc:
                     a["pmc_id"] = raw_pmc if raw_pmc.upper().startswith("PMC") else f"PMC{raw_pmc}"
                     a["pmc_url"] = f"https://www.ncbi.nlm.nih.gov/pmc/articles/{a['pmc_id']}/"
-                track_articles.append(enrich_article_metadata(a, tid))
+                candidate_articles.append(enrich_article_metadata(a, tid))
             elif p in fetched_map:
-                track_articles.append(fetched_map[p])
+                candidate_articles.append(fetched_map[p])
+
+            if len(candidate_articles) >= track["max_results"]:
+                break
+
+        track_articles = candidate_articles[:track["max_results"]]
 
         if not track_articles and cached_tracks.get(tid):
-            track_articles = [enrich_article_metadata(a, tid) for a in cached_tracks[tid]]
+            track_articles = [enrich_article_metadata(a, tid) for a in cached_tracks[tid]][:track["max_results"]]
 
         articles_by_track[tid] = track_articles
         print(f"  Active articles ready for {tname}: {[a['pmid'] for a in track_articles]}")

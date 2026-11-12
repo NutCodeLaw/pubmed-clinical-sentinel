@@ -1,5 +1,5 @@
 # 🤝 ALLIED HQ HANDSHAKE REGISTRY & KNOWLEDGE PIPELINE SPECIFICATION
-**Project:** `pubmed-clinical-sentinel` (v2.1.0-HQ)  
+**Project:** `pubmed-clinical-sentinel` (v2.2.0-HQ)  
 **Lead Investigator:** ภก.รัฐนนท์ แสงไทยทวีพร (เภสัชกรชำนาญการ, ประธานทีม IM โรงพยาบาลเสิงสาง)  
 **Permanent Repository Path:** `c:\Users\LENOVO\OneDrive\Desktop\รวมไฟล์งาน\GitHub Projects\pubmed-clinical-sentinel`  
 **GitHub Origin:** [https://github.com/NutCodeLaw/pubmed-clinical-sentinel](https://github.com/NutCodeLaw/pubmed-clinical-sentinel)  
@@ -9,18 +9,19 @@
 
 ---
 
-## 🌐 เครือข่ายท่อส่งต่อความรู้ (The 5-Allied HQ Knowledge Grid)
-โครงการ **PubMed Clinical Sentinel** ได้ทำการเชื่อมต่อท่อส่งต่อความรู้แบบสองทาง (Bi-Directional Knowledge Pipe) เข้ากับ 5 ศูนย์บัญชาการแม่บท เพื่อให้ทุกแชทในเครือข่ายมีความรู้เท่าเทียมกัน (Omni-Domain Parity) และสามารถเรียกใช้งานร่วมกันได้อย่างไร้รอยต่อ:
+## 🌐 เครือข่ายท่อส่งต่อความรู้ (The 6-Allied HQ Knowledge Grid)
+โครงการ **PubMed Clinical Sentinel** ได้ทำการเชื่อมต่อท่อส่งต่อความรู้แบบสองทาง (Bi-Directional Knowledge Pipe) เข้ากับ 6 ศูนย์บัญชาการแม่บท เพื่อให้ทุกแชทในเครือข่ายมีความรู้เท่าเทียมกัน (Omni-Domain Parity) และสามารถเรียกใช้งานร่วมกันได้อย่างไร้รอยต่อ:
 
 ```mermaid
 flowchart TD
-    Origin["Genesis Chat e2a8d99d<br/>(Prototype & Sandbox Core)"] --> Sentinel["⭐ PubMed Clinical Sentinel (v2.1.0-HQ)<br/>Workspace: GitHub Projects/pubmed-clinical-sentinel"]
+    Origin["Genesis Chat e2a8d99d<br/>(Prototype & Sandbox Core)"] --> Sentinel["⭐ PubMed Clinical Sentinel (v2.2.0-HQ)<br/>Workspace: GitHub Projects/pubmed-clinical-sentinel"]
     
     Sentinel <-->|"Pipe 1: ADR / GFR Cutoffs / Ward Rules"| RxHQ["🏥 Rx-Sentinel Clinical HQ<br/>(9c526177-b891-4897-9464-c241a9d83f00)"]
     Sentinel <-->|"Pipe 2: Chibi Avatars / Thumbnails / Visuals"| VisualHQ["🍌 Nano Banana Visual HQ<br/>(868c4bf8-e705-4425-a903-518e783cfacd)"]
     Sentinel <-->|"Pipe 3: Battle Arena / WebAudio / Gamification"| GameHQ["👑 Game Master Supreme HQ<br/>(576e2ea3-d67e-495c-835e-e75fa1f1e557)"]
     Sentinel <-->|"Pipe 4: Deterministic Math / BIA / Hospital ROI"| BIHQ["🏛️ The Economic / BI-HQ<br/>(2ac58029-fde8-4710-9f54-be162f70f3f4)"]
     Sentinel <-->|"Pipe 5: 54-Notebook Clinical Corpus / Grounding"| NLMHQ["🧠 NotebookLM Refinery HQ<br/>(8ae2bf04-9004-4f7e-9c39-8d3875f6f9dc)"]
+    Sentinel <-->|"Pipe 6: 10-Gate Forensic Audit / CQI Ledger"| QCHQ["🛡️ GitHub Project QC HQ<br/>(82377efa-9006-4364-a69a-de48227d6995)"]
     
     Sentinel -->|"Automated Weekly Cron (Mon 07:00)"| GHA["🤖 GitHub Actions Cloud CI/CD"]
     GHA -->|"Deploy"| Pages["📱 Mobile Battle Arena (GitHub Pages)"]
@@ -69,6 +70,13 @@ flowchart TD
   * มาตรฐานการอ้างอิงหลักฐานแบบ Verbatim Grounded Citations
 * **ท่อส่งออกจาก Sentinel (Outbound Intelligence):**
   * PMID, DOI, และ Full-Text Abstract ใหม่ที่ผ่านการคัดกรองแล้ว เพื่อนำไป Ingest สู่สมอง Google NotebookLM แบบอัตโนมัติ
+
+### 6. 🛡️ GitHub Project QC HQ (`82377efa-9006-4364-a69a-de48227d6995`)
+* **บทบาท:** ศูนย์ตรวจสอบคุณภาพอิสระและนวัตกรรมความปลอดภัยซอฟต์แวร์ (Independent Audit & CQI Division), รัน 10-Gate Forensic Audit Pipeline
+* **ท่อส่งเข้า Sentinel (Inbound Knowledge):**
+  * 10-Gate Automated Audit Engine (`qc_audit_runner.py`), กฎสกัดกั้นบัคถาวร CQI Vault, และการตรวจสอบความปลอดภัยระดับผ่าตัด
+* **ท่อส่งออกจาก Sentinel (Outbound Intelligence):**
+  * รหัสสถานะ Git, โครงสร้าง Payload ข้าม HQ, และข้อบกพร่องที่ตรวจพบเพื่อถอดบทเรียนทางวิศวกรรมซอฟต์แวร์
 
 ---
 

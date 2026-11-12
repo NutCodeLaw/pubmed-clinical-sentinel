@@ -1,13 +1,13 @@
 {
   "schema_version": "2.2.0-HQ",
   "project": "pubmed-clinical-sentinel",
-  "generated_at": "2026-11-12T14:23:12.053288",
+  "generated_at": "2026-11-12T14:40:54.423985",
   "report_date": "2026-11-12",
   "lead_investigator": "ภก.รัฐนนท์ แสงไทยทวีพร (ประธานทีม IM โรงพยาบาลเสิงสาง)",
   "summary_metrics": {
     "total_tracks": 7,
     "total_active_articles": 15,
-    "newly_discovered_pmids_count": 1,
+    "newly_discovered_pmids_count": 2,
     "free_pmc_fulltext_count": 8
   },
   "showdown_bouts": [

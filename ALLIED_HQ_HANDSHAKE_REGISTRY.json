@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "project": "pubmed-clinical-sentinel",
-  "version": "2.1.0-HQ",
-  "last_synchronized": "2026-11-12T13:55:00+07:00",
+  "version": "2.2.0-HQ",
+  "last_synchronized": "2026-11-12T14:35:00+07:00",
   "lead_investigator": "ภก.รัฐนนท์ แสงไทยทวีพร",
   "repository": {
     "local_path": "c:\\Users\\LENOVO\\OneDrive\\Desktop\\รวมไฟล์งาน\\GitHub Projects\\pubmed-clinical-sentinel",
@@ -63,6 +63,14 @@
       "role": "54-Notebook Clinical Knowledge Graph, Clean-Room Evidence Distillation & Grounded Citations",
       "status": "HANDSHAKE_ACTIVE",
       "handshake_protocol": "NOTEBOOKLM_REFINERY_HQ_MASTER_DESIGN.md"
+    },
+    {
+      "id": "82377efa-9006-4364-a69a-de48227d6995",
+      "slug": "github_project_qc_hq",
+      "name": "GitHub Project QC HQ",
+      "role": "Independent Software Quality Control, 10-Gate Forensic Audit & Continuous Quality Improvement (CQI)",
+      "status": "HANDSHAKE_ACTIVE",
+      "handshake_protocol": "QC_OPERATIONAL_CHARTER_AND_COMMANDS.md"
     }
   ]
 }

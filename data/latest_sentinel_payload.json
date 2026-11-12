@@ -1,6 +1,8 @@
 {
   "schema_version": "2.2.0-HQ",
   "project": "pubmed-clinical-sentinel",
+  "infrastructure_tier": "PAY_AS_YOU_GO_PRODUCTION_UNLOCKED",
+  "billing_status": "ACTIVE_PRODUCTION_BILLING_ENABLED",
   "generated_at": "2026-11-12T14:40:54.423985",
   "report_date": "2026-11-12",
   "lead_investigator": "ภก.รัฐนนท์ แสงไทยทวีพร (ประธานทีม IM โรงพยาบาลเสิงสาง)",

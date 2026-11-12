@@ -24,6 +24,11 @@
    * จดจำรหัส PMID ที่เคยอ่านแล้วผ่าน `data/seen_pmids.json`
    * บิลด์หน้าเว็บบนมือถืออัตโนมัติ และรัน 24/7 บน GitHub Cloud ฟรี 100%
 
+### 1.3 การยกระดับโครงสร้างพื้นฐาน: Google AI Studio Pay-as-you-go Billing Unlocked (2026-11-12)
+เมื่อวันที่ 12 พฤศจิกายน 2026 ท่านประธานได้ทำการตั้งค่า Billing (Pay-as-you-go Tier 1) บน Google AI Studio สำเร็จ ทำให้โปรเจกต์ก้าวข้ามข้อจำกัดของ Free Tier Quota Limitations อย่างสมบูรณ์:
+* **ปลดล็อคข้อจำกัดโควตา (Quota Limitation Cleared):** ขยาย Rate Limits สำหรับโมเดลตระกูล Gemini ทั้งหมด (Gemini 3.8 Flash, Gemini Pro, Gemini Argon)
+* **High-Throughput Multi-HQ Grid:** รองรับการประมวลผลงานวิเคราะห์คลินิก, ออกแบบการ์ดภาพ, คำนวณ BIA, และตรวจสอบคุณภาพซอฟต์แวร์แบบ Real-time โดยไม่ติดลิมิต
+
 ---
 
 ## 🥊 2. นวัตกรรมก้าวข้าม Text Wall: "Clinical Battle Arena"

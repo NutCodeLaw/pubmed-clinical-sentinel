@@ -2,8 +2,15 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "project": "pubmed-clinical-sentinel",
   "version": "2.2.0-HQ",
-  "last_synchronized": "2026-11-12T14:35:00+07:00",
+  "last_synchronized": "2026-11-12T15:21:28+07:00",
   "lead_investigator": "ภก.รัฐนนท์ แสงไทยทวีพร",
+  "infrastructure": {
+    "gemini_billing_status": "ACTIVE_PRODUCTION_BILLING_ENABLED",
+    "api_tier": "PAY_AS_YOU_GO_UNLOCKED",
+    "quota_limitation_cleared": true,
+    "rate_limit_profile": "HIGH_THROUGHPUT_PRODUCTION",
+    "notice": "Google AI Studio Pay-as-you-go billing active. Model rate limits & daily quota restrictions unlocked across all 6 Allied HQs."
+  },
   "repository": {
     "local_path": "c:\\Users\\LENOVO\\OneDrive\\Desktop\\รวมไฟล์งาน\\GitHub Projects\\pubmed-clinical-sentinel",
     "git_origin": "https://github.com/NutCodeLaw/pubmed-clinical-sentinel.git",

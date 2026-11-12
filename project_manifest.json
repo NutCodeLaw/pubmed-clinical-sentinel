@@ -7,6 +7,13 @@
   "github_repository": "https://github.com/NutCodeLaw/pubmed-clinical-sentinel",
   "github_pages_url": "https://nutcodelaw.github.io/pubmed-clinical-sentinel/",
   "canva_template_url": "https://canva.link/v9g5tfxdg349vbg",
+  "infrastructure_status": {
+    "gemini_api_tier": "PAY_AS_YOU_GO_UNLOCKED",
+    "billing_status": "ACTIVE_PRODUCTION_BILLING_ENABLED",
+    "rate_limit_profile": "HIGH_THROUGHPUT_PRODUCTION",
+    "quota_limitation_cleared": true,
+    "last_billing_upgrade_timestamp": "2026-11-12T15:21:28+07:00"
+  },
   "handshake_status": "ACTIVE_SYNCHRONIZED_V2_2",
   "coordinator_conversation_id": "5196702a-14ab-4cfd-83a3-a1969c13b896",
   "origin_conversation_id": "e2a8d99d-ff21-4ff9-91be-ae3456187ad0",

@@ -9,6 +9,14 @@
 
 ---
 
+> [!IMPORTANT]
+> **🚀 INFRASTRUCTURE UPGRADE BROADCAST (2026-11-12 15:21):**  
+> ท่านประธานได้ทำการเปิดใช้งาน **"Set up billing (Pay-as-you-go Tier 1)"** บน Google AI Studio เรียบร้อยแล้ว!  
+> ✅ **ปลดล็อคข้อจำกัดโควตา (Quota Limitation Cleared):** ขยาย Rate Limits สำหรับโมเดลตระกูล Gemini ทั้งหมด (Gemini 3.8 Flash, Gemini Pro, Gemini Argon)  
+> ✅ **ผลลัพธ์ต่อเครือข่าย 6 Allied HQs:** ทุกศูนย์บัญชาการสามารถเรียกใช้งานการสังเคราะห์หลักฐานทางคลินิก วิเคราะห์สถิติ BIA และผลิตสื่อมัลติมีเดียได้อย่างเต็มกำลัง ไร้ปัญหาติด Rate Limit / Daily Quota Cap!
+
+---
+
 ## 🌐 เครือข่ายท่อส่งต่อความรู้ (The 6-Allied HQ Knowledge Grid)
 โครงการ **PubMed Clinical Sentinel** ได้ทำการเชื่อมต่อท่อส่งต่อความรู้แบบสองทาง (Bi-Directional Knowledge Pipe) เข้ากับ 6 ศูนย์บัญชาการแม่บท เพื่อให้ทุกแชทในเครือข่ายมีความรู้เท่าเทียมกัน (Omni-Domain Parity) และสามารถเรียกใช้งานร่วมกันได้อย่างไร้รอยต่อ:
 

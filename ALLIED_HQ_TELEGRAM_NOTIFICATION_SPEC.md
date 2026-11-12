@@ -15,7 +15,7 @@
 > 2. **ห้ามส่งเข้าแชทส่วนตัว (Strictly No Personal DM):** ห้ามบอทส่งข้อความซ้ำซ้อนเข้าแชทส่วนตัวของท่านประธานโดยเด็ดขาด เพื่อป้องกันการรบกวน (Spam Prevention)
 > 3. **ห้ามฮาร์ดโค้ด Token (Zero Secret Leaks):** ห้ามเขียน `TELEGRAM_BOT_TOKEN` ลงในไฟล์ `.py`, `.json`, `.md` ให้โหลดจากไฟล์ `.env` (ซึ่งอยู่ใน `.gitignore`) หรือ GitHub Secrets เสมอ
 > 4. **จำกัดความยาว & เน้นสรุปสั้น 10 วินาที (Max Length Guard):** ขีดจำกัดทางเทคนิคของ Telegram คือ **4,096 ตัวอักษร** (หากยาวเกินจะ Error 400 ทันที) ข้อความแจ้งเตือนทั้งหมดต้องคุมความยาวไว้ที่ **ไม่เกิน 1,000–1,200 ตัวอักษร** เน้นสรุปเฉพาะใจความหลักแบบ 1 บรรทัด แล้วแนบลิงก์ให้อ่านต่อฉบับเต็มบนเว็บ ป้องกันข้อความยาวรกหน้าจอ
-> 5. **เวลาส่งพร้อมเพรียง 08:00 น. (08:00 AM BKK Synchronized Delivery):** ตั้งเวลาจัดส่งรายงานสรุปประจำวันของทั้งระบบตรงเวลา **08:00 น. เช้า (01:00 UTC)** เสมอ เพื่อให้ท่านประธานเปิดอ่านข้อมูลได้พร้อมกันทั้งหมดในคราวเดียว
+> 5. **เวลาส่งรอบเช้า 08:00 น. (08:00 AM BKK Synchronized Delivery):** ตั้งเวลาจัดส่งรายงานสรุปของทั้งระบบตรงเวลา **08:00 น. เช้า (01:00 UTC)** เสมอ โดย `pubmed-clinical-sentinel` จัดส่งรายสัปดาห์ทุกวันจันทร์ และ `market-sherlock` จัดส่งรายวันทุกวัน เพื่อให้ท่านประธานเปิดอ่านข้อมูลได้ในคราวเดียว
 
 ---
 
@@ -148,12 +148,12 @@ def send_telegram_alert(text: str, parse_mode: str = "HTML") -> bool:
 ---
 
 ## ⚙️ 5. รายชื่อ Repository และการตั้งค่าบน GitHub Actions (Project Cluster)
-ทุก Repository ภายใต้ `GitHub Projects` ได้รับการตั้งเวลาให้จัดส่งรายงานพร้อมกันเวลา **08:00 น. (01:00 UTC)**:
+ทุก Repository ภายใต้ `GitHub Projects` ได้รับการตั้งเวลาให้จัดส่งรายงานรอบเช้าเวลา **08:00 น. (01:00 UTC)**:
 
-| Repository | งานและระบบแจ้งเตือน | กำหนดเวลา (Cron UTC) | เวลาส่งจริง (BKK) | สถานะ |
+| Repository | งานและระบบแจ้งเตือน | กำหนดเวลา (Cron UTC) | ความถี่ & เวลาส่งจริง (BKK) | สถานะ |
 |---|---|:---:|:---:|:---:|
-| `pubmed-clinical-sentinel` | 7-Track Clinical Surveillance & Boxing Arena | `0 1 * * *` | 08:00 น. ทุกวัน | Active ✅ |
-| `market-sherlock` | Global & Thai Market Morning Fast-Bite Dispatch | `0 1 * * *` | 08:00 น. ทุกวัน | Active ✅ |
+| `pubmed-clinical-sentinel` | 7-Track Clinical Surveillance & Boxing Arena | `0 1 * * 1` | **ทุกวันจันทร์ 08:00 น. (Weekly on Monday)** | Active ✅ |
+| `market-sherlock` | Global & Thai Market Morning Fast-Bite Dispatch | `0 1 * * *` | **ทุกวัน 08:00 น. (Daily)** | Active ✅ |
 
 การตั้งค่า GitHub Secrets สำหรับทุก Repository ใน Cluster (**Settings > Secrets and variables > Actions**):
 * `TELEGRAM_BOT_TOKEN` = `8845047207:AAFgu6i0Rg3U4uaFfBDtLEVkAVokCYpq2Vk`

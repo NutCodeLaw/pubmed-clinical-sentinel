@@ -1819,7 +1819,7 @@ def load_dotenv_if_exists():
 
 def send_telegram_notification(report_date, total_articles, free_pmc_count, showdown_bouts, portal_url="https://nutcodelaw.github.io/pubmed-clinical-sentinel/"):
     """
-    Sends a daily summary of the latest PubMed Sentinel surveillance to Telegram.
+    Sends a weekly summary of the latest PubMed Sentinel surveillance to Telegram (every Monday 08:00 AM BKK).
     Reads TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID from environment variables (or local .env).
     Supports comma-separated chat IDs (e.g. personal chat and hospital channel).
     Uses standard library urllib (zero external dependencies).
@@ -1837,11 +1837,11 @@ def send_telegram_notification(report_date, total_articles, free_pmc_count, show
         print("[INFO] No valid chat IDs specified.")
         return False
 
-    # Guard: Dispatch ONLY in GitHub Actions CI (daily 08:00 AM) or when explicitly requested via --telegram flag/FORCE_TELEGRAM
+    # Guard: Dispatch ONLY in GitHub Actions CI (weekly Monday 08:00 AM) or when explicitly requested via --telegram flag/FORCE_TELEGRAM
     is_ci = os.environ.get("GITHUB_ACTIONS") == "true"
     force_tg = os.environ.get("FORCE_TELEGRAM", "").lower() in ["true", "1", "yes"] or "--telegram" in sys.argv
     if not is_ci and not force_tg:
-        print("[INFO] Local environment detected. Telegram dispatch paused as requested. (Automated GitHub Actions will dispatch daily at 08:00 AM Bangkok Time).")
+        print("[INFO] Local environment detected. Telegram dispatch paused as requested. (Automated GitHub Actions will dispatch weekly on Mondays at 08:00 AM Bangkok Time).")
         return False
 
     # Concise & punchy format per bout for mobile readability
@@ -1856,16 +1856,16 @@ def send_telegram_notification(report_date, total_articles, free_pmc_count, show
     bouts_summary = "\n\n".join(bouts_lines)
 
     text = (
-        f"🥊 <b>PubMed Clinical Sentinel • Daily Briefing</b>\n"
-        f"📅 <b>ประจำวันที่:</b> {report_date} | รพ.เสิงสาง (IM Team)\n\n"
+        f"🥊 <b>PubMed Clinical Sentinel • Weekly Briefing</b>\n"
+        f"📅 <b>ประจำสัปดาห์ (วันจันทร์):</b> {report_date} | รพ.เสิงสาง (IM Team)\n\n"
         f"📊 <b>Evidence Surveillance 7 สายงาน:</b>\n"
         f"• วิจัยใหม่ผ่านเกณฑ์ (N ≥ 30): <b>{total_articles} เรื่อง</b>\n"
         f"• PMC Full-Text อ่านฟรี: <b>{free_pmc_count} เรื่อง</b>\n\n"
-        f"⚔️ <b>ไฮไลต์ศึกดวล 7 คู่เอกประจำวัน:</b>\n\n"
+        f"⚔️ <b>ไฮไลต์ศึกดวล 7 คู่เอกประจำสัปดาห์:</b>\n\n"
         f"{bouts_summary}\n\n"
         f"🌐 <b>เปิดอ่านหน้า Battle Arena & Clinical Dossier:</b>\n"
         f"{portal_url}\n\n"
-        f"🤖 <i>Automated Daily Surveillance Engine • รพ.เสิงสาง</i>"
+        f"🤖 <i>Automated Weekly Surveillance Engine • รพ.เสิงสาง</i>"
     )
 
     # Hard-safety guard: Telegram limit is 4,096 chars; cap strictly at 3,500 chars
@@ -2228,7 +2228,7 @@ def main():
         save_json_file(SEEN_FILE, seen_data)
         print(f"[DATA] Updated seen_pmids.json with {len(newly_discovered_pmids)} new PMIDs.")
 
-    # 6. Telegram Daily Surveillance Dispatch
+    # 6. Telegram Weekly Surveillance Dispatch (Mondays 08:00 AM BKK)
     print("\n[TELEGRAM] Checking Telegram dispatch configuration...")
     send_telegram_notification(
         report_date=report_date,

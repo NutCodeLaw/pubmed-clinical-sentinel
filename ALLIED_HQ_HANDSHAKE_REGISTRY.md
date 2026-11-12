@@ -31,7 +31,7 @@ flowchart TD
     Sentinel <-->|"Pipe 5: 54-Notebook Clinical Corpus / Grounding"| NLMHQ["🧠 NotebookLM Refinery HQ<br/>(8ae2bf04-9004-4f7e-9c39-8d3875f6f9dc)"]
     Sentinel <-->|"Pipe 6: 10-Gate Forensic Audit / CQI Ledger"| QCHQ["🛡️ GitHub Project QC HQ<br/>(82377efa-9006-4364-a69a-de48227d6995)"]
     
-    Sentinel -->|"Automated Weekly Cron (Mon 07:00)"| GHA["🤖 GitHub Actions Cloud CI/CD"]
+    Sentinel -->|"Automated Daily Cron & Telegram (08:00 BKK)"| GHA["🤖 GitHub Actions Cloud CI/CD"]
     GHA -->|"Deploy"| Pages["📱 Mobile Battle Arena (GitHub Pages)"]
 ```
 
@@ -94,6 +94,7 @@ flowchart TD
 2. **ห้ามยิงเข้าแชทส่วนตัว (No Personal DM Spam):** ห้ามบอทยิงข้อความซ้ำซ้อนเข้าแชทส่วนตัวของท่านประธานโดยเด็ดขาด (Single-Room Policy)
 3. **การรักษาความปลอดภัย (Zero Secret Leak):** ห้ามนำ `TELEGRAM_BOT_TOKEN` ไปฮาร์ดโค้ดในไฟล์ `.py`, `.json`, `.md` ให้ดึงจาก `.env` ในเครื่อง หรือ GitHub Secrets บนคลาวด์เท่านั้น
 4. **รูปแบบข้อความ (Message Tone):** กระชับ ชัดเจน มีไอคอนระบุ HQ และผลลัพธ์เชิงปฏิบัติการที่นำไปใช้ต่อได้ทันที
+5. **กำหนดการส่งพร้อมเพรียง 08:00 น. (08:00 AM BKK Synchronized Dispatch):** กำหนดเวลาส่งสรุปประจำวันของทั้งระบบที่ **08:00 น. เวลาประเทศไทย (01:00 UTC)** เสมอ เพื่อให้ท่านประธานเปิดอ่านข้อมูลได้พร้อมกันครบทุกมิติในเวลาเดียว
 
 ---
 

@@ -110,7 +110,7 @@ python scripts/sentinel.py
 
 ---
 
-### 1. 🫁 เภสัชบำบัดโรคหอบหืดและปอดอุดกั้นเรื้อรัง (Asthma & COPD)
+### 1. 🫁 เภสัชบำบัดโรคหอบหืดและปอดอุดกั้นเรื้อรัง (Asthma & COPD Pharmacotherapy)
 
 #### 1. Effectiveness of a Multicomponent Digital Therapeutic Program on Inhaled Medication Adherence in Chronic Obstructive Pulmonary Disease: Pilot Randomized Controlled Trial.
 - **วารสาร & PMID:** JMIR mHealth and uHealth • [PMID: 42993869](https://pubmed.ncbi.nlm.nih.gov/42993869/) • 👥 `N=158` • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13742779/)
@@ -150,7 +150,7 @@ python scripts/sentinel.py
 
 ---
 
-### 2. 🚭 เภสัชบำบัดช่วยเลิกบุหรี่ (Smoking Cessation)
+### 2. 🚭 เภสัชบำบัดช่วยเลิกบุหรี่ (Smoking Cessation Pharmacotherapy)
 
 #### 1. Combination bupropion-zonisamide facilitates rapid reduction in smoke exposure and prevents weight gain during switching to electronic nicotine delivery systems: A randomized clinical trial.
 - **วารสาร & PMID:** Drug and alcohol dependence • [PMID: 42849341](https://pubmed.ncbi.nlm.nih.gov/42849341/) • 👥 `N=60`
@@ -178,7 +178,7 @@ python scripts/sentinel.py
 
 ---
 
-### 3. 🌿 สมุนไพรไทยทางคลินิกในระบบทางเดินหายใจ (Thai Herbal Medicine)
+### 3. 🌿 สมุนไพรไทยทางคลินิกในระบบทางเดินหายใจ (Thai Herbal Medicine in Respiratory Care)
 
 #### 1. Triple-pathway synergistic senolysis via AKAP1 silencing and calcium overload: An aptamer-functionalized DNAzyme nanoplatform for anti-pulmonary fibrosis research.
 - **วารสาร & PMID:** Colloids and surfaces. B, Biointerfaces • [PMID: 42667699](https://pubmed.ncbi.nlm.nih.gov/42667699/)
@@ -206,7 +206,7 @@ python scripts/sentinel.py
 
 ---
 
-### 4. 🫀 ชะลอไตเสื่อม & เมตาบอลิกหัวใจ (CRM: SGLT2i, GLP-1, Finerenone)
+### 4. 🫀 ชะลอไตเสื่อม & เมตาบอลิกหัวใจ (Cardio-Renal CRM: SGLT2i, GLP-1RA, Finerenone)
 
 #### 1. Network and pairwise meta-analysis of the effects of novel hypoglycemic agents on cardiorenal outcomes in patients with type 2 diabetes and heart failure.
 - **วารสาร & PMID:** Frontiers in endocrinology • [PMID: 42952754](https://pubmed.ncbi.nlm.nih.gov/42952754/) • 👥 `N=13,886` • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13713430/)
@@ -290,7 +290,7 @@ python scripts/sentinel.py
 
 ---
 
-### 7. 👴 การตัดยาล้นเกินในผู้สูงอายุ (Deprescribing & Polypharmacy)
+### 7. 👴 การทบทวนและหยุดยาที่ไม่เหมาะสมในผู้สูงอายุ (Deprescribing & Polypharmacy)
 
 #### 1. Barriers and enablers to deprescribing from the perspectives of older adults with polypharmacy and their stakeholders: A systematic review of qualitative studies.
 - **วารสาร & PMID:** International journal of nursing studies • [PMID: 42815285](https://pubmed.ncbi.nlm.nih.gov/42815285/)

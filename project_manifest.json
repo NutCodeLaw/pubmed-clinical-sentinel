@@ -89,7 +89,8 @@
     }
   },
   "automation": {
-    "schedule": "Every Monday 07:00 BKK (00:00 UTC)",
+    "schedule": "Daily 08:00 BKK (01:00 UTC) Synchronized Telegram Dispatch",
+    "telegram_dispatch_time": "08:00 BKK (UTC+7)",
     "workflow": ".github/workflows/weekly_sentinel.yml",
     "engine_script": "scripts/sentinel.py",
     "ui_portal": "docs/index.html",

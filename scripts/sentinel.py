@@ -70,7 +70,7 @@ TRACK_CONFIGS = [
         "id": "asthma_copd",
         "pill_label": "🫁 Asthma/COPD",
         "name": "Asthma & COPD Pharmacotherapy",
-        "name_th": "เภสัชบำบัดโรคหอบหืดและปอดอุดกั้นเรื้อรัง (Asthma & COPD)",
+        "name_th": "เภสัชบำบัดโรคหอบหืดและปอดอุดกั้นเรื้อรัง (Asthma & COPD Pharmacotherapy)",
         "icon": "🫁",
         "days": 14,
         "max_results": 3,
@@ -85,9 +85,9 @@ TRACK_CONFIGS = [
     },
     {
         "id": "smoking_cessation",
-        "pill_label": "🚭 เลิกบุหรี่",
+        "pill_label": "🚭 เลิกบุหรี่ (Smoking)",
         "name": "Smoking Cessation Pharmacotherapy",
-        "name_th": "เภสัชบำบัดช่วยเลิกบุหรี่ (Smoking Cessation)",
+        "name_th": "เภสัชบำบัดช่วยเลิกบุหรี่ (Smoking Cessation Pharmacotherapy)",
         "icon": "🚭",
         "days": 60,
         "max_results": 2,
@@ -101,9 +101,9 @@ TRACK_CONFIGS = [
     },
     {
         "id": "thai_herbs",
-        "pill_label": "🌿 สมุนไพรไทย",
+        "pill_label": "🌿 สมุนไพรไทย (Herbs)",
         "name": "Thai Herbal Medicine in Respiratory Care",
-        "name_th": "สมุนไพรไทยทางคลินิกในระบบทางเดินหายใจ (Thai Herbal Medicine)",
+        "name_th": "สมุนไพรไทยทางคลินิกในระบบทางเดินหายใจ (Thai Herbal Medicine in Respiratory Care)",
         "icon": "🌿",
         "days": 180,
         "max_results": 2,
@@ -117,9 +117,9 @@ TRACK_CONFIGS = [
     },
     {
         "id": "cardio_renal",
-        "pill_label": "🫀 ชะลอไต (CRM)",
+        "pill_label": "🫀 Cardio-Renal (CRM)",
         "name": "Cardio-Renal-Metabolic (CRM) & Renal Protection",
-        "name_th": "ชะลอไตเสื่อม & เมตาบอลิกหัวใจ (CRM: SGLT2i, GLP-1, Finerenone)",
+        "name_th": "ชะลอไตเสื่อม & เมตาบอลิกหัวใจ (Cardio-Renal CRM: SGLT2i, GLP-1RA, Finerenone)",
         "icon": "🫀",
         "days": 14,
         "max_results": 3,
@@ -132,7 +132,7 @@ TRACK_CONFIGS = [
     },
     {
         "id": "anticoagulation",
-        "pill_label": "🩸 Warfarin/DOACs",
+        "pill_label": "🩸 Anticoagulants (HAD)",
         "name": "Anticoagulation & High Alert Drugs (Warfarin & DOACs)",
         "name_th": "ยาต้านการแข็งตัวของเลือด & HAD (Warfarin vs DOACs)",
         "icon": "🩸",
@@ -147,7 +147,7 @@ TRACK_CONFIGS = [
     },
     {
         "id": "ams_rdu",
-        "pill_label": "🦠 ยาฆ่าเชื้อ (AMS)",
+        "pill_label": "🦠 ยาปฏิชีวนะ (AMS)",
         "name": "Antimicrobial Stewardship & Short-Course Therapy",
         "name_th": "การจัดการยาปฏิชีวนะ & สูตรยาสั้น (AMS & Short-Course RDU)",
         "icon": "🦠",
@@ -162,9 +162,9 @@ TRACK_CONFIGS = [
     },
     {
         "id": "deprescribing",
-        "pill_label": "👴 ตัดยาคนแก่",
+        "pill_label": "👴 Deprescribing",
         "name": "Deprescribing & Polypharmacy in Elderly",
-        "name_th": "การตัดยาล้นเกินในผู้สูงอายุ (Deprescribing & Polypharmacy)",
+        "name_th": "การทบทวนและหยุดยาที่ไม่เหมาะสมในผู้สูงอายุ (Deprescribing & Polypharmacy)",
         "icon": "👴",
         "days": 60,
         "max_results": 2,
@@ -177,126 +177,126 @@ TRACK_CONFIGS = [
     }
 ]
 
-# Dynamic Multi-Bout Showdown Registry (Fix #4 & 7-Track Coverage)
+# Dynamic Multi-Bout Showdown Registry (Natural Clinical Thai & Bilingual)
 DEFAULT_SHOWDOWN_BOUTS = [
     {
         "bout_id": "asthma_copd",
         "track_id": "asthma_copd",
-        "tab_label": "🫁 ศึกพ่นหอบหืด/COPD",
-        "headline": "🫁 ศึกมวยคู่เอก: Triple Therapy (Trelegy) vs Dual Bronchodilator ในผู้ป่วย COPD กำเริบ",
-        "red_name": "Single Inhaler Triple",
+        "tab_label": "🫁 Inhaler: Triple vs Dual",
+        "headline": "🫁 ศึกมวยคู่เอก: Single-Inhaler Triple Therapy vs Dual Bronchodilators ในผู้ป่วย COPD กำเริบบ่อย",
+        "red_name": "Single Inhaler Triple (Trelegy)",
         "red_sub": "FF/UMEC/VI พ่นวันละ 1 ครั้ง",
-        "blue_name": "Dual Therapy (LAMA+LABA)",
+        "blue_name": "Dual Bronchodilators (LAMA+LABA)",
         "blue_sub": "สูตรคุมอาการ 2 ตัวยาเดิม",
         "rounds": [
-            {"title": "🥊 ยก 1: ลดอัตราหอบกำเริบ (Exacerbation)", "verdict": "Triple ชนะขาด (ลดลง 25%)", "red_pct": 85, "blue_pct": 40},
-            {"title": "🥊 ยก 2: ความสะดวก & ผู้ป่วยพ่นครบ (Adherence)", "verdict": "พ่นยาวันละครั้งชนะใส", "red_pct": 90, "blue_pct": 50},
-            {"title": "🥊 ยก 3: อัตราเกิดปอดบวม (Pneumonia Risk)", "verdict": "Dual ปลอดภัยกว่าเล็กน้อย", "red_pct": 45, "blue_pct": 75}
+            {"title": "🥊 ยก 1: ลดอัตรา Acute Exacerbation", "verdict": "Triple ชนะขาด (Exacerbation ลดลง 25%)", "red_pct": 85, "blue_pct": 40},
+            {"title": "🥊 ยก 2: ความร่วมมือในการพ่นยา (Adherence)", "verdict": "Single Inhaler วันละครั้ง ชนะใส (Adherence สูงกว่า)", "red_pct": 90, "blue_pct": 50},
+            {"title": "🥊 ยก 3: ความเสี่ยงการเกิด Pneumonia", "verdict": "Dual นำเล็กน้อย (Pneumonia Risk ต่ำกว่า)", "red_pct": 45, "blue_pct": 75}
         ],
-        "verdict_text": "ผู้ป่วย COPD กลุ่มเสี่ยงสูงที่มีประวัตินอน รพ. จากหอบกำเริบ สูตร Triple คุ้มค่าสูงสุดในการตัดวงจร Re-admission ของ รพ.เสิงสาง!",
-        "punchline": "Triple Therapy ลดหอบกำเริบขาดลอย คุ้มค่าสูงสุดตัดวงจร Re-admission รพ.เสิงสาง"
+        "verdict_text": "ผู้ป่วย COPD กลุ่ม High-Risk ที่มีประวัติ Acute Exacerbation จนต้อง Admit สูตร Triple คุ้มค่าสูงสุดในการตัดวงจร Re-admission ของ รพ.เสิงสาง!",
+        "punchline": "Triple Therapy ลด Exacerbation ขาดลอย คุ้มค่าสูงสุดตัดวงจร Re-admission รพ.เสิงสาง"
     },
     {
         "bout_id": "smoking_cessation",
         "track_id": "smoking_cessation",
-        "tab_label": "🚭 ศึกเลิกบุหรี่",
-        "headline": "🚭 ศึกมวยคู่เอก: เภสัชบำบัดช่วยเลิกบุหรี่และคุมน้ำหนัก (คลินิกฟ้าใส รพ.เสิงสาง)",
+        "tab_label": "🚭 คลินิกฟ้าใส: Smoking Cessation",
+        "headline": "🚭 ศึกมวยคู่เอก: Pharmacotherapy ช่วยเลิกบุหรี่และคุมน้ำหนักตัว (คลินิกฟ้าใส รพ.เสิงสาง)",
         "red_name": "สูตรผสม BUP + ZON",
         "red_sub": "Bupropion + Zonisamide",
-        "blue_name": "สูตรเดี่ยว BUP + ชาดอกขาว",
-        "blue_sub": "Bupropion + ชาสมุนไพร",
+        "blue_name": "สูตรเดี่ยว BUP + ชาหญ้าดอกขาว",
+        "blue_sub": "Bupropion + ชาสมุนไพรไทย",
         "rounds": [
-            {"title": "🥊 ยก 1: ความเร็วลดควันบุหรี่ (eCO Drop)", "verdict": "สูตรผสมชนะ (+25%)", "red_pct": 75, "blue_pct": 50},
-            {"title": "🥊 ยก 2: คุมน้ำหนักตัวไม่ให้เด้ง (Weight Gain)", "verdict": "สูตรผสมชนะน็อค! (ไม่พุ่ง)", "red_pct": 90, "blue_pct": 30},
-            {"title": "🥊 ยก 3: ความพร้อมใช้งานใน รพ.เสิงสาง", "verdict": "BUP เดี่ยว + หญ้าดอกขาว มีพร้อมในคลัง", "red_pct": 45, "blue_pct": 85}
+            {"title": "🥊 ยก 1: อัตราการลดควันบุหรี่ในลมหายใจ (Exhaled CO Drop)", "verdict": "สูตรผสมชนะ (+25%)", "red_pct": 75, "blue_pct": 50},
+            {"title": "🥊 ยก 2: การคุมน้ำหนักตัวไม่ให้พุ่ง (Weight Gain Control)", "verdict": "สูตรผสมชนะน็อค! (น้ำหนักไม่เด้ง)", "red_pct": 90, "blue_pct": 30},
+            {"title": "🥊 ยก 3: ความพร้อมใช้งานใน รพ.เสิงสาง", "verdict": "สูตรเดี่ยว BUP + ชาหญ้าดอกขาว มีพร้อมในคลังยา", "red_pct": 45, "blue_pct": 85}
         ],
-        "verdict_text": "สูตรผสมเด่นคุมน้ำหนัก แต่หน้างานคลินิกฟ้าใส รพ.เสิงสาง ใช้ Bupropion + ชาหญ้าดอกขาว เบิกจ่ายได้ทันทีและผลลัพธ์ดีเยี่ยม!",
-        "punchline": "หน้างานคลินิกฟ้าใส รพ.เสิงสาง ชู Bupropion + หญ้าดอกขาว พร้อมใช้งานทันที"
+        "verdict_text": "สูตรผสมเด่นเรื่องคุมน้ำหนักตัวไม่ให้พุ่ง แต่หน้างานคลินิกฟ้าใส รพ.เสิงสาง ใช้ Bupropion เดี่ยว + ชาหญ้าดอกขาว เบิกจ่ายได้ทันทีและได้ผลดีเยี่ยม!",
+        "punchline": "คลินิกฟ้าใส รพ.เสิงสาง ชู Bupropion + ชาหญ้าดอกขาว พร้อมใช้งานจริงทันที"
     },
     {
         "bout_id": "thai_herbs",
         "track_id": "thai_herbs",
-        "tab_label": "🌿 ศึกสมุนไพรทางเดินหายใจ",
+        "tab_label": "🌿 สมุนไพรไทย: ฟ้าทะลายโจร",
         "headline": "🌿 ศึกมวยคู่เอก: สารสกัดฟ้าทะลายโจร (Andrographis) vs ยาบรรเทาอาการมาตรฐาน ในหวัด/เจ็บคอ (URTI)",
         "red_name": "ฟ้าทะลายโจร (Andrographolide)",
-        "red_sub": "สารสกัดมาตรฐาน 60-120 mg/day",
-        "blue_name": "ยาแก้ไอ/ลดน้ำมูกมาตรฐาน",
-        "blue_sub": "ยาแผนปัจจุบันตามอาการ",
+        "red_sub": "สารสกัดมาตรฐาน 60–120 mg/day",
+        "blue_name": "Symptomatic Treatment แผนปัจจุบัน",
+        "blue_sub": "ยาแก้ไอ / ลดน้ำมูกมาตรฐาน",
         "rounds": [
-            {"title": "🥊 ยก 1: ลดระยะเวลาอาการไอและเจ็บคอ", "verdict": "ฟ้าทะลายโจรชนะ (หายไวกว่า 1-2 วัน)", "red_pct": 82, "blue_pct": 55},
-            {"title": "🥊 ยก 2: สนับสนุนเกณฑ์ RDU ตัดยาปฏิชีวนะเกินจำเป็น", "verdict": "ฟ้าทะลายโจรชนะขาดลอย!", "red_pct": 95, "blue_pct": 35},
-            {"title": "🥊 ยก 3: ความปลอดภัยเมื่อใช้ระยะสั้น ≤ 5 วัน", "verdict": "ปลอดภัยเท่าเทียมกัน", "red_pct": 70, "blue_pct": 70}
+            {"title": "🥊 ยก 1: ระยะเวลาบรรเทาอาการไอและเจ็บคอ (Symptom Relief)", "verdict": "ฟ้าทะลายโจรชนะ (อาการทุเลาไวกว่า 1–2 วัน)", "red_pct": 82, "blue_pct": 55},
+            {"title": "🥊 ยก 2: หนุนตัวชี้วัด RDU ตัดการใช้ Antibiotics เกินจำเป็น", "verdict": "ฟ้าทะลายโจรชนะขาดลอย! (Zero Antibiotics)", "red_pct": 95, "blue_pct": 35},
+            {"title": "🥊 ยก 3: Safety Profile เมื่อใช้ระยะสั้น ≤ 5 วัน", "verdict": "เสมอกัน (ไม่มีผลต่อตับ/ไต)", "red_pct": 70, "blue_pct": 70}
         ],
-        "verdict_text": "ฟ้าทะลายโจรลดอาการไอและเจ็บคอได้ดีเยี่ยม สนับสนุนนโยบาย RDU ขั้นสูงสุดของ รพ.เสิงสาง ตัดการใช้ยาปฏิชีวนะเกินจำเป็น!",
-        "punchline": "ฟ้าทะลายโจรลดไอเจ็บคอไวกว่า เสริมธง RDU ตัดยาปฏิชีวนะพร่ำเพรื่อ"
+        "verdict_text": "ฟ้าทะลายโจรบรรเทาไอเจ็บคอได้เร็ว หนุนเกณฑ์ RDU ขั้นสูงสุดของ รพ.เสิงสาง ตัดการสั่ง Antibiotics เกินจำเป็นในหวัดได้อย่างเด็ดขาด!",
+        "punchline": "ฟ้าทะลายโจรลดไอเจ็บคอเร็วกว่า หนุนธง RDU ตัด Antibiotics ในหวัดพร่ำเพรื่อ"
     },
     {
         "bout_id": "cardio_renal",
         "track_id": "cardio_renal",
-        "tab_label": "🫀 ศึกชะลอไต-หัวใจ",
-        "headline": "🫀 ศึกมวยคู่เอก: Dapagliflozin หลังทำหัตถการหัวใจ/ไตเสื่อม (DAPA-TAVI & DAPA-CKD)",
+        "tab_label": "🫀 Cardio-Renal: SGLT2i",
+        "headline": "🫀 ศึกมวยคู่เอก: Dapagliflozin ในหัตถการหัวใจ TAVR / โรคไตเรื้อรัง (DAPA-TAVI & DAPA-CKD)",
         "red_name": "Dapagliflozin 10 mg",
         "red_sub": "SGLT2i (บัญชียา รพ.เสิงสาง)",
         "blue_name": "Standard Care เดี่ยว",
         "blue_sub": "การรักษามาตรฐานเดิม",
         "rounds": [
-            {"title": "🥊 ยก 1: ลดตาย & หัวใจล้มเหลวกำเริบ (DM & Non-DM)", "verdict": "Dapa ชนะขาด", "red_pct": 82, "blue_pct": 38},
-            {"title": "🥊 ยก 2: ชะลอ eGFR Slope เสื่อมลง", "verdict": "Dapa ชนะขาดลอย", "red_pct": 85, "blue_pct": 40},
-            {"title": "🥊 ยก 3: คุ้มค่าลดนอน รพ.ซ้ำ (BI-HQ ROI)", "verdict": "ประหยัดค่ารักษาระยะยาวชัดเจน", "red_pct": 88, "blue_pct": 30}
+            {"title": "🥊 ยก 1: ลด Mortality & Worsening Heart Failure (DM & Non-DM)", "verdict": "Dapa ชนะขาด (ได้ผลเท่ากันทั้งกลุ่มเบาหวานและไม่เป็นเบาหวาน)", "red_pct": 82, "blue_pct": 38},
+            {"title": "🥊 ยก 2: ชะลอ eGFR Decline (Renal Protection)", "verdict": "Dapa ชนะขาดลอย (ชะลอการเสื่อมของไต)", "red_pct": 85, "blue_pct": 40},
+            {"title": "🥊 ยก 3: ความคุ้มค่าด้านงบประมาณสาธารณสุข (BI-HQ ROI)", "verdict": "ประหยัดงบค่ารักษา Re-admission ระยะยาวชัดเจน", "red_pct": 88, "blue_pct": 30}
         ],
-        "verdict_text": "Dapagliflozin ป้องกัน Heart Failure กำเริบและชะลอไตวายได้ทั้งคนที่เป็นและไม่เป็นเบาหวาน คุ้มค่าสูงมากในการลด Re-admission รพ.เสิงสาง!",
-        "punchline": "Dapagliflozin ชนะขาดทั้งกลุ่มเบาหวานและไม่เป็นเบาหวาน คุ้มค่าลด Re-admission"
+        "verdict_text": "Dapagliflozin ป้องกัน Heart Failure กำเริบและชะลอไตเสื่อมได้ทั้งคนที่เป็นและไม่เป็นเบาหวาน คุ้มค่าสูงมากในการลด Re-admission รพ.เสิงสาง!",
+        "punchline": "Dapagliflozin ชนะขาดทั้งกลุ่ม DM และ Non-DM คุ้มค่าลด Re-admission รพ.เสิงสาง"
     },
     {
         "bout_id": "anticoagulation",
         "track_id": "anticoagulation",
-        "tab_label": "🩸 ศึกต้านลิ่มเลือด",
-        "headline": "🩸 ศึกมวยคู่เอก: ป้องกันลิ่มเลือดอุดตันหลังผ่าตัดเปลี่ยนข้อ (NEJM Trial)",
+        "tab_label": "🩸 Anticoagulants: VTE Prevention",
+        "headline": "🩸 ศึกมวยคู่เอก: ป้องกันลิ่มเลือดอุดตัน VTE หลังผ่าตัดเปลี่ยนข้อ (PEPPER Trial ใน NEJM, N=18,883)",
         "red_name": "Aspirin 81 mg BID",
-        "red_sub": "ยาต้านเกล็ดเลือดราคาประหยัด",
+        "red_sub": "Antiplatelet ราคาประหยัด",
         "blue_name": "Warfarin / Rivaroxaban",
-        "blue_sub": "ยาละลายลิ่มเลือดมาตรฐาน",
+        "blue_sub": "Anticoagulants มาตรฐาน",
         "rounds": [
-            {"title": "🥊 ยก 1: ประสิทธิผลป้องกัน VTE & เสียชีวิต", "verdict": "เสมอกัน (Non-inferior)", "red_pct": 50, "blue_pct": 50},
-            {"title": "🥊 ยก 2: ความปลอดภัย (Major Bleeding)", "verdict": "Aspirin ปลอดภัยสูง", "red_pct": 65, "blue_pct": 45},
-            {"title": "🥊 ยก 3: ความคุ้มค่า & ลดภาระเจาะ INR", "verdict": "Aspirin ชนะน็อค! (ไม่ต้องเจาะ INR)", "red_pct": 92, "blue_pct": 25}
+            {"title": "🥊 ยก 1: ประสิทธิผลป้องกัน VTE & Mortality", "verdict": "เสมอกัน (Non-inferior ชัดเจน)", "red_pct": 50, "blue_pct": 50},
+            {"title": "🥊 ยก 2: ความปลอดภัยด้าน Major Bleeding", "verdict": "Aspirin ปลอดภัยกว่าชัดเจน (เลือดออกน้อยกว่า)", "red_pct": 65, "blue_pct": 45},
+            {"title": "🥊 ยก 3: ความคุ้มค่า & ลดภาระการตรวจติดตาม INR", "verdict": "Aspirin ชนะน็อค! (ไม่ต้องเจาะ Lab ติดตาม)", "red_pct": 92, "blue_pct": 25}
         ],
-        "verdict_text": "ในผู้ป่วยความเสี่ยงต่ำหลังผ่าตัดเปลี่ยนข้อเข่า/สะโพก การใช้ Aspirin ปลอดภัยและลดภาระงานคลินิกวาร์ฟารินของ รพ.ชุมชนได้มหาศาล!",
-        "punchline": "Aspirin ได้ผลเท่ากันในเคสความเสี่ยงต่ำ ไม่ต้องเจาะ INR ลดภาระคลินิกวาร์ฟาริน"
+        "verdict_text": "ในผู้ป่วยผ่าตัดเปลี่ยนข้อเข่า/ข้อสะโพกที่มีความเสี่ยง VTE ต่ำ Aspirin มีประสิทธิผลไม่ด้อยกว่า เลือดออกน้อยกว่า และลดภาระงานคลินิกวาร์ฟารินของ รพ.เสิงสาง ได้มหาศาล!",
+        "punchline": "Aspirin ได้ผล Non-inferior เลือดออกน้อยกว่า ไม่ต้องเจาะ INR ลดภาระคลินิกวาร์ฟาริน"
     },
     {
         "bout_id": "ams_rdu",
         "track_id": "ams_rdu",
-        "tab_label": "🦠 ศึกยาฆ่าเชื้อสั้น",
-        "headline": "🦠 ศึกมวยคู่เอก: ยาปฏิชีวนะสูตรสั้น vs สูตรยาว ในปอดบวมเด็ก (Non-Severe CAP)",
-        "red_name": "สูตรสั้น 3–5 วัน",
-        "red_sub": "Short-Course Amoxicillin",
-        "blue_name": "สูตรยาว 7–10 วัน",
-        "blue_sub": "Standard-Course เดิม",
+        "tab_label": "🦠 Short-Course Antibiotics (AMS)",
+        "headline": "🦠 ศึกมวยคู่เอก: Antibiotics สูตรสั้น vs สูตรยาว ในปอดอักเสบเด็ก (Pediatric Non-Severe CAP)",
+        "red_name": "Short-Course Amoxicillin (3–5 วัน)",
+        "red_sub": "สูตรยาสั้นตามหลัก RDU & AMS",
+        "blue_name": "Standard-Course (7–10 วัน)",
+        "blue_sub": "สูตรมาตรฐานเดิม",
         "rounds": [
-            {"title": "🥊 ยก 1: อัตราการรักษาหายขาดทางคลินิก", "verdict": "เสมอกัน 100%", "red_pct": 50, "blue_pct": 50},
-            {"title": "🥊 ยก 2: ความร่วมมือในการกินยา (Adherence)", "verdict": "สูตรสั้นชนะขาด (พ่อแม่ป้อนง่าย)", "red_pct": 85, "blue_pct": 45},
-            {"title": "🥊 ยก 3: ลดผลข้างเคียงท้องเสีย & เชื้อดื้อยา", "verdict": "สูตรสั้นชนะน็อคตามเกณฑ์ RDU!", "red_pct": 88, "blue_pct": 30}
+            {"title": "🥊 ยก 1: อัตราการรักษาหายทางคลินิก (Clinical Cure Rate)", "verdict": "เสมอกัน 100% (Non-inferior สมบูรณ์แบบ)", "red_pct": 50, "blue_pct": 50},
+            {"title": "🥊 ยก 2: Medication Adherence (ความร่วมมือในการกินยาครบโดส)", "verdict": "สูตรสั้นชนะขาด (กินง่าย คอร์สสั้น ผู้ปกครองป้อนครบ)", "red_pct": 85, "blue_pct": 45},
+            {"title": "🥊 ยก 3: ลดผลข้างเคียงท้องเสีย & ชะลอเชื้อดื้อยา (AMR)", "verdict": "สูตรสั้นชนะน็อคตามเกณฑ์ AMS!", "red_pct": 88, "blue_pct": 30}
         ],
-        "verdict_text": "ปอดบวมเด็กชนิดไม่รุนแรง (Non-severe CAP) จ่าย Amoxicillin สูตรสั้น 3–5 วัน หายเท่ากัน ลดเชื้อดื้อยา และประหยัดงบค่ายา รพ.เสิงสาง!",
-        "punchline": "สูตรสั้น 3-5 วัน รักษาหายเท่ากัน ลดดื้อยา พ่อแม่ป้อนง่าย ประหยัดงบ รพ."
+        "verdict_text": "ปอดอักเสบเด็กชนิดไม่รุนแรง (Non-severe CAP) จ่าย Amoxicillin สูตรสั้น 3–5 วัน หายเท่ากัน Adherence ดีกว่า ลดเชื้อดื้อยา และประหยัดงบค่ายา รพ.เสิงสาง!",
+        "punchline": "Short-Course Amox 3–5 วัน หายเท่ากัน Adherence สูง ลดเชื้อดื้อยา ประหยัดงบ รพ."
     },
     {
         "bout_id": "deprescribing",
         "track_id": "deprescribing",
-        "tab_label": "👴 ศึกตัดยาคนแก่",
-        "headline": "👴 ศึกมวยคู่เอก: หยุดยานอนหลับ Benzodiazepines vs กินต่อเนื่องในผู้สูงอายุที่มี Polypharmacy",
-        "red_name": "Deprescribing มีเภสัชกรประกบ",
-        "red_sub": "Tapering ค่อยๆ ลด + สุขอนามัยนอน",
-        "blue_name": "กินยาเดิมต่อเนื่อง (Status Quo)",
-        "blue_sub": "จ่ายยาซ้ำเดิมต่อเนื่อง",
+        "tab_label": "👴 Deprescribing: Tapering ยานอนหลับ",
+        "headline": "👴 ศึกมวยคู่เอก: Deprescribing หยุดยานอนหลับ Benzodiazepines vs กินต่อเนื่องในผู้สูงอายุที่มี Polypharmacy",
+        "red_name": "Pharmacist-Led Deprescribing",
+        "red_sub": "ค่อยๆ ปรับลดขนาดยา (Stepwise Tapering) + Sleep Hygiene",
+        "blue_name": "Usual Care (Status Quo)",
+        "blue_sub": "รับประทานยาเดิมต่อเนื่อง",
         "rounds": [
-            {"title": "🥊 ยก 1: ลดอุบัติการณ์หกล้มและกระดูกหัก (Fall Risk)", "verdict": "กลุ่มตัดยาชนะขาด (ลดล้ม 40%)", "red_pct": 85, "blue_pct": 30},
-            {"title": "🥊 ยก 2: คุณภาพการนอนหลับและการรู้คิด (Cognition)", "verdict": "สมองแจ่มใสขึ้น ไม่เบลอ", "red_pct": 80, "blue_pct": 40},
-            {"title": "🥊 ยก 3: ป้องกันอาการถอนยา (Rebound Insomnia)", "verdict": "Tapering เป็นระบบแทบไม่มีอาการ", "red_pct": 75, "blue_pct": 50}
+            {"title": "🥊 ยก 1: ลดอุบัติการณ์หกล้มและกระดูกหัก (Fall & Fracture Risk)", "verdict": "กลุ่ม Deprescribing ชนะขาด (ลดการหกล้มลง 40%)", "red_pct": 85, "blue_pct": 30},
+            {"title": "🥊 ยก 2: Cognitive Function & ความตื่นตัวระหว่างวัน", "verdict": "สมองแจ่มใส ไม่มึนงงเวลากลางวัน", "red_pct": 80, "blue_pct": 40},
+            {"title": "🥊 ยก 3: ป้องกัน Rebound Insomnia / Withdrawal Symptoms", "verdict": "Stepwise Tapering ปลอดภัย แทบไม่มีอาการถอนยา", "red_pct": 75, "blue_pct": 50}
         ],
-        "verdict_text": "การมีเภสัชกรช่วยแพทย์ตัดยานอนหลับในผู้สูงอายุ ลดความเสี่ยงหกล้มสะโพกหักได้มหาศาล เซฟค่าผ่าตัดให้ รพ.เสิงสาง ได้หลักแสน!",
-        "punchline": "เภสัชกรช่วย Tapering ยานอนหลับ ลดหกล้ม 40% ตัดค่าผ่าตัดกระดูกหักได้มหาศาล"
+        "verdict_text": "เภสัชกรร่วมกับแพทย์ทำ Stepwise Tapering ยานอนหลับในผู้สูงอายุ ลดความเสี่ยงหกล้มสะโพกหักได้มหาศาล เซฟค่าใช้จ่ายผ่าตัดให้ รพ.เสิงสาง ได้หลายแสนบาท!",
+        "punchline": "Pharmacist Tapering ยานอนหลับ ลดหกล้ม 40% คุ้มครองผู้สูงอายุและเซฟค่ารักษา"
     }
 ]
 
@@ -1533,21 +1533,21 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
 </head>
 <body>
   <header class="arena-header">
-    <div class="live-tag">🟢 7-TRACK SENTINEL v2.2-HQ • 5-ALLIED HQs LINKED</div>
+    <div class="live-tag">🟢 7-TRACK CLINICAL SENTINEL • 5-ALLIED HQs LINKED</div>
     <div class="arena-title">⚔️ CLINICAL BATTLE ARENA</div>
-    <div class="arena-subtitle">ระบบเฝ้าระวังงานวิจัยคลินิก 7 สายงาน • กรอง N ≥ 30 & Free PMC • รพ.เสิงสาง</div>
+    <div class="arena-subtitle">ระบบเฝ้าระวังหลักฐานเชิงประจักษ์ 7 สายงานคลินิก • กรองเฉพาะงานวิจัยคุณภาพ N ≥ 30 & Free PMC • รพ.เสิงสาง</div>
     <div class="kpi-strip">
-      <div class="kpi-chip">📅 อัปเดต: <strong>{report_date}</strong></div>
-      <div class="kpi-chip">📚 เปเปอร์รอบนี้: <strong>{total_articles} เรื่อง</strong></div>
-      <div class="kpi-chip">📖 โหลดฟรี PMC: <strong>{free_pmc_count} เรื่อง</strong></div>
+      <div class="kpi-chip">📅 อัปเดตล่าสุด: <strong>{report_date}</strong></div>
+      <div class="kpi-chip">📚 เปเปอร์ผ่านเกณฑ์: <strong>{total_articles} เรื่อง</strong></div>
+      <div class="kpi-chip">📖 PMC Full-Text: <strong>อ่านฟรี {free_pmc_count} เรื่อง</strong></div>
     </div>
-    <button class="sound-btn" onclick="playGong()">🔔 เคาะระฆังเปิดศึก</button>
+    <button class="sound-btn" onclick="playGong()">🔔 เคาะระฆังเปิดศึก (Fight Bell)</button>
   </header>
 
   <div class="container">
     <div class="mode-switch-bar">
-      <button class="mode-btn active" id="btn-fun" onclick="switchMode('fun')">🎮 โหมดศึกดวล Quick-Scan (7 หมวด)</button>
-      <button class="mode-btn" id="btn-formal" onclick="switchMode('formal')">📄 โหมดเอกสารทางการ (Formal)</button>
+      <button class="mode-btn active" id="btn-fun" onclick="switchMode('fun')">🥊 โหมดศึกดวล Quick-Scan (7 หมวด)</button>
+      <button class="mode-btn" id="btn-formal" onclick="switchMode('formal')">📑 โหมดเอกสารทางการ (Formal Dossier)</button>
     </div>
 
     <div class="filter-scroll" id="trackPills">
@@ -1581,15 +1581,15 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
       <div class="chibi-avatar">👨‍⚕️</div>
       <div class="speech-bubble">
         <strong>โน้ตจาก ภก.รัฐนนท์ (ประธานทีม IM รพ.เสิงสาง):</strong>
-        "โหมดศึกดวลสรุปคู่เอก 7 หมวดให้อ่านสนุกกระชับ สแกนผลตัดสินใน 1 นาที หากต้องการอ่านบทคัดย่อตัวเต็ม สถิติ N, PMC และบทวิเคราะห์ 3 มิติ รพ.เสิงสาง กดปุ่ม <strong>'อ่านวิเคราะห์ฉบับเต็ม'</strong> หรือสลับไป <strong>'โหมดเอกสารทางการ'</strong> ด้านบนได้ทันทีครับ!"
+        "โหมดศึกดวลสรุปคู่เอก 7 หมวดให้อ่านสนุก กระชับ สแกนผลตัดสินได้ใน 1 นาที! ถอดศัพท์แพทย์เป็นภาษาคลินิกทับศัพท์มาตรฐานตามหน้างานจริง หากต้องการอ่านบทคัดย่อฉบับเต็ม สถิติ N, PMC Full-Text และบทวิเคราะห์ 3 มิติ รพ.เสิงสาง (Action, Rx-Sentinel, BI-HQ) คลิกปุ่ม <strong>'อ่านวิเคราะห์ฉบับเต็ม'</strong> หรือสลับไป <strong>'โหมดเอกสารทางการ'</strong> ด้านบนได้ทันทีครับ!"
       </div>
     </div>
 
     <!-- BATTLE MODE: 7-BOUT CHAMPIONSHIP DECK (Sleek, Fast, Fun, Zero-Clutter) -->
     <div id="battle-cards-container">
       <div class="deck-header">
-        <div class="deck-title">🥊 รายการศึกดวล 7 คู่เอกประจำรอบสัปดาห์ (Championship Deck)</div>
-        <div class="deck-subtitle">คลิกการ์ดเพื่อสลับคู่มวยด้านบน หรือกดปุ่มเพื่อเปิดอ่านเอกสารและเปเปอร์ทางการแพทย์ฉบับเต็ม</div>
+        <div class="deck-title">🥊 ไฮไลต์ศึกดวล 7 คู่เอกประจำสัปดาห์ (Championship Deck)</div>
+        <div class="deck-subtitle">คลิกการ์ดเพื่อสลับคู่มวยด้านบน หรือกดปุ่มอ่านวิเคราะห์เพื่อดูเอกสารและหลักฐานทางการแพทย์ฉบับเต็ม</div>
       </div>
       <div class="champ-deck-grid">
         {champ_deck_joined}
@@ -1602,15 +1602,15 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
         <div class="formal-title-row">
           <div class="formal-crest">🏛️</div>
           <div>
-            <h2 class="formal-heading">เอกสารรายงานทางการ: การเฝ้าระวังหลักฐานเชิงประจักษ์ 7 สายงานคลินิก</h2>
-            <p class="formal-subheading">กลุ่มงานเภสัชกรรมและคุ้มครองผู้บริโภค • ทีม Information Management (IM) โรงพยาบาลเสิงสาง</p>
+            <h2 class="formal-heading">เอกสารรายงานทางการ: การเฝ้าระวังหลักฐานเชิงประจักษ์ 7 สายงานคลินิก (Evidence Surveillance Dossier)</h2>
+            <p class="formal-subheading">กลุ่มงานเภสัชกรรมและคุ้มครองผู้บริโภค • คณะกรรมการเภสัชกรรมและการบำบัด (PTC) & ทีม IM โรงพยาบาลเสิงสาง</p>
           </div>
         </div>
         <div class="formal-meta-grid">
           <div class="formal-meta-item">📅 <strong>วันที่จัดทำ:</strong> {report_date}</div>
-          <div class="formal-meta-item">📚 <strong>งานวิจัยผ่านเกณฑ์ N ≥ 30:</strong> {total_articles} เรื่อง</div>
-          <div class="formal-meta-item">📖 <strong>PMC Full-Text อ่านฟรี:</strong> {free_pmc_count} เรื่อง</div>
-          <div class="formal-meta-item">👨‍⚕️ <strong>ผู้รับผิดชอบ:</strong> ภก.รัฐนนท์ แสงไทยทวีพร (ภก.ชพ.)</div>
+          <div class="formal-meta-item">📚 <strong>งานวิจัยผ่านเกณฑ์คัดกรอง N ≥ 30:</strong> {total_articles} เรื่อง</div>
+          <div class="formal-meta-item">📖 <strong>วารสารเปิดอ่านฟรี PMC Full-Text:</strong> {free_pmc_count} เรื่อง</div>
+          <div class="formal-meta-item">👨‍⚕️ <strong>ผู้รับผิดชอบระบบ:</strong> ภก.รัฐนนท์ แสงไทยทวีพร (ภก.ชพ.)</div>
         </div>
       </div>
 
@@ -1837,26 +1837,28 @@ def send_telegram_notification(report_date, total_articles, free_pmc_count, show
         print("[INFO] No valid chat IDs specified.")
         return False
 
-    # Ultra-concise 1-line bullet points per track/bout (Compact scan, <1,200 chars total)
+    # Concise & punchy format per bout for mobile readability
     bouts_lines = []
     for idx, b in enumerate(showdown_bouts, 1):
         label = b.get("tab_label", f"คู่ที่ {idx}").strip()
         punch = b.get("punchline") or b.get("verdict_text", "")
-        if len(punch) > 75:
-            punch = punch[:72] + "..."
-        bouts_lines.append(f"• {label}: <b>{html_lib.escape(punch)}</b>")
+        if len(punch) > 85:
+            punch = punch[:82] + "..."
+        bouts_lines.append(f"• {label}\n  ↳ <b>{html_lib.escape(punch)}</b>")
 
-    bouts_summary = "\n".join(bouts_lines)
+    bouts_summary = "\n\n".join(bouts_lines)
 
     text = (
-        f"🥊 <b>PubMed Sentinel • สรุปกระชับประจำวัน</b>\n"
-        f"📅 <b>{report_date}</b> | รพ.เสิงสาง (IM Team)\n\n"
-        f"📊 <b>พบวิจัยใหม่ผ่านเกณฑ์ (N ≥ 30):</b> {total_articles} เรื่อง (PMC ฟรี {free_pmc_count})\n\n"
-        f"⚔️ <b>ไฮไลท์ศึกมวย 7 คู่เอก:</b>\n"
+        f"🥊 <b>PubMed Clinical Sentinel • Daily Briefing</b>\n"
+        f"📅 <b>ประจำวันที่:</b> {report_date} | รพ.เสิงสาง (IM Team)\n\n"
+        f"📊 <b>Evidence Surveillance 7 สายงาน:</b>\n"
+        f"• วิจัยใหม่ผ่านเกณฑ์ (N ≥ 30): <b>{total_articles} เรื่อง</b>\n"
+        f"• PMC Full-Text อ่านฟรี: <b>{free_pmc_count} เรื่อง</b>\n\n"
+        f"⚔️ <b>ไฮไลต์ศึกดวล 7 คู่เอกประจำวัน:</b>\n\n"
         f"{bouts_summary}\n\n"
-        f"🌐 <b>อ่านฉบับเต็ม & ข้อมูลเชิงลึก:</b>\n"
+        f"🌐 <b>เปิดอ่านหน้า Battle Arena & Clinical Dossier:</b>\n"
         f"{portal_url}\n\n"
-        f"🤖 <i>GitHub Actions Daily Surveillance Engine • รพ.เสิงสาง</i>"
+        f"🤖 <i>Automated Daily Surveillance Engine • รพ.เสิงสาง</i>"
     )
 
     # Hard-safety guard: Telegram limit is 4,096 chars; cap strictly at 3,500 chars

@@ -14,6 +14,14 @@
     "quota_limitation_cleared": true,
     "last_billing_upgrade_timestamp": "2026-11-12T15:21:28+07:00"
   },
+  "telegram_alert_governance": {
+    "status": "ACTIVE_SINGLE_CHANNEL_RESTRICTED",
+    "bot_username": "@Google_Antigravity_alert_bot",
+    "bot_id": "8845047207",
+    "dedicated_channel_id": "-1003712039650",
+    "personal_dm_policy": "STRICTLY_PROHIBITED",
+    "directive": "All Allied HQs, automation bots, and subagents must route alerts and notifications EXCLUSIVELY to room -1003712039650. Never send direct messages or duplicate alerts to personal chat."
+  },
   "handshake_status": "ACTIVE_SYNCHRONIZED_V2_2",
   "coordinator_conversation_id": "5196702a-14ab-4cfd-83a3-a1969c13b896",
   "origin_conversation_id": "e2a8d99d-ff21-4ff9-91be-ae3456187ad0",

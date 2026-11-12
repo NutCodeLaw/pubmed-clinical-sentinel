@@ -11,6 +11,13 @@
     "rate_limit_profile": "HIGH_THROUGHPUT_PRODUCTION",
     "notice": "Google AI Studio Pay-as-you-go billing active. Model rate limits & daily quota restrictions unlocked across all 6 Allied HQs."
   },
+  "telegram_alert_standard": {
+    "target_room_id": "-1003712039650",
+    "bot_handle": "@Google_Antigravity_alert_bot",
+    "bot_id": "8845047207",
+    "policy": "SINGLE_ROOM_ONLY",
+    "rule": "Every allied HQ must deliver automated broadcasts exclusively to room -1003712039650. No private DM spamming to Lead Investigator."
+  },
   "repository": {
     "local_path": "c:\\Users\\LENOVO\\OneDrive\\Desktop\\รวมไฟล์งาน\\GitHub Projects\\pubmed-clinical-sentinel",
     "git_origin": "https://github.com/NutCodeLaw/pubmed-clinical-sentinel.git",

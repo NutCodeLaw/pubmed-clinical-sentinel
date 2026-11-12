@@ -197,28 +197,34 @@ def analyze_with_gemini(articles_by_track, report_date):
                 "abstract": a["abstract"][:800] + ("..." if len(a["abstract"]) > 800 else "")
             })
 
-    prompt = f"""คุณคือผู้เชี่ยวชาญด้านเภสัชบำบัดทางคลินิก (Clinical Pharmacy Specialist) ร่วมกับท่านประธาน ภก.รัฐนนท์ แสงไทยทวีพร (เภสัชกรชำนาญการ ประธานทีม IM โรงพยาบาลเสิงสาง)
+    prompt = f"""คุณคือผู้เชี่ยวชาญด้านเภสัชบำบัดทางคลินิก ร่วมกับท่านประธาน ภก.รัฐนนท์ แสงไทยทวีพร (เภสัชกรชำนาญการ ประธานทีม IM โรงพยาบาลเสิงสาง)
 
 หน้าที่: จัดทำสรุปรายงานงานวิจัยทางคลินิกใหม่ด้าน Asthma, COPD, ยาช่วยเลิกบุหรี่ และสมุนไพรไทย ประจำวันที่ {report_date}
 
 ข้อมูลงานวิจัยจาก PubMed:
 {json.dumps(compact_tracks, ensure_ascii=False, indent=2)}
 
-ข้อกำหนดการจัดทำรายงาน:
-1. วิเคราะห์และสรุปบทความวิจัยที่น่าสนใจและมีนัยสำคัญทางคลินิก แบ่งตาม 3 หมวด:
-   - หมวดที่ 1: เภสัชบำบัดโรคหอบหืดและปอดอุดกั้นเรื้อรัง (Asthma & COPD)
-   - หมวดที่ 2: เภสัชบำบัดช่วยเลิกบุหรี่ (Smoking Cessation)
-   - หมวดที่ 3: สมุนไพรไทยทางคลินิกในระบบทางเดินหายใจ (Thai Herbal Medicine)
+กฎเหล็กรูปแบบการนำเสนอ (สำคัญที่สุด):
+- **ห้ามเขียนเป็น Text บรรยายยาวๆ เป็นพารากราฟเด็ดขาด** 
+- ให้สรุปแบบ **"Quick-Scan Card"** เน้นความกระชับ ตรงเป้า สกัดเฉพาะเนื้อหาใจความสำคัญ ให้อ่านจบใน 10 วินาทีต่อเรื่อง
 
-2. สำหรับแต่ละบทความ ให้สรุปในโครงสร้าง 5 มิติ:
-   - **[ชื่อบทความและแหล่งอ้างอิง]**: ชื่อเรื่องภาษาอังกฤษ, วารสาร, PMID พร้อมลิงก์ https://pubmed.ncbi.nlm.nih.gov/<PMID>/
-   - **[Study Design & Population]**: รูปแบบการศึกษา, ขนาดตัวอย่าง (N), ลักษณะประชากร/Biomarkers
-   - **[Intervention & Regimen]**: ตัวยา/สูตรตำรับ, ขนาดยา, กลุ่มเปรียบเทียบ
-   - **[Key Clinical Findings]**: ผลลัพธ์หลักทางคลินิก (Exacerbation, FEV1, Cessation rate, Safety)
-   - **[Clinical Takeaway / Pharmacist's Insight]**: นัยสำคัญต่อแนวทางเวชปฏิบัติ (GINA, GOLD, แนวทางเลิกบุหรี่ หรือบัญชียาหลักแห่งชาติด้านสมุนไพร) และบริบท รพ.เสิงสาง/รพ.ชุมชน
+สำหรับแต่ละบทความ ให้ใช้โครงสร้างสั้น กระชับ ดังนี้:
+### [ลำดับ]. [ชื่อเรื่องภาษาอังกฤษสั้นๆ]
+- **วารสาร & PMID:** [ชื่อย่อวารสาร] ([ปี/เดือน]) • [PMID: <PMID>](https://pubmed.ncbi.nlm.nih.gov/<PMID>/)
+- 🎯 **ใจความสำคัญ 1 บรรทัด:** [สรุปประเด็นหลักสั้นที่สุด ไม่เกิน 1-2 บรรทัด]
+- 📊 **ตัวเลขผลลัพธ์สำคัญ:** 
+  • [สถิติ/ผลลัพธ์ 1: เช่น N=..., ลดกำเริบ...%, FEV1...]
+  • [สถิติ/ผลลัพธ์ 2: ความปลอดภัย/ผลข้างเคียง]
+- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** [นัยสำคัญทางคลินิกต่อ รพ.ชุมชน 1 ข้อสั้นๆ คมๆ]
+- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/<PMID>/)
 
-3. หากหมวดใดไม่มีงานวิจัยใหม่ ให้ระบุสั้นๆ และสรุป Clinical Review / Landmark Study ที่น่าสนใจ 1 เรื่องแทน
-4. ท้ายรายงานให้ลงท้ายว่า:
+แบ่งเนื้อหาเป็น 3 หมวดชัดเจน:
+1. 🫁 เภสัชบำบัดโรคหอบหืดและปอดอุดกั้นเรื้อรัง (Asthma & COPD)
+2. 🚭 เภสัชบำบัดช่วยเลิกบุหรี่ (Smoking Cessation)
+3. 🌿 สมุนไพรไทยทางคลินิกในระบบทางเดินหายใจ (Thai Herbal Medicine)
+(หากหมวดใดไม่มีเปเปอร์ใหม่ ให้สรุป Landmark Study หรือ Clinical Review สั้นๆ 1 เรื่องแทน)
+
+ท้ายรายงานให้ลงท้ายว่า:
 ---
 **จัดทำโดย:** ภก.รัฐนนท์ แสงไทยทวีพร, เภสัชกรชำนาญการ  
 *ประธานทีม Information Management (IM) โรงพยาบาลเสิงสาง*
@@ -298,130 +304,300 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track):
 <html lang="th">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PubMed Clinical Sentinel - ภก.รัฐนนท์ แสงไทยทวีพร</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>PubMed Clinical Sentinel | ภก.รัฐนนท์ แสงไทยทวีพร</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <style>
     :root {{
-      --primary: #0284c7;
-      --primary-dark: #0369a1;
-      --accent: #10b981;
-      --bg: #0f172a;
-      --card-bg: #1e293b;
-      --text: #f1f5f9;
+      --bg: #090d16;
+      --card-bg: rgba(22, 30, 49, 0.75);
+      --card-border: rgba(56, 189, 248, 0.15);
+      --primary: #06b6d4;
+      --primary-glow: rgba(6, 182, 212, 0.25);
+      --emerald: #10b981;
+      --amber: #f59e0b;
+      --purple: #a855f7;
+      --text: #f8fafc;
       --text-muted: #94a3b8;
-      --border: #334155;
     }}
-    * {{ box-sizing: border-box; margin: 0; padding: 0; }}
+    * {{ box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }}
     body {{
-      font-family: 'Sarabun', sans-serif;
+      font-family: 'Prompt', 'Sarabun', sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.7;
-      padding: 1.5rem;
+      line-height: 1.6;
+      padding-bottom: 5rem;
+    }}
+    .app-header {{
+      background: linear-gradient(180deg, rgba(6, 182, 212, 0.12) 0%, transparent 100%);
+      padding: 1.5rem 1rem 1rem 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }}
+    .header-badge {{
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(6, 182, 212, 0.15);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      color: #38bdf8;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }}
+    .app-title {{
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }}
+    .app-subtitle {{
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }}
+    .canva-banner-bar {{
+      margin-top: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(124, 58, 237, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      padding: 0.5rem 0.85rem;
+      border-radius: 0.75rem;
+      font-size: 0.8rem;
+    }}
+    .canva-link {{
+      color: #c084fc;
+      text-decoration: none;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }}
+    .sticky-controls {{
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(9, 13, 22, 0.92);
+      backdrop-filter: blur(12px);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }}
+    .search-box {{
+      width: 100%;
+      background: rgba(30, 41, 59, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 0.75rem;
+      padding: 0.6rem 1rem;
+      color: #ffffff;
+      font-size: 0.88rem;
+      outline: none;
+      transition: all 0.2s ease;
+    }}
+    .search-box:focus {{
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-glow);
+    }}
+    .filter-scroll {{
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      margin-top: 0.65rem;
+      padding-bottom: 0.2rem;
+      scrollbar-width: none;
+    }}
+    .filter-scroll::-webkit-scrollbar {{ display: none; }}
+    .pill-btn {{
+      white-space: nowrap;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(30, 41, 59, 0.6);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+    }}
+    .pill-btn.active {{
+      background: var(--primary);
+      color: #042f2e;
+      font-weight: 600;
+      border-color: var(--primary);
+      box-shadow: 0 2px 10px var(--primary-glow);
     }}
     .container {{
-      max-width: 900px;
+      max-width: 760px;
       margin: 0 auto;
+      padding: 1rem;
     }}
-    header {{
-      background: linear-gradient(135deg, #0369a1 0%, #0f766e 100%);
-      padding: 2rem;
-      border-radius: 1rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    .stat-cards {{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.6rem;
+      margin-bottom: 1.2rem;
     }}
-    header h1 {{ font-size: 1.8rem; font-weight: 700; margin-bottom: 0.5rem; }}
-    header p {{ color: #e2e8f0; font-size: 1rem; }}
-    .stats-bar {{
-      display: flex;
-      gap: 1rem;
-      margin-top: 1rem;
-      flex-wrap: wrap;
-    }}
-    .stat-pill {{
-      background: rgba(255,255,255,0.15);
-      padding: 0.4rem 1rem;
-      border-radius: 9999px;
-      font-size: 0.85rem;
-      backdrop-filter: blur(4px);
-    }}
-    .content-card {{
+    .stat-card {{
       background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 1rem;
-      padding: 2rem;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 0.75rem;
+      padding: 0.75rem;
+      text-align: center;
     }}
-    .content-card h1, .content-card h2, .content-card h3 {{
+    .stat-val {{
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--primary);
+    }}
+    .stat-lbl {{
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-top: 0.1rem;
+    }}
+    .content-area {{
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }}
+    .content-area h1, .content-area h2 {{
       color: #38bdf8;
-      margin: 1.5rem 0 0.75rem 0;
+      font-size: 1.2rem;
+      margin: 1.2rem 0 0.5rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
     }}
-    .content-card h2 {{
-      border-bottom: 2px solid var(--border);
-      padding-bottom: 0.5rem;
-      font-size: 1.35rem;
-    }}
-    .content-card h3 {{
-      font-size: 1.15rem;
+    .content-area h3 {{
+      font-size: 1rem;
       color: #34d399;
+      margin: 0.8rem 0 0.4rem 0;
     }}
-    .content-card p, .content-card li {{
-      margin-bottom: 0.75rem;
+    .content-area p, .content-area li {{
       color: #cbd5e1;
+      font-size: 0.9rem;
+      line-height: 1.6;
     }}
-    .content-card a {{
+    .content-area ul {{
+      margin-left: 1.2rem;
+      margin-bottom: 0.8rem;
+    }}
+    .content-area a {{
       color: #38bdf8;
       text-decoration: none;
-      border-bottom: 1px dashed #38bdf8;
+      font-weight: 500;
     }}
-    .content-card a:hover {{ color: #7dd3fc; }}
-    .content-card blockquote {{
-      border-left: 4px solid var(--primary);
-      padding-left: 1rem;
-      margin: 1rem 0;
-      color: var(--text-muted);
-      background: rgba(2, 132, 199, 0.08);
+    .content-area blockquote {{
+      border-left: 3px solid var(--primary);
+      background: rgba(6, 182, 212, 0.08);
+      padding: 0.6rem 0.85rem;
       border-radius: 0 0.5rem 0.5rem 0;
-      padding: 0.75rem 1rem;
-    }}
-    .content-card strong {{ color: #f8fafc; }}
-    footer {{
-      text-align: center;
-      margin-top: 3rem;
-      color: var(--text-muted);
+      margin: 0.75rem 0;
+      color: #94a3b8;
       font-size: 0.85rem;
+    }}
+    .app-card {{
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 1rem;
+      padding: 1.25rem;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }}
+    .app-footer {{
+      margin-top: 2.5rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
     }}
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>🧬 PubMed Clinical Sentinel</h1>
-      <p>ระบบตรวจจับและสังเคราะห์หลักฐานเชิงประจักษ์ทางคลินิก (Asthma • COPD • Smoking Cessation • Thai Herbs)</p>
-      <div class="stats-bar">
-        <span class="stat-pill">📅 อัปเดต: {report_date}</span>
-        <span class="stat-pill">📚 พบงานวิจัยใหม่: {total_articles} เรื่อง</span>
-        <span class="stat-pill">🏥 รพ.เสิงสาง (IM Team)</span>
-      </div>
-    </header>
+  <header class="app-header">
+    <div class="header-badge">🏥 โรงพยาบาลเสิงสาง • ทีม IM</div>
+    <div class="app-title">🧬 PubMed Clinical Sentinel</div>
+    <div class="app-subtitle">ระบบเฝ้าระวังและสังเคราะห์หลักฐานเชิงประจักษ์ทางคลินิก (Asthma • COPD • Smoking • Herbs)</div>
+    
+    <div class="canva-banner-bar">
+      <span>🎨 ออกแบบร่วมกับ Canva Pro</span>
+      <a class="canva-link" href="https://canva.link/v9g5tfxdg349vbg" target="_blank" rel="noopener">เปิดดู Template ใน Canva →</a>
+    </div>
+  </header>
 
-    <main class="content-card" id="report-body">
-      <!-- Markdown rendered here -->
+  <div class="sticky-controls">
+    <input type="text" id="searchInput" class="search-box" placeholder="🔍 ค้นหาชื่อยา, โรค, หรือคีย์เวิร์ด..." onkeyup="filterArticles()">
+    <div class="filter-scroll">
+      <button class="pill-btn active" onclick="setCategory('all', this)">🌟 ทั้งหมด</button>
+      <button class="pill-btn" onclick="setCategory('asthma', this)">🫁 Asthma & COPD</button>
+      <button class="pill-btn" onclick="setCategory('smoking', this)">🚭 เลิกบุหรี่</button>
+      <button class="pill-btn" onclick="setCategory('herbs', this)">🌿 สมุนไพรไทย</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="stat-cards">
+      <div class="stat-card">
+        <div class="stat-val">{report_date}</div>
+        <div class="stat-lbl">รอบรายงาน</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val">{total_articles}</div>
+        <div class="stat-lbl">เปเปอร์วิจัยใหม่</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val">Tier-1</div>
+        <div class="stat-lbl">มาตรฐานหลักฐาน</div>
+      </div>
+    </div>
+
+    <main class="app-card content-area" id="markdown-container">
+      <!-- Dynamic Markdown rendered here -->
     </main>
 
-    <footer>
-      <p>PubMed Clinical Sentinel Automation Engine • Developed for ภก.รัฐนนท์ แสงไทยทวีพร</p>
-      <p>Powered by GitHub Actions & Gemini API</p>
+    <footer class="app-footer">
+      <p><strong>ผู้รับผิดชอบระบบ:</strong> ภก.รัฐนนท์ แสงไทยทวีพร, เภสัชกรชำนาญการ</p>
+      <p>ประธานทีม Information Management (IM) โรงพยาบาลเสิงสาง</p>
+      <p style="margin-top: 0.4rem; color: #64748b;">Automated by GitHub Actions • Cloud 24/7</p>
     </footer>
   </div>
 
   <script>
-    const markdown = {json.dumps(markdown_content)};
-    document.getElementById('report-body').innerHTML = marked.parse(markdown);
+    const rawMarkdown = {json.dumps(markdown_content)};
+    const container = document.getElementById('markdown-container');
+    container.innerHTML = marked.parse(rawMarkdown);
+
+    function filterArticles() {{
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const headings = container.querySelectorAll('h3');
+      headings.forEach(h3 => {{
+        let content = h3.textContent.toLowerCase();
+        let sibling = h3.nextElementSibling;
+        let block = [h3];
+        while (sibling && sibling.tagName !== 'H3' && sibling.tagName !== 'H2' && sibling.tagName !== 'H1') {{
+          content += ' ' + sibling.textContent.toLowerCase();
+          block.push(sibling);
+          sibling = sibling.nextElementSibling;
+        }}
+        const match = content.includes(query);
+        block.forEach(el => el.style.display = match ? '' : 'none');
+      }});
+    }}
+
+    function setCategory(cat, btn) {{
+      document.querySelectorAll('.pill-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const text = btn.textContent.replace(/[^\u0E00-\u0E7Fa-zA-Z]/g, '').trim();
+      document.getElementById('searchInput').value = cat === 'all' ? '' : text;
+      filterArticles();
+    }}
   </script>
 </body>
 </html>"""

@@ -119,9 +119,42 @@ def send_telegram_alert(text: str, parse_mode: str = "HTML") -> bool:
 • ลดการนอน รพ. ซ้ำ: ประเมินมูลค่า XXX,XXX บาท/ปี
 ```
 
+### 4.5 🕵️‍♂️ MarketSherlock Daily Intelligence (`market-sherlock`)
+```text
+🕵️‍♂️ MarketSherlock (08:00 น.)
+📅 DD Month YYYY • 08:00 น.
+
+📊 Market Snapshot:
+• SET: 1,499.06 (⚪ 0.00%)
+• S&P500: 7,642.54 (🟢 +0.30%)
+• US 10Y: 5.07% (🟢 +1.44%)
+• WTI Oil: 86.69 (🟢 +0.18%)
+• Gold: 3,875.40 (🔴 -3.13%)
+• USD/THB: 33.87THB (🟢 +0.84%)
+
+🔍 3 ประเด็นสำคัญเช้านี้:
+1️⃣ <Title>
+   ↳ <Takeaway>
+
+🧭 กลยุทธ์พอร์ตโฟลิโอ:
+🟢 บวก: ...
+🔴 ระวัง: ...
+💡 กลยุทธ์: ...
+
+👉 เปิดอ่านรายงานฉบับเต็ม + ชาร์ตบทวิเคราะห์:
+🔗 https://nutcodelaw.github.io/market-sherlock/
+```
+
 ---
 
-## ⚙️ 5. การตั้งค่าบน GitHub Repository
-สำหรับ GitHub Actions ให้ผู้ดูแลตรวจสอบค่าใน **Settings > Secrets and variables > Actions**:
+## ⚙️ 5. รายชื่อ Repository และการตั้งค่าบน GitHub Actions (Project Cluster)
+ทุก Repository ภายใต้ `GitHub Projects` ได้รับการตั้งเวลาให้จัดส่งรายงานพร้อมกันเวลา **08:00 น. (01:00 UTC)**:
+
+| Repository | งานและระบบแจ้งเตือน | กำหนดเวลา (Cron UTC) | เวลาส่งจริง (BKK) | สถานะ |
+|---|---|:---:|:---:|:---:|
+| `pubmed-clinical-sentinel` | 7-Track Clinical Surveillance & Boxing Arena | `0 1 * * *` | 08:00 น. ทุกวัน | Active ✅ |
+| `market-sherlock` | Global & Thai Market Morning Fast-Bite Dispatch | `0 1 * * *` | 08:00 น. ทุกวัน | Active ✅ |
+
+การตั้งค่า GitHub Secrets สำหรับทุก Repository ใน Cluster (**Settings > Secrets and variables > Actions**):
 * `TELEGRAM_BOT_TOKEN` = `8845047207:AAFgu6i0Rg3U4uaFfBDtLEVkAVokCYpq2Vk`
-* `TELEGRAM_CHAT_ID` = `-1003712039650` *(ใส่เฉพาะเลขห้องกลุ่มนี้ตัวเดียวเท่านั้น)*
+* `TELEGRAM_CHAT_ID` = `-1003712039650` *(ใส่เฉพาะเลขห้องกลุ่มนี้ตัวเดียวเท่านั้น ห้ามใส่ ID ส่วนตัว)*

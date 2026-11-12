@@ -1837,6 +1837,13 @@ def send_telegram_notification(report_date, total_articles, free_pmc_count, show
         print("[INFO] No valid chat IDs specified.")
         return False
 
+    # Guard: Dispatch ONLY in GitHub Actions CI (daily 08:00 AM) or when explicitly requested via --telegram flag/FORCE_TELEGRAM
+    is_ci = os.environ.get("GITHUB_ACTIONS") == "true"
+    force_tg = os.environ.get("FORCE_TELEGRAM", "").lower() in ["true", "1", "yes"] or "--telegram" in sys.argv
+    if not is_ci and not force_tg:
+        print("[INFO] Local environment detected. Telegram dispatch paused as requested. (Automated GitHub Actions will dispatch daily at 08:00 AM Bangkok Time).")
+        return False
+
     # Concise & punchy format per bout for mobile readability
     bouts_lines = []
     for idx, b in enumerate(showdown_bouts, 1):

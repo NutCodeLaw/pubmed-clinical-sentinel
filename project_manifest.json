@@ -1,0 +1,26 @@
+{
+  "project_name": "pubmed-clinical-sentinel",
+  "project_title": "PubMed Clinical Sentinel & Battle Arena Engine",
+  "version": "2.0.0-HQ",
+  "lead_investigator": "ภก.รัฐนนท์ แสงไทยทวีพร (เภสัชกรชำนาญการ, ประธานทีม IM โรงพยาบาลเสิงสาง)",
+  "github_repository": "https://github.com/NutCodeLaw/pubmed-clinical-sentinel",
+  "github_pages_url": "https://nutcodelaw.github.io/pubmed-clinical-sentinel/",
+  "canva_template_url": "https://canva.link/v9g5tfxdg349vbg",
+  "active_tracks": [
+    "Asthma & COPD Pharmacotherapy",
+    "Smoking Cessation & Varenicline",
+    "Thai Herbal Medicine in Respiratory Care",
+    "Cardio-Renal-Metabolic (CRM: SGLT2i, GLP-1 RA, Finerenone)",
+    "High-Alert & Anticoagulation (Warfarin vs DOACs, INR & BLEEDING)",
+    "Antimicrobial Stewardship (AMS Short-Course RDU)",
+    "Deprescribing & Polypharmacy in Elderly"
+  ],
+  "automation": {
+    "schedule": "Every Monday 07:00 BKK (00:00 UTC)",
+    "workflow": ".github/workflows/weekly_sentinel.yml",
+    "engine_script": "scripts/sentinel.py",
+    "ui_portal": "docs/index.html"
+  },
+  "handshake_status": "READY_FOR_HANDSHAKE",
+  "linked_conversation_id": "e2a8d99d-ff21-4ff9-91be-ae3456187ad0"
+}

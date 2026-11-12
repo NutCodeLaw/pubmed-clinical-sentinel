@@ -1,26 +1,66 @@
 {
   "project_name": "pubmed-clinical-sentinel",
-  "project_title": "PubMed Clinical Sentinel & Battle Arena Engine",
-  "version": "2.0.0-HQ",
+  "project_title": "PubMed Clinical Sentinel & Multi-HQ Intelligence Grid",
+  "version": "2.1.0-HQ",
   "lead_investigator": "ภก.รัฐนนท์ แสงไทยทวีพร (เภสัชกรชำนาญการ, ประธานทีม IM โรงพยาบาลเสิงสาง)",
+  "official_workspace_path": "c:\\Users\\LENOVO\\OneDrive\\Desktop\\รวมไฟล์งาน\\GitHub Projects\\pubmed-clinical-sentinel",
   "github_repository": "https://github.com/NutCodeLaw/pubmed-clinical-sentinel",
   "github_pages_url": "https://nutcodelaw.github.io/pubmed-clinical-sentinel/",
   "canva_template_url": "https://canva.link/v9g5tfxdg349vbg",
+  "handshake_status": "ACTIVE_SYNCHRONIZED",
+  "coordinator_conversation_id": "5196702a-14ab-4cfd-83a3-a1969c13b896",
+  "origin_conversation_id": "e2a8d99d-ff21-4ff9-91be-ae3456187ad0",
   "active_tracks": [
-    "Asthma & COPD Pharmacotherapy",
-    "Smoking Cessation & Varenicline",
-    "Thai Herbal Medicine in Respiratory Care",
-    "Cardio-Renal-Metabolic (CRM: SGLT2i, GLP-1 RA, Finerenone)",
-    "High-Alert & Anticoagulation (Warfarin vs DOACs, INR & BLEEDING)",
-    "Antimicrobial Stewardship (AMS Short-Course RDU)",
-    "Deprescribing & Polypharmacy in Elderly"
+    "Asthma & COPD Pharmacotherapy (14-day window)",
+    "Smoking Cessation & Varenicline (60-day window)",
+    "Thai Herbal Medicine in Respiratory Care (180-day window)",
+    "Cardio-Renal-Metabolic (CRM: SGLT2i, GLP-1 RA, Finerenone) (14-day window)",
+    "High-Alert & Anticoagulation (Warfarin vs DOACs, INR & BLEEDING) (14-day window)",
+    "Antimicrobial Stewardship (AMS Short-Course RDU) (30-day window)",
+    "Deprescribing & Polypharmacy in Elderly (30-day window)"
   ],
+  "allied_hq_network": {
+    "rx_sentinel_hq": {
+      "conversation_id": "9c526177-b891-4897-9464-c241a9d83f00",
+      "name": "Rx-Sentinel Clinical & ADR HQ",
+      "role": "Clinical Pharmacotherapy, ADR / Drug Allergy Diagnosis, Ward Consults & Renal Cutoffs",
+      "incoming_pipe": "Clinical guideline validation, GFR dosing thresholds, ADR cross-reactivity alerts",
+      "outgoing_pipe": "Weekly sentinel alerts on newly approved drug indications & safety warnings"
+    },
+    "nano_banana_visual_hq": {
+      "conversation_id": "868c4bf8-e705-4425-a903-518e783cfacd",
+      "name": "Nano Banana Rapid Visual HQ",
+      "role": "5-Division Rapid Visual Production, Chibi Mascots, Infographics & Video Thumbnails",
+      "incoming_pipe": "Chibi Pharmacist avatar generator, Battle card banners, Canva graphic assets",
+      "outgoing_pipe": "Structured drug showdown metadata for automated visual card generation"
+    },
+    "game_master_supreme_hq": {
+      "conversation_id": "576e2ea3-d67e-495c-835e-e75fa1f1e557",
+      "name": "Game Master Supreme HQ",
+      "role": "Gamification Engine, Mobile Battle Arena, WebAudio Sound Effects & Engagement UX",
+      "incoming_pipe": "Battle Arena mechanics, Web Audio synthesized gong/chimes, 3-round card architecture",
+      "outgoing_pipe": "Clinical evidence transformed into interactive gamified duel parameters"
+    },
+    "the_economic_bi_hq": {
+      "conversation_id": "2ac58029-fde8-4710-9f54-be162f70f3f4",
+      "name": "The Economic / BI-HQ",
+      "role": "Budget Impact Analysis (BIA), Deterministic Math, Drug Cost-Effectiveness & C-Suite Briefings",
+      "incoming_pipe": "Deterministic math equations, 1-year hospital BIA modeling, TTL freshness guard",
+      "outgoing_pipe": "Price per defined daily dose (DDD) & hospital clinical economic impact payload"
+    },
+    "notebooklm_refinery_hq": {
+      "conversation_id": "8ae2bf04-9004-4f7e-9c39-8d3875f6f9dc",
+      "name": "NotebookLM Knowledge & Clean-Room Refinery HQ",
+      "role": "54-Notebook Clinical Knowledge Graph, Clean-Room Evidence Distillation & Grounded Citations",
+      "incoming_pipe": "Deep clinical corpus cross-referencing, historic Soeng Sang clinical data, Clean-room distillation",
+      "outgoing_pipe": "Curated new PubMed PMIDs and abstracts for ingestion into NotebookLM corpus"
+    }
+  },
   "automation": {
     "schedule": "Every Monday 07:00 BKK (00:00 UTC)",
     "workflow": ".github/workflows/weekly_sentinel.yml",
     "engine_script": "scripts/sentinel.py",
-    "ui_portal": "docs/index.html"
-  },
-  "handshake_status": "READY_FOR_HANDSHAKE",
-  "linked_conversation_id": "e2a8d99d-ff21-4ff9-91be-ae3456187ad0"
+    "ui_portal": "docs/index.html",
+    "cache_ledger": "data/seen_pmids.json"
+  }
 }

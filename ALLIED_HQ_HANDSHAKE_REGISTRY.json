@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "project": "pubmed-clinical-sentinel",
+  "version": "2.1.0-HQ",
+  "last_synchronized": "2026-11-12T13:55:00+07:00",
+  "lead_investigator": "ภก.รัฐนนท์ แสงไทยทวีพร",
+  "repository": {
+    "local_path": "c:\\Users\\LENOVO\\OneDrive\\Desktop\\รวมไฟล์งาน\\GitHub Projects\\pubmed-clinical-sentinel",
+    "git_origin": "https://github.com/NutCodeLaw/pubmed-clinical-sentinel.git",
+    "github_pages": "https://nutcodelaw.github.io/pubmed-clinical-sentinel/"
+  },
+  "connected_hqs": [
+    {
+      "id": "e2a8d99d-ff21-4ff9-91be-ae3456187ad0",
+      "slug": "genesis_origin_hq",
+      "name": "PubMed Sentinel Genesis Chat",
+      "role": "Prototype Genesis, Original Conversations & 7-Track Architecture Incubation",
+      "status": "ARCHIVED_SYNCED"
+    },
+    {
+      "id": "5196702a-14ab-4cfd-83a3-a1969c13b896",
+      "slug": "coordinator_hq",
+      "name": "PubMed Clinical Sentinel Coordinator HQ",
+      "role": "Active Project Coordinator, Git Maintainer & Multi-HQ Hub",
+      "status": "ACTIVE_PRIMARY"
+    },
+    {
+      "id": "9c526177-b891-4897-9464-c241a9d83f00",
+      "slug": "rx_sentinel_hq",
+      "name": "Rx-Sentinel Clinical & ADR HQ",
+      "role": "Clinical Pharmacotherapy, ADR / Allergy, Ward Consults & Renal Cutoffs",
+      "status": "HANDSHAKE_ACTIVE",
+      "handshake_protocol": "RX_SENTINEL_HQ_PROTOCOL.md"
+    },
+    {
+      "id": "868c4bf8-e705-4425-a903-518e783cfacd",
+      "slug": "nano_banana_visual_hq",
+      "name": "Nano Banana Rapid Visual HQ",
+      "role": "5-Division Visual Generation, Chibi Mascots, Infographics & Thumbnails",
+      "status": "HANDSHAKE_ACTIVE",
+      "handshake_protocol": "HQ_VISUAL_MEMORY.md"
+    },
+    {
+      "id": "576e2ea3-d67e-495c-835e-e75fa1f1e557",
+      "slug": "game_master_supreme_hq",
+      "name": "Game Master Supreme HQ",
+      "role": "Gamification Engine, Mobile Battle Arena, WebAudio Sound Effects & Engagement UX",
+      "status": "HANDSHAKE_ACTIVE",
+      "handshake_protocol": "game_master_hq_blueprint.md"
+    },
+    {
+      "id": "2ac58029-fde8-4710-9f54-be162f70f3f4",
+      "slug": "the_economic_bi_hq",
+      "name": "The Economic / BI-HQ",
+      "role": "Budget Impact Analysis (BIA), Deterministic Math, Drug Cost-Effectiveness & C-Suite Briefings",
+      "status": "HANDSHAKE_ACTIVE",
+      "handshake_protocol": "HQ_MASTER_PROTOCOL.md"
+    },
+    {
+      "id": "8ae2bf04-9004-4f7e-9c39-8d3875f6f9dc",
+      "slug": "notebooklm_refinery_hq",
+      "name": "NotebookLM Knowledge & Clean-Room Refinery HQ",
+      "role": "54-Notebook Clinical Knowledge Graph, Clean-Room Evidence Distillation & Grounded Citations",
+      "status": "HANDSHAKE_ACTIVE",
+      "handshake_protocol": "NOTEBOOKLM_REFINERY_HQ_MASTER_DESIGN.md"
+    }
+  ]
+}

@@ -51,6 +51,6 @@ jobs:
           if git diff --staged --quiet; then
             echo "No new changes to commit."
           else
-            git commit -m "chore(surveillance): automated daily clinical briefing & telegram dispatch [skip ci]"
+            git commit -m "chore(surveillance): automated weekly clinical briefing & telegram dispatch [skip ci]"
             git push
           fi

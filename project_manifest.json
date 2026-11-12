@@ -1,23 +1,33 @@
 {
   "project_name": "pubmed-clinical-sentinel",
   "project_title": "PubMed Clinical Sentinel & Multi-HQ Intelligence Grid",
-  "version": "2.1.0-HQ",
+  "version": "2.2.0-HQ",
   "lead_investigator": "ภก.รัฐนนท์ แสงไทยทวีพร (เภสัชกรชำนาญการ, ประธานทีม IM โรงพยาบาลเสิงสาง)",
   "official_workspace_path": "c:\\Users\\LENOVO\\OneDrive\\Desktop\\รวมไฟล์งาน\\GitHub Projects\\pubmed-clinical-sentinel",
   "github_repository": "https://github.com/NutCodeLaw/pubmed-clinical-sentinel",
   "github_pages_url": "https://nutcodelaw.github.io/pubmed-clinical-sentinel/",
   "canva_template_url": "https://canva.link/v9g5tfxdg349vbg",
-  "handshake_status": "ACTIVE_SYNCHRONIZED",
+  "handshake_status": "ACTIVE_SYNCHRONIZED_V2_2",
   "coordinator_conversation_id": "5196702a-14ab-4cfd-83a3-a1969c13b896",
   "origin_conversation_id": "e2a8d99d-ff21-4ff9-91be-ae3456187ad0",
+  "argon_surgical_upgrades_v2_2": [
+    "Fix #1: Smart 3,000-char abstract preservation (never clips RESULTS/CONCLUSIONS)",
+    "Fix #2: Comma-aware sample size regex (N >= 30 de-noiser, handles N=1,222)",
+    "Fix #3: Deterministic data-track-id DOM filtering (zero disappearing H3 articles)",
+    "Fix #4: Dynamic 4-Bout Showdown Arena with interactive switcher",
+    "Fix #5: Non-destructive README.md marker injection + Idempotent article cache",
+    "Fix #6: Rx-Sentinel HQ integration (Soeng Sang Formulary Badges + GFR/CYP450 Alerts)",
+    "Fix #7: The Economic / BI-HQ integration (1-line Hospital Cost-Effectiveness & BIA)",
+    "Fix #8: Standardized Multi-HQ output bus (data/latest_sentinel_payload.json)"
+  ],
   "active_tracks": [
     "Asthma & COPD Pharmacotherapy (14-day window)",
     "Smoking Cessation & Varenicline (60-day window)",
     "Thai Herbal Medicine in Respiratory Care (180-day window)",
     "Cardio-Renal-Metabolic (CRM: SGLT2i, GLP-1 RA, Finerenone) (14-day window)",
-    "High-Alert & Anticoagulation (Warfarin vs DOACs, INR & BLEEDING) (14-day window)",
-    "Antimicrobial Stewardship (AMS Short-Course RDU) (30-day window)",
-    "Deprescribing & Polypharmacy in Elderly (30-day window)"
+    "High-Alert & Anticoagulation (Warfarin vs DOACs, INR & BLEEDING) (30-day window)",
+    "Antimicrobial Stewardship (AMS Short-Course RDU) (45-day window)",
+    "Deprescribing & Polypharmacy in Elderly (60-day window)"
   ],
   "allied_hq_network": {
     "rx_sentinel_hq": {
@@ -61,6 +71,8 @@
     "workflow": ".github/workflows/weekly_sentinel.yml",
     "engine_script": "scripts/sentinel.py",
     "ui_portal": "docs/index.html",
-    "cache_ledger": "data/seen_pmids.json"
+    "cache_ledger": "data/seen_pmids.json",
+    "articles_cache": "data/latest_articles_cache.json",
+    "multi_hq_payload": "data/latest_sentinel_payload.json"
   }
 }

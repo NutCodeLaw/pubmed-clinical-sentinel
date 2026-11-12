@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>🥊 Clinical Battle Arena (7-Track) | ภก.รัฐนนท์ แสงไทยทวีพร</title>
+  <title>🥊 Clinical Battle Arena (v2.2-HQ) | ภก.รัฐนนท์ แสงไทยทวีพร</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600;700;800;900&family=Sarabun:wght@300;400;600&family=Bungee&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800;900&family=Sarabun:wght@300;400;600&family=Bungee&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <style>
     :root {
-      --bg: #090c15;
-      --card-bg: rgba(20, 27, 45, 0.85);
+      --bg: #070a12;
+      --card-bg: rgba(18, 25, 43, 0.92);
       --red-fighter: #ef4444;
       --blue-fighter: #3b82f6;
       --neon-cyan: #06b6d4;
@@ -25,67 +25,90 @@
     body {
       font-family: 'Prompt', sans-serif;
       background: var(--bg);
-      background-image: radial-gradient(circle at 50% 0%, rgba(6, 182, 212, 0.15) 0%, transparent 60%);
+      background-image: radial-gradient(circle at 50% 0%, rgba(6, 182, 212, 0.16) 0%, transparent 60%);
       color: var(--text);
-      line-height: 1.5;
-      padding-bottom: 5rem;
+      line-height: 1.55;
+      padding-bottom: 4rem;
     }
     .arena-header {
       text-align: center;
-      padding: 1.8rem 1rem 1rem 1rem;
+      padding: 1.6rem 1rem 1.1rem 1rem;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      position: relative;
     }
     .live-tag {
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
-      background: rgba(239, 68, 68, 0.2);
-      border: 1px solid rgba(239, 68, 68, 0.4);
-      color: #f87171;
-      padding: 0.25rem 0.75rem;
+      gap: 0.4rem;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.45);
+      color: #6ee7b7;
+      padding: 0.25rem 0.85rem;
       border-radius: 9999px;
-      font-size: 0.75rem;
+      font-size: 0.74rem;
       font-weight: 700;
-      letter-spacing: 0.5px;
       margin-bottom: 0.5rem;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.6; }
     }
     .arena-title {
-      font-size: 1.5rem;
+      font-size: 1.55rem;
       font-weight: 900;
       background: linear-gradient(135deg, #38bdf8 0%, #ec4899 50%, #f59e0b 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
     .arena-subtitle {
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       color: var(--text-muted);
       margin-top: 0.25rem;
     }
+    .kpi-strip {
+      display: flex;
+      justify-content: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-top: 0.75rem;
+    }
+    .kpi-chip {
+      background: rgba(30, 41, 59, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 0.6rem;
+      padding: 0.25rem 0.65rem;
+      font-size: 0.73rem;
+      color: #cbd5e1;
+    }
+    .kpi-chip strong { color: var(--neon-cyan); }
+    .sound-btn {
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 0.35rem 0.9rem;
+      border-radius: 9999px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 0.65rem;
+      transition: transform 0.15s;
+    }
+    .sound-btn:active { transform: scale(0.95); }
+
     .container {
-      max-width: 720px;
+      max-width: 780px;
       margin: 0 auto;
       padding: 1rem;
     }
     .mode-switch-bar {
       display: flex;
-      background: rgba(30, 41, 59, 0.7);
+      background: rgba(30, 41, 59, 0.75);
       border-radius: 9999px;
       padding: 0.3rem;
-      margin-bottom: 1rem;
+      margin-bottom: 0.9rem;
       border: 1px solid rgba(255, 255, 255, 0.08);
     }
     .mode-btn {
       flex: 1;
       text-align: center;
       padding: 0.5rem;
-      font-size: 0.85rem;
-      font-weight: 600;
+      font-size: 0.83rem;
+      font-weight: 700;
       border-radius: 9999px;
       color: var(--text-muted);
       cursor: pointer;
@@ -100,24 +123,33 @@
     }
     .filter-scroll {
       display: flex;
-      gap: 0.4rem;
+      gap: 0.45rem;
       overflow-x: auto;
-      margin-bottom: 1.2rem;
-      padding-bottom: 0.3rem;
+      margin-bottom: 1.1rem;
+      padding-bottom: 0.35rem;
       scrollbar-width: none;
     }
     .filter-scroll::-webkit-scrollbar { display: none; }
     .pill-btn {
       white-space: nowrap;
-      padding: 0.35rem 0.8rem;
+      padding: 0.38rem 0.82rem;
       border-radius: 9999px;
-      font-size: 0.78rem;
+      font-size: 0.77rem;
       font-weight: 600;
       border: 1px solid rgba(255, 255, 255, 0.1);
-      background: rgba(30, 41, 59, 0.6);
+      background: rgba(30, 41, 59, 0.65);
       color: var(--text-muted);
       cursor: pointer;
       transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .pill-count {
+      background: rgba(255, 255, 255, 0.12);
+      padding: 0.05rem 0.4rem;
+      border-radius: 9999px;
+      font-size: 0.68rem;
     }
     .pill-btn.active {
       background: var(--neon-cyan);
@@ -125,73 +157,89 @@
       border-color: var(--neon-cyan);
       box-shadow: 0 2px 10px rgba(6, 182, 212, 0.3);
     }
-
-    /* Card System */
-    .battle-card {
-      background: var(--card-bg);
-      border: 2px solid rgba(245, 158, 11, 0.3);
-      border-radius: 1.25rem;
-      padding: 1.25rem;
-      margin-bottom: 1.2rem;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+    .pill-btn.active .pill-count {
+      background: rgba(4, 47, 46, 0.25);
+      color: #042f2e;
     }
-    .battle-card::before {
-      content: "🔥 ศึกมวยคู่เอกเลิกบุหรี่";
-      position: absolute;
-      top: 0;
-      right: 0;
+
+    /* Dynamic Multi-Bout Battle Card */
+    .battle-card {
+      position: relative;
+      background: var(--card-bg);
+      border: 2px solid rgba(245, 158, 11, 0.4);
+      border-radius: 1.25rem;
+      padding: 1.2rem;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 10px 28px -5px rgba(0, 0, 0, 0.55);
+    }
+    .bout-tabs {
+      display: flex;
+      gap: 0.35rem;
+      overflow-x: auto;
+      margin-bottom: 0.85rem;
+      padding-bottom: 0.25rem;
+      scrollbar-width: none;
+    }
+    .bout-tabs::-webkit-scrollbar { display: none; }
+    .bout-tab {
+      white-space: nowrap;
+      padding: 0.28rem 0.68rem;
+      border-radius: 0.6rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      background: rgba(15, 23, 42, 0.75);
+      color: #fcd34d;
+      cursor: pointer;
+    }
+    .bout-tab.active {
       background: linear-gradient(135deg, #f59e0b, #ef4444);
       color: #000000;
-      font-size: 0.68rem;
-      font-weight: 800;
-      padding: 0.25rem 0.8rem;
-      border-radius: 0 1.25rem 0 0.8rem;
+      border-color: transparent;
     }
     .fighters-arena {
       display: grid;
       grid-template-columns: 1fr auto 1fr;
       align-items: center;
       gap: 0.5rem;
-      margin: 1.2rem 0 1rem 0;
+      margin: 0.9rem 0;
       text-align: center;
     }
     .fighter-box {
-      padding: 0.75rem 0.5rem;
+      padding: 0.7rem 0.5rem;
       border-radius: 0.75rem;
     }
     .fighter-box.red {
-      background: rgba(239, 68, 68, 0.12);
-      border: 1px solid rgba(239, 68, 68, 0.3);
+      background: rgba(239, 68, 68, 0.14);
+      border: 1px solid rgba(239, 68, 68, 0.35);
     }
     .fighter-box.blue {
-      background: rgba(59, 130, 246, 0.12);
-      border: 1px solid rgba(59, 130, 246, 0.3);
+      background: rgba(59, 130, 246, 0.14);
+      border: 1px solid rgba(59, 130, 246, 0.35);
     }
-    .fighter-name {
-      font-size: 0.85rem;
-      font-weight: 700;
-    }
+    .fighter-name { font-size: 0.86rem; font-weight: 800; }
+    .fighter-tag { font-size: 0.71rem; color: var(--text-muted); margin-top: 0.15rem; }
     .fighter-box.red .fighter-name { color: #f87171; }
     .fighter-box.blue .fighter-name { color: #60a5fa; }
     .vs-circle {
       font-family: 'Bungee', cursive;
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       color: var(--gold);
     }
-
     .round-row {
-      background: rgba(15, 23, 42, 0.6);
+      background: rgba(15, 23, 42, 0.65);
       border-radius: 0.6rem;
-      padding: 0.6rem 0.8rem;
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 0.55rem 0.75rem;
+      border: 1px solid rgba(255, 255, 255, 0.06);
       margin-bottom: 0.4rem;
     }
     .round-lbl {
       display: flex;
       justify-content: space-between;
-      font-size: 0.75rem;
+      font-size: 0.74rem;
       font-weight: 600;
       margin-bottom: 0.3rem;
+      gap: 0.5rem;
     }
     .round-bars {
       display: flex;
@@ -199,27 +247,27 @@
       gap: 4px;
       border-radius: 4px;
       overflow: hidden;
-      background: rgba(255,255,255,0.05);
+      background: rgba(255,255,255,0.06);
     }
-    .bar-fill.red { background: var(--red-fighter); }
-    .bar-fill.blue { background: var(--blue-fighter); }
-
+    .bar-fill.red { background: var(--red-fighter); transition: width 0.35s ease; }
+    .bar-fill.blue { background: var(--blue-fighter); transition: width 0.35s ease; }
     .winner-banner {
-      background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(6, 182, 212, 0.2));
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.18), rgba(6, 182, 212, 0.18));
       border: 1px solid var(--emerald);
       border-radius: 0.75rem;
-      padding: 0.75rem;
-      margin-top: 1rem;
+      padding: 0.7rem 0.85rem;
+      margin-top: 0.85rem;
       display: flex;
       align-items: center;
       gap: 0.6rem;
     }
 
+    /* Chibi Callout */
     .chibi-callout {
       display: flex;
       gap: 0.75rem;
       align-items: flex-start;
-      margin: 1.25rem 0;
+      margin: 1rem 0 1.25rem 0;
     }
     .chibi-avatar {
       width: 44px;
@@ -229,204 +277,943 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
+      font-size: 1.45rem;
       flex-shrink: 0;
     }
     .speech-bubble {
       background: rgba(30, 41, 59, 0.9);
       border: 1px solid rgba(56, 189, 248, 0.25);
-      border-radius: 1rem;
+      border-radius: 0.95rem;
       border-top-left-radius: 0.2rem;
-      padding: 0.75rem 1rem;
-      font-size: 0.82rem;
+      padding: 0.7rem 0.95rem;
+      font-size: 0.8rem;
       color: #e2e8f0;
     }
 
-    .content-box {
+    /* Track Sections & Quick-Scan Paper Cards */
+    .track-section {
+      margin-bottom: 1.5rem;
+    }
+    .track-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid rgba(6, 182, 212, 0.3);
+    }
+    .track-icon { font-size: 1.3rem; }
+    .track-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--neon-cyan);
+      flex: 1;
+    }
+    .track-window {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      background: rgba(30, 41, 59, 0.8);
+      padding: 0.15rem 0.55rem;
+      border-radius: 9999px;
+    }
+    .paper-card {
+      background: var(--card-bg);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 1rem;
+      padding: 1.05rem;
+      margin-bottom: 0.9rem;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+    }
+    .paper-top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.55rem;
+    }
+    .formulary-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.18rem 0.6rem;
+      border-radius: 9999px;
+    }
+    .tier-IN_FORMULARY {
+      background: rgba(16, 185, 129, 0.18);
+      border: 1px solid rgba(16, 185, 129, 0.5);
+      color: #6ee7b7;
+    }
+    .tier-J2_RESTRICTED {
+      background: rgba(245, 158, 11, 0.18);
+      border: 1px solid rgba(245, 158, 11, 0.5);
+      color: #fcd34d;
+    }
+    .tier-PTC_CANDIDATE {
+      background: rgba(239, 68, 68, 0.18);
+      border: 1px solid rgba(239, 68, 68, 0.5);
+      color: #fca5a5;
+    }
+    .tier-CLINICAL_PROTOCOL {
+      background: rgba(139, 92, 246, 0.18);
+      border: 1px solid rgba(139, 92, 246, 0.5);
+      color: #c4b5fd;
+    }
+    .badge-group {
+      display: flex;
+      gap: 0.35rem;
+      flex-wrap: wrap;
+    }
+    .meta-badge {
+      font-size: 0.69rem;
+      font-weight: 700;
+      padding: 0.15rem 0.55rem;
+      border-radius: 9999px;
+      text-decoration: none;
+    }
+    .n-badge {
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #7dd3fc;
+    }
+    .pmc-badge {
+      background: rgba(16, 185, 129, 0.2);
+      border: 1px solid var(--emerald);
+      color: #6ee7b7;
+    }
+    .paper-title {
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-bottom: 0.3rem;
+    }
+    .paper-meta {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      margin-bottom: 0.65rem;
+    }
+    .paper-meta a { color: var(--neon-cyan); text-decoration: none; font-weight: 600; }
+    .paper-takeaway {
+      background: rgba(6, 182, 212, 0.1);
+      border-left: 3px solid var(--neon-cyan);
+      padding: 0.55rem 0.75rem;
+      border-radius: 0.4rem;
+      font-size: 0.84rem;
+      color: #f8fafc;
+      margin-bottom: 0.65rem;
+    }
+    .paper-metrics {
+      font-size: 0.8rem;
+      color: #cbd5e1;
+      margin-bottom: 0.7rem;
+      padding-left: 0.2rem;
+    }
+    .metrics-header { font-weight: 700; color: #93c5fd; margin-bottom: 0.25rem; }
+    .paper-metrics ul { padding-left: 1.2rem; }
+    .paper-metrics li { margin-bottom: 0.2rem; }
+    .hq-grid {
+      display: grid;
+      gap: 0.45rem;
+      margin-bottom: 0.7rem;
+    }
+    .hq-box {
+      font-size: 0.78rem;
+      padding: 0.48rem 0.7rem;
+      border-radius: 0.5rem;
+    }
+    .action-box {
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #d1fae5;
+    }
+    .rx-box {
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      color: #fef3c7;
+    }
+    .bi-box {
+      background: rgba(139, 92, 246, 0.1);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      color: #ede9fe;
+    }
+    .paper-footer { text-align: right; }
+    .read-btn {
+      display: inline-block;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--neon-cyan);
+      text-decoration: none;
+      padding: 0.3rem 0.7rem;
+      border-radius: 0.5rem;
+      background: rgba(6, 182, 212, 0.12);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+    }
+
+    /* Formal Mode Container */
+    .formal-box {
+      display: none;
       background: var(--card-bg);
       border-radius: 1.25rem;
       padding: 1.25rem;
       border: 1px solid rgba(255, 255, 255, 0.08);
     }
-    .content-box h2 {
+    .formal-box h1, .formal-box h2, .formal-box h3, .formal-box h4 {
       color: var(--neon-cyan);
-      font-size: 1.15rem;
-      margin: 1.2rem 0 0.6rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      padding-bottom: 0.3rem;
+      margin: 1rem 0 0.4rem 0;
     }
-    .content-box h3 {
-      color: #34d399;
-      font-size: 0.95rem;
-      margin: 0.8rem 0 0.3rem 0;
-    }
-    .content-box p, .content-box li {
+    .formal-box p, .formal-box li {
       color: #cbd5e1;
-      font-size: 0.88rem;
-      margin-bottom: 0.4rem;
+      font-size: 0.86rem;
+      margin-bottom: 0.35rem;
     }
-    .content-box a {
-      color: var(--neon-cyan);
-      text-decoration: none;
-      font-weight: 500;
-    }
-    .free-badge {
-      display: inline-block;
-      background: rgba(16, 185, 129, 0.2);
-      border: 1px solid var(--emerald);
-      color: #6ee7b7;
-      font-size: 0.7rem;
-      font-weight: 700;
-      padding: 0.15rem 0.5rem;
-      border-radius: 9999px;
-      margin-left: 0.4rem;
-    }
-    .sound-btn {
-      background: rgba(245, 158, 11, 0.15);
-      border: 1px solid var(--gold);
-      color: var(--gold);
-      padding: 0.3rem 0.8rem;
-      border-radius: 9999px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      cursor: pointer;
-      margin-top: 0.5rem;
-    }
+    .formal-box a { color: var(--neon-cyan); }
+    .formal-box hr { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 1rem 0; }
   </style>
 </head>
 <body>
   <header class="arena-header">
-    <div class="live-tag">🔴 7-TRACK ACTIVE INTELLIGENCE</div>
+    <div class="live-tag">🟢 7-TRACK SENTINEL v2.2-HQ • 5-ALLIED HQs LINKED</div>
     <div class="arena-title">⚔️ CLINICAL BATTLE ARENA</div>
-    <div class="arena-subtitle">ระบบเฝ้าระวัง 7 หมวดสำคัญ • คัดกรอง Free PMC & Sample Size • รพ.เสิงสาง</div>
+    <div class="arena-subtitle">ระบบเฝ้าระวังงานวิจัยคลินิก 7 สายงาน • กรอง N ≥ 30 & Free PMC • รพ.เสิงสาง</div>
+    <div class="kpi-strip">
+      <div class="kpi-chip">📅 อัปเดต: <strong>2026-11-12</strong></div>
+      <div class="kpi-chip">📚 เปเปอร์รอบนี้: <strong>15 เรื่อง</strong></div>
+      <div class="kpi-chip">📖 โหลดฟรี PMC: <strong>8 เรื่อง</strong></div>
+    </div>
     <button class="sound-btn" onclick="playGong()">🔔 เคาะระฆังเปิดศึก</button>
   </header>
 
   <div class="container">
     <div class="mode-switch-bar">
-      <button class="mode-btn active" id="btn-fun" onclick="switchMode('fun')">🎮 ศึกดวล Quick-Scan (7 หมวด)</button>
-      <button class="mode-btn" id="btn-formal" onclick="switchMode('formal')">📄 เอกสารฉบับเต็ม</button>
+      <button class="mode-btn active" id="btn-fun" onclick="switchMode('fun')">🎮 โหมดศึกดวล Quick-Scan (7 หมวด)</button>
+      <button class="mode-btn" id="btn-formal" onclick="switchMode('formal')">📄 โหมดเอกสารทางการ (Formal)</button>
     </div>
 
     <div class="filter-scroll" id="trackPills">
-      <button class="pill-btn active" onclick="filterTrack('all', this)">🌟 ทั้งหมด</button>
-      <button class="pill-btn" onclick="filterTrack('Asthma', this)">🫁 Asthma/COPD</button>
-      <button class="pill-btn" onclick="filterTrack('เลิกบุหรี่', this)">🚭 เลิกบุหรี่</button>
-      <button class="pill-btn" onclick="filterTrack('สมุนไพร', this)">🌿 สมุนไพรไทย</button>
-      <button class="pill-btn" onclick="filterTrack('ชะลอไต', this)">🫀 ชะลอไต (CRM)</button>
-      <button class="pill-btn" onclick="filterTrack('Warfarin', this)">🩸 Warfarin/DOACs</button>
-      <button class="pill-btn" onclick="filterTrack('ปฏิชีวนะ', this)">🦠 ยาฆ่าเชื้อ (AMS)</button>
-      <button class="pill-btn" onclick="filterTrack('ผู้สูงอายุ', this)">👴 ตัดยาคนแก่</button>
+      <button class="pill-btn active" onclick="filterTrack('all', this)">🌟 ทั้งหมด (7 หมวด)</button>
+      <button class="pill-btn" data-pill-track="asthma_copd" onclick="filterTrack('asthma_copd', this)">🫁 Asthma/COPD <span class="pill-count">3</span></button>
+      <button class="pill-btn" data-pill-track="smoking_cessation" onclick="filterTrack('smoking_cessation', this)">🚭 เลิกบุหรี่ <span class="pill-count">2</span></button>
+      <button class="pill-btn" data-pill-track="thai_herbs" onclick="filterTrack('thai_herbs', this)">🌿 สมุนไพรไทย <span class="pill-count">2</span></button>
+      <button class="pill-btn" data-pill-track="cardio_renal" onclick="filterTrack('cardio_renal', this)">🫀 ชะลอไต (CRM) <span class="pill-count">2</span></button>
+      <button class="pill-btn" data-pill-track="anticoagulation" onclick="filterTrack('anticoagulation', this)">🩸 Warfarin/DOACs <span class="pill-count">2</span></button>
+      <button class="pill-btn" data-pill-track="ams_rdu" onclick="filterTrack('ams_rdu', this)">🦠 ยาฆ่าเชื้อ (AMS) <span class="pill-count">2</span></button>
+      <button class="pill-btn" data-pill-track="deprescribing" onclick="filterTrack('deprescribing', this)">👴 ตัดยาคนแก่ <span class="pill-count">2</span></button>
     </div>
 
-    <!-- MAIN EVENT BATTLE CARD (Smoking) -->
+    <!-- DYNAMIC MULTI-BOUT MAIN EVENT ARENA (Fix #4) -->
     <div class="battle-card" id="main-showdown">
-      <div style="font-size: 0.8rem; color: var(--gold); font-weight: 700;">🚭 ศึกมวยคู่เอก: เภสัชบำบัดช่วยเลิกบุหรี่</div>
+      <div class="bout-tabs" id="boutTabs"></div>
+      <div id="boutHeadline" style="font-size: 0.83rem; color: var(--gold); font-weight: 700;"></div>
       <div class="fighters-arena">
         <div class="fighter-box red">
-          <div class="fighter-name">สูตรผสม BUP + ZON</div>
-          <div class="fighter-tag">Bupropion + Zonisamide</div>
+          <div class="fighter-name" id="redName"></div>
+          <div class="fighter-tag" id="redSub"></div>
         </div>
         <div class="vs-circle">VS</div>
         <div class="fighter-box blue">
-          <div class="fighter-name">สูตรเดี่ยว BUP</div>
-          <div class="fighter-tag">Bupropion Monotherapy</div>
+          <div class="fighter-name" id="blueName"></div>
+          <div class="fighter-tag" id="blueSub"></div>
         </div>
       </div>
-      <div class="battle-rounds">
-        <div class="round-row">
-          <div class="round-lbl">
-            <span>🥊 ยก 1: ความเร็วลดควันบุหรี่ (eCO Drop)</span>
-            <span style="color: var(--emerald);">สูตรผสมชนะ (+25%)</span>
-          </div>
-          <div class="round-bars">
-            <div class="bar-fill red" style="width: 75%;"></div>
-            <div class="bar-fill blue" style="width: 50%;"></div>
-          </div>
-        </div>
-        <div class="round-row">
-          <div class="round-lbl">
-            <span>🥊 ยก 2: คุมน้ำหนักตัวไม่ให้เด้ง (Weight Gain)</span>
-            <span style="color: var(--emerald);">สูตรผสมชนะน็อค! (ไม่ขึ้นเลย)</span>
-          </div>
-          <div class="round-bars">
-            <div class="bar-fill red" style="width: 90%;"></div>
-            <div class="bar-fill blue" style="width: 30%;"></div>
-          </div>
-        </div>
-      </div>
+      <div class="battle-rounds" id="battleRounds"></div>
       <div class="winner-banner">
-        <div style="font-size: 1.5rem;">🏆</div>
-        <div style="font-size: 0.8rem; color: #a7f3d0;">
-          <strong>ฟันธง:</strong> เหมาะกับผู้ป่วยที่ <em>"กลัวเลิกบุหรี่แล้วอ้วน"</em> เพราะระงับ Cravings ได้ชะงัด!
-        </div>
+        <div style="font-size: 1.45rem;">🏆</div>
+        <div style="font-size: 0.8rem; color: #a7f3d0;" id="boutVerdict"></div>
       </div>
     </div>
 
-    <!-- CHIBI MASCOT CALLOUT -->
+    <!-- CHIBI PHARMACIST CALLOUT -->
     <div class="chibi-callout">
       <div class="chibi-avatar">👨‍⚕️</div>
       <div class="speech-bubble">
-        <strong>โน้ตลับจากเภสัชกรนัท (IM Team):</strong> "ระบบอัปเกรดเป็น 7-Track แล้วครับอาจารย์! ตรวจจับทั้งเรื่องชะลอไต SGLT2i, วาร์ฟาริน, ยาฆ่าเชื้อสูตรสั้น และการตัดยาในคนแก่ พร้อมป้ายเตือนเปเปอร์โหลดฟรี PMC ให้เรียบร้อยครับ!"
+        <strong>โน้ตจาก ภก.รัฐนนท์ (ประธานทีม IM รพ.เสิงสาง):</strong>
+        "อัปเกรดสู่ <strong>v2.2.0-HQ</strong> ผ่าตัดครบ 8 จุดตามคำแนะนำพี่ใหญ่ Argon แล้วครับ! อ่าน Abstract เต็ม 3,000 ตัวอักษร, กรอง N ≥ 30 รองรับหลักพัน, กดปุ่มกรองหมวดไม่มีเพี้ยน พร้อมป้ายสถานะบัญชียา รพ.เสิงสาง (Rx-Sentinel) และมุมมองความคุ้มค่า (BI-HQ) ครบทุกการ์ดครับ!"
       </div>
     </div>
 
-    <!-- DYNAMIC REPORT CONTENT -->
-    <main class="content-box" id="report-content">
-      <!-- Rendered Markdown -->
-    </main>
+    <!-- BATTLE MODE TRACK CARDS (Fix #3: Deterministic data-track-id filtering) -->
+    <div id="battle-cards-container">
+      
+        <section class="track-section" data-track-id="asthma_copd">
+          <div class="track-header">
+            <span class="track-icon">🫁</span>
+            <h2 class="track-title">1. เภสัชบำบัดโรคหอบหืดและปอดอุดกั้นเรื้อรัง (Asthma &amp; COPD)</h2>
+            <span class="track-window">ย้อนหลัง 14 วัน</span>
+          </div>
+          
+            <article class="paper-card">
+              <div class="paper-top-bar">
+                <span class="formulary-tag tier-CLINICAL_PROTOCOL">📋 แนวทางบริบาลเภสัชกรรมคลินิก</span>
+                <div class="badge-group">
+                  <span class="meta-badge n-badge">👥 N=158</span>
+                  <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13742779/" target="_blank" class="meta-badge pmc-badge">📖 อ่านฟรี PMC Full-Text</a>
+                </div>
+              </div>
+              <h3 class="paper-title">1. Effectiveness of a Multicomponent Digital Therapeutic Program on Inhaled Medication Adherence in Chronic Obstructive Pulmonary Disease: Pilot Randomized Controlled Trial.</h3>
+              <div class="paper-meta">
+                📰 <strong>JMIR mHealth and uHealth</strong> (2026 Nov) •
+                <a href="https://pubmed.ncbi.nlm.nih.gov/42993869/" target="_blank">PMID: 42993869</a>
+              </div>
+              <div class="paper-takeaway">
+                🎯 <strong>ใจความสำคัญ 1 บรรทัด:</strong> โปรแกรมดิจิทัลบำบัดร่วมกับการติดตามกระบอกพ่นยาช่วยเพิ่มความร่วมมือในการใช้ยาพ่นสูดในผู้ป่วย COPD ได้อย่างมีนัยสำคัญตลอด 24 สัปดาห์
+              </div>
+              <div class="paper-metrics">
+                <div class="metrics-header">📊 ตัวเลขผลลัพธ์สำคัญ:</div>
+                <ul><li>ความร่วมมือในการใช้ยาพ่นวัดผ่านระบบอิเล็กทรอนิกส์ (EIM): กลุ่มดิจิทัล 59.5% vs กลุ่มดูแลปกติ 33.1% (p = 0.009)</li><li>สัดส่วนผู้ป่วยที่เกิดการเปลี่ยนแปลง CAT score ในระดับที่มีความสำคัญทางคลินิก (MCID): OR 2.21 (95% CI 1.11-4.41, p = 0.02)</li></ul>
+              </div>
+              <div class="hq-grid">
+                <div class="hq-box action-box">
+                  💡 <strong>สิ่งที่ต้องรู้ใน รพ.เสิงสาง:</strong> พัฒนาระบบติดตามและแจ้งเตือนการใช้ยาพ่นผ่าน LINE OA เพื่อส่งเสริมความร่วมมือในการใช้ยาของผู้ป่วย COPD ในคลินิกโรคเรื้อรัง
+                </div>
+                <div class="hq-box rx-box">
+                  🏥 <strong>Rx-Sentinel Safety Alert:</strong> ทบทวนเทคนิคการพ่นยา (Inhaler Technique) ทุกครั้งก่อนปรับ Step ยา • ยากลุ่ม Biologics ต้องคัดกรอง Eosinophils/FeNO ตามเกณฑ์
+                </div>
+                <div class="hq-box bi-box">
+                  💰 <strong>มุมมองความคุ้มค่า (BI-HQ):</strong> ยากลุ่ม Biologics มีราคาสูง ควรจำกัดเฉพาะเคส Severe Refractory ที่ลดการส่งตัวผ่าตัดซ้ำหรือลดการแอดมิด ICU ได้ชัดเจน
+                </div>
+              </div>
+              <div class="paper-footer">
+                <a href="https://pubmed.ncbi.nlm.nih.gov/42993869/" target="_blank" class="read-btn">🔗 เปิดอ่านบทคัดย่อตัวเต็มบน PubMed →</a>
+              </div>
+            </article>
+            <article class="paper-card">
+              <div class="paper-top-bar">
+                <span class="formulary-tag tier-CLINICAL_PROTOCOL">📋 แนวทางบริบาลเภสัชกรรมคลินิก</span>
+                <div class="badge-group">
+                  
+                  <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13736361/" target="_blank" class="meta-badge pmc-badge">📖 อ่านฟรี PMC Full-Text</a>
+                </div>
+              </div>
+              <h3 class="paper-title">2. Asthma in Older Adults: A Systematic Review of Real-World Burden and Outcomes.</h3>
+              <div class="paper-meta">
+                📰 <strong>Current allergy and asthma reports</strong> (2026 Nov) •
+                <a href="https://pubmed.ncbi.nlm.nih.gov/42980725/" target="_blank">PMID: 42980725</a>
+              </div>
+              <div class="paper-takeaway">
+                🎯 <strong>ใจความสำคัญ 1 บรรทัด:</strong> หอบหืดในผู้สูงอายุพบสูงขึ้นแต่ยังได้รับการวินิจฉัยและการรักษาต่ำกว่าที่ควรเนื่องจากความซับซ้อนของโรคและข้อจำกัดด้านเทคนิคการพ่นยา
+              </div>
+              <div class="paper-metrics">
+                <div class="metrics-header">📊 ตัวเลขผลลัพธ์สำคัญ:</div>
+                <ul><li>Systematic Review พบปัญหา Underdiagnosis และ Undertreatment สูงมากในผู้สูงอายุที่มีโรคร่วมหลายโรค</li><li>ปัจจัยขัดขวางสำคัญ: ความรอบรู้ด้านสุขภาพต่ำ (Low health literacy), เทคนิคการพ่นยาไม่ถูกต้อง และอาการทับซ้อนกับภาวะหัวใจ/COPD</li></ul>
+              </div>
+              <div class="hq-grid">
+                <div class="hq-box action-box">
+                  💡 <strong>สิ่งที่ต้องรู้ใน รพ.เสิงสาง:</strong> จัดทำแนวทางการประเมินเทคนิคการพ่นยา (Inhaler Device Check) และพิจารณาใช้ Spacer ในผู้สูงอายุทุกรายที่คลินิกระบบทางเดินหายใจ
+                </div>
+                <div class="hq-box rx-box">
+                  🏥 <strong>Rx-Sentinel Safety Alert:</strong> ทบทวนเทคนิคการพ่นยา (Inhaler Technique) ทุกครั้งก่อนปรับ Step ยา • ยากลุ่ม Biologics ต้องคัดกรอง Eosinophils/FeNO ตามเกณฑ์
+                </div>
+                <div class="hq-box bi-box">
+                  💰 <strong>มุมมองความคุ้มค่า (BI-HQ):</strong> ยากลุ่ม Biologics มีราคาสูง ควรจำกัดเฉพาะเคส Severe Refractory ที่ลดการส่งตัวผ่าตัดซ้ำหรือลดการแอดมิด ICU ได้ชัดเจน
+                </div>
+              </div>
+              <div class="paper-footer">
+                <a href="https://pubmed.ncbi.nlm.nih.gov/42980725/" target="_blank" class="read-btn">🔗 เปิดอ่านบทคัดย่อตัวเต็มบน PubMed →</a>
+              </div>
+            </article>
+            <article class="paper-card">
+              <div class="paper-top-bar">
+                <span class="formulary-tag tier-CLINICAL_PROTOCOL">📋 แนวทางบริบาลเภสัชกรรมคลินิก</span>
+                <div class="badge-group">
+                  <span class="meta-badge n-badge">👥 N=77</span>
+                  
+                </div>
+              </div>
+              <h3 class="paper-title">3. Inhaled Corticosteroids and Sickle Cell Disease Severity in Adults Without Asthma: A Randomized Clinical Trial.</h3>
+              <div class="paper-meta">
+                📰 <strong>JAMA network open</strong> (2026 Nov) •
+                <a href="https://pubmed.ncbi.nlm.nih.gov/43007675/" target="_blank">PMID: 43007675</a>
+              </div>
+              <div class="paper-takeaway">
+                🎯 <strong>ใจความสำคัญ 1 บรรทัด:</strong> ไม่ควรใช้ยาพ่นสเตียรอยด์ (Mometasone) ระยะยาวในผู้ใหญ่ที่เป็น Sickle Cell Disease ที่มีอาการไอ/หวีดโดยไม่ได้เป็นหอบหืด เพราะทำให้ค่าการอักเสบแย่ลง
+              </div>
+              <div class="paper-metrics">
+                <div class="metrics-header">📊 ตัวเลขผลลัพธ์สำคัญ:</div>
+                <ul><li>ระดับ sVCAM-1 เพิ่มขึ้น 42% ในกลุ่ม Mometasone เทียบกับ Placebo (95% CI -11% ถึง 96%, p = 0.02)</li><li>ผลลัพธ์ทางคลินิกในกลุ่มที่ได้ยาพ่นสเตียรอยด์โดยไม่มีภาวะ Asthma มีแนวโน้มแย่กว่ากลุ่ม Placebo</li></ul>
+              </div>
+              <div class="hq-grid">
+                <div class="hq-box action-box">
+                  💡 <strong>สิ่งที่ต้องรู้ใน รพ.เสิงสาง:</strong> ทบทวนการสั่งใช้ ICS ในผู้ป่วยที่มีอาการทางระบบหายใจเรื้อรัง โดยต้องยืนยันการวินิจฉัยโรคหอบหืดที่ชัดเจนก่อนเริ่มยาพ่นสเตียรอยด์ระยะยาว
+                </div>
+                <div class="hq-box rx-box">
+                  🏥 <strong>Rx-Sentinel Safety Alert:</strong> ทบทวนเทคนิคการพ่นยา (Inhaler Technique) ทุกครั้งก่อนปรับ Step ยา • ยากลุ่ม Biologics ต้องคัดกรอง Eosinophils/FeNO ตามเกณฑ์
+                </div>
+                <div class="hq-box bi-box">
+                  💰 <strong>มุมมองความคุ้มค่า (BI-HQ):</strong> ยากลุ่ม Biologics มีราคาสูง ควรจำกัดเฉพาะเคส Severe Refractory ที่ลดการส่งตัวผ่าตัดซ้ำหรือลดการแอดมิด ICU ได้ชัดเจน
+                </div>
+              </div>
+              <div class="paper-footer">
+                <a href="https://pubmed.ncbi.nlm.nih.gov/43007675/" target="_blank" class="read-btn">🔗 เปิดอ่านบทคัดย่อตัวเต็มบน PubMed →</a>
+              </div>
+            </article>
+        </section>
+
+        <section class="track-section" data-track-id="smoking_cessation">
+          <div class="track-header">
+            <span class="track-icon">🚭</span>
+            <h2 class="track-title">2. เภสัชบำบัดช่วยเลิกบุหรี่ (Smoking Cessation)</h2>
+            <span class="track-window">ย้อนหลัง 60 วัน</span>
+          </div>
+          
+            <article class="paper-card">
+              <div class="paper-top-bar">
+                <span class="formulary-tag tier-PTC_CANDIDATE">🔴 ยานอกบัญชี รพ. / ผู้ท้าชิงเข้า PTC</span>
+                <div class="badge-group">
+                  <span class="meta-badge n-badge">👥 N=60</span>
+                  
+                </div>
+              </div>
+              <h3 class="paper-title">1. Combination bupropion-zonisamide facilitates rapid reduction in smoke exposure and prevents weight gain during switching to electronic nicotine delivery systems: A randomized clinical trial.</h3>
+              <div class="paper-meta">
+                📰 <strong>Drug and alcohol dependence</strong> (2026 Nov) •
+                <a href="https://pubmed.ncbi.nlm.nih.gov/42849341/" target="_blank">PMID: 42849341</a>
+              </div>
+              <div class="paper-takeaway">
+                🎯 <strong>ใจความสำคัญ 1 บรรทัด:</strong> สูตรผสม Bupropion+Zonisamide ช่วยลดปริมาณควันบุหรี่ได้อย่างรวดเร็วและป้องกันน้ำหนักตัวพุ่งหลังหยุดสูบบุหรี่ได้ดีกว่าสูตรเดี่ยว
+              </div>
+              <div class="paper-metrics">
+                <div class="metrics-header">📊 ตัวเลขผลลัพธ์สำคัญ:</div>
+                <ul><li>อัตราการเลิกสูบบุหรี่ (mITT): BUP/ZON 26.7% และ BUP 25.0% vs Placebo 10.0%</li><li>กลุ่ม BUP/ZON มีระดับก๊าซคาร์บอนมอนอกไซด์ (eCO) ลดลงชัดเจนและป้องกันปัญหาน้ำหนักตัวเด้งหลังเลิกบุหรี่ได้สำเร็จ</li></ul>
+              </div>
+              <div class="hq-grid">
+                <div class="hq-box action-box">
+                  💡 <strong>สิ่งที่ต้องรู้ใน รพ.เสิงสาง:</strong> ในคลินิกฟ้าใส รพ.เสิงสาง ใช้ Bupropion ร่วมกับการให้คำปรึกษาควบคุมน้ำหนักและหญ้าดอกขาวในผู้ป่วยที่กังวลเรื่องอ้วนหลังเลิกบุหรี่
+                </div>
+                <div class="hq-box rx-box">
+                  🏥 <strong>Rx-Sentinel Safety Alert:</strong> คัดกรองประวัติโรคลมชัก (Seizure risk) ก่อนจ่าย Bupropion ในคลินิกฟ้าใส • ติดตามอาการนอนไม่หลับและน้ำหนักตัว
+                </div>
+                <div class="hq-box bi-box">
+                  💰 <strong>มุมมองความคุ้มค่า (BI-HQ):</strong> การช่วยให้ผู้ป่วยเลิกบุหรี่สำเร็จในคลินิกฟ้าใส ให้ผลตอบแทนทางเศรษฐศาสตร์สาธารณสุขสูงสุดในการลดโรคหลอดเลือดหัวใจและ COPD กำเริบ
+                </div>
+              </div>
+              <div class="paper-footer">
+                <a href="https://pubmed.ncbi.nlm.nih.gov/42849341/" target="_blank" class="read-btn">🔗 เปิดอ่านบทคัดย่อตัวเต็มบน PubMed →</a>
+              </div>
+            </article>
+            <article class="paper-card">
+              <div class="paper-top-bar">
+                <span class="formulary-tag tier-IN_FORMULARY">🟢 มีในคลังยา รพ.เสิงสาง</span>
+                <div class="badge-group">
+                  <span class="meta-badge n-badge">👥 N=2,590</span>
+                  <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13671432/" target="_blank" class="meta-badge pmc-badge">📖 อ่านฟรี PMC Full-Text</a>
+                </div>
+              </div>
+              <h3 class="paper-title">2. The influence of pharmacogenetics on the treatment-related outcomes of antidepressants and antipsychotics in Brazil: a systematic review.</h3>
+              <div class="paper-meta">
+                📰 <strong>Pharmacogenomics</strong> (2026 Aug) •
+                <a href="https://pubmed.ncbi.nlm.nih.gov/42740717/" target="_blank">PMID: 42740717</a>
+              </div>
+              <div class="paper-takeaway">
+                🎯 <strong>ใจความสำคัญ 1 บรรทัด:</strong> ความหลากหลายของยีนตับ CYP2B6 สัมพันธ์กับอัตราความสำเร็จในการใช้ยา Bupropion ช่วยเลิกบุหรี่
+              </div>
+              <div class="paper-metrics">
+                <div class="metrics-header">📊 ตัวเลขผลลัพธ์สำคัญ:</div>
+                <ul><li>Systematic Review 19 การศึกษา (N=2,590) พบยีน CYP2B6 rs2279343 AA สัมพันธ์กับการเลิกบุหรี่ด้วย Bupropion ที่สำเร็จสูงกว่า</li><li>การตอบสนองต่อยาจิตเวชและยาช่วยเลิกบุหรี่ขึ้นกับเอนไซม์ CYP2B6 และ CYP2C19 อย่างมีนัยสำคัญ</li></ul>
+              </div>
+              <div class="hq-grid">
+                <div class="hq-box action-box">
+                  💡 <strong>สิ่งที่ต้องรู้ใน รพ.เสิงสาง:</strong> ติดตามการตอบสนองทางคลินิกต่อ Bupropion ในคลินิกฟ้าใสอย่างใกล้ชิด หากไม่ตอบสนองภายใน 4–6 สัปดาห์ให้พิจารณาปรับแผนการรักษา
+                </div>
+                <div class="hq-box rx-box">
+                  🏥 <strong>Rx-Sentinel Safety Alert:</strong> คัดกรองประวัติโรคลมชัก (Seizure risk) ก่อนจ่าย Bupropion ในคลินิกฟ้าใส • ติดตามอาการนอนไม่หลับและน้ำหนักตัว
+                </div>
+                <div class="hq-box bi-box">
+                  💰 <strong>มุมมองความคุ้มค่า (BI-HQ):</strong> การช่วยให้ผู้ป่วยเลิกบุหรี่สำเร็จในคลินิกฟ้าใส ให้ผลตอบแทนทางเศรษฐศาสตร์สาธารณสุขสูงสุดในการลดโรคหลอดเลือดหัวใจและ COPD กำเริบ
+                </div>
+              </div>
+              <div class="paper-footer">
+                <a href="https://pubmed.ncbi.nlm.nih.gov/42740717/" target="_blank" class="read-btn">🔗 เปิดอ่านบทคัดย่อตัวเต็มบน PubMed →</a>
+              </div>
+            </article>
+        </section>
+
+        <section class="track-section" data-track-id="thai_herbs">
+          <div class="track-header">
+            <span class="track-icon">🌿</span>
+            <h2 class="track-title">3. สมุนไพรไทยทางคลินิกในระบบทางเดินหายใจ (Thai Herbal Medicine)</h2>
+            <span class="track-window">ย้อนหลัง 180 วัน</span>
+          </div>
+          
+            <article class="paper-card">
+              <div class="paper-top-bar">
+                <span class="formulary-tag tier-IN_FORMULARY">🟢 มีในคลังยา รพ.เสิงสาง</span>
+                <div class="badge-group">
+                  
+                  
+                </div>
+              </div>
+              <h3 class="paper-title">1. Triple-pathway synergistic senolysis via AKAP1 silencing and calcium overload: An aptamer-functionalized DNAzyme nanoplatform for anti-pulmonary fibrosis research.</h3>
+              <div class="paper-meta">
+                📰 <strong>Colloids and surfaces. B, Biointerfaces</strong> (2027 Jan) •
+                <a href="https://pubmed.ncbi.nlm.nih.gov/42667699/" target="_blank">PMID: 42667699</a>
+              </div>
+              <div class="paper-takeaway">
+                🎯 <strong>ใจความสำคัญ 1 บรรทัด:</strong> การใช้เคอร์คูมิน (Curcumin จากขมิ้นชัน) ในรูปแบบนาโนแพลตฟอร์มส่งยาเข้าสู่เซลล์ถุงลมปอดโดยตรง ช่วยทำลายเซลล์เสื่อมสภาพและชะลอภาวะพังผืดในปอด
+              </div>
+              <div class="paper-metrics">
+                <div class="metrics-header">📊 ตัวเลขผลลัพธ์สำคัญ:</div>
+                <ul><li>นวัตกรรม CCMD@Lipo-Apt ปลดปล่อย Curcumin + Ca2+ กระตุ้น Calcium overload ในเซลล์ปอดที่เสื่อมสภาพอย่างจำเพาะเจาะจง</li><li>ลดการแสดงออกของยีนพังผืดและยับยั้ง SAEC II senescent cells ช่วยฟื้นฟูเนื้อเยื่อถุงลมปอดในภาวะ Pulmonary Fibrosis</li></ul>
+              </div>
+              <div class="hq-grid">
+                <div class="hq-box action-box">
+                  💡 <strong>สิ่งที่ต้องรู้ใน รพ.เสิงสาง:</strong> สารสกัดขมิ้นชันมีศักยภาพสูงในการต่อยอดสู่นวัตกรรมบำบัดโรคปอดเรื้อรัง ควบคู่กับการเฝ้าระวังอันตรกิริยาต่อตับและยาละลายลิ่มเลือด
+                </div>
+                <div class="hq-box rx-box">
+                  🏥 <strong>Rx-Sentinel Safety Alert:</strong> CYP450 Herb-Drug Alert: ฟ้าทะลายโจรและขมิ้นชันยับยั้ง CYP2C9/CYP3A4 ห้ามจ่ายร่วมกับ Warfarin หรือยากดภูมิคุ้มกัน (เสี่ยงเลือดออกง่าย)
+                </div>
+                <div class="hq-box bi-box">
+                  💰 <strong>มุมมองความคุ้มค่า (BI-HQ):</strong> ส่งเสริมการใช้ยาสมุนไพรในบัญชียาหลักแห่งชาติ ทดแทนยานำเข้าและสร้างความมั่นคงทางยาของ รพ.ชุมชน
+                </div>
+              </div>
+              <div class="paper-footer">
+                <a href="https://pubmed.ncbi.nlm.nih.gov/42667699/" target="_blank" class="read-btn">🔗 เปิดอ่านบทคัดย่อตัวเต็มบน PubMed →</a>
+              </div>
+            </article>
+            <article class="paper-card">
+              <div class="paper-top-bar">
+                <span class="formulary-tag tier-IN_FORMULARY">🟢 มีในคลังยา รพ.เสิงสาง</span>
+                <div class="badge-group">
+                  
+                  
+                </div>
+              </div>
+              <h3 class="paper-title">2. Integrated analytical characterization and multiscale modeling of supramolecular interactions in lumefantrine-curcumin coamorphous systems with enhanced biopharmaceutical and anticancer performance.</h3>
+              <div class="paper-meta">
+                📰 <strong>Talanta</strong> (2027 Jan) •
+                <a href="https://pubmed.ncbi.nlm.nih.gov/42398138/" target="_blank">PMID: 42398138</a>
+              </div>
+              <div class="paper-takeaway">
+                🎯 <strong>ใจความสำคัญ 1 บรรทัด:</strong> นวัตกรรมพัฒนายาร่วม Lumefantrine และเคอร์คูมิน (ขมิ้นชัน) รูปแบบ Coamorphous ช่วยแก้ปัญหาการละลาย เพิ่มการดูดซึม และคงตัวได้นาน 6 เดือน
+              </div>
+              <div class="paper-metrics">
+                <div class="metrics-header">📊 ตัวเลขผลลัพธ์สำคัญ:</div>
+                <ul><li>เพิ่มการละลายน้ำ (Apparent solubility) สูงขึ้น 2-4 เท่า และปลดปล่อยตัวยา &gt;85-90% ภายใน 6 ชั่วโมง</li><li>คงสภาพโครงสร้าง amorphous นาน 6 เดือน ในสภาวะเร่ง และเพิ่มฤทธิ์เร่งการตาย (Apoptosis) ของเซลล์มะเร็งปอด A549</li></ul>
+              </div>
+              <div class="hq-grid">
+                <div class="hq-box action-box">
+                  💡 <strong>สิ่งที่ต้องรู้ใน รพ.เสิงสาง:</strong> ใช้เป็นข้อมูลสนับสนุนการพัฒนานวัตกรรมนำส่งยาจากสารสกัดสมุนไพรไทย (ขมิ้นชัน) ร่วมกับยาแผนปัจจุบันเพื่อเพิ่มประสิทธิผลการรักษา
+                </div>
+                <div class="hq-box rx-box">
+                  🏥 <strong>Rx-Sentinel Safety Alert:</strong> CYP450 Herb-Drug Alert: ฟ้าทะลายโจรและขมิ้นชันยับยั้ง CYP2C9/CYP3A4 ห้ามจ่ายร่วมกับ Warfarin หรือยากดภูมิคุ้มกัน (เสี่ยงเลือดออกง่าย)
+                </div>
+                <div class="hq-box bi-box">
+                  💰 <strong>มุมมองความคุ้มค่า (BI-HQ):</strong> ส่งเสริมการใช้ยาสมุนไพรในบัญชียาหลักแห่งชาติ ทดแทนยานำเข้าและสร้างความมั่นคงทางยาของ รพ.ชุมชน
+                </div>
+              </div>
+              <div class="paper-footer">
+                <a href="https://pubmed.ncbi.nlm.nih.gov/42398138/" target="_blank" class="read-btn">🔗 เปิดอ่านบทคัดย่อตัวเต็มบน PubMed →</a>
+              </div>
+            </article>
+        </section>
+
+        <section class="track-section" data-track-id="cardio_renal">
+          <div class="track-header">
+            <span class="track-icon">🫀</span>
+            <h2 class="track-title">4. ชะลอไตเสื่อม &amp; เมตาบอลิกหัวใจ (CRM: SGLT2i, GLP-1, Finerenone)</h2>
+            <span class="track-window">ย้อนหลัง 14 วัน</span>
+          </div>
+          
+            <article class="paper-card">
+              <div class="paper-top-bar">
+                <span class="formulary-tag tier-CLINICAL_PROTOCOL">📋 แนวทางบริบาลเภสัชกรรมคลินิก</span>
+                <div class="badge-group">
+                  <span class="meta-badge n-badge">👥 N=13,886</span>
+                  <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13713430/" target="_blank" class="meta-badge pmc-badge">📖 อ่านฟรี PMC Full-Text</a>
+                </div>
+              </div>
+              <h3 class="paper-title">1. Network and pairwise meta-analysis of the effects of novel hypoglycemic agents on cardiorenal outcomes in patients with type 2 diabetes and heart failure.</h3>
+              <div class="paper-meta">
+                📰 <strong>Frontiers in endocrinology</strong> (2026) •
+                <a href="https://pubmed.ncbi.nlm.nih.gov/42952754/" target="_blank">PMID: 42952754</a>
+              </div>
+              <div class="paper-takeaway">
+                🎯 <strong>ใจความสำคัญ 1 บรรทัด:</strong> Network Meta-Analysis ยืนยัน SGLT2i และ GLP-1RA ให้ประโยชน์สูงสุดในการลดอัตรานอน รพ. จาก Heart Failure และชะลอโรคไตในผู้ป่วยเบาหวานที่มีภาวะหัวใจล้มเหลว
+              </div>
+              <div class="paper-metrics">
+                <div class="metrics-header">📊 ตัวเลขผลลัพธ์สำคัญ:</div>
+                <ul><li>วิเคราะห์เปรียบเทียบ RCTs (N=13,886) ระหว่างยากลุ่ม SGLT2i, GLP-1RA, DPP-4i และ GIP/GLP-1RA</li><li>SGLT2i นำโด่งด้านการลด Heart Failure Hospitalization และชะลอการเสื่อมของไต (Cardiorenal composite outcome)</li></ul>
+              </div>
+              <div class="hq-grid">
+                <div class="hq-box action-box">
+                  💡 <strong>สิ่งที่ต้องรู้ใน รพ.เสิงสาง:</strong> ผู้ป่วยเบาหวานชนิดที่ 2 ร่วมกับภาวะหัวใจล้มเหลวหรือโรคไตเรื้อรังใน รพ.เสิงสาง ควรได้รับ Dapagliflozin (SGLT2i) เป็นลำดับแรกตามเกณฑ์
+                </div>
+                <div class="hq-box rx-box">
+                  🏥 <strong>Rx-Sentinel Safety Alert:</strong> ตรวจ eGFR ก่อนเริ่มยา (Dapagliflozin ห้ามเริ่มหาก eGFR &lt; 25 mL/min) • เฝ้าระวัง Euglycemic DKA และการติดเชื้อทางเดินปัสสาวะ
+                </div>
+                <div class="hq-box bi-box">
+                  💰 <strong>มุมมองความคุ้มค่า (BI-HQ):</strong> คุ้มค่าสูง (High ROI): ลดค่าใช้จ่ายการนอน รพ.ซ้ำจากภาวะหัวใจล้มเหลว (HF Readmission) และชะลอการฟอกไตในระยะยาว
+                </div>
+              </div>
+              <div class="paper-footer">
+                <a href="https://pubmed.ncbi.nlm.nih.gov/42952754/" target="_blank" class="read-btn">🔗 เปิดอ่านบทคัดย่อตัวเต็มบน PubMed →</a>
+              </div>
+            </article>
+            <article class="paper-card">
+              <div class="paper-top-bar">
+                <span class="formulary-tag tier-IN_FORMULARY">🟢 มีในคลังยา รพ.เสิงสาง</span>
+                <div class="badge-group">
+                  <span class="meta-badge n-badge">👥 N=1,222</span>
+                  <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13746418/" target="_blank" class="meta-badge pmc-badge">📖 อ่านฟรี PMC Full-Text</a>
+                </div>
+              </div>
+              <h3 class="paper-title">2. Influence of diabetes mellitus on dapagliflozin response after transcatheter aortic valve replacement (TAVR): insights from the DAPA-TAVI trial.</h3>
+              <div class="paper-meta">
+                📰 <strong>Cardiovascular diabetology</strong> (2026 Aug) •
+                <a href="https://pubmed.ncbi.nlm.nih.gov/43004293/" target="_blank">PMID: 43004293</a>
+              </div>
+              <div class="paper-takeaway">
+                🎯 <strong>ใจความสำคัญ 1 บรรทัด:</strong> Dapagliflozin ช่วยลดการเสียชีวิตและภาวะหัวใจล้มเหลวกำเริบหลังเปลี่ยนลิ้นหัวใจ TAVR ได้ดีเท่าเทียมกันทั้งในผู้ที่เป็นและไม่เป็นเบาหวาน
+              </div>
+              <div class="paper-metrics">
+                <div class="metrics-header">📊 ตัวเลขผลลัพธ์สำคัญ:</div>
+                <ul><li>DAPA-TAVI RCT (N=1,222 ราย ใน 39 ศูนย์ ติดตามผล 1 ปี) เปรียบเทียบ Dapagliflozin 10 mg กับ Standard care</li><li>ลดผลลัพธ์หลัก (All-cause death หรือ Worsening HF) ได้สอดคล้องกันทั้งกลุ่มเป็นเบาหวานและไม่เป็นเบาหวาน (P-interaction &gt; 0.05)</li></ul>
+              </div>
+              <div class="hq-grid">
+                <div class="hq-box action-box">
+                  💡 <strong>สิ่งที่ต้องรู้ใน รพ.เสิงสาง:</strong> มั่นใจในการสั่งจ่าย Dapagliflozin เพื่อป้องกัน Heart Failure กำเริบในผู้ป่วยโรคหัวใจแม้ไม่มีโรคเบาหวานร่วมด้วย
+                </div>
+                <div class="hq-box rx-box">
+                  🏥 <strong>Rx-Sentinel Safety Alert:</strong> ตรวจ eGFR ก่อนเริ่มยา (Dapagliflozin ห้ามเริ่มหาก eGFR &lt; 25 mL/min) • เฝ้าระวัง Euglycemic DKA และการติดเชื้อทางเดินปัสสาวะ
+                </div>
+                <div class="hq-box bi-box">
+                  💰 <strong>มุมมองความคุ้มค่า (BI-HQ):</strong> คุ้มค่าสูง (High ROI): ลดค่าใช้จ่ายการนอน รพ.ซ้ำจากภาวะหัวใจล้มเหลว (HF Readmission) และชะลอการฟอกไตในระยะยาว
+                </div>
+              </div>
+              <div class="paper-footer">
+                <a href="https://pubmed.ncbi.nlm.nih.gov/43004293/" target="_blank" class="read-btn">🔗 เปิดอ่านบทคัดย่อตัวเต็มบน PubMed →</a>
+              </div>
+            </article>
+        </section>
+
+        <section class="track-section" data-track-id="anticoagulation">
+          <div class="track-header">
+            <span class="track-icon">🩸</span>
+            <h2 class="track-title">5. ยาต้านการแข็งตัวของเลือด &amp; HAD (Warfarin vs DOACs)</h2>
+            <span class="track-window">ย้อนหลัง 30 วัน</span>
+          </div>
+          
+            <article class="paper-card">
+              <div class="paper-top-bar">
+                <span class="formulary-tag tier-J2_RESTRICTED">🟡 ยาบัญชี จ(2) / เงื่อนไขเฉพาะ รพ.</span>
+                <div class="badge-group">
+                  <span class="meta-badge n-badge">👥 N=18,883</span>
+                  
+                </div>
+              </div>
+              <h3 class="paper-title">1. Prevention of Venous Thromboembolism after Total Hip or Knee Replacement.</h3>
+              <div class="paper-meta">
+                📰 <strong>The New England journal of medicine</strong> (2026 Nov) •
+                <a href="https://pubmed.ncbi.nlm.nih.gov/43013818/" target="_blank">PMID: 43013818</a>
+              </div>
+              <div class="paper-takeaway">
+                🎯 <strong>ใจความสำคัญ 1 บรรทัด:</strong> เปรียบเทียบ 3 ยาหลักป้องกันลิ่มเลือดอุดตัน (VTE) หลังผ่าตัดเปลี่ยนข้อสะโพก/ข้อเข่า (PEPPER Trial, N=18,883): Warfarin/Rivaroxaban ลด VTE ได้ดีกว่าเล็กน้อย แต่ Aspirin มีความปลอดภัยด้านเลือดออกเหนือกว่าระดับมีนัยสำคัญ
+              </div>
+              <div class="paper-metrics">
+                <div class="metrics-header">📊 ตัวเลขผลลัพธ์สำคัญ:</div>
+                <ul><li>PEPPER RCT (N=18,883 ราย ใน NEJM) เปรียบเทียบ Aspirin 81 mg BID vs Warfarin (INR 2.0) vs Rivaroxaban 10 mg QD นาน 30 วัน</li><li>กลุ่ม Warfarin และ Rivaroxaban มีความเสี่ยงเลือดออกและการต้องผ่าตัดซ้ำสูงกว่ากลุ่ม Aspirin อย่างมีนัยสำคัญ</li></ul>
+              </div>
+              <div class="hq-grid">
+                <div class="hq-box action-box">
+                  💡 <strong>สิ่งที่ต้องรู้ใน รพ.เสิงสาง:</strong> ในผู้ป่วยหลังผ่าตัดเปลี่ยนข้อที่มีความเสี่ยง VTE ต่ำหรือเสี่ยงเลือดออกสูง Aspirin เป็นทางเลือกที่ปลอดภัยและช่วยลดภาระการเจาะวัด INR ของคลินิกวาร์ฟาริน
+                </div>
+                <div class="hq-box rx-box">
+                  🏥 <strong>Rx-Sentinel Safety Alert:</strong> ประเมินค่าไต CrCl ก่อนจ่าย DOACs • กรณีใช้ Warfarin ให้คุม Target INR 2.0–3.0 และระวังอันตรกิริยากับยาฆ่าเชื้อ/สมุนไพร
+                </div>
+                <div class="hq-box bi-box">
+                  💰 <strong>มุมมองความคุ้มค่า (BI-HQ):</strong> ลดต้นทุนแฝง รพ.: การใช้ Aspirin ในกลุ่มเสี่ยงต่ำหลังผ่าตัดข้อ หรือเลือก DOAC ในกลุ่มเสี่ยงเลือดออกทางเดินอาหาร ช่วยลดภาระการเจาะ Lab INR และค่านอน รพ.จาก GI Bleed
+                </div>
+              </div>
+              <div class="paper-footer">
+                <a href="https://pubmed.ncbi.nlm.nih.gov/43013818/" target="_blank" class="read-btn">🔗 เปิดอ่านบทคัดย่อตัวเต็มบน PubMed →</a>
+              </div>
+            </article>
+            <article class="paper-card">
+              <div class="paper-top-bar">
+                <span class="formulary-tag tier-J2_RESTRICTED">🟡 ยาบัญชี จ(2) / เงื่อนไขเฉพาะ รพ.</span>
+                <div class="badge-group">
+                  <span class="meta-badge n-badge">👥 N=233,569</span>
+                  <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7556153/" target="_blank" class="meta-badge pmc-badge">📖 อ่านฟรี PMC Full-Text</a>
+                </div>
+              </div>
+              <h3 class="paper-title">2. Efficacy and safety of apixaban versus rivaroxaban in acute venous thromboembolism: a systematic review and meta-analysis.</h3>
+              <div class="paper-meta">
+                📰 <strong>European journal of clinical pharmacology</strong> (2026 Nov) •
+                <a href="https://pubmed.ncbi.nlm.nih.gov/43004015/" target="_blank">PMID: 43004015</a>
+              </div>
+              <div class="paper-takeaway">
+                🎯 <strong>ใจความสำคัญ 1 บรรทัด:</strong> Apixaban มีประสิทธิผลป้องกันการกลับเป็นซ้ำของลิ่มเลือดอุดตัน (Acute VTE) เทียบเท่า Rivaroxaban แต่มีอัตราการเกิดเลือดออกทางเดินอาหารและ Major Bleeding ต่ำกว่า
+              </div>
+              <div class="paper-metrics">
+                <div class="metrics-header">📊 ตัวเลขผลลัพธ์สำคัญ:</div>
+                <ul><li>Systematic Review &amp; Meta-analysis รวม 13 การศึกษา (ผู้ป่วย N=233,569 ราย) เปรียบเทียบ Apixaban กับ Rivaroxaban</li><li>Apixaban ลดความเสี่ยง Major Bleeding และ Gastrointestinal Bleeding ได้ดีกว่า Rivaroxaban อย่างมีนัยสำคัญ</li></ul>
+              </div>
+              <div class="hq-grid">
+                <div class="hq-box action-box">
+                  💡 <strong>สิ่งที่ต้องรู้ใน รพ.เสิงสาง:</strong> หากต้องเลือกใช้ยากลุ่ม DOACs ในผู้ป่วย Acute VTE ที่มีประวัติโรคกระเพาะหรือเสี่ยงเลือดออกทางเดินอาหาร ควรพิจารณา Apixaban เป็นลำดับแรก
+                </div>
+                <div class="hq-box rx-box">
+                  🏥 <strong>Rx-Sentinel Safety Alert:</strong> ประเมินค่าไต CrCl ก่อนจ่าย DOACs • กรณีใช้ Warfarin ให้คุม Target INR 2.0–3.0 และระวังอันตรกิริยากับยาฆ่าเชื้อ/สมุนไพร
+                </div>
+                <div class="hq-box bi-box">
+                  💰 <strong>มุมมองความคุ้มค่า (BI-HQ):</strong> ลดต้นทุนแฝง รพ.: การใช้ Aspirin ในกลุ่มเสี่ยงต่ำหลังผ่าตัดข้อ หรือเลือก DOAC ในกลุ่มเสี่ยงเลือดออกทางเดินอาหาร ช่วยลดภาระการเจาะ Lab INR และค่านอน รพ.จาก GI Bleed
+                </div>
+              </div>
+              <div class="paper-footer">
+                <a href="https://pubmed.ncbi.nlm.nih.gov/43004015/" target="_blank" class="read-btn">🔗 เปิดอ่านบทคัดย่อตัวเต็มบน PubMed →</a>
+              </div>
+            </article>
+        </section>
+
+        <section class="track-section" data-track-id="ams_rdu">
+          <div class="track-header">
+            <span class="track-icon">🦠</span>
+            <h2 class="track-title">6. การจัดการยาปฏิชีวนะ &amp; สูตรยาสั้น (AMS &amp; Short-Course RDU)</h2>
+            <span class="track-window">ย้อนหลัง 45 วัน</span>
+          </div>
+          
+            <article class="paper-card">
+              <div class="paper-top-bar">
+                <span class="formulary-tag tier-CLINICAL_PROTOCOL">📋 แนวทางบริบาลเภสัชกรรมคลินิก</span>
+                <div class="badge-group">
+                  <span class="meta-badge n-badge">👥 N=8,970</span>
+                  
+                </div>
+              </div>
+              <h3 class="paper-title">1. Short- versus long-course antibiotic therapy in non-severe CAP in children: a systematic review and meta-analysis.</h3>
+              <div class="paper-meta">
+                📰 <strong>European journal of pediatrics</strong> (2026 Oct) •
+                <a href="https://pubmed.ncbi.nlm.nih.gov/42844453/" target="_blank">PMID: 42844453</a>
+              </div>
+              <div class="paper-takeaway">
+                🎯 <strong>ใจความสำคัญ 1 บรรทัด:</strong> ยาปฏิชีวนะสูตรสั้น (3–5 วัน) รักษาโรคปอดอักเสบชุมชนชนิดไม่รุนแรงในเด็ก (Pediatric Non-severe CAP) ได้ผลไม่ต่างจากสูตรยาว (7–10 วัน) พร้อมเพิ่มความร่วมมือในการกินยา
+              </div>
+              <div class="paper-metrics">
+                <div class="metrics-header">📊 ตัวเลขผลลัพธ์สำคัญ:</div>
+                <ul><li>Meta-analysis (N=8,970 ราย) ยืนยันอัตราการรักษาล้มเหลวหรือการกลับเป็นซ้ำไม่แตกต่างกันระหว่างยาสูตรสั้นและสูตรยาว</li><li>กลุ่มยาสูตรสั้นมีอัตราการกินยาไม่ครบ (Non-adherence) ต่ำกว่าอย่างชัดเจนและลดผลข้างเคียงจากยาปฏิชีวนะ</li></ul>
+              </div>
+              <div class="hq-grid">
+                <div class="hq-box action-box">
+                  💡 <strong>สิ่งที่ต้องรู้ใน รพ.เสิงสาง:</strong> สนับสนุนการจ่าย Amoxicillin สูตรสั้น 3–5 วัน ในเด็กปอดบวมชนิดไม่รุนแรงที่ รพ.เสิงสาง เพื่อลดเชื้อดื้อยาและช่วยให้ผู้ปกครองป้อนยาครบคอร์สได้ง่ายขึ้น
+                </div>
+                <div class="hq-box rx-box">
+                  🏥 <strong>Rx-Sentinel Safety Alert:</strong> เกณฑ์ Short-Course RDU ใช้เฉพาะผู้ป่วย Non-severe ที่ภูมิคุ้มกันปกติ • ประเมินอาการไข้ลดลงครบ 48 ชม. ก่อนหยุดยา
+                </div>
+                <div class="hq-box bi-box">
+                  💰 <strong>มุมมองความคุ้มค่า (BI-HQ):</strong> ประหยัดงบค่ายาโดยตรง 40–50% ต่อคอร์ส ลดโอกาสเกิดเชื้อดื้อยาที่ต้องใช้ยาฉีดราคาแพง (Carbapenems/Vancomycin)
+                </div>
+              </div>
+              <div class="paper-footer">
+                <a href="https://pubmed.ncbi.nlm.nih.gov/42844453/" target="_blank" class="read-btn">🔗 เปิดอ่านบทคัดย่อตัวเต็มบน PubMed →</a>
+              </div>
+            </article>
+            <article class="paper-card">
+              <div class="paper-top-bar">
+                <span class="formulary-tag tier-IN_FORMULARY">🟢 มีในคลังยา รพ.เสิงสาง</span>
+                <div class="badge-group">
+                  
+                  <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13629875/" target="_blank" class="meta-badge pmc-badge">📖 อ่านฟรี PMC Full-Text</a>
+                </div>
+              </div>
+              <h3 class="paper-title">2. Effectiveness and safety of the available preventive tuberculosis treatment regimens for children and adolescents: systematic review and network meta-analysis.</h3>
+              <div class="paper-meta">
+                📰 <strong>BMJ paediatrics open</strong> (2026 Sep) •
+                <a href="https://pubmed.ncbi.nlm.nih.gov/42816130/" target="_blank">PMID: 42816130</a>
+              </div>
+              <div class="paper-takeaway">
+                🎯 <strong>ใจความสำคัญ 1 บรรทัด:</strong> ยาป้องกันวัณโรคสูตรสั้นที่มี Rifamycin (เช่น 3HP, 3HR, 4R) ในเด็กและวัยรุ่น มีอัตราการกินยาครบคอร์สสูงกว่าและเกิดพิษต่อตับต่ำกว่าสูตร Isoniazid ยาว 6–9 เดือน
+              </div>
+              <div class="paper-metrics">
+                <div class="metrics-header">📊 ตัวเลขผลลัพธ์สำคัญ:</div>
+                <ul><li>Network Meta-Analysis ในเด็กและวัยรุ่นที่สัมผัสผู้ป่วยวัณโรค เปรียบเทียบสูตรสั้น (3HP, 3HR, 4R) กับสูตรดั้งเดิม (6H/9H)</li><li>สูตรสั้นที่มี Rifampicin/Rifapentine ช่วยลดอุบัติการณ์เกิดวัณโรคระยะลุกลามและมี Completion rate สูงกว่าอย่างมีนัยสำคัญ</li></ul>
+              </div>
+              <div class="hq-grid">
+                <div class="hq-box action-box">
+                  💡 <strong>สิ่งที่ต้องรู้ใน รพ.เสิงสาง:</strong> คลินิกวัณโรค รพ.เสิงสาง ควรใช้สูตรยาสั้น (3HP หรือ 3HR/4R) ในการทำ TB Preventive Treatment (TPT) ในเด็กและผู้สัมผัสใกล้ชิดเพื่อลดพิษต่อตับ
+                </div>
+                <div class="hq-box rx-box">
+                  🏥 <strong>Rx-Sentinel Safety Alert:</strong> เกณฑ์ Short-Course RDU ใช้เฉพาะผู้ป่วย Non-severe ที่ภูมิคุ้มกันปกติ • ประเมินอาการไข้ลดลงครบ 48 ชม. ก่อนหยุดยา
+                </div>
+                <div class="hq-box bi-box">
+                  💰 <strong>มุมมองความคุ้มค่า (BI-HQ):</strong> ประหยัดงบค่ายาโดยตรง 40–50% ต่อคอร์ส ลดโอกาสเกิดเชื้อดื้อยาที่ต้องใช้ยาฉีดราคาแพง (Carbapenems/Vancomycin)
+                </div>
+              </div>
+              <div class="paper-footer">
+                <a href="https://pubmed.ncbi.nlm.nih.gov/42816130/" target="_blank" class="read-btn">🔗 เปิดอ่านบทคัดย่อตัวเต็มบน PubMed →</a>
+              </div>
+            </article>
+        </section>
+
+        <section class="track-section" data-track-id="deprescribing">
+          <div class="track-header">
+            <span class="track-icon">👴</span>
+            <h2 class="track-title">7. การตัดยาล้นเกินในผู้สูงอายุ (Deprescribing &amp; Polypharmacy)</h2>
+            <span class="track-window">ย้อนหลัง 60 วัน</span>
+          </div>
+          
+            <article class="paper-card">
+              <div class="paper-top-bar">
+                <span class="formulary-tag tier-CLINICAL_PROTOCOL">📋 แนวทางบริบาลเภสัชกรรมคลินิก</span>
+                <div class="badge-group">
+                  
+                  
+                </div>
+              </div>
+              <h3 class="paper-title">1. Barriers and enablers to deprescribing from the perspectives of older adults with polypharmacy and their stakeholders: A systematic review of qualitative studies.</h3>
+              <div class="paper-meta">
+                📰 <strong>International journal of nursing studies</strong> (2026 Dec) •
+                <a href="https://pubmed.ncbi.nlm.nih.gov/42815285/" target="_blank">PMID: 42815285</a>
+              </div>
+              <div class="paper-takeaway">
+                🎯 <strong>ใจความสำคัญ 1 บรรทัด:</strong> ความสำเร็จของการตัดยาล้นเกิน (Deprescribing) ในผู้สูงอายุขึ้นอยู่กับความไว้วางใจในทีมสุขภาพและการสื่อสารแบบตัดสินใจร่วมกัน (Shared Decision-Making) เพื่อลดความกลัวโรคกำเริบ
+              </div>
+              <div class="paper-metrics">
+                <div class="metrics-header">📊 ตัวเลขผลลัพธ์สำคัญ:</div>
+                <ul><li>Systematic Review วิเคราะห์ปัจจัยส่งเสริมและอุปสรรคของการหยุดยาในผู้สูงอายุที่ใช้ยาตั้งแต่ 5 รายการขึ้นไป (Polypharmacy)</li><li>การวางแผนลดยาเป็นลำดับขั้น (Stepwise Tapering) ร่วมกับการให้ข้อมูลที่ชัดเจนช่วยเพิ่มการยอมรับของผู้ป่วยและญาติ</li></ul>
+              </div>
+              <div class="hq-grid">
+                <div class="hq-box action-box">
+                  💡 <strong>สิ่งที่ต้องรู้ใน รพ.เสิงสาง:</strong> เภสัชกรประจำคลินิกผู้สูงอายุและ NCDs รพ.เสิงสาง ควรใช้แนวทางค่อยๆ ปรับลดขนาดยาควบคู่กับการสร้างความมั่นใจแก่ผู้ป่วยและผู้ดูแล
+                </div>
+                <div class="hq-box rx-box">
+                  🏥 <strong>Rx-Sentinel Safety Alert:</strong> การหยุดยาในผู้สูงอายุ (Deprescribing) โดยเฉพาะกลุ่ม BZD, Beta-blocker และ PPI ต้องทำ Tapering ค่อยๆ ลดขนาดยาเพื่อป้องกันอาการถอนยา
+                </div>
+                <div class="hq-box bi-box">
+                  💰 <strong>มุมมองความคุ้มค่า (BI-HQ):</strong> ลดมูลค่าค่ายาส่วนเกิน (Polypharmacy Waste) ในคลินิกผู้สูงอายุและป้องกันค่าใช้จ่ายจากการรักษาอาการไม่พึงประสงค์จากการใช้ยา (ADE)
+                </div>
+              </div>
+              <div class="paper-footer">
+                <a href="https://pubmed.ncbi.nlm.nih.gov/42815285/" target="_blank" class="read-btn">🔗 เปิดอ่านบทคัดย่อตัวเต็มบน PubMed →</a>
+              </div>
+            </article>
+            <article class="paper-card">
+              <div class="paper-top-bar">
+                <span class="formulary-tag tier-CLINICAL_PROTOCOL">📋 แนวทางบริบาลเภสัชกรรมคลินิก</span>
+                <div class="badge-group">
+                  <span class="meta-badge n-badge">👥 N=234</span>
+                  <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13741811/" target="_blank" class="meta-badge pmc-badge">📖 อ่านฟรี PMC Full-Text</a>
+                </div>
+              </div>
+              <h3 class="paper-title">2. Cancer co-medication quality in older patients with polypharmacy: A large randomized trial testing a medication review versus usual care.</h3>
+              <div class="paper-meta">
+                📰 <strong>Journal of internal medicine</strong> (2026 Dec) •
+                <a href="https://pubmed.ncbi.nlm.nih.gov/42773858/" target="_blank">PMID: 42773858</a>
+              </div>
+              <div class="paper-takeaway">
+                🎯 <strong>ใจความสำคัญ 1 บรรทัด:</strong> การทบทวนรายการยาโดยใช้เครื่องมือ FORTA (Fit fOR The Aged) ช่วยลดการใช้ยาที่ไม่เหมาะสม (PIMs) และการใช้ยาเกินความจำเป็นในผู้สูงอายุได้อย่างมีนัยสำคัญ
+              </div>
+              <div class="paper-metrics">
+                <div class="metrics-header">📊 ตัวเลขผลลัพธ์สำคัญ:</div>
+                <ul><li>Multicentre RCT (N=443 ราย; กลุ่มทดลอง N=234 vs กลุ่มควบคุม N=209) ประเมินการทบทวนยาตามเกณฑ์ FORTA เทียบกับการดูแลปกติ</li><li>ลดสัดส่วนผู้ป่วยที่ได้รับยาไม่เหมาะสม (PIMs) ลงถึง 41.3% และลดการใช้ยาเกินจำเป็น (Overuse) ลง 30.7% (p &lt; 0.001)</li></ul>
+              </div>
+              <div class="hq-grid">
+                <div class="hq-box action-box">
+                  💡 <strong>สิ่งที่ต้องรู้ใน รพ.เสิงสาง:</strong> นำเกณฑ์ FORTA / Beers Criteria มาประยุกต์ใช้ในระบบ Medication Reconciliation หอผู้ป่วยในและคลินิกผู้สูงอายุ รพ.เสิงสาง
+                </div>
+                <div class="hq-box rx-box">
+                  🏥 <strong>Rx-Sentinel Safety Alert:</strong> การหยุดยาในผู้สูงอายุ (Deprescribing) โดยเฉพาะกลุ่ม BZD, Beta-blocker และ PPI ต้องทำ Tapering ค่อยๆ ลดขนาดยาเพื่อป้องกันอาการถอนยา
+                </div>
+                <div class="hq-box bi-box">
+                  💰 <strong>มุมมองความคุ้มค่า (BI-HQ):</strong> ลดมูลค่าค่ายาส่วนเกิน (Polypharmacy Waste) ในคลินิกผู้สูงอายุและป้องกันค่าใช้จ่ายจากการรักษาอาการไม่พึงประสงค์จากการใช้ยา (ADE)
+                </div>
+              </div>
+              <div class="paper-footer">
+                <a href="https://pubmed.ncbi.nlm.nih.gov/42773858/" target="_blank" class="read-btn">🔗 เปิดอ่านบทคัดย่อตัวเต็มบน PubMed →</a>
+              </div>
+            </article>
+        </section>
+    </div>
+
+    <!-- FORMAL MODE MARKDOWN CONTAINER -->
+    <main class="formal-box" id="formal-content"></main>
 
     <footer style="text-align: center; margin-top: 2rem; font-size: 0.75rem; color: var(--text-muted);">
       <p><strong>ผู้รับผิดชอบระบบ:</strong> ภก.รัฐนนท์ แสงไทยทวีพร, เภสัชกรชำนาญการ</p>
       <p>ประธานทีม Information Management (IM) โรงพยาบาลเสิงสาง</p>
-      <p style="margin-top: 0.3rem;"><a href="https://canva.link/v9g5tfxdg349vbg" target="_blank" style="color: #c084fc; text-decoration: none;">🎨 เปิดสไลด์ใน Canva Pro →</a></p>
+      <p style="margin-top: 0.35rem;">
+        <a href="https://canva.link/v9g5tfxdg349vbg" target="_blank" style="color: #c084fc; text-decoration: none;">🎨 เปิดสไลด์ใน Canva Pro →</a>
+        &nbsp;|&nbsp;
+        <a href="https://github.com/NutCodeLaw/pubmed-clinical-sentinel" target="_blank" style="color: #38bdf8; text-decoration: none;">📦 GitHub Repository →</a>
+      </p>
     </footer>
   </div>
 
   <script>
-    const md = "# \u0e2a\u0e23\u0e38\u0e1b\u0e23\u0e32\u0e22\u0e07\u0e32\u0e19\u0e27\u0e34\u0e08\u0e31\u0e22\u0e17\u0e32\u0e07\u0e04\u0e25\u0e34\u0e19\u0e34\u0e01\u0e1b\u0e23\u0e30\u0e08\u0e33\u0e27\u0e31\u0e19 (Clinical Pharmacy Research Update)\n**\u0e1b\u0e23\u0e30\u0e08\u0e33\u0e27\u0e31\u0e19\u0e17\u0e35\u0e48 12 \u0e1e\u0e24\u0e28\u0e08\u0e34\u0e01\u0e32\u0e22\u0e19 2026**  \n*\u0e17\u0e35\u0e21\u0e2a\u0e32\u0e23\u0e2a\u0e19\u0e40\u0e17\u0e28\u0e2a\u0e21\u0e38\u0e19\u0e44\u0e1e\u0e23\u0e41\u0e25\u0e30\u0e40\u0e20\u0e2a\u0e31\u0e0a\u0e1a\u0e33\u0e1a\u0e31\u0e14 (IM Team) \u0e42\u0e23\u0e07\u0e1e\u0e22\u0e32\u0e1a\u0e32\u0e25\u0e40\u0e2a\u0e34\u0e07\u0e2a\u0e32\u0e07*\n\n---\n\n### 1. \ud83e\udec1 \u0e40\u0e20\u0e2a\u0e31\u0e0a\u0e1a\u0e33\u0e1a\u0e31\u0e14\u0e42\u0e23\u0e04\u0e2b\u0e2d\u0e1a\u0e2b\u0e37\u0e14\u0e41\u0e25\u0e30\u0e1b\u0e2d\u0e14\u0e2d\u0e38\u0e14\u0e01\u0e31\u0e49\u0e19\u0e40\u0e23\u0e37\u0e49\u0e2d\u0e23\u0e31\u0e07 (Asthma & COPD)\n\n#### 1. Tezepelumab in Severe CRSwNP (WAYPOINT Subgroup Analysis)\n- **\u0e27\u0e32\u0e23\u0e2a\u0e32\u0e23 & PMID:** J Otolaryngol Head Neck Surg \u2022 [PMID: 42960606](https://pubmed.ncbi.nlm.nih.gov/42960606/)\n- \ud83c\udfaf **\u0e43\u0e08\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e33\u0e04\u0e31\u0e0d 1 \u0e1a\u0e23\u0e23\u0e17\u0e31\u0e14:** Tezepelumab (anti-TSLP) \u0e41\u0e2a\u0e14\u0e07\u0e1b\u0e23\u0e30\u0e2a\u0e34\u0e17\u0e18\u0e34\u0e1c\u0e25\u0e41\u0e25\u0e30\u0e21\u0e35\u0e04\u0e27\u0e32\u0e21\u0e1b\u0e25\u0e2d\u0e14\u0e20\u0e31\u0e22\u0e2a\u0e39\u0e07\u0e43\u0e19\u0e01\u0e32\u0e23\u0e23\u0e31\u0e01\u0e29\u0e32\u0e42\u0e23\u0e04\u0e44\u0e0b\u0e19\u0e31\u0e2a\u0e2d\u0e31\u0e01\u0e40\u0e2a\u0e1a\u0e40\u0e23\u0e37\u0e49\u0e2d\u0e23\u0e31\u0e07\u0e0a\u0e19\u0e34\u0e14\u0e21\u0e35\u0e23\u0e34\u0e14\u0e2a\u0e35\u0e14\u0e27\u0e07\u0e08\u0e21\u0e39\u0e01\u0e23\u0e38\u0e19\u0e41\u0e23\u0e07\u0e17\u0e35\u0e48\u0e44\u0e21\u0e48\u0e15\u0e2d\u0e1a\u0e2a\u0e19\u0e2d\u0e07\u0e15\u0e48\u0e2d\u0e22\u0e32\u0e23\u0e31\u0e01\u0e29\u0e32\u0e21\u0e32\u0e15\u0e23\u0e10\u0e32\u0e19\n- \ud83d\udcca **\u0e15\u0e31\u0e27\u0e40\u0e25\u0e02\u0e1c\u0e25\u0e25\u0e31\u0e1e\u0e18\u0e4c\u0e2a\u0e33\u0e04\u0e31\u0e0d:**\n  \u2022 [N=49 \u0e23\u0e32\u0e22 (\u0e01\u0e25\u0e38\u0e48\u0e21\u0e22\u0e48\u0e2d\u0e22\u0e43\u0e19\u0e41\u0e04\u0e19\u0e32\u0e14\u0e32), Phase 3 WAYPOINT Trial]\n  \u2022 [\u0e25\u0e14\u0e02\u0e19\u0e32\u0e14\u0e23\u0e34\u0e14\u0e2a\u0e35\u0e14\u0e27\u0e07\u0e08\u0e21\u0e39\u0e01\u0e41\u0e25\u0e30\u0e04\u0e31\u0e14\u0e41\u0e19\u0e48\u0e19\u0e08\u0e21\u0e39\u0e01\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e21\u0e35\u0e19\u0e31\u0e22\u0e2a\u0e33\u0e04\u0e31\u0e0d \u0e2a\u0e2d\u0e14\u0e04\u0e25\u0e49\u0e2d\u0e07\u0e01\u0e31\u0e1a\u0e1c\u0e25\u0e01\u0e32\u0e23\u0e28\u0e36\u0e01\u0e29\u0e32\u0e17\u0e31\u0e48\u0e27\u0e42\u0e25\u0e01]\n- \ud83d\udca1 **\u0e2a\u0e34\u0e48\u0e07\u0e17\u0e35\u0e48\u0e15\u0e49\u0e2d\u0e07\u0e23\u0e39\u0e49\u0e43\u0e19 \u0e23\u0e1e.\u0e40\u0e2a\u0e34\u0e07\u0e2a\u0e32\u0e07:** Biologics \u0e21\u0e38\u0e48\u0e07\u0e40\u0e1b\u0e49\u0e32 TSLP \u0e40\u0e1b\u0e47\u0e19\u0e17\u0e32\u0e07\u0e40\u0e25\u0e37\u0e2d\u0e01\u0e43\u0e2b\u0e21\u0e48\u0e43\u0e19\u0e1c\u0e39\u0e49\u0e1b\u0e48\u0e27\u0e22 Asthma \u0e17\u0e35\u0e48\u0e21\u0e35 Comorbid CRSwNP \u0e23\u0e38\u0e19\u0e41\u0e23\u0e07 \u0e41\u0e21\u0e49\u0e23\u0e32\u0e04\u0e32\u0e41\u0e1e\u0e07\u0e41\u0e15\u0e48\u0e0a\u0e48\u0e27\u0e22\u0e25\u0e14\u0e01\u0e32\u0e23\u0e2a\u0e48\u0e07\u0e15\u0e48\u0e2d\u0e1c\u0e48\u0e32\u0e15\u0e31\u0e14\u0e08\u0e21\u0e39\u0e01\u0e0b\u0e49\u0e33\u0e0b\u0e49\u0e2d\u0e19\n- \ud83d\udd17 **\u0e25\u0e34\u0e07\u0e01\u0e4c\u0e28\u0e36\u0e01\u0e29\u0e32\u0e15\u0e48\u0e2d:** [\u0e04\u0e25\u0e34\u0e01\u0e40\u0e1b\u0e34\u0e14\u0e2d\u0e48\u0e32\u0e19\u0e1a\u0e17\u0e04\u0e31\u0e14\u0e22\u0e48\u0e2d\u0e15\u0e31\u0e27\u0e40\u0e15\u0e47\u0e21\u0e1a\u0e19 PubMed \u2192](https://pubmed.ncbi.nlm.nih.gov/42960606/)\n\n---\n\n### 2. \ud83d\udead \u0e40\u0e20\u0e2a\u0e31\u0e0a\u0e1a\u0e33\u0e1a\u0e31\u0e14\u0e0a\u0e48\u0e27\u0e22\u0e40\u0e25\u0e34\u0e01\u0e1a\u0e38\u0e2b\u0e23\u0e35\u0e48 (Smoking Cessation)\n\n- \ud83c\udfaf **\u0e1b\u0e23\u0e30\u0e40\u0e14\u0e47\u0e19\u0e2a\u0e33\u0e04\u0e31\u0e0d\u0e1b\u0e23\u0e30\u0e08\u0e33\u0e27\u0e31\u0e19:** \u0e44\u0e21\u0e48\u0e1e\u0e1a\u0e07\u0e32\u0e19\u0e27\u0e34\u0e08\u0e31\u0e22\u0e43\u0e2b\u0e21\u0e48\u0e43\u0e19\u0e23\u0e30\u0e1a\u0e1a\u0e27\u0e31\u0e19\u0e19\u0e35\u0e49 \u2014 *\u0e40\u0e19\u0e49\u0e19\u0e22\u0e49\u0e33\u0e04\u0e25\u0e34\u0e19\u0e34\u0e01\u0e1f\u0e49\u0e32\u0e43\u0e2a \u0e23\u0e1e.\u0e40\u0e2a\u0e34\u0e07\u0e2a\u0e32\u0e07: \u0e01\u0e32\u0e23\u0e1b\u0e23\u0e31\u0e1a\u0e43\u0e0a\u0e49 Pharmacotherapy \u0e23\u0e48\u0e27\u0e21\u0e01\u0e31\u0e1a Behavioral counseling 5A \u0e22\u0e31\u0e07\u0e04\u0e07\u0e40\u0e1b\u0e47\u0e19\u0e21\u0e32\u0e15\u0e23\u0e10\u0e32\u0e19\u0e17\u0e2d\u0e07\u0e04\u0e33\u0e43\u0e19\u0e01\u0e32\u0e23\u0e0a\u0e48\u0e27\u0e22\u0e1c\u0e39\u0e49\u0e1b\u0e48\u0e27\u0e22 NCDs \u0e40\u0e25\u0e34\u0e01\u0e1a\u0e38\u0e2b\u0e23\u0e35\u0e48*\n\n---\n\n### 3. \ud83c\udf3f \u0e2a\u0e21\u0e38\u0e19\u0e44\u0e1e\u0e23\u0e44\u0e17\u0e22\u0e17\u0e32\u0e07\u0e04\u0e25\u0e34\u0e19\u0e34\u0e01\u0e43\u0e19\u0e23\u0e30\u0e1a\u0e1a\u0e17\u0e32\u0e07\u0e40\u0e14\u0e34\u0e19\u0e2b\u0e32\u0e22\u0e43\u0e08 (Thai Herbal Medicine)\n\n#### 1. Curcumin-Loaded Nanoplatform for Anti-Pulmonary Fibrosis\n- **\u0e27\u0e32\u0e23\u0e2a\u0e32\u0e23 & PMID:** Colloids Surf B Biointerfaces \u2022 [PMID: 42667699](https://pubmed.ncbi.nlm.nih.gov/42667699/)\n- \ud83c\udfaf **\u0e43\u0e08\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e33\u0e04\u0e31\u0e0d 1 \u0e1a\u0e23\u0e23\u0e17\u0e31\u0e14:** \u0e01\u0e32\u0e23\u0e43\u0e0a\u0e49\u0e40\u0e04\u0e2d\u0e23\u0e4c\u0e04\u0e39\u0e21\u0e34\u0e19 (Curcumin \u0e08\u0e32\u0e01\u0e02\u0e21\u0e34\u0e49\u0e19\u0e0a\u0e31\u0e19) \u0e43\u0e19\u0e23\u0e39\u0e1b\u0e41\u0e1a\u0e1a\u0e19\u0e32\u0e42\u0e19\u0e41\u0e1e\u0e25\u0e15\u0e1f\u0e2d\u0e23\u0e4c\u0e21\u0e2a\u0e48\u0e07\u0e22\u0e32\u0e40\u0e02\u0e49\u0e32\u0e2a\u0e39\u0e48\u0e40\u0e0b\u0e25\u0e25\u0e4c\u0e16\u0e38\u0e07\u0e25\u0e21\u0e1b\u0e2d\u0e14\u0e42\u0e14\u0e22\u0e15\u0e23\u0e07 \u0e0a\u0e48\u0e27\u0e22\u0e17\u0e33\u0e25\u0e32\u0e22\u0e40\u0e0b\u0e25\u0e25\u0e4c\u0e40\u0e2a\u0e37\u0e48\u0e2d\u0e21\u0e2a\u0e20\u0e32\u0e1e\u0e41\u0e25\u0e30\u0e0a\u0e30\u0e25\u0e2d\u0e20\u0e32\u0e27\u0e30\u0e1e\u0e31\u0e07\u0e1c\u0e37\u0e14\u0e43\u0e19\u0e1b\u0e2d\u0e14\n- \ud83d\udcca **\u0e15\u0e31\u0e27\u0e40\u0e25\u0e02\u0e1c\u0e25\u0e25\u0e31\u0e1e\u0e18\u0e4c\u0e2a\u0e33\u0e04\u0e31\u0e0d:**\n  \u2022 [\u0e19\u0e27\u0e31\u0e15\u0e01\u0e23\u0e23\u0e21 CCMD@Lipo-Apt \u0e1b\u0e25\u0e14\u0e1b\u0e25\u0e48\u0e2d\u0e22 Curcumin + Ca2+ \u0e01\u0e23\u0e30\u0e15\u0e38\u0e49\u0e19 Calcium overload \u0e43\u0e19\u0e40\u0e0b\u0e25\u0e25\u0e4c\u0e40\u0e1b\u0e49\u0e32\u0e2b\u0e21\u0e32\u0e22]\n  \u2022 [\u0e25\u0e14\u0e01\u0e32\u0e23\u0e41\u0e2a\u0e14\u0e07\u0e2d\u0e2d\u0e01\u0e02\u0e2d\u0e07\u0e22\u0e35\u0e19\u0e1e\u0e31\u0e07\u0e1c\u0e37\u0e14\u0e41\u0e25\u0e30\u0e22\u0e31\u0e1a\u0e22\u0e31\u0e49\u0e07 SAEC II senescent cells \u0e44\u0e14\u0e49\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e08\u0e33\u0e40\u0e1e\u0e32\u0e30\u0e40\u0e08\u0e32\u0e30\u0e08\u0e07]\n- \ud83d\udca1 **\u0e2a\u0e34\u0e48\u0e07\u0e17\u0e35\u0e48\u0e15\u0e49\u0e2d\u0e07\u0e23\u0e39\u0e49\u0e43\u0e19 \u0e23\u0e1e.\u0e40\u0e2a\u0e34\u0e07\u0e2a\u0e32\u0e07:** \u0e2a\u0e32\u0e23\u0e2a\u0e01\u0e31\u0e14\u0e02\u0e21\u0e34\u0e49\u0e19\u0e0a\u0e31\u0e19\u0e01\u0e33\u0e25\u0e31\u0e07\u0e16\u0e39\u0e01\u0e1e\u0e31\u0e12\u0e19\u0e32\u0e2a\u0e39\u0e48\u0e23\u0e30\u0e14\u0e31\u0e1a\u0e19\u0e32\u0e42\u0e19\u0e1a\u0e33\u0e1a\u0e31\u0e14\u0e42\u0e23\u0e04\u0e1b\u0e2d\u0e14\u0e40\u0e23\u0e37\u0e49\u0e2d\u0e23\u0e31\u0e07 \u0e15\u0e2d\u0e01\u0e22\u0e49\u0e33\u0e28\u0e31\u0e01\u0e22\u0e20\u0e32\u0e1e\u0e2a\u0e32\u0e23\u0e18\u0e23\u0e23\u0e21\u0e0a\u0e32\u0e15\u0e34\u0e44\u0e17\u0e22\u0e43\u0e19\u0e01\u0e32\u0e23\u0e1e\u0e31\u0e12\u0e19\u0e32\u0e15\u0e48\u0e2d\u0e22\u0e2d\u0e14\u0e17\u0e32\u0e07\u0e40\u0e20\u0e2a\u0e31\u0e0a\u0e01\u0e23\u0e23\u0e21\n- \ud83d\udd17 **\u0e25\u0e34\u0e07\u0e01\u0e4c\u0e28\u0e36\u0e01\u0e29\u0e32\u0e15\u0e48\u0e2d:** [\u0e04\u0e25\u0e34\u0e01\u0e40\u0e1b\u0e34\u0e14\u0e2d\u0e48\u0e32\u0e19\u0e1a\u0e17\u0e04\u0e31\u0e14\u0e22\u0e48\u0e2d\u0e15\u0e31\u0e27\u0e40\u0e15\u0e47\u0e21\u0e1a\u0e19 PubMed \u2192](https://pubmed.ncbi.nlm.nih.gov/42667699/)\n\n---\n\n### 4. \ud83e\udec0 \u0e0a\u0e30\u0e25\u0e2d\u0e44\u0e15\u0e40\u0e2a\u0e37\u0e48\u0e2d\u0e21 & \u0e40\u0e21\u0e15\u0e32\u0e1a\u0e2d\u0e25\u0e34\u0e01\u0e2b\u0e31\u0e27\u0e43\u0e08 (CRM: SGLT2i, GLP-1, Finerenone)\n\n#### 1. Cardiorenal Outcomes of Novel Hypoglycemic Agents in T2DM + Heart Failure\n- **\u0e27\u0e32\u0e23\u0e2a\u0e32\u0e23 & PMID:** Front Endocrinol (Lausanne) \u2022 [PMID: 42952754](https://pubmed.ncbi.nlm.nih.gov/42952754/) \u2022 \ud83d\udcd6 [\u0e2d\u0e48\u0e32\u0e19\u0e1f\u0e23\u0e35 PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13713430/)\n- \ud83c\udfaf **\u0e43\u0e08\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e33\u0e04\u0e31\u0e0d 1 \u0e1a\u0e23\u0e23\u0e17\u0e31\u0e14:** Network Meta-Analysis \u0e22\u0e37\u0e19\u0e22\u0e31\u0e19 SGLT2i \u0e41\u0e25\u0e30 GLP-1RA \u0e43\u0e2b\u0e49\u0e1b\u0e23\u0e30\u0e42\u0e22\u0e0a\u0e19\u0e4c\u0e2a\u0e39\u0e07\u0e2a\u0e38\u0e14\u0e43\u0e19\u0e01\u0e32\u0e23\u0e25\u0e14\u0e2d\u0e31\u0e15\u0e23\u0e32\u0e19\u0e2d\u0e19 \u0e23\u0e1e. \u0e08\u0e32\u0e01 Heart Failure \u0e41\u0e25\u0e30\u0e0a\u0e30\u0e25\u0e2d\u0e42\u0e23\u0e04\u0e44\u0e15\u0e43\u0e19\u0e1c\u0e39\u0e49\u0e1b\u0e48\u0e27\u0e22 DM \u0e17\u0e35\u0e48\u0e21\u0e35\u0e20\u0e32\u0e27\u0e30\u0e2b\u0e31\u0e27\u0e43\u0e08\u0e25\u0e49\u0e21\u0e40\u0e2b\u0e25\u0e27\n- \ud83d\udcca **\u0e15\u0e31\u0e27\u0e40\u0e25\u0e02\u0e1c\u0e25\u0e25\u0e31\u0e1e\u0e18\u0e4c\u0e2a\u0e33\u0e04\u0e31\u0e0d:**\n  \u2022 [\u0e23\u0e27\u0e1a\u0e23\u0e27\u0e21\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25 RCTs \u0e08\u0e19\u0e16\u0e36\u0e07\u0e40\u0e21\u0e29\u0e32\u0e22\u0e19 2026 \u0e40\u0e1b\u0e23\u0e35\u0e22\u0e1a\u0e40\u0e17\u0e35\u0e22\u0e1a SGLT2i, GLP-1RA, DPP-4i, GIP/GLP-1RA]\n  \u2022 [SGLT2i \u0e19\u0e33\u0e42\u0e14\u0e48\u0e07\u0e14\u0e49\u0e32\u0e19\u0e01\u0e32\u0e23\u0e25\u0e14 HF hospitalization \u0e41\u0e25\u0e30 Cardiorenal composite outcome]\n- \ud83d\udca1 **\u0e2a\u0e34\u0e48\u0e07\u0e17\u0e35\u0e48\u0e15\u0e49\u0e2d\u0e07\u0e23\u0e39\u0e49\u0e43\u0e19 \u0e23\u0e1e.\u0e40\u0e2a\u0e34\u0e07\u0e2a\u0e32\u0e07:** \u0e1c\u0e39\u0e49\u0e1b\u0e48\u0e27\u0e22 T2DM \u0e23\u0e48\u0e27\u0e21\u0e01\u0e31\u0e1a Heart Failure \u0e04\u0e27\u0e23\u0e44\u0e14\u0e49\u0e23\u0e31\u0e1a SGLT2i \u0e40\u0e1b\u0e47\u0e19\u0e2d\u0e31\u0e19\u0e14\u0e31\u0e1a\u0e41\u0e23\u0e01\u0e15\u0e32\u0e21 Guideline \u0e23\u0e1e. \u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e25\u0e14\u0e01\u0e32\u0e23\u0e19\u0e2d\u0e19\u0e42\u0e23\u0e07\u0e1e\u0e22\u0e32\u0e1a\u0e32\u0e25\u0e0b\u0e49\u0e33\n- \ud83d\udd17 **\u0e25\u0e34\u0e07\u0e01\u0e4c\u0e28\u0e36\u0e01\u0e29\u0e32\u0e15\u0e48\u0e2d:** [\u0e04\u0e25\u0e34\u0e01\u0e40\u0e1b\u0e34\u0e14\u0e2d\u0e48\u0e32\u0e19\u0e1a\u0e17\u0e04\u0e31\u0e14\u0e22\u0e48\u0e2d\u0e15\u0e31\u0e27\u0e40\u0e15\u0e47\u0e21\u0e1a\u0e19 PubMed \u2192](https://pubmed.ncbi.nlm.nih.gov/42952754/)\n\n#### 2. Dapagliflozin Response After TAVR by Diabetes Status (DAPA-TAVI Trial)\n- **\u0e27\u0e32\u0e23\u0e2a\u0e32\u0e23 & PMID:** Cardiovasc Diabetol \u2022 [PMID: 43004293](https://pubmed.ncbi.nlm.nih.gov/43004293/) \u2022 \ud83d\udcd6 [\u0e2d\u0e48\u0e32\u0e19\u0e1f\u0e23\u0e35 PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13746418/)\n- \ud83c\udfaf **\u0e43\u0e08\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e33\u0e04\u0e31\u0e0d 1 \u0e1a\u0e23\u0e23\u0e17\u0e31\u0e14:** Dapagliflozin \u0e0a\u0e48\u0e27\u0e22\u0e25\u0e14\u0e01\u0e32\u0e23\u0e15\u0e32\u0e22\u0e41\u0e25\u0e30 Heart Failure \u0e01\u0e33\u0e40\u0e23\u0e34\u0e1a\u0e2b\u0e25\u0e31\u0e07\u0e1c\u0e48\u0e32\u0e15\u0e31\u0e14\u0e40\u0e1b\u0e25\u0e35\u0e48\u0e22\u0e19\u0e25\u0e34\u0e49\u0e19\u0e2b\u0e31\u0e27\u0e43\u0e08 TAVR \u0e44\u0e14\u0e49\u0e14\u0e35\u0e40\u0e17\u0e48\u0e32\u0e40\u0e17\u0e35\u0e22\u0e21\u0e01\u0e31\u0e19 \u0e44\u0e21\u0e48\u0e27\u0e48\u0e32\u0e1c\u0e39\u0e49\u0e1b\u0e48\u0e27\u0e22\u0e08\u0e30\u0e40\u0e1b\u0e47\u0e19\u0e40\u0e1a\u0e32\u0e2b\u0e27\u0e32\u0e19\u0e2b\u0e23\u0e37\u0e2d\u0e44\u0e21\u0e48\u0e01\u0e47\u0e15\u0e32\u0e21\n- \ud83d\udcca **\u0e15\u0e31\u0e27\u0e40\u0e25\u0e02\u0e1c\u0e25\u0e25\u0e31\u0e1e\u0e18\u0e4c\u0e2a\u0e33\u0e04\u0e31\u0e0d:**\n  \u2022 [N=1,222 \u0e23\u0e32\u0e22, \u0e15\u0e34\u0e14\u0e15\u0e32\u0e21\u0e1c\u0e25 1 \u0e1b\u0e35, RCT 39 \u0e28\u0e39\u0e19\u0e22\u0e4c\u0e43\u0e19\u0e2a\u0e40\u0e1b\u0e19]\n  \u2022 [\u0e1c\u0e25\u0e25\u0e31\u0e1e\u0e18\u0e4c\u0e1b\u0e10\u0e21\u0e20\u0e39\u0e21\u0e34 (Death/Worsening HF) \u0e25\u0e14\u0e25\u0e07\u0e2a\u0e2d\u0e14\u0e04\u0e25\u0e49\u0e2d\u0e07\u0e01\u0e31\u0e19\u0e17\u0e31\u0e49\u0e07\u0e01\u0e25\u0e38\u0e48\u0e21 DM \u0e41\u0e25\u0e30 non-DM (P-interaction > 0.05)]\n- \ud83d\udca1 **\u0e2a\u0e34\u0e48\u0e07\u0e17\u0e35\u0e48\u0e15\u0e49\u0e2d\u0e07\u0e23\u0e39\u0e49\u0e43\u0e19 \u0e23\u0e1e.\u0e40\u0e2a\u0e34\u0e07\u0e2a\u0e32\u0e07:** \u0e1b\u0e23\u0e30\u0e42\u0e22\u0e0a\u0e19\u0e4c\u0e43\u0e19\u0e01\u0e32\u0e23\u0e1b\u0e49\u0e2d\u0e07\u0e01\u0e31\u0e19 HF \u0e02\u0e2d\u0e07 Dapagliflozin \u0e44\u0e21\u0e48\u0e44\u0e14\u0e49\u0e08\u0e33\u0e01\u0e31\u0e14\u0e41\u0e04\u0e48\u0e43\u0e19\u0e1c\u0e39\u0e49\u0e1b\u0e48\u0e27\u0e22\u0e40\u0e1a\u0e32\u0e2b\u0e27\u0e32\u0e19 \u0e2a\u0e32\u0e21\u0e32\u0e23\u0e16\u0e08\u0e48\u0e32\u0e22\u0e43\u0e19\u0e1c\u0e39\u0e49\u0e1b\u0e48\u0e27\u0e22 Structural Heart Disease \u0e17\u0e35\u0e48\u0e21\u0e35 HF \u0e44\u0e14\u0e49\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e21\u0e31\u0e48\u0e19\u0e43\u0e08\n- \ud83d\udd17 **\u0e25\u0e34\u0e07\u0e01\u0e4c\u0e28\u0e36\u0e01\u0e29\u0e32\u0e15\u0e48\u0e2d:** [\u0e04\u0e25\u0e34\u0e01\u0e40\u0e1b\u0e34\u0e14\u0e2d\u0e48\u0e32\u0e19\u0e1a\u0e17\u0e04\u0e31\u0e14\u0e22\u0e48\u0e2d\u0e15\u0e31\u0e27\u0e40\u0e15\u0e47\u0e21\u0e1a\u0e19 PubMed \u2192](https://pubmed.ncbi.nlm.nih.gov/43004293/)\n\n---\n\n### 5. \ud83e\ude78 \u0e22\u0e32\u0e15\u0e49\u0e32\u0e19\u0e01\u0e32\u0e23\u0e41\u0e02\u0e47\u0e07\u0e15\u0e31\u0e27\u0e02\u0e2d\u0e07\u0e40\u0e25\u0e37\u0e2d\u0e14 & HAD (Warfarin vs DOACs)\n\n#### 1. Aspirin vs Warfarin vs Rivaroxaban for VTE Prophylaxis Post-Arthroplasty\n- **\u0e27\u0e32\u0e23\u0e2a\u0e32\u0e23 & PMID:** N Engl J Med \u2022 [PMID: 43013818](https://pubmed.ncbi.nlm.nih.gov/43013818/)\n- \ud83c\udfaf **\u0e43\u0e08\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e33\u0e04\u0e31\u0e0d 1 \u0e1a\u0e23\u0e23\u0e17\u0e31\u0e14:** \u0e01\u0e32\u0e23\u0e40\u0e1b\u0e23\u0e35\u0e22\u0e1a\u0e40\u0e17\u0e35\u0e22\u0e1a 3 \u0e22\u0e32\u0e2b\u0e25\u0e31\u0e01\u0e1b\u0e49\u0e2d\u0e07\u0e01\u0e31\u0e19 VTE \u0e2b\u0e25\u0e31\u0e07\u0e1c\u0e48\u0e32\u0e15\u0e31\u0e14\u0e02\u0e49\u0e2d\u0e2a\u0e30\u0e42\u0e1e\u0e01/\u0e02\u0e49\u0e2d\u0e40\u0e02\u0e48\u0e32 \u0e1e\u0e1a\u0e1b\u0e23\u0e30\u0e2a\u0e34\u0e17\u0e18\u0e34\u0e20\u0e32\u0e1e\u0e41\u0e25\u0e30\u0e04\u0e27\u0e32\u0e21\u0e1b\u0e25\u0e2d\u0e14\u0e20\u0e31\u0e22\u0e23\u0e30\u0e14\u0e31\u0e1a\u0e04\u0e25\u0e49\u0e32\u0e22\u0e04\u0e25\u0e36\u0e07\u0e01\u0e31\u0e19 \u0e42\u0e14\u0e22 Aspirin \u0e21\u0e35\u0e04\u0e27\u0e32\u0e21\u0e04\u0e38\u0e49\u0e21\u0e04\u0e48\u0e32\u0e2a\u0e39\u0e07\u0e43\u0e19\u0e01\u0e25\u0e38\u0e48\u0e21\u0e40\u0e2a\u0e35\u0e48\u0e22\u0e07\u0e15\u0e48\u0e33\n- \ud83d\udcca **\u0e15\u0e31\u0e27\u0e40\u0e25\u0e02\u0e1c\u0e25\u0e25\u0e31\u0e1e\u0e18\u0e4c\u0e2a\u0e33\u0e04\u0e31\u0e0d:**\n  \u2022 [RCT \u0e40\u0e1b\u0e23\u0e35\u0e22\u0e1a\u0e40\u0e17\u0e35\u0e22\u0e1a Aspirin 81 mg BID vs Warfarin (target INR 2.0) vs Rivaroxaban 10 mg QD \u0e40\u0e1b\u0e47\u0e19\u0e40\u0e27\u0e25\u0e32 30 \u0e27\u0e31\u0e19]\n  \u2022 [Primary Effectiveness (VTE/Death) \u0e41\u0e25\u0e30 Primary Safety (Major Bleeding/Reoperation) \u0e1b\u0e23\u0e30\u0e40\u0e21\u0e34\u0e19\u0e04\u0e27\u0e32\u0e21\u0e44\u0e21\u0e48\u0e14\u0e49\u0e2d\u0e22\u0e01\u0e27\u0e48\u0e32 (Non-inferiority)]\n- \ud83d\udca1 **\u0e2a\u0e34\u0e48\u0e07\u0e17\u0e35\u0e48\u0e15\u0e49\u0e2d\u0e07\u0e23\u0e39\u0e49\u0e43\u0e19 \u0e23\u0e1e.\u0e40\u0e2a\u0e34\u0e07\u0e2a\u0e32\u0e07:** \u0e2b\u0e25\u0e31\u0e07\u0e1c\u0e48\u0e32\u0e15\u0e31\u0e14\u0e40\u0e1b\u0e25\u0e35\u0e48\u0e22\u0e19\u0e02\u0e49\u0e2d \u0e1c\u0e39\u0e49\u0e1b\u0e48\u0e27\u0e22\u0e40\u0e2a\u0e35\u0e48\u0e22\u0e07\u0e15\u0e48\u0e33\u0e2a\u0e32\u0e21\u0e32\u0e23\u0e16\u0e43\u0e0a\u0e49 Aspirin \u0e1b\u0e49\u0e2d\u0e07\u0e01\u0e31\u0e19 VTE \u0e44\u0e14\u0e49\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e1b\u0e25\u0e2d\u0e14\u0e20\u0e31\u0e22 \u0e0a\u0e48\u0e27\u0e22\u0e25\u0e14\u0e20\u0e32\u0e23\u0e30\u0e01\u0e32\u0e23\u0e40\u0e08\u0e32\u0e30\u0e27\u0e31\u0e14 INR \u0e02\u0e2d\u0e07 Warfarin\n- \ud83d\udd17 **\u0e25\u0e34\u0e07\u0e01\u0e4c\u0e28\u0e36\u0e01\u0e29\u0e32\u0e15\u0e48\u0e2d:** [\u0e04\u0e25\u0e34\u0e01\u0e40\u0e1b\u0e34\u0e14\u0e2d\u0e48\u0e32\u0e19\u0e1a\u0e17\u0e04\u0e31\u0e14\u0e22\u0e48\u0e2d\u0e15\u0e31\u0e27\u0e40\u0e15\u0e47\u0e21\u0e1a\u0e19 PubMed \u2192](https://pubmed.ncbi.nlm.nih.gov/43013818/)\n\n#### 2. Apixaban vs Rivaroxaban in Acute Venous Thromboembolism\n- **\u0e27\u0e32\u0e23\u0e2a\u0e32\u0e23 & PMID:** Eur J Clin Pharmacol \u2022 [PMID: 43004015](https://pubmed.ncbi.nlm.nih.gov/43004015/) \u2022 \ud83d\udcd6 [\u0e2d\u0e48\u0e32\u0e19\u0e1f\u0e23\u0e35 PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/7556153/)\n- \ud83c\udfaf **\u0e43\u0e08\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e33\u0e04\u0e31\u0e0d 1 \u0e1a\u0e23\u0e23\u0e17\u0e31\u0e14:** Apixaban \u0e41\u0e2a\u0e14\u0e07\u0e41\u0e19\u0e27\u0e42\u0e19\u0e49\u0e21\u0e04\u0e27\u0e32\u0e21\u0e1b\u0e25\u0e2d\u0e14\u0e20\u0e31\u0e22\u0e14\u0e49\u0e32\u0e19\u0e40\u0e25\u0e37\u0e2d\u0e14\u0e2d\u0e2d\u0e01\u0e17\u0e32\u0e07\u0e40\u0e14\u0e34\u0e19\u0e2d\u0e32\u0e2b\u0e32\u0e23\u0e41\u0e25\u0e30 Bleeding \u0e20\u0e32\u0e1e\u0e23\u0e27\u0e21\u0e17\u0e35\u0e48\u0e14\u0e35\u0e01\u0e27\u0e48\u0e32 Rivaroxaban \u0e43\u0e19\u0e01\u0e32\u0e23\u0e23\u0e31\u0e01\u0e29\u0e32 Acute VTE\n- \ud83d\udcca **\u0e15\u0e31\u0e27\u0e40\u0e25\u0e02\u0e1c\u0e25\u0e25\u0e31\u0e1e\u0e18\u0e4c\u0e2a\u0e33\u0e04\u0e31\u0e0d:**\n  \u2022 [Meta-analysis \u0e23\u0e27\u0e21 13 \u0e01\u0e32\u0e23\u0e28\u0e36\u0e01\u0e29\u0e32, \u0e1c\u0e39\u0e49\u0e1b\u0e48\u0e27\u0e22 N=233,569 \u0e23\u0e32\u0e22]\n  \u2022 [Apixaban \u0e25\u0e14\u0e04\u0e27\u0e32\u0e21\u0e40\u0e2a\u0e35\u0e48\u0e22\u0e07 Major Bleeding \u0e41\u0e25\u0e30 Gastrointestinal Bleeding \u0e2d\u0e22\u0e48\u0e32\u0e07\u0e21\u0e35\u0e19\u0e31\u0e22\u0e2a\u0e33\u0e04\u0e31\u0e0d\u0e40\u0e21\u0e37\u0e48\u0e2d\u0e40\u0e17\u0e35\u0e22\u0e1a\u0e01\u0e31\u0e1a Rivaroxaban]\n- \ud83d\udca1 **\u0e2a\u0e34\u0e48\u0e07\u0e17\u0e35\u0e48\u0e15\u0e49\u0e2d\u0e07\u0e23\u0e39\u0e49\u0e43\u0e19 \u0e23\u0e1e.\u0e40\u0e2a\u0e34\u0e07\u0e2a\u0e32\u0e07:** \u0e2b\u0e32\u0e01\u0e1c\u0e39\u0e49\u0e1b\u0e48\u0e27\u0e22 VTE \u0e21\u0e35\u0e04\u0e27\u0e32\u0e21\u0e40\u0e2a\u0e35\u0e48\u0e22\u0e07\u0e2a\u0e39\u0e07\u0e15\u0e48\u0e2d\u0e01\u0e32\u0e23\u0e40\u0e01\u0e34\u0e14\u0e40\u0e25\u0e37\u0e2d\u0e14\u0e2d\u0e2d\u0e01\u0e43\u0e19\u0e17\u0e32\u0e07\u0e40\u0e14\u0e34\u0e19\u0e2d\u0e32\u0e2b\u0e32\u0e23 Apixaban \u0e04\u0e37\u0e2d\u0e15\u0e31\u0e27\u0e40\u0e25\u0e37\u0e2d\u0e01 DOAC \u0e17\u0e35\u0e48\u0e1b\u0e25\u0e2d\u0e14\u0e20\u0e31\u0e22\u0e01\u0e27\u0e48\u0e32 Rivaroxaban\n- \ud83d\udd17 **\u0e25\u0e34\u0e07\u0e01\u0e4c\u0e28\u0e36\u0e01\u0e29\u0e32\u0e15\u0e48\u0e2d:** [\u0e04\u0e25\u0e34\u0e01\u0e40\u0e1b\u0e34\u0e14\u0e2d\u0e48\u0e32\u0e19\u0e1a\u0e17\u0e04\u0e31\u0e14\u0e22\u0e48\u0e2d\u0e15\u0e31\u0e27\u0e40\u0e15\u0e47\u0e21\u0e1a\u0e19 PubMed \u2192](https://pubmed.ncbi.nlm.nih.gov/43004015/)\n\n---\n\n### 6. \ud83e\udda0 \u0e01\u0e32\u0e23\u0e08\u0e31\u0e14\u0e01\u0e32\u0e23\u0e22\u0e32\u0e1b\u0e0f\u0e34\u0e0a\u0e35\u0e27\u0e19\u0e30 & \u0e2a\u0e39\u0e15\u0e23\u0e22\u0e32\u0e2a\u0e31\u0e49\u0e19 (AMS & Short-Course RDU)\n\n#### 1. Short- vs Long-Course Antibiotic Therapy in Pediatric Non-Severe CAP\n- **\u0e27\u0e32\u0e23\u0e2a\u0e32\u0e23 & PMID:** Eur J Pediatr \u2022 [PMID: 42844453](https://pubmed.ncbi.nlm.nih.gov/42844453/)\n- \ud83c\udfaf **\u0e43\u0e08\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e33\u0e04\u0e31\u0e0d 1 \u0e1a\u0e23\u0e23\u0e17\u0e31\u0e14:** \u0e22\u0e32\u0e2a\u0e39\u0e15\u0e23\u0e2a\u0e31\u0e49\u0e19 (3-5 \u0e27\u0e31\u0e19) \u0e21\u0e35\u0e1b\u0e23\u0e30\u0e2a\u0e34\u0e17\u0e18\u0e34\u0e20\u0e32\u0e1e\u0e23\u0e31\u0e01\u0e29\u0e32\u0e1b\u0e2d\u0e14\u0e1a\u0e27\u0e21\u0e0a\u0e19\u0e34\u0e14\u0e44\u0e21\u0e48\u0e23\u0e38\u0e19\u0e41\u0e23\u0e07\u0e43\u0e19\u0e40\u0e14\u0e47\u0e01\u0e40\u0e17\u0e35\u0e22\u0e1a\u0e40\u0e17\u0e48\u0e32\u0e22\u0e32\u0e2a\u0e39\u0e15\u0e23\u0e21\u0e32\u0e15\u0e23\u0e10\u0e32\u0e19 (7-10 \u0e27\u0e31\u0e19) \u0e41\u0e16\u0e21\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e04\u0e27\u0e32\u0e21\u0e23\u0e48\u0e27\u0e21\u0e21\u0e37\u0e2d\u0e43\u0e19\u0e01\u0e32\u0e23\u0e01\u0e34\u0e19\u0e22\u0e32 (Adherence)\n- \ud83d\udcca **\u0e15\u0e31\u0e27\u0e40\u0e25\u0e02\u0e1c\u0e25\u0e25\u0e31\u0e1e\u0e18\u0e4c\u0e2a\u0e33\u0e04\u0e31\u0e0d:**\n  \u2022 [Systematic Review & Meta-Analysis \u0e43\u0e19\u0e40\u0e14\u0e47\u0e01\u0e17\u0e35\u0e48\u0e40\u0e1b\u0e47\u0e19 non-severe CAP]\n  \u2022 [\u0e2d\u0e31\u0e15\u0e23\u0e32\u0e01\u0e32\u0e23\u0e23\u0e31\u0e01\u0e29\u0e32\u0e2b\u0e32\u0e22\u0e44\u0e21\u0e48\u0e15\u0e48\u0e32\u0e07\u0e01\u0e31\u0e19 \u0e41\u0e15\u0e48\u0e01\u0e25\u0e38\u0e48\u0e21\u0e22\u0e32\u0e2a\u0e31\u0e49\u0e19\u0e21\u0e35 Adherence \u0e14\u0e35\u0e01\u0e27\u0e48\u0e32 \u0e41\u0e25\u0e30\u0e1e\u0e1a\u0e1c\u0e25\u0e02\u0e49\u0e32\u0e07\u0e40\u0e04\u0e35\u0e22\u0e07\u0e08\u0e32\u0e01\u0e22\u0e32\u0e1b\u0e0f\u0e34\u0e0a\u0e35\u0e27\u0e19\u0e30\u0e19\u0e49\u0e2d\u0e22\u0e01\u0e27\u0e48\u0e32]\n- \ud83d\udca1 **\u0e2a\u0e34\u0e48\u0e07\u0e17\u0e35\u0e48\u0e15\u0e49\u0e2d\u0e07\u0e23\u0e39\u0e49\u0e43\u0e19 \u0e23\u0e1e.\u0e40\u0e2a\u0e34\u0e07\u0e2a\u0e32\u0e07:** \u0e08\u0e48\u0e32\u0e22 Amoxicillin \u0e2a\u0e39\u0e15\u0e23\u0e2a\u0e31\u0e49\u0e19 3-5 \u0e27\u0e31\u0e19 \u0e43\u0e19\u0e40\u0e14\u0e47\u0e01 Pediatric CAP \u0e0a\u0e19\u0e34\u0e14\u0e44\u0e21\u0e48\u0e23\u0e38\u0e19\u0e41\u0e23\u0e07 \u0e0a\u0e48\u0e27\u0e22\u0e25\u0e14\u0e40\u0e0a\u0e37\u0e49\u0e2d\u0e14\u0e37\u0e49\u0e2d\u0e22\u0e32\u0e41\u0e25\u0e30\u0e40\u0e1e\u0e34\u0e48\u0e21 Adherence \u0e1e\u0e48\u0e2d\u0e41\u0e21\u0e48\u0e1b\u0e49\u0e2d\u0e19\u0e22\u0e32\u0e07\u0e48\u0e32\u0e22\u0e02\u0e36\u0e49\u0e19\n- \ud83d\udd17 **\u0e25\u0e34\u0e07\u0e01\u0e4c\u0e28\u0e36\u0e01\u0e29\u0e32\u0e15\u0e48\u0e2d:** [\u0e04\u0e25\u0e34\u0e01\u0e40\u0e1b\u0e34\u0e14\u0e2d\u0e48\u0e32\u0e19\u0e1a\u0e17\u0e04\u0e31\u0e14\u0e22\u0e48\u0e2d\u0e15\u0e31\u0e27\u0e40\u0e15\u0e47\u0e21\u0e1a\u0e19 PubMed \u2192](https://pubmed.ncbi.nlm.nih.gov/42844453/)\n\n#### 2. Preventive Tuberculosis Treatment Regimens for Children & Adolescents\n- **\u0e27\u0e32\u0e23\u0e2a\u0e32\u0e23 & PMID:** BMJ Paediatr Open \u2022 [PMID: 42816130](https://pubmed.ncbi.nlm.nih.gov/42816130/) \u2022 \ud83d\udcd6 [\u0e2d\u0e48\u0e32\u0e19\u0e1f\u0e23\u0e35 PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13629875/)\n- \ud83c\udfaf **\u0e43\u0e08\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e33\u0e04\u0e31\u0e0d 1 \u0e1a\u0e23\u0e23\u0e17\u0e31\u0e14:** \u0e22\u0e32\u0e2a\u0e39\u0e15\u0e23\u0e2a\u0e31\u0e49\u0e19\u0e01\u0e25\u0e38\u0e48\u0e21 Rifamycins (\u0e40\u0e0a\u0e48\u0e19 3HP \u0e2b\u0e23\u0e37\u0e2d 4R) \u0e21\u0e35\u0e1b\u0e23\u0e30\u0e2a\u0e34\u0e17\u0e18\u0e34\u0e1c\u0e25\u0e1b\u0e49\u0e2d\u0e07\u0e01\u0e31\u0e19\u0e27\u0e31\u0e13\u0e42\u0e23\u0e04\u0e43\u0e19\u0e40\u0e14\u0e47\u0e01\u0e44\u0e14\u0e49\u0e14\u0e35\u0e40\u0e17\u0e35\u0e22\u0e1a\u0e40\u0e17\u0e48\u0e32\u0e01\u0e32\u0e23\u0e43\u0e2b\u0e49 Isoniazid 6-9 \u0e40\u0e14\u0e37\u0e2d\u0e19 \u0e41\u0e15\u0e48\u0e2d\u0e31\u0e15\u0e23\u0e32\u0e01\u0e32\u0e23\u0e40\u0e01\u0e34\u0e14\u0e1e\u0e34\u0e29\u0e15\u0e48\u0e2d\u0e15\u0e31\u0e1a\u0e15\u0e48\u0e33\u0e01\u0e27\u0e48\u0e32\u0e21\u0e32\u0e01\n- \ud83d\udcca **\u0e15\u0e31\u0e27\u0e40\u0e25\u0e02\u0e1c\u0e25\u0e25\u0e31\u0e1e\u0e18\u0e4c\u0e2a\u0e33\u0e04\u0e31\u0e0d:**\n  \u2022 [Network Meta-Analysis \u0e02\u0e2d\u0e07 RCTs \u0e43\u0e19\u0e40\u0e14\u0e47\u0e01/\u0e27\u0e31\u0e22\u0e23\u0e38\u0e48\u0e19\u0e2d\u0e32\u0e22\u0e38 <18 \u0e1b\u0e35 \u0e17\u0e35\u0e48\u0e2a\u0e31\u0e21\u0e1c\u0e31\u0e2a\u0e1c\u0e39\u0e49\u0e1b\u0e48\u0e27\u0e22 TB]\n  \u2022 [\u0e2a\u0e39\u0e15\u0e23\u0e17\u0e35\u0e48\u0e21\u0e35 Rifamycin \u0e22\u0e2d\u0e21\u0e23\u0e31\u0e1a\u0e44\u0e14\u0e49\u0e14\u0e35\u0e01\u0e27\u0e48\u0e32 \u0e2d\u0e31\u0e15\u0e23\u0e32\u0e01\u0e34\u0e19\u0e22\u0e32\u0e04\u0e23\u0e1a (Completion rate) \u0e2a\u0e39\u0e07\u0e01\u0e27\u0e48\u0e32\u0e22\u0e32\u0e2a\u0e39\u0e15\u0e23\u0e22\u0e32\u0e27\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e21\u0e35\u0e19\u0e31\u0e22\u0e2a\u0e33\u0e04\u0e31\u0e0d]\n- \ud83d\udca1 **\u0e2a\u0e34\u0e48\u0e07\u0e17\u0e35\u0e48\u0e15\u0e49\u0e2d\u0e07\u0e23\u0e39\u0e49\u0e43\u0e19 \u0e23\u0e1e.\u0e40\u0e2a\u0e34\u0e07\u0e2a\u0e32\u0e07:** \u0e04\u0e25\u0e34\u0e19\u0e34\u0e01\u0e27\u0e31\u0e13\u0e42\u0e23\u0e04 \u0e23\u0e1e.\u0e40\u0e2a\u0e34\u0e07\u0e2a\u0e32\u0e07 \u0e04\u0e27\u0e23\u0e1e\u0e34\u0e08\u0e32\u0e23\u0e13\u0e32\u0e22\u0e32\u0e2a\u0e39\u0e15\u0e23\u0e2a\u0e31\u0e49\u0e19\u0e43\u0e19\u0e01\u0e32\u0e23\u0e17\u0e33 TPT (TB Preventive Treatment) \u0e43\u0e19\u0e40\u0e14\u0e47\u0e01 \u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e25\u0e14 Hepatotoxicity \u0e41\u0e25\u0e30\u0e40\u0e1e\u0e34\u0e48\u0e21 Completion rate\n- \ud83d\udd17 **\u0e25\u0e34\u0e07\u0e01\u0e4c\u0e28\u0e36\u0e01\u0e29\u0e32\u0e15\u0e48\u0e2d:** [\u0e04\u0e25\u0e34\u0e01\u0e40\u0e1b\u0e34\u0e14\u0e2d\u0e48\u0e32\u0e19\u0e1a\u0e17\u0e04\u0e31\u0e14\u0e22\u0e48\u0e2d\u0e15\u0e31\u0e27\u0e40\u0e15\u0e47\u0e21\u0e1a\u0e19 PubMed \u2192](https://pubmed.ncbi.nlm.nih.gov/42816130/)\n\n---\n\n### 7. \ud83d\udc74 \u0e01\u0e32\u0e23\u0e15\u0e31\u0e14\u0e22\u0e32\u0e25\u0e49\u0e19\u0e40\u0e01\u0e34\u0e19\u0e43\u0e19\u0e1c\u0e39\u0e49\u0e2a\u0e39\u0e07\u0e2d\u0e32\u0e22\u0e38 (Deprescribing & Polypharmacy)\n\n#### 1. Barriers and Enablers to Deprescribing in Polypharmacy Older Adults\n- **\u0e27\u0e32\u0e23\u0e2a\u0e32\u0e23 & PMID:** Int J Nurs Stud \u2022 [PMID: 42815285](https://pubmed.ncbi.nlm.nih.gov/42815285/)\n- \ud83c\udfaf **\u0e43\u0e08\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e33\u0e04\u0e31\u0e0d 1 \u0e1a\u0e23\u0e23\u0e17\u0e31\u0e14:** \u0e2d\u0e38\u0e1b\u0e2a\u0e23\u0e23\u0e04\u0e2a\u0e33\u0e04\u0e31\u0e0d\u0e02\u0e2d\u0e07\u0e01\u0e32\u0e23\u0e15\u0e31\u0e14\u0e22\u0e32\u0e04\u0e37\u0e2d\u0e04\u0e27\u0e32\u0e21\u0e01\u0e25\u0e31\u0e27\u0e42\u0e23\u0e04\u0e01\u0e33\u0e40\u0e23\u0e34\u0e1a\u0e02\u0e2d\u0e07\u0e1c\u0e49\u0e39\u0e1b\u0e48\u0e27\u0e22 \u0e02\u0e13\u0e30\u0e17\u0e35\u0e48\u0e1b\u0e31\u0e08\u0e08\u0e31\u0e22\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e33\u0e40\u0e23\u0e47\u0e08\u0e04\u0e37\u0e2d\u0e04\u0e27\u0e32\u0e21\u0e44\u0e27\u0e49\u0e27\u0e32\u0e07\u0e43\u0e08\u0e43\u0e19\u0e17\u0e35\u0e21\u0e1a\u0e38\u0e04\u0e25\u0e32\u0e01\u0e23\u0e41\u0e25\u0e30\u0e01\u0e32\u0e23\u0e2a\u0e37\u0e48\u0e2d\u0e2a\u0e32\u0e23\u0e41\u0e1a\u0e1a Shared Decision-Making\n- \ud83d\udcca **\u0e15\u0e31\u0e27\u0e40\u0e25\u0e02\u0e1c\u0e25\u0e25\u0e31\u0e1e\u0e18\u0e4c\u0e2a\u0e33\u0e04\u0e31\u0e0d:**\n  \u2022 [Systematic review \u0e02\u0e2d\u0e07\u0e07\u0e32\u0e19\u0e27\u0e34\u0e08\u0e31\u0e22\u0e40\u0e0a\u0e34\u0e07\u0e04\u0e38\u0e13\u0e20\u0e32\u0e1e\u0e43\u0e19\u0e1c\u0e39\u0e49\u0e2a\u0e39\u0e07\u0e2d\u0e32\u0e22\u0e38\u0e17\u0e35\u0e48\u0e21\u0e35 Polypharmacy]\n  \u2022 [\u0e1e\u0e1a\u0e27\u0e48\u0e32\u0e01\u0e23\u0e30\u0e1a\u0e27\u0e19\u0e01\u0e32\u0e23\u0e2a\u0e37\u0e48\u0e2d\u0e2a\u0e32\u0e23\u0e17\u0e35\u0e48\u0e0a\u0e31\u0e14\u0e40\u0e08\u0e19\u0e41\u0e25\u0e30\u0e01\u0e32\u0e23\u0e17\u0e33\u0e41\u0e1c\u0e19 Deprescribing \u0e23\u0e48\u0e27\u0e21\u0e01\u0e31\u0e19\u0e0a\u0e48\u0e27\u0e22\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e01\u0e32\u0e23\u0e22\u0e34\u0e19\u0e22\u0e2d\u0e21\u0e2b\u0e22\u0e38\u0e14\u0e22\u0e32\u0e02\u0e2d\u0e07\u0e1c\u0e39\u0e49\u0e1b\u0e48\u0e27\u0e22]\n- \ud83d\udca1 **\u0e2a\u0e34\u0e48\u0e07\u0e17\u0e35\u0e48\u0e15\u0e49\u0e2d\u0e07\u0e23\u0e39\u0e49\u0e43\u0e19 \u0e23\u0e1e.\u0e40\u0e2a\u0e34\u0e07\u0e2a\u0e32\u0e07:** \u0e40\u0e20\u0e2a\u0e31\u0e0a\u0e01\u0e23\u0e04\u0e27\u0e23\u0e1b\u0e23\u0e31\u0e1a\u0e27\u0e34\u0e18\u0e35\u0e01\u0e32\u0e23\u0e41\u0e19\u0e30\u0e19\u0e33\u0e2b\u0e22\u0e38\u0e14\u0e22\u0e32\u0e42\u0e14\u0e22\u0e43\u0e0a\u0e49\u0e04\u0e33\u0e2d\u0e18\u0e34\u0e1a\u0e32\u0e22\u0e17\u0e35\u0e48\u0e2a\u0e23\u0e49\u0e32\u0e07\u0e04\u0e27\u0e32\u0e21\u0e21\u0e31\u0e48\u0e19\u0e43\u0e08 \u0e41\u0e25\u0e30\u0e04\u0e48\u0e2d\u0e22\u0e46 \u0e25\u0e14\u0e02\u0e19\u0e32\u0e14\u0e22\u0e32 (Tapering) \u0e23\u0e48\u0e27\u0e21\u0e01\u0e31\u0e1a\u0e41\u0e1e\u0e17\u0e22\u0e4c\n- \ud83d\udd17 **\u0e25\u0e34\u0e07\u0e01\u0e4c\u0e28\u0e36\u0e01\u0e29\u0e32\u0e15\u0e48\u0e2d:** [\u0e04\u0e25\u0e34\u0e01\u0e40\u0e1b\u0e34\u0e14\u0e2d\u0e48\u0e32\u0e19\u0e1a\u0e17\u0e04\u0e31\u0e14\u0e22\u0e48\u0e2d\u0e15\u0e31\u0e27\u0e40\u0e15\u0e47\u0e21\u0e1a\u0e19 PubMed \u2192](https://pubmed.ncbi.nlm.nih.gov/42815285/)\n\n#### 2. Pharmacist-Led Medication Review (FORTA) in Older Cancer Patients\n- **\u0e27\u0e32\u0e23\u0e2a\u0e32\u0e23 & PMID:** J Intern Med \u2022 [PMID: 42773858](https://pubmed.ncbi.nlm.nih.gov/42773858/) \u2022 \ud83d\udcd6 [\u0e2d\u0e48\u0e32\u0e19\u0e1f\u0e23\u0e35 PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13741811/)\n- \ud83c\udfaf **\u0e43\u0e08\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e33\u0e04\u0e31\u0e0d 1 \u0e1a\u0e23\u0e23\u0e17\u0e31\u0e14:** \u0e1a\u0e23\u0e34\u0e01\u0e32\u0e23\u0e17\u0e1a\u0e17\u0e27\u0e19\u0e01\u0e32\u0e23\u0e43\u0e0a\u0e49\u0e22\u0e32\u0e42\u0e14\u0e22\u0e40\u0e20\u0e2a\u0e31\u0e0a\u0e01\u0e23\u0e42\u0e14\u0e22\u0e43\u0e0a\u0e49\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d FORTA Tool \u0e0a\u0e48\u0e27\u0e22\u0e25\u0e14\u0e01\u0e32\u0e23\u0e43\u0e0a\u0e49\u0e22\u0e32\u0e17\u0e35\u0e48\u0e44\u0e21\u0e48\u0e40\u0e2b\u0e21\u0e32\u0e30\u0e2a\u0e21 (PIMs) \u0e41\u0e25\u0e30\u0e01\u0e32\u0e23\u0e43\u0e0a\u0e49\u0e22\u0e32\u0e40\u0e01\u0e34\u0e19\u0e08\u0e33\u0e40\u0e1b\u0e47\u0e19\u0e43\u0e19\u0e1c\u0e39\u0e49\u0e2a\u0e39\u0e07\u0e2d\u0e32\u0e22\u0e38\u0e42\u0e23\u0e04\u0e21\u0e30\u0e40\u0e23\u0e47\u0e07\u0e44\u0e14\u0e49\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e21\u0e35\u0e1b\u0e23\u0e30\u0e2a\u0e34\u0e17\u0e18\u0e34\u0e20\u0e32\u0e1e\n- \ud83d\udcca **\u0e15\u0e31\u0e27\u0e40\u0e25\u0e02\u0e1c\u0e25\u0e25\u0e31\u0e1e\u0e18\u0e4c\u0e2a\u0e33\u0e04\u0e31\u0e0d:**\n  \u2022 [Single-blinded RCT \u0e43\u0e19 10 \u0e04\u0e25\u0e34\u0e19\u0e34\u0e01, \u0e1c\u0e39\u0e49\u0e1b\u0e48\u0e27\u0e22\u0e2a\u0e39\u0e07\u0e2d\u0e32\u0e22\u0e38\u0e42\u0e23\u0e04\u0e21\u0e30\u0e40\u0e23\u0e47\u0e07 (\u226565 \u0e1b\u0e35, \u0e44\u0e14\u0e49\u0e23\u0e31\u0e1a\u0e22\u0e32 \u22655 \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23)]\n  \u2022 [\u0e04\u0e30\u0e41\u0e19\u0e19 FORTA score (PIMs, Underuse, Overuse) \u0e43\u0e19\u0e01\u0e25\u0e38\u0e48\u0e21\u0e17\u0e35\u0e48\u0e44\u0e14\u0e49\u0e23\u0e31\u0e1a\u0e01\u0e32\u0e23\u0e14\u0e39\u0e41\u0e25\u0e42\u0e14\u0e22\u0e40\u0e20\u0e2a\u0e31\u0e0a\u0e01\u0e23\u0e25\u0e14\u0e25\u0e07\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e21\u0e35\u0e19\u0e31\u0e22\u0e2a\u0e33\u0e04\u0e31\u0e0d\u0e17\u0e32\u0e07\u0e2a\u0e16\u0e34\u0e15\u0e34\u0e40\u0e21\u0e37\u0e48\u0e2d\u0e40\u0e17\u0e35\u0e22\u0e1a\u0e01\u0e31\u0e1a Usual care]\n- \ud83d\udca1 **\u0e2a\u0e34\u0e48\u0e07\u0e17\u0e35\u0e48\u0e15\u0e49\u0e2d\u0e07\u0e23\u0e39\u0e49\u0e43\u0e19 \u0e23\u0e1e.\u0e40\u0e2a\u0e34\u0e07\u0e2a\u0e32\u0e07:** \u0e01\u0e32\u0e23\u0e19\u0e33 FORTA list \u0e21\u0e32\u0e1b\u0e23\u0e31\u0e1a\u0e43\u0e0a\u0e49\u0e43\u0e19\u0e07\u0e32\u0e19 Med Reconciliation \u0e04\u0e25\u0e34\u0e19\u0e34\u0e01\u0e1c\u0e39\u0e49\u0e2a\u0e39\u0e07\u0e2d\u0e32\u0e22\u0e38\u0e41\u0e25\u0e30 NCDs \u0e0a\u0e48\u0e27\u0e22\u0e25\u0e14\u0e01\u0e32\u0e23\u0e2a\u0e31\u0e48\u0e07\u0e43\u0e0a\u0e49\u0e22\u0e32\u0e17\u0e35\u0e48\u0e44\u0e21\u0e48\u0e40\u0e2b\u0e21\u0e32\u0e30\u0e2a\u0e21\u0e44\u0e14\u0e49\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e40\u0e1b\u0e47\u0e19\u0e23\u0e39\u0e1b\u0e18\u0e23\u0e23\u0e21\n- \ud83d\udd17 **\u0e25\u0e34\u0e07\u0e01\u0e4c\u0e28\u0e36\u0e01\u0e29\u0e32\u0e15\u0e48\u0e2d:** [\u0e04\u0e25\u0e34\u0e01\u0e40\u0e1b\u0e34\u0e14\u0e2d\u0e48\u0e32\u0e19\u0e1a\u0e17\u0e04\u0e31\u0e14\u0e22\u0e48\u0e2d\u0e15\u0e31\u0e27\u0e40\u0e15\u0e47\u0e21\u0e1a\u0e19 PubMed \u2192](https://pubmed.ncbi.nlm.nih.gov/42773858/)\n\n---\n\n**\u0e08\u0e31\u0e14\u0e17\u0e33\u0e42\u0e14\u0e22:** \u0e20\u0e01.\u0e23\u0e31\u0e10\u0e19\u0e19\u0e17\u0e4c \u0e41\u0e2a\u0e07\u0e44\u0e17\u0e22\u0e17\u0e27\u0e35\u0e1e\u0e23, \u0e40\u0e20\u0e2a\u0e31\u0e0a\u0e01\u0e23\u0e0a\u0e33\u0e19\u0e32\u0e0d\u0e01\u0e32\u0e23  \n*\u0e1b\u0e23\u0e30\u0e18\u0e32\u0e19\u0e17\u0e35\u0e21 Information Management (IM) \u0e42\u0e23\u0e07\u0e1e\u0e22\u0e32\u0e1a\u0e32\u0e25\u0e40\u0e2a\u0e34\u0e07\u0e2a\u0e32\u0e07*";
-    const contentBox = document.getElementById('report-content');
-    contentBox.innerHTML = marked.parse(md);
+    const mdContent = "# 🩺 สรุปรายงานวิจัยทางคลินิก 7 หมวดสำคัญ (Clinical Pharmacy Research Update)\n**ประจำวันที่:** 2026-11-12 | **เวอร์ชันเครื่องยนต์:** `v2.2.0-HQ (5-Allied HQs Synchronized)`  \n*ทีมสารสนเทศสมุนไพรและเภสัชบำบัด (IM Team) โรงพยาบาลเสิงสาง*\n\n---\n\n### 1. 🫁 เภสัชบำบัดโรคหอบหืดและปอดอุดกั้นเรื้อรัง (Asthma & COPD)\n\n#### 1. Effectiveness of a Multicomponent Digital Therapeutic Program on Inhaled Medication Adherence in Chronic Obstructive Pulmonary Disease: Pilot Randomized Controlled Trial.\n- **วารสาร & PMID:** JMIR mHealth and uHealth • [PMID: 42993869](https://pubmed.ncbi.nlm.nih.gov/42993869/) • 👥 `N=158` • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13742779/)\n- **สถานะบัญชียา รพ.เสิงสาง:** `📋 แนวทางบริบาลเภสัชกรรมคลินิก`\n- 🎯 **ใจความสำคัญ 1 บรรทัด:** โปรแกรมดิจิทัลบำบัดร่วมกับการติดตามกระบอกพ่นยาช่วยเพิ่มความร่วมมือในการใช้ยาพ่นสูดในผู้ป่วย COPD ได้อย่างมีนัยสำคัญตลอด 24 สัปดาห์\n- 📊 **ตัวเลขผลลัพธ์สำคัญ:**\n  • [ความร่วมมือในการใช้ยาพ่นวัดผ่านระบบอิเล็กทรอนิกส์ (EIM): กลุ่มดิจิทัล 59.5% vs กลุ่มดูแลปกติ 33.1% (p = 0.009)]\n  • [สัดส่วนผู้ป่วยที่เกิดการเปลี่ยนแปลง CAT score ในระดับที่มีความสำคัญทางคลินิก (MCID): OR 2.21 (95% CI 1.11-4.41, p = 0.02)]\n- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** พัฒนาระบบติดตามและแจ้งเตือนการใช้ยาพ่นผ่าน LINE OA เพื่อส่งเสริมความร่วมมือในการใช้ยาของผู้ป่วย COPD ในคลินิกโรคเรื้อรัง\n- ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** ทบทวนเทคนิคการพ่นยา (Inhaler Technique) ทุกครั้งก่อนปรับ Step ยา • ยากลุ่ม Biologics ต้องคัดกรอง Eosinophils/FeNO ตามเกณฑ์\n- 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** ยากลุ่ม Biologics มีราคาสูง ควรจำกัดเฉพาะเคส Severe Refractory ที่ลดการส่งตัวผ่าตัดซ้ำหรือลดการแอดมิด ICU ได้ชัดเจน\n- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42993869/)\n\n#### 2. Asthma in Older Adults: A Systematic Review of Real-World Burden and Outcomes.\n- **วารสาร & PMID:** Current allergy and asthma reports • [PMID: 42980725](https://pubmed.ncbi.nlm.nih.gov/42980725/) • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13736361/)\n- **สถานะบัญชียา รพ.เสิงสาง:** `📋 แนวทางบริบาลเภสัชกรรมคลินิก`\n- 🎯 **ใจความสำคัญ 1 บรรทัด:** หอบหืดในผู้สูงอายุพบสูงขึ้นแต่ยังได้รับการวินิจฉัยและการรักษาต่ำกว่าที่ควรเนื่องจากความซับซ้อนของโรคและข้อจำกัดด้านเทคนิคการพ่นยา\n- 📊 **ตัวเลขผลลัพธ์สำคัญ:**\n  • [Systematic Review พบปัญหา Underdiagnosis และ Undertreatment สูงมากในผู้สูงอายุที่มีโรคร่วมหลายโรค]\n  • [ปัจจัยขัดขวางสำคัญ: ความรอบรู้ด้านสุขภาพต่ำ (Low health literacy), เทคนิคการพ่นยาไม่ถูกต้อง และอาการทับซ้อนกับภาวะหัวใจ/COPD]\n- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** จัดทำแนวทางการประเมินเทคนิคการพ่นยา (Inhaler Device Check) และพิจารณาใช้ Spacer ในผู้สูงอายุทุกรายที่คลินิกระบบทางเดินหายใจ\n- ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** ทบทวนเทคนิคการพ่นยา (Inhaler Technique) ทุกครั้งก่อนปรับ Step ยา • ยากลุ่ม Biologics ต้องคัดกรอง Eosinophils/FeNO ตามเกณฑ์\n- 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** ยากลุ่ม Biologics มีราคาสูง ควรจำกัดเฉพาะเคส Severe Refractory ที่ลดการส่งตัวผ่าตัดซ้ำหรือลดการแอดมิด ICU ได้ชัดเจน\n- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42980725/)\n\n#### 3. Inhaled Corticosteroids and Sickle Cell Disease Severity in Adults Without Asthma: A Randomized Clinical Trial.\n- **วารสาร & PMID:** JAMA network open • [PMID: 43007675](https://pubmed.ncbi.nlm.nih.gov/43007675/) • 👥 `N=77`\n- **สถานะบัญชียา รพ.เสิงสาง:** `📋 แนวทางบริบาลเภสัชกรรมคลินิก`\n- 🎯 **ใจความสำคัญ 1 บรรทัด:** ไม่ควรใช้ยาพ่นสเตียรอยด์ (Mometasone) ระยะยาวในผู้ใหญ่ที่เป็น Sickle Cell Disease ที่มีอาการไอ/หวีดโดยไม่ได้เป็นหอบหืด เพราะทำให้ค่าการอักเสบแย่ลง\n- 📊 **ตัวเลขผลลัพธ์สำคัญ:**\n  • [ระดับ sVCAM-1 เพิ่มขึ้น 42% ในกลุ่ม Mometasone เทียบกับ Placebo (95% CI -11% ถึง 96%, p = 0.02)]\n  • [ผลลัพธ์ทางคลินิกในกลุ่มที่ได้ยาพ่นสเตียรอยด์โดยไม่มีภาวะ Asthma มีแนวโน้มแย่กว่ากลุ่ม Placebo]\n- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** ทบทวนการสั่งใช้ ICS ในผู้ป่วยที่มีอาการทางระบบหายใจเรื้อรัง โดยต้องยืนยันการวินิจฉัยโรคหอบหืดที่ชัดเจนก่อนเริ่มยาพ่นสเตียรอยด์ระยะยาว\n- ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** ทบทวนเทคนิคการพ่นยา (Inhaler Technique) ทุกครั้งก่อนปรับ Step ยา • ยากลุ่ม Biologics ต้องคัดกรอง Eosinophils/FeNO ตามเกณฑ์\n- 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** ยากลุ่ม Biologics มีราคาสูง ควรจำกัดเฉพาะเคส Severe Refractory ที่ลดการส่งตัวผ่าตัดซ้ำหรือลดการแอดมิด ICU ได้ชัดเจน\n- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/43007675/)\n\n---\n\n### 2. 🚭 เภสัชบำบัดช่วยเลิกบุหรี่ (Smoking Cessation)\n\n#### 1. Combination bupropion-zonisamide facilitates rapid reduction in smoke exposure and prevents weight gain during switching to electronic nicotine delivery systems: A randomized clinical trial.\n- **วารสาร & PMID:** Drug and alcohol dependence • [PMID: 42849341](https://pubmed.ncbi.nlm.nih.gov/42849341/) • 👥 `N=60`\n- **สถานะบัญชียา รพ.เสิงสาง:** `🔴 ยานอกบัญชี รพ. / ผู้ท้าชิงเข้า PTC`\n- 🎯 **ใจความสำคัญ 1 บรรทัด:** สูตรผสม Bupropion+Zonisamide ช่วยลดปริมาณควันบุหรี่ได้อย่างรวดเร็วและป้องกันน้ำหนักตัวพุ่งหลังหยุดสูบบุหรี่ได้ดีกว่าสูตรเดี่ยว\n- 📊 **ตัวเลขผลลัพธ์สำคัญ:**\n  • [อัตราการเลิกสูบบุหรี่ (mITT): BUP/ZON 26.7% และ BUP 25.0% vs Placebo 10.0%]\n  • [กลุ่ม BUP/ZON มีระดับก๊าซคาร์บอนมอนอกไซด์ (eCO) ลดลงชัดเจนและป้องกันปัญหาน้ำหนักตัวเด้งหลังเลิกบุหรี่ได้สำเร็จ]\n- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** ในคลินิกฟ้าใส รพ.เสิงสาง ใช้ Bupropion ร่วมกับการให้คำปรึกษาควบคุมน้ำหนักและหญ้าดอกขาวในผู้ป่วยที่กังวลเรื่องอ้วนหลังเลิกบุหรี่\n- ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** คัดกรองประวัติโรคลมชัก (Seizure risk) ก่อนจ่าย Bupropion ในคลินิกฟ้าใส • ติดตามอาการนอนไม่หลับและน้ำหนักตัว\n- 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** การช่วยให้ผู้ป่วยเลิกบุหรี่สำเร็จในคลินิกฟ้าใส ให้ผลตอบแทนทางเศรษฐศาสตร์สาธารณสุขสูงสุดในการลดโรคหลอดเลือดหัวใจและ COPD กำเริบ\n- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42849341/)\n\n#### 2. The influence of pharmacogenetics on the treatment-related outcomes of antidepressants and antipsychotics in Brazil: a systematic review.\n- **วารสาร & PMID:** Pharmacogenomics • [PMID: 42740717](https://pubmed.ncbi.nlm.nih.gov/42740717/) • 👥 `N=2,590` • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13671432/)\n- **สถานะบัญชียา รพ.เสิงสาง:** `🟢 มีในคลังยา รพ.เสิงสาง`\n- 🎯 **ใจความสำคัญ 1 บรรทัด:** ความหลากหลายของยีนตับ CYP2B6 สัมพันธ์กับอัตราความสำเร็จในการใช้ยา Bupropion ช่วยเลิกบุหรี่\n- 📊 **ตัวเลขผลลัพธ์สำคัญ:**\n  • [Systematic Review 19 การศึกษา (N=2,590) พบยีน CYP2B6 rs2279343 AA สัมพันธ์กับการเลิกบุหรี่ด้วย Bupropion ที่สำเร็จสูงกว่า]\n  • [การตอบสนองต่อยาจิตเวชและยาช่วยเลิกบุหรี่ขึ้นกับเอนไซม์ CYP2B6 และ CYP2C19 อย่างมีนัยสำคัญ]\n- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** ติดตามการตอบสนองทางคลินิกต่อ Bupropion ในคลินิกฟ้าใสอย่างใกล้ชิด หากไม่ตอบสนองภายใน 4–6 สัปดาห์ให้พิจารณาปรับแผนการรักษา\n- ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** คัดกรองประวัติโรคลมชัก (Seizure risk) ก่อนจ่าย Bupropion ในคลินิกฟ้าใส • ติดตามอาการนอนไม่หลับและน้ำหนักตัว\n- 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** การช่วยให้ผู้ป่วยเลิกบุหรี่สำเร็จในคลินิกฟ้าใส ให้ผลตอบแทนทางเศรษฐศาสตร์สาธารณสุขสูงสุดในการลดโรคหลอดเลือดหัวใจและ COPD กำเริบ\n- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42740717/)\n\n---\n\n### 3. 🌿 สมุนไพรไทยทางคลินิกในระบบทางเดินหายใจ (Thai Herbal Medicine)\n\n#### 1. Triple-pathway synergistic senolysis via AKAP1 silencing and calcium overload: An aptamer-functionalized DNAzyme nanoplatform for anti-pulmonary fibrosis research.\n- **วารสาร & PMID:** Colloids and surfaces. B, Biointerfaces • [PMID: 42667699](https://pubmed.ncbi.nlm.nih.gov/42667699/)\n- **สถานะบัญชียา รพ.เสิงสาง:** `🟢 มีในคลังยา รพ.เสิงสาง`\n- 🎯 **ใจความสำคัญ 1 บรรทัด:** การใช้เคอร์คูมิน (Curcumin จากขมิ้นชัน) ในรูปแบบนาโนแพลตฟอร์มส่งยาเข้าสู่เซลล์ถุงลมปอดโดยตรง ช่วยทำลายเซลล์เสื่อมสภาพและชะลอภาวะพังผืดในปอด\n- 📊 **ตัวเลขผลลัพธ์สำคัญ:**\n  • [นวัตกรรม CCMD@Lipo-Apt ปลดปล่อย Curcumin + Ca2+ กระตุ้น Calcium overload ในเซลล์ปอดที่เสื่อมสภาพอย่างจำเพาะเจาะจง]\n  • [ลดการแสดงออกของยีนพังผืดและยับยั้ง SAEC II senescent cells ช่วยฟื้นฟูเนื้อเยื่อถุงลมปอดในภาวะ Pulmonary Fibrosis]\n- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** สารสกัดขมิ้นชันมีศักยภาพสูงในการต่อยอดสู่นวัตกรรมบำบัดโรคปอดเรื้อรัง ควบคู่กับการเฝ้าระวังอันตรกิริยาต่อตับและยาละลายลิ่มเลือด\n- ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** CYP450 Herb-Drug Alert: ฟ้าทะลายโจรและขมิ้นชันยับยั้ง CYP2C9/CYP3A4 ห้ามจ่ายร่วมกับ Warfarin หรือยากดภูมิคุ้มกัน (เสี่ยงเลือดออกง่าย)\n- 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** ส่งเสริมการใช้ยาสมุนไพรในบัญชียาหลักแห่งชาติ ทดแทนยานำเข้าและสร้างความมั่นคงทางยาของ รพ.ชุมชน\n- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42667699/)\n\n#### 2. Integrated analytical characterization and multiscale modeling of supramolecular interactions in lumefantrine-curcumin coamorphous systems with enhanced biopharmaceutical and anticancer performance.\n- **วารสาร & PMID:** Talanta • [PMID: 42398138](https://pubmed.ncbi.nlm.nih.gov/42398138/)\n- **สถานะบัญชียา รพ.เสิงสาง:** `🟢 มีในคลังยา รพ.เสิงสาง`\n- 🎯 **ใจความสำคัญ 1 บรรทัด:** นวัตกรรมพัฒนายาร่วม Lumefantrine และเคอร์คูมิน (ขมิ้นชัน) รูปแบบ Coamorphous ช่วยแก้ปัญหาการละลาย เพิ่มการดูดซึม และคงตัวได้นาน 6 เดือน\n- 📊 **ตัวเลขผลลัพธ์สำคัญ:**\n  • [เพิ่มการละลายน้ำ (Apparent solubility) สูงขึ้น 2-4 เท่า และปลดปล่อยตัวยา >85-90% ภายใน 6 ชั่วโมง]\n  • [คงสภาพโครงสร้าง amorphous นาน 6 เดือน ในสภาวะเร่ง และเพิ่มฤทธิ์เร่งการตาย (Apoptosis) ของเซลล์มะเร็งปอด A549]\n- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** ใช้เป็นข้อมูลสนับสนุนการพัฒนานวัตกรรมนำส่งยาจากสารสกัดสมุนไพรไทย (ขมิ้นชัน) ร่วมกับยาแผนปัจจุบันเพื่อเพิ่มประสิทธิผลการรักษา\n- ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** CYP450 Herb-Drug Alert: ฟ้าทะลายโจรและขมิ้นชันยับยั้ง CYP2C9/CYP3A4 ห้ามจ่ายร่วมกับ Warfarin หรือยากดภูมิคุ้มกัน (เสี่ยงเลือดออกง่าย)\n- 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** ส่งเสริมการใช้ยาสมุนไพรในบัญชียาหลักแห่งชาติ ทดแทนยานำเข้าและสร้างความมั่นคงทางยาของ รพ.ชุมชน\n- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42398138/)\n\n---\n\n### 4. 🫀 ชะลอไตเสื่อม & เมตาบอลิกหัวใจ (CRM: SGLT2i, GLP-1, Finerenone)\n\n#### 1. Network and pairwise meta-analysis of the effects of novel hypoglycemic agents on cardiorenal outcomes in patients with type 2 diabetes and heart failure.\n- **วารสาร & PMID:** Frontiers in endocrinology • [PMID: 42952754](https://pubmed.ncbi.nlm.nih.gov/42952754/) • 👥 `N=13,886` • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13713430/)\n- **สถานะบัญชียา รพ.เสิงสาง:** `📋 แนวทางบริบาลเภสัชกรรมคลินิก`\n- 🎯 **ใจความสำคัญ 1 บรรทัด:** Network Meta-Analysis ยืนยัน SGLT2i และ GLP-1RA ให้ประโยชน์สูงสุดในการลดอัตรานอน รพ. จาก Heart Failure และชะลอโรคไตในผู้ป่วยเบาหวานที่มีภาวะหัวใจล้มเหลว\n- 📊 **ตัวเลขผลลัพธ์สำคัญ:**\n  • [วิเคราะห์เปรียบเทียบ RCTs (N=13,886) ระหว่างยากลุ่ม SGLT2i, GLP-1RA, DPP-4i และ GIP/GLP-1RA]\n  • [SGLT2i นำโด่งด้านการลด Heart Failure Hospitalization และชะลอการเสื่อมของไต (Cardiorenal composite outcome)]\n- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** ผู้ป่วยเบาหวานชนิดที่ 2 ร่วมกับภาวะหัวใจล้มเหลวหรือโรคไตเรื้อรังใน รพ.เสิงสาง ควรได้รับ Dapagliflozin (SGLT2i) เป็นลำดับแรกตามเกณฑ์\n- ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** ตรวจ eGFR ก่อนเริ่มยา (Dapagliflozin ห้ามเริ่มหาก eGFR < 25 mL/min) • เฝ้าระวัง Euglycemic DKA และการติดเชื้อทางเดินปัสสาวะ\n- 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** คุ้มค่าสูง (High ROI): ลดค่าใช้จ่ายการนอน รพ.ซ้ำจากภาวะหัวใจล้มเหลว (HF Readmission) และชะลอการฟอกไตในระยะยาว\n- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42952754/)\n\n#### 2. Influence of diabetes mellitus on dapagliflozin response after transcatheter aortic valve replacement (TAVR): insights from the DAPA-TAVI trial.\n- **วารสาร & PMID:** Cardiovascular diabetology • [PMID: 43004293](https://pubmed.ncbi.nlm.nih.gov/43004293/) • 👥 `N=1,222` • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13746418/)\n- **สถานะบัญชียา รพ.เสิงสาง:** `🟢 มีในคลังยา รพ.เสิงสาง`\n- 🎯 **ใจความสำคัญ 1 บรรทัด:** Dapagliflozin ช่วยลดการเสียชีวิตและภาวะหัวใจล้มเหลวกำเริบหลังเปลี่ยนลิ้นหัวใจ TAVR ได้ดีเท่าเทียมกันทั้งในผู้ที่เป็นและไม่เป็นเบาหวาน\n- 📊 **ตัวเลขผลลัพธ์สำคัญ:**\n  • [DAPA-TAVI RCT (N=1,222 ราย ใน 39 ศูนย์ ติดตามผล 1 ปี) เปรียบเทียบ Dapagliflozin 10 mg กับ Standard care]\n  • [ลดผลลัพธ์หลัก (All-cause death หรือ Worsening HF) ได้สอดคล้องกันทั้งกลุ่มเป็นเบาหวานและไม่เป็นเบาหวาน (P-interaction > 0.05)]\n- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** มั่นใจในการสั่งจ่าย Dapagliflozin เพื่อป้องกัน Heart Failure กำเริบในผู้ป่วยโรคหัวใจแม้ไม่มีโรคเบาหวานร่วมด้วย\n- ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** ตรวจ eGFR ก่อนเริ่มยา (Dapagliflozin ห้ามเริ่มหาก eGFR < 25 mL/min) • เฝ้าระวัง Euglycemic DKA และการติดเชื้อทางเดินปัสสาวะ\n- 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** คุ้มค่าสูง (High ROI): ลดค่าใช้จ่ายการนอน รพ.ซ้ำจากภาวะหัวใจล้มเหลว (HF Readmission) และชะลอการฟอกไตในระยะยาว\n- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/43004293/)\n\n---\n\n### 5. 🩸 ยาต้านการแข็งตัวของเลือด & HAD (Warfarin vs DOACs)\n\n#### 1. Prevention of Venous Thromboembolism after Total Hip or Knee Replacement.\n- **วารสาร & PMID:** The New England journal of medicine • [PMID: 43013818](https://pubmed.ncbi.nlm.nih.gov/43013818/) • 👥 `N=18,883`\n- **สถานะบัญชียา รพ.เสิงสาง:** `🟡 ยาบัญชี จ(2) / เงื่อนไขเฉพาะ รพ.`\n- 🎯 **ใจความสำคัญ 1 บรรทัด:** เปรียบเทียบ 3 ยาหลักป้องกันลิ่มเลือดอุดตัน (VTE) หลังผ่าตัดเปลี่ยนข้อสะโพก/ข้อเข่า (PEPPER Trial, N=18,883): Warfarin/Rivaroxaban ลด VTE ได้ดีกว่าเล็กน้อย แต่ Aspirin มีความปลอดภัยด้านเลือดออกเหนือกว่าระดับมีนัยสำคัญ\n- 📊 **ตัวเลขผลลัพธ์สำคัญ:**\n  • [PEPPER RCT (N=18,883 ราย ใน NEJM) เปรียบเทียบ Aspirin 81 mg BID vs Warfarin (INR 2.0) vs Rivaroxaban 10 mg QD นาน 30 วัน]\n  • [กลุ่ม Warfarin และ Rivaroxaban มีความเสี่ยงเลือดออกและการต้องผ่าตัดซ้ำสูงกว่ากลุ่ม Aspirin อย่างมีนัยสำคัญ]\n- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** ในผู้ป่วยหลังผ่าตัดเปลี่ยนข้อที่มีความเสี่ยง VTE ต่ำหรือเสี่ยงเลือดออกสูง Aspirin เป็นทางเลือกที่ปลอดภัยและช่วยลดภาระการเจาะวัด INR ของคลินิกวาร์ฟาริน\n- ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** ประเมินค่าไต CrCl ก่อนจ่าย DOACs • กรณีใช้ Warfarin ให้คุม Target INR 2.0–3.0 และระวังอันตรกิริยากับยาฆ่าเชื้อ/สมุนไพร\n- 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** ลดต้นทุนแฝง รพ.: การใช้ Aspirin ในกลุ่มเสี่ยงต่ำหลังผ่าตัดข้อ หรือเลือก DOAC ในกลุ่มเสี่ยงเลือดออกทางเดินอาหาร ช่วยลดภาระการเจาะ Lab INR และค่านอน รพ.จาก GI Bleed\n- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/43013818/)\n\n#### 2. Efficacy and safety of apixaban versus rivaroxaban in acute venous thromboembolism: a systematic review and meta-analysis.\n- **วารสาร & PMID:** European journal of clinical pharmacology • [PMID: 43004015](https://pubmed.ncbi.nlm.nih.gov/43004015/) • 👥 `N=233,569` • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7556153/)\n- **สถานะบัญชียา รพ.เสิงสาง:** `🟡 ยาบัญชี จ(2) / เงื่อนไขเฉพาะ รพ.`\n- 🎯 **ใจความสำคัญ 1 บรรทัด:** Apixaban มีประสิทธิผลป้องกันการกลับเป็นซ้ำของลิ่มเลือดอุดตัน (Acute VTE) เทียบเท่า Rivaroxaban แต่มีอัตราการเกิดเลือดออกทางเดินอาหารและ Major Bleeding ต่ำกว่า\n- 📊 **ตัวเลขผลลัพธ์สำคัญ:**\n  • [Systematic Review & Meta-analysis รวม 13 การศึกษา (ผู้ป่วย N=233,569 ราย) เปรียบเทียบ Apixaban กับ Rivaroxaban]\n  • [Apixaban ลดความเสี่ยง Major Bleeding และ Gastrointestinal Bleeding ได้ดีกว่า Rivaroxaban อย่างมีนัยสำคัญ]\n- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** หากต้องเลือกใช้ยากลุ่ม DOACs ในผู้ป่วย Acute VTE ที่มีประวัติโรคกระเพาะหรือเสี่ยงเลือดออกทางเดินอาหาร ควรพิจารณา Apixaban เป็นลำดับแรก\n- ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** ประเมินค่าไต CrCl ก่อนจ่าย DOACs • กรณีใช้ Warfarin ให้คุม Target INR 2.0–3.0 และระวังอันตรกิริยากับยาฆ่าเชื้อ/สมุนไพร\n- 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** ลดต้นทุนแฝง รพ.: การใช้ Aspirin ในกลุ่มเสี่ยงต่ำหลังผ่าตัดข้อ หรือเลือก DOAC ในกลุ่มเสี่ยงเลือดออกทางเดินอาหาร ช่วยลดภาระการเจาะ Lab INR และค่านอน รพ.จาก GI Bleed\n- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/43004015/)\n\n---\n\n### 6. 🦠 การจัดการยาปฏิชีวนะ & สูตรยาสั้น (AMS & Short-Course RDU)\n\n#### 1. Short- versus long-course antibiotic therapy in non-severe CAP in children: a systematic review and meta-analysis.\n- **วารสาร & PMID:** European journal of pediatrics • [PMID: 42844453](https://pubmed.ncbi.nlm.nih.gov/42844453/) • 👥 `N=8,970`\n- **สถานะบัญชียา รพ.เสิงสาง:** `📋 แนวทางบริบาลเภสัชกรรมคลินิก`\n- 🎯 **ใจความสำคัญ 1 บรรทัด:** ยาปฏิชีวนะสูตรสั้น (3–5 วัน) รักษาโรคปอดอักเสบชุมชนชนิดไม่รุนแรงในเด็ก (Pediatric Non-severe CAP) ได้ผลไม่ต่างจากสูตรยาว (7–10 วัน) พร้อมเพิ่มความร่วมมือในการกินยา\n- 📊 **ตัวเลขผลลัพธ์สำคัญ:**\n  • [Meta-analysis (N=8,970 ราย) ยืนยันอัตราการรักษาล้มเหลวหรือการกลับเป็นซ้ำไม่แตกต่างกันระหว่างยาสูตรสั้นและสูตรยาว]\n  • [กลุ่มยาสูตรสั้นมีอัตราการกินยาไม่ครบ (Non-adherence) ต่ำกว่าอย่างชัดเจนและลดผลข้างเคียงจากยาปฏิชีวนะ]\n- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** สนับสนุนการจ่าย Amoxicillin สูตรสั้น 3–5 วัน ในเด็กปอดบวมชนิดไม่รุนแรงที่ รพ.เสิงสาง เพื่อลดเชื้อดื้อยาและช่วยให้ผู้ปกครองป้อนยาครบคอร์สได้ง่ายขึ้น\n- ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** เกณฑ์ Short-Course RDU ใช้เฉพาะผู้ป่วย Non-severe ที่ภูมิคุ้มกันปกติ • ประเมินอาการไข้ลดลงครบ 48 ชม. ก่อนหยุดยา\n- 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** ประหยัดงบค่ายาโดยตรง 40–50% ต่อคอร์ส ลดโอกาสเกิดเชื้อดื้อยาที่ต้องใช้ยาฉีดราคาแพง (Carbapenems/Vancomycin)\n- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42844453/)\n\n#### 2. Effectiveness and safety of the available preventive tuberculosis treatment regimens for children and adolescents: systematic review and network meta-analysis.\n- **วารสาร & PMID:** BMJ paediatrics open • [PMID: 42816130](https://pubmed.ncbi.nlm.nih.gov/42816130/) • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13629875/)\n- **สถานะบัญชียา รพ.เสิงสาง:** `🟢 มีในคลังยา รพ.เสิงสาง`\n- 🎯 **ใจความสำคัญ 1 บรรทัด:** ยาป้องกันวัณโรคสูตรสั้นที่มี Rifamycin (เช่น 3HP, 3HR, 4R) ในเด็กและวัยรุ่น มีอัตราการกินยาครบคอร์สสูงกว่าและเกิดพิษต่อตับต่ำกว่าสูตร Isoniazid ยาว 6–9 เดือน\n- 📊 **ตัวเลขผลลัพธ์สำคัญ:**\n  • [Network Meta-Analysis ในเด็กและวัยรุ่นที่สัมผัสผู้ป่วยวัณโรค เปรียบเทียบสูตรสั้น (3HP, 3HR, 4R) กับสูตรดั้งเดิม (6H/9H)]\n  • [สูตรสั้นที่มี Rifampicin/Rifapentine ช่วยลดอุบัติการณ์เกิดวัณโรคระยะลุกลามและมี Completion rate สูงกว่าอย่างมีนัยสำคัญ]\n- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** คลินิกวัณโรค รพ.เสิงสาง ควรใช้สูตรยาสั้น (3HP หรือ 3HR/4R) ในการทำ TB Preventive Treatment (TPT) ในเด็กและผู้สัมผัสใกล้ชิดเพื่อลดพิษต่อตับ\n- ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** เกณฑ์ Short-Course RDU ใช้เฉพาะผู้ป่วย Non-severe ที่ภูมิคุ้มกันปกติ • ประเมินอาการไข้ลดลงครบ 48 ชม. ก่อนหยุดยา\n- 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** ประหยัดงบค่ายาโดยตรง 40–50% ต่อคอร์ส ลดโอกาสเกิดเชื้อดื้อยาที่ต้องใช้ยาฉีดราคาแพง (Carbapenems/Vancomycin)\n- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42816130/)\n\n---\n\n### 7. 👴 การตัดยาล้นเกินในผู้สูงอายุ (Deprescribing & Polypharmacy)\n\n#### 1. Barriers and enablers to deprescribing from the perspectives of older adults with polypharmacy and their stakeholders: A systematic review of qualitative studies.\n- **วารสาร & PMID:** International journal of nursing studies • [PMID: 42815285](https://pubmed.ncbi.nlm.nih.gov/42815285/)\n- **สถานะบัญชียา รพ.เสิงสาง:** `📋 แนวทางบริบาลเภสัชกรรมคลินิก`\n- 🎯 **ใจความสำคัญ 1 บรรทัด:** ความสำเร็จของการตัดยาล้นเกิน (Deprescribing) ในผู้สูงอายุขึ้นอยู่กับความไว้วางใจในทีมสุขภาพและการสื่อสารแบบตัดสินใจร่วมกัน (Shared Decision-Making) เพื่อลดความกลัวโรคกำเริบ\n- 📊 **ตัวเลขผลลัพธ์สำคัญ:**\n  • [Systematic Review วิเคราะห์ปัจจัยส่งเสริมและอุปสรรคของการหยุดยาในผู้สูงอายุที่ใช้ยาตั้งแต่ 5 รายการขึ้นไป (Polypharmacy)]\n  • [การวางแผนลดยาเป็นลำดับขั้น (Stepwise Tapering) ร่วมกับการให้ข้อมูลที่ชัดเจนช่วยเพิ่มการยอมรับของผู้ป่วยและญาติ]\n- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** เภสัชกรประจำคลินิกผู้สูงอายุและ NCDs รพ.เสิงสาง ควรใช้แนวทางค่อยๆ ปรับลดขนาดยาควบคู่กับการสร้างความมั่นใจแก่ผู้ป่วยและผู้ดูแล\n- ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** การหยุดยาในผู้สูงอายุ (Deprescribing) โดยเฉพาะกลุ่ม BZD, Beta-blocker และ PPI ต้องทำ Tapering ค่อยๆ ลดขนาดยาเพื่อป้องกันอาการถอนยา\n- 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** ลดมูลค่าค่ายาส่วนเกิน (Polypharmacy Waste) ในคลินิกผู้สูงอายุและป้องกันค่าใช้จ่ายจากการรักษาอาการไม่พึงประสงค์จากการใช้ยา (ADE)\n- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42815285/)\n\n#### 2. Cancer co-medication quality in older patients with polypharmacy: A large randomized trial testing a medication review versus usual care.\n- **วารสาร & PMID:** Journal of internal medicine • [PMID: 42773858](https://pubmed.ncbi.nlm.nih.gov/42773858/) • 👥 `N=234` • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13741811/)\n- **สถานะบัญชียา รพ.เสิงสาง:** `📋 แนวทางบริบาลเภสัชกรรมคลินิก`\n- 🎯 **ใจความสำคัญ 1 บรรทัด:** การทบทวนรายการยาโดยใช้เครื่องมือ FORTA (Fit fOR The Aged) ช่วยลดการใช้ยาที่ไม่เหมาะสม (PIMs) และการใช้ยาเกินความจำเป็นในผู้สูงอายุได้อย่างมีนัยสำคัญ\n- 📊 **ตัวเลขผลลัพธ์สำคัญ:**\n  • [Multicentre RCT (N=443 ราย; กลุ่มทดลอง N=234 vs กลุ่มควบคุม N=209) ประเมินการทบทวนยาตามเกณฑ์ FORTA เทียบกับการดูแลปกติ]\n  • [ลดสัดส่วนผู้ป่วยที่ได้รับยาไม่เหมาะสม (PIMs) ลงถึง 41.3% และลดการใช้ยาเกินจำเป็น (Overuse) ลง 30.7% (p < 0.001)]\n- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** นำเกณฑ์ FORTA / Beers Criteria มาประยุกต์ใช้ในระบบ Medication Reconciliation หอผู้ป่วยในและคลินิกผู้สูงอายุ รพ.เสิงสาง\n- ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** การหยุดยาในผู้สูงอายุ (Deprescribing) โดยเฉพาะกลุ่ม BZD, Beta-blocker และ PPI ต้องทำ Tapering ค่อยๆ ลดขนาดยาเพื่อป้องกันอาการถอนยา\n- 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** ลดมูลค่าค่ายาส่วนเกิน (Polypharmacy Waste) ในคลินิกผู้สูงอายุและป้องกันค่าใช้จ่ายจากการรักษาอาการไม่พึงประสงค์จากการใช้ยา (ADE)\n- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42773858/)\n\n---\n\n**จัดทำโดย:** ภก.รัฐนนท์ แสงไทยทวีพร, เภสัชกรชำนาญการ  \n*ประธานทีม Information Management (IM) โรงพยาบาลเสิงสาง*";
+    const boutsData = [{"bout_id": "anticoagulation", "track_id": "anticoagulation", "tab_label": "🩸 ศึกต้านลิ่มเลือด", "headline": "🩸 ศึกมวยคู่เอก: ป้องกันลิ่มเลือดอุดตันหลังผ่าตัดเปลี่ยนข้อ (NEJM Trial)", "red_name": "Aspirin 81 mg BID", "red_sub": "ยาต้านเกล็ดเลือดราคาประหยัด", "blue_name": "Warfarin / Rivaroxaban", "blue_sub": "ยาละลายลิ่มเลือดมาตรฐาน", "rounds": [{"title": "🥊 ยก 1: ประสิทธิผลป้องกัน VTE & เสียชีวิต", "verdict": "เสมอกัน (Non-inferior)", "red_pct": 50, "blue_pct": 50}, {"title": "🥊 ยก 2: ความปลอดภัย (Major Bleeding)", "verdict": "Aspirin ปลอดภัยสูง", "red_pct": 65, "blue_pct": 45}, {"title": "🥊 ยก 3: ความคุ้มค่า & ลดภาระเจาะ INR", "verdict": "Aspirin ชนะน็อค! (ไม่ต้องเจาะ INR)", "red_pct": 92, "blue_pct": 25}], "verdict_text": "ในผู้ป่วยความเสี่ยงต่ำหลังผ่าตัดเปลี่ยนข้อเข่า/สะโพก การใช้ Aspirin ปลอดภัยและลดภาระงานคลินิกวาร์ฟารินของ รพ.ชุมชนได้มหาศาล!"}, {"bout_id": "cardio_renal", "track_id": "cardio_renal", "tab_label": "🫀 ศึกชะลอไต-หัวใจ", "headline": "🫀 ศึกมวยคู่เอก: Dapagliflozin หลังเปลี่ยนลิ้นหัวใจ TAVR (DAPA-TAVI, N=1,222)", "red_name": "Dapagliflozin 10 mg", "red_sub": "SGLT2i (มีในบัญชี รพ.เสิงสาง)", "blue_name": "Standard Care เดี่ยว", "blue_sub": "การรักษามาตรฐานเดิม", "rounds": [{"title": "🥊 ยก 1: ลดตาย & หัวใจล้มเหลวกำเริบ (DM)", "verdict": "Dapa ชนะขาด", "red_pct": 80, "blue_pct": 40}, {"title": "🥊 ยก 2: ประสิทธิผลในผู้ป่วยไม่เป็นเบาหวาน", "verdict": "Dapa ชนะเท่าเทียมกลุ่ม DM!", "red_pct": 82, "blue_pct": 38}, {"title": "🥊 ยก 3: คุ้มค่าลดนอน รพ.ซ้ำ (BI-HQ)", "verdict": "ลด Readmission HF ชัดเจน", "red_pct": 85, "blue_pct": 30}], "verdict_text": "Dapagliflozin ป้องกัน Heart Failure กำเริบได้ทั้งคนที่เป็นและไม่เป็นเบาหวาน คุ้มค่าสูงมากในการลด Re-admission ของ รพ.เสิงสาง!"}, {"bout_id": "smoking_cessation", "track_id": "smoking_cessation", "tab_label": "🚭 ศึกเลิกบุหรี่", "headline": "🚭 ศึกมวยคู่เอก: เภสัชบำบัดช่วยเลิกบุหรี่และคุมน้ำหนัก (คลินิกฟ้าใส)", "red_name": "สูตรผสม BUP + ZON", "red_sub": "Bupropion + Zonisamide", "blue_name": "สูตรเดี่ยว BUP", "blue_sub": "Bupropion Monotherapy", "rounds": [{"title": "🥊 ยก 1: ความเร็วลดควันบุหรี่ (eCO Drop)", "verdict": "สูตรผสมชนะ (+25%)", "red_pct": 75, "blue_pct": 50}, {"title": "🥊 ยก 2: คุมน้ำหนักตัวไม่ให้เด้ง (Weight Gain)", "verdict": "สูตรผสมชนะน็อค! (ไม่พุ่ง)", "red_pct": 90, "blue_pct": 30}, {"title": "🥊 ยก 3: ความพร้อมใช้งานใน รพ.เสิงสาง", "verdict": "BUP เดี่ยว + หญ้าดอกขาว มีพร้อมในคลัง", "red_pct": 45, "blue_pct": 85}], "verdict_text": "สูตรผสม BUP+ZON เด่นเรื่องหยุดน้ำหนักพุ่งหลังเลิกบุหรี่ ส่วนหน้างานคลินิกฟ้าใส รพ.เสิงสาง ใช้ Bupropion + หญ้าดอกขาว + 5A ได้ทันที!"}, {"bout_id": "ams_rdu", "track_id": "ams_rdu", "tab_label": "🦠 ศึกยาฆ่าเชื้อสั้น", "headline": "🦠 ศึกมวยคู่เอก: ยาปฏิชีวนะสูตรสั้น vs สูตรยาว ในปอดบวมเด็ก (Non-Severe CAP)", "red_name": "สูตรสั้น 3–5 วัน", "red_sub": "Short-Course Amoxicillin", "blue_name": "สูตรยาว 7–10 วัน", "blue_sub": "Standard-Course เดิม", "rounds": [{"title": "🥊 ยก 1: อัตราการรักษาหายขาดทางคลินิก", "verdict": "เสมอกัน 100%", "red_pct": 50, "blue_pct": 50}, {"title": "🥊 ยก 2: ความร่วมมือในการกินยา (Adherence)", "verdict": "สูตรสั้นชนะขาด (พ่อแม่ป้อนง่าย)", "red_pct": 85, "blue_pct": 45}, {"title": "🥊 ยก 3: ลดผลข้างเคียงท้องเสีย & เชื้อดื้อยา", "verdict": "สูตรสั้นชนะน็อคตามเกณฑ์ RDU!", "red_pct": 88, "blue_pct": 30}], "verdict_text": "ปอดบวมเด็กชนิดไม่รุนแรง (Non-severe CAP) จ่าย Amoxicillin สูตรสั้น 3–5 วัน หายเท่ากัน ลดเชื้อดื้อยา และประหยัดงบค่ายา รพ.เสิงสาง!"}];
+    let currentBoutIndex = 0;
+    let currentMode = 'fun';
 
-    function filterTrack(keyword, btn) {
+    // Render Formal Markdown
+    const formalBox = document.getElementById('formal-content');
+    if (window.marked) {
+      formalBox.innerHTML = marked.parse(mdContent);
+    } else {
+      formalBox.textContent = mdContent;
+    }
+
+    function renderBout(index) {
+      currentBoutIndex = index;
+      const b = boutsData[index];
+      if (!b) return;
+
+      const tabsEl = document.getElementById('boutTabs');
+      tabsEl.innerHTML = boutsData.map((item, idx) =>
+        `<button class="bout-tab ${idx === index ? 'active' : ''}" onclick="renderBout(${idx})">${item.tab_label}</button>`
+      ).join('');
+
+      document.getElementById('boutHeadline').textContent = b.headline;
+      document.getElementById('redName').textContent = b.red_name;
+      document.getElementById('redSub').textContent = b.red_sub;
+      document.getElementById('blueName').textContent = b.blue_name;
+      document.getElementById('blueSub').textContent = b.blue_sub;
+
+      const roundsEl = document.getElementById('battleRounds');
+      roundsEl.innerHTML = b.rounds.map(r => `
+        <div class="round-row">
+          <div class="round-lbl">
+            <span>${r.title}</span>
+            <span style="color: var(--emerald);">${r.verdict}</span>
+          </div>
+          <div class="round-bars">
+            <div class="bar-fill red" style="width: ${r.red_pct}%;"></div>
+            <div class="bar-fill blue" style="width: ${r.blue_pct}%;"></div>
+          </div>
+        </div>
+      `).join('');
+
+      document.getElementById('boutVerdict').innerHTML = `<strong>ฟันธงหน้างาน รพ.เสิงสาง:</strong> ${b.verdict_text}`;
+    }
+
+    // Fix #3: Deterministic Track Filtering by exact data-track-id
+    function filterTrack(trackId, btn) {
       document.querySelectorAll('.pill-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+      if (btn) btn.classList.add('active');
 
-      const showdown = document.getElementById('main-showdown');
-      if (keyword === 'all' || keyword === 'เลิกบุหรี่') {
-        showdown.style.display = 'block';
-      } else {
-        showdown.style.display = 'none';
-      }
-
-      const headers = contentBox.querySelectorAll('h2, h3');
-      if (keyword === 'all') {
-        headers.forEach(h => {
-          let el = h;
-          while (el && el !== contentBox) {
-            el.style.display = '';
-            el = el.nextElementSibling;
-            if (el && (el.tagName === 'H2' || el.tagName === 'H3')) break;
-          }
-        });
-        return;
-      }
-
-      headers.forEach(h => {
-        const isMatch = h.textContent.includes(keyword);
-        let el = h.nextElementSibling;
-        h.style.display = isMatch ? '' : 'none';
-        while (el && el.tagName !== 'H2' && el.tagName !== 'H3') {
-          el.style.display = isMatch ? '' : 'none';
-          el = el.nextElementSibling;
+      const sections = document.querySelectorAll('.track-section');
+      sections.forEach(sec => {
+        if (trackId === 'all' || sec.getAttribute('data-track-id') === trackId) {
+          sec.style.display = 'block';
+        } else {
+          sec.style.display = 'none';
         }
       });
+
+      // Sync Main Event Showdown card to matching track if available
+      if (trackId !== 'all') {
+        const matchIdx = boutsData.findIndex(b => b.track_id === trackId);
+        if (matchIdx !== -1) {
+          renderBout(matchIdx);
+        }
+      }
     }
 
     function switchMode(mode) {
+      currentMode = mode;
       document.getElementById('btn-fun').classList.toggle('active', mode === 'fun');
       document.getElementById('btn-formal').classList.toggle('active', mode === 'formal');
       document.getElementById('main-showdown').style.display = mode === 'fun' ? 'block' : 'none';
+      document.getElementById('battle-cards-container').style.display = mode === 'fun' ? 'block' : 'none';
+      document.getElementById('trackPills').style.display = mode === 'fun' ? 'flex' : 'none';
+      document.getElementById('formal-content').style.display = mode === 'formal' ? 'block' : 'none';
     }
 
     function playGong() {
@@ -445,6 +1232,9 @@
         osc.stop(ctx.currentTime + 1.2);
       } catch(e) {}
     }
+
+    // Initialize default bout
+    renderBout(0);
   </script>
 </body>
 </html>

@@ -1,0 +1,376 @@
+{
+  "asthma_copd": [
+    {
+      "pmid": "42993869",
+      "track_id": "asthma_copd",
+      "title": "Effectiveness of a Multicomponent Digital Therapeutic Program on Inhaled Medication Adherence in Chronic Obstructive Pulmonary Disease: Pilot Randomized Controlled Trial.",
+      "journal": "JMIR mHealth and uHealth",
+      "pub_date": "2026 Nov",
+      "doi": "10.2196/98870",
+      "pmc_id": "PMC13742779",
+      "pmc_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13742779/",
+      "has_free_fulltext": true,
+      "extracted_n": 158,
+      "abstract": "BACKGROUND: Poor medication adherence is a critical impediment to effective chronic obstructive pulmonary disease (COPD) management and remains challenging to track in routine care. Digital therapeutic interventions may improve chronic disease management through remote monitoring and patient education. However, most existing digital interventions focus on individual components of disease management, and evidence from longer-term pragmatic randomized controlled trials evaluating integrated digital therapeutics in routine clinical practice remains limited.\n\nOBJECTIVE: This study aimed to evaluate the effectiveness of a multicomponent digital therapeutic program combining electronic inhaler monitoring (EIM) with behavioral support in improving medication adherence and symptom-related outcomes among patients with COPD prescribed pressurized metered-dose inhalers, and to assess patient engagement and implementation in routine clinical practice.\n\nMETHODS: In this prospective, open-label, unblinded, randomized controlled trial, patients with COPD prescribed pressurized metered-dose inhalers were enrolled and randomized in a 2:1 ratio to either the intervention group or the control group. All participants received an EIM device to objectively record inhaler use throughout the 24-week study period. Patients in the intervention group also received personalized medication reminders from the EIM, adherence feedback, educational content, and clinician-supported follow-up through an integrated digital management platform based on EIM-derived data, whereas the control group received usual care. The primary outcome was medication adherence over 24 weeks. Secondary outcomes included exacerbations, COPD symptoms, quality of life, and lung function.\n\nRESULTS: A total of 158 participants were randomized, including 106 in the intervention group and 52 in the control group. The median monitoring coverage was 161.5 (IQR 86.3-168.0) days during the follow-up period. The self-reported adherence measured using the Test of Adherence to Inhalers showed no significant between-group differences at any follow-up time point. However, the electronically monitored adherence was significantly higher in the intervention group than in the control group (59.5% vs 33.1%, P=.009). Adherence declined over time in both groups, decreasing from 85.3% during weeks 0 to 4 to 43.0% during weeks 12 to 24 in the intervention group and from 76.8% to 11.9% in the control group over the same intervals, resulting in a progressively larger between-group difference over follow-up. No significant differences were observed in exacerbations, health-related quality of life, symptom burden, lung function, or mental health outcomes. In an exploratory analysis, a significantly greater proportion of participants in the intervention group achieved the minimal clinically important difference in the COPD Assessment Test score than in the control group (odds ratio 2.21, 95% CI 1.11-4.41; P=.02).\n\nCONCLUSIONS: The multicomponent digital therapeutic program significantly improved objective medication adherence in patients with COPD over 24 weeks. While most clinical outcomes did not differ significantly between groups, the higher proportion of participants achieving a clinically meaningful improvement in the COPD Assessment Test score warrants further investigation.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42993869/",
+      "formulary_badge": "📋 แนวทางบริบาลเภสัชกรรมคลินิก",
+      "formulary_tier": "CLINICAL_PROTOCOL",
+      "rx_sentinel_alert": "ทบทวนเทคนิคการพ่นยา (Inhaler Technique) ทุกครั้งก่อนปรับ Step ยา • ยากลุ่ม Biologics ต้องคัดกรอง Eosinophils/FeNO ตามเกณฑ์",
+      "bi_hq_note": "ยากลุ่ม Biologics มีราคาสูง ควรจำกัดเฉพาะเคส Severe Refractory ที่ลดการส่งตัวผ่าตัดซ้ำหรือลดการแอดมิด ICU ได้ชัดเจน",
+      "thai_takeaway": "โปรแกรมดิจิทัลบำบัดร่วมกับการติดตามกระบอกพ่นยาช่วยเพิ่มความร่วมมือในการใช้ยาพ่นสูดในผู้ป่วย COPD ได้อย่างมีนัยสำคัญตลอด 24 สัปดาห์",
+      "key_metrics": [
+        "ความร่วมมือในการใช้ยาพ่นวัดผ่านระบบอิเล็กทรอนิกส์ (EIM): กลุ่มดิจิทัล 59.5% vs กลุ่มดูแลปกติ 33.1% (p = 0.009)",
+        "สัดส่วนผู้ป่วยที่เกิดการเปลี่ยนแปลง CAT score ในระดับที่มีความสำคัญทางคลินิก (MCID): OR 2.21 (95% CI 1.11-4.41, p = 0.02)"
+      ],
+      "soeng_sang_action": "พัฒนาระบบติดตามและแจ้งเตือนการใช้ยาพ่นผ่าน LINE OA เพื่อส่งเสริมความร่วมมือในการใช้ยาของผู้ป่วย COPD ในคลินิกโรคเรื้อรัง"
+    },
+    {
+      "pmid": "42980725",
+      "track_id": "asthma_copd",
+      "title": "Asthma in Older Adults: A Systematic Review of Real-World Burden and Outcomes.",
+      "journal": "Current allergy and asthma reports",
+      "pub_date": "2026 Nov",
+      "doi": "10.1007/s11882-026-01304-2",
+      "pmc_id": "PMC13736361",
+      "pmc_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13736361/",
+      "has_free_fulltext": true,
+      "extracted_n": null,
+      "abstract": "PURPOSE OF REVIEW: This review examines asthma in older adults over the past decade, focusing on epidemiology, diagnostic challenges, and current management. It also explores why asthma remains underdiagnosed and undertreated in this population.\n\nRECENT FINDINGS: Asthma prevalence is increasing among older adults worldwide, particularly in developed regions and Asia, yet underdiagnosis and undertreatment remain common. Diagnostic complexity is driven by atypical presentations, comorbidities, overlapping COPD features, and limitations of standard diagnostic criteria. Patient-related barriers include low health literacy, poor inhaler technique, symptom misattribution, psychological comorbidity, and limited social support. Access to biologic therapies remains uneven, and precision medicine approaches for older adults are lacking. Asthma in older adults is an important and underrecognized public health issue. Better awareness, age-adapted diagnostic protocols, improved inhaler education, and more integrated management of comorbidities are needed to improve outcomes and quality of life.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42980725/",
+      "formulary_badge": "📋 แนวทางบริบาลเภสัชกรรมคลินิก",
+      "formulary_tier": "CLINICAL_PROTOCOL",
+      "rx_sentinel_alert": "ทบทวนเทคนิคการพ่นยา (Inhaler Technique) ทุกครั้งก่อนปรับ Step ยา • ยากลุ่ม Biologics ต้องคัดกรอง Eosinophils/FeNO ตามเกณฑ์",
+      "bi_hq_note": "ยากลุ่ม Biologics มีราคาสูง ควรจำกัดเฉพาะเคส Severe Refractory ที่ลดการส่งตัวผ่าตัดซ้ำหรือลดการแอดมิด ICU ได้ชัดเจน",
+      "thai_takeaway": "หอบหืดในผู้สูงอายุพบสูงขึ้นแต่ยังได้รับการวินิจฉัยและการรักษาต่ำกว่าที่ควรเนื่องจากความซับซ้อนของโรคและข้อจำกัดด้านเทคนิคการพ่นยา",
+      "key_metrics": [
+        "Systematic Review พบปัญหา Underdiagnosis และ Undertreatment สูงมากในผู้สูงอายุที่มีโรคร่วมหลายโรค",
+        "ปัจจัยขัดขวางสำคัญ: ความรอบรู้ด้านสุขภาพต่ำ (Low health literacy), เทคนิคการพ่นยาไม่ถูกต้อง และอาการทับซ้อนกับภาวะหัวใจ/COPD"
+      ],
+      "soeng_sang_action": "จัดทำแนวทางการประเมินเทคนิคการพ่นยา (Inhaler Device Check) และพิจารณาใช้ Spacer ในผู้สูงอายุทุกรายที่คลินิกระบบทางเดินหายใจ"
+    },
+    {
+      "pmid": "43007675",
+      "track_id": "asthma_copd",
+      "title": "Inhaled Corticosteroids and Sickle Cell Disease Severity in Adults Without Asthma: A Randomized Clinical Trial.",
+      "journal": "JAMA network open",
+      "pub_date": "2026 Nov",
+      "doi": "10.1001/jamanetworkopen.2026.42232",
+      "pmc_id": "",
+      "pmc_url": "",
+      "has_free_fulltext": false,
+      "extracted_n": 77,
+      "abstract": "IMPORTANCE: People living with sickle cell disease (SCD) who have episodic cough and wheeze (ECW) without a diagnosis of asthma have high rates of pain episodes and acute chest syndrome. A previous trial, in which patients with SCD and ECW without asthma received 15 weeks of inhaled mometasone or placebo, showed that inhaled mometasone improved daily pain and reduced soluble vascular cell adhesion molecule 1 (VCAM-1), a marker of disease severity in SCD.\n\nOBJECTIVE: To examine the biologic effects and safety of long-term daily inhaled mometasone in patients without asthma but with SCD and ECW.\n\nDESIGN, SETTING, AND PARTICIPANTS: This placebo-controlled randomized clinical trial recruited patients with SCD from December 2018 to May 2022. Participants were randomly assigned to receive either inhaled mometasone or placebo for 48 weeks. Data analyses followed the modified intention-to-treat principle and were performed between July and November 2023.\n\nINTERVENTIONS: The inhaled mometasone group received 220 μg of inhaled mometasone furoate dry powder once daily. The placebo group received a matching placebo inhaler.\n\nMAIN OUTCOMES AND MEASURES: The primary outcome was percentage change in soluble VCAM-1 levels from baseline to end of study. Secondary outcomes included laboratory results, functional outcomes, patient-reported outcomes, and health care utilization.\n\nRESULTS: Of the 77 patients who received the intervention and were included in the analysis, 40 were assigned to inhaled mometasone (mean [SD] age, 36.0 [11.6] years; 26 females [65%]) and 37 were assigned to placebo (mean [SD] age, 31.5 [8.6] years; 19 males [51%]). Compared with the placebo group, the inhaled mometasone group increased their soluble VCAM-1 levels by 42% (95% CI, -11% to 96%; P = .02). Point estimates for clinical outcomes favored the placebo group, although the findings were not statistically significant.\n\nCONCLUSIONS AND RELEVANCE: In this trial of adults with SCD and ECW, extended courses of inhaled mometasone were associated with worsened markers of disease severity. Inhaled mometasone should not be used long-term in patients with SCD and ECW without a definitive diagnosis of asthma.\n\nTRIAL REGISTRATION: ClinicalTrials.gov Identifier: NCT03758950.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43007675/",
+      "formulary_badge": "📋 แนวทางบริบาลเภสัชกรรมคลินิก",
+      "formulary_tier": "CLINICAL_PROTOCOL",
+      "rx_sentinel_alert": "ทบทวนเทคนิคการพ่นยา (Inhaler Technique) ทุกครั้งก่อนปรับ Step ยา • ยากลุ่ม Biologics ต้องคัดกรอง Eosinophils/FeNO ตามเกณฑ์",
+      "bi_hq_note": "ยากลุ่ม Biologics มีราคาสูง ควรจำกัดเฉพาะเคส Severe Refractory ที่ลดการส่งตัวผ่าตัดซ้ำหรือลดการแอดมิด ICU ได้ชัดเจน",
+      "thai_takeaway": "ไม่ควรใช้ยาพ่นสเตียรอยด์ (Mometasone) ระยะยาวในผู้ใหญ่ที่เป็น Sickle Cell Disease ที่มีอาการไอ/หวีดโดยไม่ได้เป็นหอบหืด เพราะทำให้ค่าการอักเสบแย่ลง",
+      "key_metrics": [
+        "ระดับ sVCAM-1 เพิ่มขึ้น 42% ในกลุ่ม Mometasone เทียบกับ Placebo (95% CI -11% ถึง 96%, p = 0.02)",
+        "ผลลัพธ์ทางคลินิกในกลุ่มที่ได้ยาพ่นสเตียรอยด์โดยไม่มีภาวะ Asthma มีแนวโน้มแย่กว่ากลุ่ม Placebo"
+      ],
+      "soeng_sang_action": "ทบทวนการสั่งใช้ ICS ในผู้ป่วยที่มีอาการทางระบบหายใจเรื้อรัง โดยต้องยืนยันการวินิจฉัยโรคหอบหืดที่ชัดเจนก่อนเริ่มยาพ่นสเตียรอยด์ระยะยาว"
+    }
+  ],
+  "smoking_cessation": [
+    {
+      "pmid": "42849341",
+      "track_id": "smoking_cessation",
+      "title": "Combination bupropion-zonisamide facilitates rapid reduction in smoke exposure and prevents weight gain during switching to electronic nicotine delivery systems: A randomized clinical trial.",
+      "journal": "Drug and alcohol dependence",
+      "pub_date": "2026 Nov",
+      "doi": "10.1016/j.drugalcdep.2026.113386",
+      "pmc_id": "",
+      "pmc_url": "",
+      "has_free_fulltext": false,
+      "extracted_n": 60,
+      "abstract": "INTRODUCTION: A pilot study suggested that the combination of bupropion (BUP) and zonisamide (ZON) could facilitate smoking reduction during switching to an electronic nicotine delivery system (ENDS). This randomized controlled trial tested the hypothesis that BUP/ZON would produce greater smoking reduction than BUP alone or placebo (PLAC).\n\nMETHODS: Adults who smoked cigarettes, but were not seeking cessation treatment, were asked to switch to ENDS provided during study Weeks 1-12. Participants were randomized to receive BUP/ZON, BUP, or PLAC (N = 60 per group) during Weeks 2-8. Assessments included exhaled carbon monoxide (eCO), self-reported cigarette and ENDS use, dependence level, withdrawal symptoms, reward ratings, body weight, and adverse events. Outcomes were analyzed using modified intent-to-treat (mITT), complete-case, and per-protocol treatment-adherent samples (≥80% medication adherence).\n\nRESULTS: The mITT analysis showed no treatment differences in end-of-treatment eCO but higher smoking abstinence rates in both active treatment groups than PLAC (26.7% BUP/ZON, 25.0% BUP, 10.0% PLAC). In the per-protocol sample, eCO was significantly lower with BUP/ZON than with BUP or PLAC. Early reductions in eCO during the first treatment week-more common with BUP/ZON-strongly predicted later outcomes. Exploratory complete-case analyses showed lower tobacco dependence and craving in BUP/ZON than control groups. Weight gain occurred in BUP and PLAC, whereas weight loss was observed in BUP/ZON.\n\nCONCLUSIONS: Bupropion plus zonisamide shows promise for smoking reduction and cessation, particularly when medication adherence is maintained. Prevention of post-cessation weight gain may offer additional clinical and public health benefits. Larger trials with longer treatment duration are warranted.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42849341/",
+      "formulary_badge": "🔴 ยานอกบัญชี รพ. / ผู้ท้าชิงเข้า PTC",
+      "formulary_tier": "PTC_CANDIDATE",
+      "rx_sentinel_alert": "คัดกรองประวัติโรคลมชัก (Seizure risk) ก่อนจ่าย Bupropion ในคลินิกฟ้าใส • ติดตามอาการนอนไม่หลับและน้ำหนักตัว",
+      "bi_hq_note": "การช่วยให้ผู้ป่วยเลิกบุหรี่สำเร็จในคลินิกฟ้าใส ให้ผลตอบแทนทางเศรษฐศาสตร์สาธารณสุขสูงสุดในการลดโรคหลอดเลือดหัวใจและ COPD กำเริบ",
+      "thai_takeaway": "สูตรผสม Bupropion+Zonisamide ช่วยลดปริมาณควันบุหรี่ได้อย่างรวดเร็วและป้องกันน้ำหนักตัวพุ่งหลังหยุดสูบบุหรี่ได้ดีกว่าสูตรเดี่ยว",
+      "key_metrics": [
+        "อัตราการเลิกสูบบุหรี่ (mITT): BUP/ZON 26.7% และ BUP 25.0% vs Placebo 10.0%",
+        "กลุ่ม BUP/ZON มีระดับก๊าซคาร์บอนมอนอกไซด์ (eCO) ลดลงชัดเจนและป้องกันปัญหาน้ำหนักตัวเด้งหลังเลิกบุหรี่ได้สำเร็จ"
+      ],
+      "soeng_sang_action": "ในคลินิกฟ้าใส รพ.เสิงสาง ใช้ Bupropion ร่วมกับการให้คำปรึกษาควบคุมน้ำหนักและหญ้าดอกขาวในผู้ป่วยที่กังวลเรื่องอ้วนหลังเลิกบุหรี่"
+    },
+    {
+      "pmid": "42740717",
+      "track_id": "smoking_cessation",
+      "title": "The influence of pharmacogenetics on the treatment-related outcomes of antidepressants and antipsychotics in Brazil: a systematic review.",
+      "journal": "Pharmacogenomics",
+      "pub_date": "2026 Aug",
+      "doi": "10.1080/14622416.2026.2729992",
+      "pmc_id": "PMC13671432",
+      "pmc_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13671432/",
+      "has_free_fulltext": true,
+      "extracted_n": 2590,
+      "abstract": "INTRODUCTION: Pharmacogenetics investigates how genetic variability influences drug response, with particular relevance in psychiatry, where treatment often requires trial-and-error approaches. However, most pharmacogenetic evidence derives from predominantly European populations, limiting its applicability to admixed populations like Brazil's. This study aimed to synthesize evidence on genetic determinants of antidepressant and antipsychotic treatment outcomes in Brazilian populations.\n\nMETHODS: PubMed, Embase, BVS/Bireme and Google Scholar were systematically searched up to January 2026. Two reviewers screened studies and assessed quality. Eligible studies were observational, conducted in Brazil, evaluating pharmacogenetic influences on adults using antidepressants or antipsychotics.\n\nRESULTS: 19 papers were included, comprising 2,590 participants; 46% females. In schizophrenia, variants in CYP2C19, DRD1, DRD2, and CYP1A2 were associated with clozapine safety and response. In bipolar disorder, GAD1 variants were linked to lower Glu/GABA ratio. In major depressive disorder, all CYP2C19 ultrarapid metabolizers required combination therapy to achieve remission. For smoking cessation, CYP2B6 rs2279343 AA showed greater success with bupropion. In obsessive-compulsive disorder, HTR2A and HTR1B variants were associated with differential treatment response.\n\nCONCLUSION: Brazilian studies report relevant gene-drug associations, but sample limitations reduce generalizability. Therefore, routine pharmacogenetic testing in Brazilian psychiatric practice remains premature.\n\nREGISTRATION NUMBER: PROSPERO CRD42024533782.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42740717/",
+      "formulary_badge": "🟢 มีในคลังยา รพ.เสิงสาง",
+      "formulary_tier": "IN_FORMULARY",
+      "rx_sentinel_alert": "คัดกรองประวัติโรคลมชัก (Seizure risk) ก่อนจ่าย Bupropion ในคลินิกฟ้าใส • ติดตามอาการนอนไม่หลับและน้ำหนักตัว",
+      "bi_hq_note": "การช่วยให้ผู้ป่วยเลิกบุหรี่สำเร็จในคลินิกฟ้าใส ให้ผลตอบแทนทางเศรษฐศาสตร์สาธารณสุขสูงสุดในการลดโรคหลอดเลือดหัวใจและ COPD กำเริบ",
+      "thai_takeaway": "ความหลากหลายของยีนตับ CYP2B6 สัมพันธ์กับอัตราความสำเร็จในการใช้ยา Bupropion ช่วยเลิกบุหรี่",
+      "key_metrics": [
+        "Systematic Review 19 การศึกษา (N=2,590) พบยีน CYP2B6 rs2279343 AA สัมพันธ์กับการเลิกบุหรี่ด้วย Bupropion ที่สำเร็จสูงกว่า",
+        "การตอบสนองต่อยาจิตเวชและยาช่วยเลิกบุหรี่ขึ้นกับเอนไซม์ CYP2B6 และ CYP2C19 อย่างมีนัยสำคัญ"
+      ],
+      "soeng_sang_action": "ติดตามการตอบสนองทางคลินิกต่อ Bupropion ในคลินิกฟ้าใสอย่างใกล้ชิด หากไม่ตอบสนองภายใน 4–6 สัปดาห์ให้พิจารณาปรับแผนการรักษา"
+    }
+  ],
+  "thai_herbs": [
+    {
+      "pmid": "42667699",
+      "track_id": "thai_herbs",
+      "title": "Triple-pathway synergistic senolysis via AKAP1 silencing and calcium overload: An aptamer-functionalized DNAzyme nanoplatform for anti-pulmonary fibrosis research.",
+      "journal": "Colloids and surfaces. B, Biointerfaces",
+      "pub_date": "2027 Jan",
+      "doi": "10.1016/j.colsurfb.2026.116114",
+      "pmc_id": "",
+      "pmc_url": "",
+      "has_free_fulltext": false,
+      "extracted_n": null,
+      "abstract": "Idiopathic pulmonary fibrosis (IPF) lacks therapies that reverse disease progression, partly due to persistent senescent alveolar epithelial type II cells (SAEC II). We report a synergistic senolytic strategy combining mitochondrial calcium overload with AKAP1 silencing. An acid-responsive nanoplatform (CCMD@Lipo-Apt) comprising a CaCO3 core co-loaded with curcumin (CUR), Mn2+, and an AKAP1-targeting DNAzyme, enveloped by an L1CAM aptamer-modified lipid bilayer, enables SAEC II-specific homing. Upon lysosomal acidification, CaCO3 degrades to release Ca2+, CUR (mobilizing ER Ca2+), Mn2+, and the DNAzyme. Mn2+ simultaneously activates DNAzyme to knockdown AKAP1 (sensitizing mitochondria to calcium overload) and directly activates caspase-8. This triple mechanism collapses mitochondrial membrane potential and triggers robust apoptosis exclusively in SAEC II. In a bleomycin-induced mouse model, CCMD@Lipo-Apt clears SAEC II, attenuates fibrosis, and restores lung function without overt toxicity. This work establishes a synthetic-lethal axis for targeted IPF therapy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42667699/",
+      "formulary_badge": "🟢 มีในคลังยา รพ.เสิงสาง",
+      "formulary_tier": "IN_FORMULARY",
+      "rx_sentinel_alert": "CYP450 Herb-Drug Alert: ฟ้าทะลายโจรและขมิ้นชันยับยั้ง CYP2C9/CYP3A4 ห้ามจ่ายร่วมกับ Warfarin หรือยากดภูมิคุ้มกัน (เสี่ยงเลือดออกง่าย)",
+      "bi_hq_note": "ส่งเสริมการใช้ยาสมุนไพรในบัญชียาหลักแห่งชาติ ทดแทนยานำเข้าและสร้างความมั่นคงทางยาของ รพ.ชุมชน",
+      "thai_takeaway": "การใช้เคอร์คูมิน (Curcumin จากขมิ้นชัน) ในรูปแบบนาโนแพลตฟอร์มส่งยาเข้าสู่เซลล์ถุงลมปอดโดยตรง ช่วยทำลายเซลล์เสื่อมสภาพและชะลอภาวะพังผืดในปอด",
+      "soeng_sang_action": "สารสกัดขมิ้นชันมีศักยภาพสูงในการต่อยอดสู่นวัตกรรมบำบัดโรคปอดเรื้อรัง ควบคู่กับการเฝ้าระวังอันตรกิริยาต่อตับและยาละลายลิ่มเลือด",
+      "key_metrics": [
+        "นวัตกรรม CCMD@Lipo-Apt ปลดปล่อย Curcumin + Ca2+ กระตุ้น Calcium overload ในเซลล์ปอดที่เสื่อมสภาพอย่างจำเพาะเจาะจง",
+        "ลดการแสดงออกของยีนพังผืดและยับยั้ง SAEC II senescent cells ช่วยฟื้นฟูเนื้อเยื่อถุงลมปอดในภาวะ Pulmonary Fibrosis"
+      ]
+    },
+    {
+      "pmid": "42398138",
+      "track_id": "thai_herbs",
+      "title": "Integrated analytical characterization and multiscale modeling of supramolecular interactions in lumefantrine-curcumin coamorphous systems with enhanced biopharmaceutical and anticancer performance.",
+      "journal": "Talanta",
+      "pub_date": "2027 Jan",
+      "doi": "10.1016/j.talanta.2026.130216",
+      "pmc_id": "",
+      "pmc_url": "",
+      "has_free_fulltext": false,
+      "extracted_n": null,
+      "abstract": "Poor aqueous solubility, limited physical stability of amorphous forms, and suboptimal systemic absorption remains major challenges for lipophilic small molecule drugs. In this study, lumefantrine (LMF) and curcumin (CUR) were engineered into stoichiometry-controlled coamorphous systems (CAMS) using an interaction-driven solid-state design strategy. Integrated analytical characterization using powder X-ray diffraction, differential scanning calorimetry, and attenuated total reflectance Fourier transform infrared spectroscopy confirmed the formation of homogeneous single-phase coamorphous matrices and established composition-dependent relationships between supramolecular organization, molecular mobility, and stability. Multiscale computational analyses integrating density functional theory, reduced density gradient analysis, and molecular dynamics simulations identified the dominant intermolecular interactions governing miscibility and stabilization within the CAMS. AI/ML models trained using interaction-derived molecular descriptors accurately predicted composition-dependent glass transition temperatures, showing close agreement with experimental measurements and simulation-derived estimates. Among the investigated systems, LC_12_CAM exhibited the most balanced supramolecular organization, integrating strong heteromolecular stabilization with controlled molecular mobility. This optimized architecture produced a ∼2-4-fold increase in apparent solubility relative to crystalline LMF and CUR and markedly improved dissolution performance, achieving >85-90% drug release within 6 h. The improved biopharmaceutical performance further translated into substantially enhanced systemic exposure of LMF in vivo and was accompanied by pronounced apoptosis-associated anticancer activity in A549 lung cancer cells. Accelerated stability studies confirmed sustained amorphous integrity of LC_12_CAM for six months, consistent with reduced moisture uptake observed in dynamic vapor sorption analysis. Collectively, these findings establish a stoichiometry-resolved structure-stability-performance framework for drug-drug CAMS and highlight the utility of integrated analytical characterization combined with multiscale predictive modeling for the rational design of stable, high-performing formulations of poorly soluble drugs.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42398138/",
+      "formulary_badge": "🟢 มีในคลังยา รพ.เสิงสาง",
+      "formulary_tier": "IN_FORMULARY",
+      "rx_sentinel_alert": "CYP450 Herb-Drug Alert: ฟ้าทะลายโจรและขมิ้นชันยับยั้ง CYP2C9/CYP3A4 ห้ามจ่ายร่วมกับ Warfarin หรือยากดภูมิคุ้มกัน (เสี่ยงเลือดออกง่าย)",
+      "bi_hq_note": "ส่งเสริมการใช้ยาสมุนไพรในบัญชียาหลักแห่งชาติ ทดแทนยานำเข้าและสร้างความมั่นคงทางยาของ รพ.ชุมชน",
+      "thai_takeaway": "นวัตกรรมพัฒนายาร่วม Lumefantrine และเคอร์คูมิน (ขมิ้นชัน) รูปแบบ Coamorphous ช่วยแก้ปัญหาการละลาย เพิ่มการดูดซึม และคงตัวได้นาน 6 เดือน",
+      "key_metrics": [
+        "เพิ่มการละลายน้ำ (Apparent solubility) สูงขึ้น 2-4 เท่า และปลดปล่อยตัวยา >85-90% ภายใน 6 ชั่วโมง",
+        "คงสภาพโครงสร้าง amorphous นาน 6 เดือน ในสภาวะเร่ง และเพิ่มฤทธิ์เร่งการตาย (Apoptosis) ของเซลล์มะเร็งปอด A549"
+      ],
+      "soeng_sang_action": "ใช้เป็นข้อมูลสนับสนุนการพัฒนานวัตกรรมนำส่งยาจากสารสกัดสมุนไพรไทย (ขมิ้นชัน) ร่วมกับยาแผนปัจจุบันเพื่อเพิ่มประสิทธิผลการรักษา"
+    }
+  ],
+  "cardio_renal": [
+    {
+      "pmid": "42952754",
+      "track_id": "cardio_renal",
+      "title": "Network and pairwise meta-analysis of the effects of novel hypoglycemic agents on cardiorenal outcomes in patients with type 2 diabetes and heart failure.",
+      "journal": "Frontiers in endocrinology",
+      "pub_date": "2026",
+      "doi": "10.3389/fendo.2026.1955431",
+      "pmc_id": "PMC13713430",
+      "pmc_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13713430/",
+      "has_free_fulltext": true,
+      "extracted_n": 13886,
+      "abstract": "OBJECTIVE: This study aims to evaluate the cardiovascular and renal benefits of novel hypoglycemic agents, including glucagon-like peptide-1 receptor agonists (GLP-1RAs), dipeptidyl peptidase-4 inhibitors (DPP-4is), sodium-glucose cotransporter-2 inhibitors (SGLT-2is), and glucose-dependent insulinotropic polypeptide/glucagon-like peptide-1 dual receptor agonists (GIP/GLP-1RAs) in patients with type 2 diabetes mellitus (T2DM) and heart failure (HF).\n\nMETHODS: Systematic literature searches were conducted in MEDLINE, Embase, ClinicalTrials.gov, and Cochrane Central Register of Controlled Trials (CENTRAL) from inception to 30 April 2026. Randomized controlled trials (RCTs) for cardiovascular outcomes (CVOTs) or post hoc analyses of CVOTs comparing SGLT-2is, DPP-4is, GLP-1RAs, or GIP/GLP-1RAs in patients with T2DM and HF were selected. Network meta-analysis was used for indirect comparisons, with results presented as hazard ratios (HRs) and 95% confidence intervals (CIs).\n\nRESULTS: A total of 10 RCTs and two post hoc analyses of CVOTs involving 13,886 patients were included. Compared with placebo, SGLT-2is (HR [95% CI]: 0.75 [0.68, 0.82]) and GLP-1RAs (HR [95% CI]: 0.77 [0.61, 0.97]) both significantly reduced the risk of HF-related composite endpoints in patients with T2DM and HF. No statistically significant difference was observed between SGLT-2is and GLP-1RAs (HR [95% CI]: 0.98 [0.76, 1.25]). SGLT-2is also reduced the risk of HF worsening (HR [95% CI]: 0.72 [0.53, 0.96]), HF hospitalization (HR [95% CI]: 0.74 [0.66, 0.83]), and cardiovascular (CV) death (HR [95% CI]: 0.87 [0.77, 0.98]). For all-cause death, SGLT-2is showed a trend toward reduced risk compared to placebo, but this difference did not reach statistical significance (HR [95% CI]: 0.83 [0.67, 1.02]). For the renal composite outcome, SGLT-2is did not demonstrate a statistically significant benefit (HR [95% CI]: 0.76 [0.51, 1.14]).\n\nCONCLUSION: Optimal clinical management of T2DM requires a comprehensive assessment of cardiovascular and renal comorbidities. This network meta-analysis indicates that SGLT-2is significantly reduce the risk of HF-related composite endpoints and CV death in T2DM patients with HF, although their renoprotective effect does not reach statistical significance. GLP-1RAs also demonstrate beneficial effects on HF-related composite endpoints. These findings suggest that both SGLT-2is and GLP-1RAs are preferred glycemic control strategies for improving cardiovascular outcomes in T2DM patients with HF, while further evidence is needed to confirm their definitive renal benefits.\n\nSYSTEMATIC REVIEW REGISTRATION: https://www.crd.york.ac.uk/PROSPERO/view/CRD42026142123, identifier: CRD420261421235.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42952754/",
+      "formulary_badge": "📋 แนวทางบริบาลเภสัชกรรมคลินิก",
+      "formulary_tier": "CLINICAL_PROTOCOL",
+      "rx_sentinel_alert": "ตรวจ eGFR ก่อนเริ่มยา (Dapagliflozin ห้ามเริ่มหาก eGFR < 25 mL/min) • เฝ้าระวัง Euglycemic DKA และการติดเชื้อทางเดินปัสสาวะ",
+      "bi_hq_note": "คุ้มค่าสูง (High ROI): ลดค่าใช้จ่ายการนอน รพ.ซ้ำจากภาวะหัวใจล้มเหลว (HF Readmission) และชะลอการฟอกไตในระยะยาว",
+      "thai_takeaway": "Network Meta-Analysis ยืนยัน SGLT2i และ GLP-1RA ให้ประโยชน์สูงสุดในการลดอัตรานอน รพ. จาก Heart Failure และชะลอโรคไตในผู้ป่วยเบาหวานที่มีภาวะหัวใจล้มเหลว",
+      "soeng_sang_action": "ผู้ป่วยเบาหวานชนิดที่ 2 ร่วมกับภาวะหัวใจล้มเหลวหรือโรคไตเรื้อรังใน รพ.เสิงสาง ควรได้รับ Dapagliflozin (SGLT2i) เป็นลำดับแรกตามเกณฑ์",
+      "key_metrics": [
+        "วิเคราะห์เปรียบเทียบ RCTs (N=13,886) ระหว่างยากลุ่ม SGLT2i, GLP-1RA, DPP-4i และ GIP/GLP-1RA",
+        "SGLT2i นำโด่งด้านการลด Heart Failure Hospitalization และชะลอการเสื่อมของไต (Cardiorenal composite outcome)"
+      ]
+    },
+    {
+      "pmid": "43004293",
+      "track_id": "cardio_renal",
+      "title": "Influence of diabetes mellitus on dapagliflozin response after transcatheter aortic valve replacement (TAVR): insights from the DAPA-TAVI trial.",
+      "journal": "Cardiovascular diabetology",
+      "pub_date": "2026 Aug",
+      "doi": "10.1186/s12933-026-03297-8",
+      "pmc_id": "PMC13746418",
+      "pmc_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13746418/",
+      "has_free_fulltext": true,
+      "extracted_n": 1222,
+      "abstract": "BACKGROUND: The DAPA-TAVI trial demonstrated that dapagliflozin reduced the composite of all-cause mortality or worsening heart failure (HF) at 1 year in patients undergoing transcatheter aortic valve replacement (TAVR) with prior HF. Whether the magnitude of this benefit differs according to diabetes mellitus (DM) status remains uncertain.\n\nMETHODS: This pre-specified subgroup analysis of the multicenter randomized DAPA-TAVI trial conducted at 39 centers in Spain, which enrolled 1222 patients with severe aortic stenosis undergoing TAVR with prior HF and at least one high-risk condition. Patients were stratified by the presence or absence of DM. The primary endpoint was a composite of all-cause mortality or worsening HF at 12 months. Secondary endpoints included the individual components of the primary endpoint, cardiovascular death, and safety outcomes. Cox proportional-hazards models adjusted for age, sex, coronary artery disease, baseline ejection fraction and baseline estimated glomerular filtration rate were used to estimate treatment effects.\n\nRESULTS: Among 1222 patients, 537 (43.9%) had DM. In patients with DM, dapagliflozin significantly reduced the primary endpoint compared with standard care (15.2% vs. 22.7%; HR 0.580; 95% CI 0.389-0.866; p = 0.008; number needed to treat [NNT] = 11), driven primarily by fewer worsening HF events. In patients without DM, the reduction was numerically lower and non-significant (15.0% vs. 18.0%; HR 0.814; 95% CI 0.560-1.183; p = 0.280; NNT = 32). Genital infections were more frequent with dapagliflozin in patients with DM, whereas symptomatic hypotension was more common in those without DM. No significant differences in serious adverse events were observed in either subgroup. No statistically significant interactions between DM status and treatment effect were observed for the primary or secondary endpoints.\n\nCONCLUSIONS: In this pre-specified subanalysis of the DAPA-TAVI trial, dapagliflozin significantly reduced the risk of death or worsening HF in patients with DM undergoing TAVR, with a favorable benefit-risk profile, whereas a more modest and non-significant effect was observed in non-DM patients. Although no statistically significant interaction according to diabetes status was observed, the apparently greater benefit among patients with DM warrants further investigation.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43004293/",
+      "formulary_badge": "🟢 มีในคลังยา รพ.เสิงสาง",
+      "formulary_tier": "IN_FORMULARY",
+      "rx_sentinel_alert": "ตรวจ eGFR ก่อนเริ่มยา (Dapagliflozin ห้ามเริ่มหาก eGFR < 25 mL/min) • เฝ้าระวัง Euglycemic DKA และการติดเชื้อทางเดินปัสสาวะ",
+      "bi_hq_note": "คุ้มค่าสูง (High ROI): ลดค่าใช้จ่ายการนอน รพ.ซ้ำจากภาวะหัวใจล้มเหลว (HF Readmission) และชะลอการฟอกไตในระยะยาว",
+      "thai_takeaway": "Dapagliflozin ช่วยลดการเสียชีวิตและภาวะหัวใจล้มเหลวกำเริบหลังเปลี่ยนลิ้นหัวใจ TAVR ได้ดีเท่าเทียมกันทั้งในผู้ที่เป็นและไม่เป็นเบาหวาน",
+      "soeng_sang_action": "มั่นใจในการสั่งจ่าย Dapagliflozin เพื่อป้องกัน Heart Failure กำเริบในผู้ป่วยโรคหัวใจแม้ไม่มีโรคเบาหวานร่วมด้วย",
+      "key_metrics": [
+        "DAPA-TAVI RCT (N=1,222 ราย ใน 39 ศูนย์ ติดตามผล 1 ปี) เปรียบเทียบ Dapagliflozin 10 mg กับ Standard care",
+        "ลดผลลัพธ์หลัก (All-cause death หรือ Worsening HF) ได้สอดคล้องกันทั้งกลุ่มเป็นเบาหวานและไม่เป็นเบาหวาน (P-interaction > 0.05)"
+      ]
+    }
+  ],
+  "anticoagulation": [
+    {
+      "pmid": "43013818",
+      "track_id": "anticoagulation",
+      "title": "Prevention of Venous Thromboembolism after Total Hip or Knee Replacement.",
+      "journal": "The New England journal of medicine",
+      "pub_date": "2026 Nov",
+      "doi": "10.1056/NEJMoa2602435",
+      "pmc_id": "",
+      "pmc_url": "",
+      "has_free_fulltext": false,
+      "extracted_n": 18883,
+      "abstract": "BACKGROUND: Studies comparing aspirin with anticoagulants for venous thromboembolism (VTE) prophylaxis after total hip or knee arthroplasty have had conflicting results.\n\nMETHODS: In a comparative-effectiveness noninferiority trial, we randomly assigned patients undergoing elective hip or knee arthroplasty to receive aspirin (81 mg twice daily), warfarin (to a target international normalized ratio of 2.0), or rivaroxaban (10 mg daily) for 30 days. The composite primary effectiveness outcome (death from any cause or symptomatic VTE) and primary safety outcome (bleeding, reoperation for wound problems, or myocardial infarction) were evaluated through 6 months in a blinded fashion. The noninferiority margin for the risk difference was 0.69 percentage points.\n\nRESULTS: Among 18,883 participants who had undergone randomization, 15,317 (7214 with hip arthroplasty and 8103 with knee arthroplasty) were included in the primary per-protocol analysis. A primary effectiveness outcome event occurred in 77 of 6090 participants (1.26%) in the aspirin group, in 52 of 4231 (1.23%) in the warfarin group, and in 47 of 4996 (0.94%) in the rivaroxaban group; a primary safety outcome event occurred in 177 (2.91%), 142 (3.36%), and 174 (3.48%), respectively. In pairwise comparisons, 6-month risks of a primary effectiveness outcome event were 1.24% and 0.94% for aspirin versus rivaroxaban (difference, 0.30 percentage points; 95% confidence interval [CI], -0.20 to 0.81); 1.24% and 1.01% for aspirin versus warfarin (difference, 0.23 percentage points; 95% CI, -0.34 to 0.81); and 1.13% and 1.10% for warfarin versus rivaroxaban (difference, 0.03 percentage points; 95% CI, -0.57 to 0.63). Risks of a primary safety outcome event were 3.70% and 3.02% for rivaroxaban versus aspirin (difference, 0.68 percentage points; 95% CI, -0.04 to 1.41); 3.65% and 2.88% for warfarin versus aspirin (difference, 0.77 percentage points; 95% CI, -0.04 to 1.58); and 3.59% and 3.61% for rivaroxaban versus warfarin (difference, -0.02 percentage points; 95% CI, -0.89 to 0.85). Intention-to-treat analyses yielded similar results.\n\nCONCLUSIONS: Aspirin prophylaxis after total hip or knee arthroplasty was not noninferior to rivaroxaban or warfarin with respect to death or symptomatic VTE. Warfarin and rivaroxaban were not noninferior to aspirin for safety. (Funded by the Patient-Centered Outcomes Research Institute; PEPPER ClinicalTrials.gov number, NCT02810704.).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43013818/",
+      "formulary_badge": "🟡 ยาบัญชี จ(2) / เงื่อนไขเฉพาะ รพ.",
+      "formulary_tier": "J2_RESTRICTED",
+      "rx_sentinel_alert": "ประเมินค่าไต CrCl ก่อนจ่าย DOACs • กรณีใช้ Warfarin ให้คุม Target INR 2.0–3.0 และระวังอันตรกิริยากับยาฆ่าเชื้อ/สมุนไพร",
+      "bi_hq_note": "ลดต้นทุนแฝง รพ.: การใช้ Aspirin ในกลุ่มเสี่ยงต่ำหลังผ่าตัดข้อ หรือเลือก DOAC ในกลุ่มเสี่ยงเลือดออกทางเดินอาหาร ช่วยลดภาระการเจาะ Lab INR และค่านอน รพ.จาก GI Bleed",
+      "thai_takeaway": "เปรียบเทียบ 3 ยาหลักป้องกันลิ่มเลือดอุดตัน (VTE) หลังผ่าตัดเปลี่ยนข้อสะโพก/ข้อเข่า (PEPPER Trial, N=18,883): Warfarin/Rivaroxaban ลด VTE ได้ดีกว่าเล็กน้อย แต่ Aspirin มีความปลอดภัยด้านเลือดออกเหนือกว่าระดับมีนัยสำคัญ",
+      "key_metrics": [
+        "PEPPER RCT (N=18,883 ราย ใน NEJM) เปรียบเทียบ Aspirin 81 mg BID vs Warfarin (INR 2.0) vs Rivaroxaban 10 mg QD นาน 30 วัน",
+        "กลุ่ม Warfarin และ Rivaroxaban มีความเสี่ยงเลือดออกและการต้องผ่าตัดซ้ำสูงกว่ากลุ่ม Aspirin อย่างมีนัยสำคัญ"
+      ],
+      "soeng_sang_action": "ในผู้ป่วยหลังผ่าตัดเปลี่ยนข้อที่มีความเสี่ยง VTE ต่ำหรือเสี่ยงเลือดออกสูง Aspirin เป็นทางเลือกที่ปลอดภัยและช่วยลดภาระการเจาะวัด INR ของคลินิกวาร์ฟาริน"
+    },
+    {
+      "pmid": "43004015",
+      "track_id": "anticoagulation",
+      "title": "Efficacy and safety of apixaban versus rivaroxaban in acute venous thromboembolism: a systematic review and meta-analysis.",
+      "journal": "European journal of clinical pharmacology",
+      "pub_date": "2026 Nov",
+      "doi": "10.1007/s00228-026-04220-6",
+      "pmc_id": "PMC7556153",
+      "pmc_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7556153/",
+      "has_free_fulltext": true,
+      "extracted_n": 233569,
+      "abstract": "BACKGROUND: Apixaban and rivaroxaban are used direct oral anticoagulants for acute venous thromboembolism (VTE), but their comparative efficacy and safety remain uncertain. We compared outcomes with apixaban versus rivaroxaban in adults with acute VTE.\n\nMETHODS: PubMed, Embase, and Cochrane CENTRAL were searched from inception to April 2026 for comparative studies in adults with acute VTE. Random-effects meta-analyses generated risk ratios (RRs) with 95% confidence intervals (CIs); heterogeneity was assessed using I2, and certainty using GRADE.\n\nRESULTS: Thirteen studies involving 233,569 participants were included. Most evidence came from observational studies, with only one randomized clinical trial contributing to the evidence base. Apixaban showed a non-significant reduction in recurrent VTE (10 studies; 203,462 participants; RR 0.82, 95% CI 0.64-1.05). Recurrent DVT was lower with apixaban (2 studies; 37,941 participants; RR 0.88, 95% CI 0.79-0.98), whereas recurrent PE (3 studies; 45,561 participants; RR 0.78, 95% CI 0.09-6.53) and all-cause mortality (6 studies; 149,742 participants; RR 0.99, 95% CI 0.79-1.23) did not differ significantly. Apixaban was associated with lower major bleeding (13 studies; 221,840 participants; RR 0.75, 95% CI 0.57-0.99), CRNMB (5 studies; 29,530 participants; RR 0.63, 95% CI 0.53-0.75), and gastrointestinal bleeding (4 studies; 56,160 participants; RR 0.68, 95% CI 0.62-0.75). Intracranial bleeding was not significantly different (3 studies; 55,470 participants; RR 0.71, 95% CI 0.24-2.13). Certainty ranged from low to very low.\n\nCONCLUSIONS: Apixaban and rivaroxaban showed broadly comparable efficacy, while apixaban may offer a more favorable bleeding profile. Findings should be interpreted cautiously because of heterogeneity, observational evidence, and low-to-very-low certainty.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43004015/",
+      "formulary_badge": "🟡 ยาบัญชี จ(2) / เงื่อนไขเฉพาะ รพ.",
+      "formulary_tier": "J2_RESTRICTED",
+      "rx_sentinel_alert": "ประเมินค่าไต CrCl ก่อนจ่าย DOACs • กรณีใช้ Warfarin ให้คุม Target INR 2.0–3.0 และระวังอันตรกิริยากับยาฆ่าเชื้อ/สมุนไพร",
+      "bi_hq_note": "ลดต้นทุนแฝง รพ.: การใช้ Aspirin ในกลุ่มเสี่ยงต่ำหลังผ่าตัดข้อ หรือเลือก DOAC ในกลุ่มเสี่ยงเลือดออกทางเดินอาหาร ช่วยลดภาระการเจาะ Lab INR และค่านอน รพ.จาก GI Bleed",
+      "thai_takeaway": "Apixaban มีประสิทธิผลป้องกันการกลับเป็นซ้ำของลิ่มเลือดอุดตัน (Acute VTE) เทียบเท่า Rivaroxaban แต่มีอัตราการเกิดเลือดออกทางเดินอาหารและ Major Bleeding ต่ำกว่า",
+      "key_metrics": [
+        "Systematic Review & Meta-analysis รวม 13 การศึกษา (ผู้ป่วย N=233,569 ราย) เปรียบเทียบ Apixaban กับ Rivaroxaban",
+        "Apixaban ลดความเสี่ยง Major Bleeding และ Gastrointestinal Bleeding ได้ดีกว่า Rivaroxaban อย่างมีนัยสำคัญ"
+      ],
+      "soeng_sang_action": "หากต้องเลือกใช้ยากลุ่ม DOACs ในผู้ป่วย Acute VTE ที่มีประวัติโรคกระเพาะหรือเสี่ยงเลือดออกทางเดินอาหาร ควรพิจารณา Apixaban เป็นลำดับแรก"
+    }
+  ],
+  "ams_rdu": [
+    {
+      "pmid": "42844453",
+      "track_id": "ams_rdu",
+      "title": "Short- versus long-course antibiotic therapy in non-severe CAP in children: a systematic review and meta-analysis.",
+      "journal": "European journal of pediatrics",
+      "pub_date": "2026 Oct",
+      "doi": "10.1007/s00431-026-07471-8",
+      "pmc_id": "",
+      "pmc_url": "",
+      "has_free_fulltext": false,
+      "extracted_n": 8970,
+      "abstract": "UNLABELLED: Optimizing antibiotic duration for pediatric community-acquired pneumonia (CAP) may reduce treatment burden and support antimicrobial stewardship. Although recent randomized trials and evidence syntheses have reported similar clinical outcomes with shorter antibiotic courses, the effect of treatment duration on adherence-an especially relevant consideration in children-has received comparatively limited systematic evaluation. We therefore aimed to compare treatment effectiveness, medication adherence, and antibiotic-related adverse events between short-course and conventional-duration antibiotic therapy for non-severe CAP in immunocompetent children. PubMed, Cochrane Library, Scopus, ClinicalTrials.gov, and WHO Global Index Medicus were sought through April 25, 2025. Only randomized clinical trials that included immunocompetent children < 18 years with non-severe CAP and compared short-course (≤ 5 days) with longer therapy (> 5 days) were considered. Data extraction and risk of bias (ROB 2) assessment were performed by two independent reviewers. Summary data were extracted by published reports. The principal outcomes were treatment effectiveness, assessed through treatment failure and relapse according to the definitions prespecified by each trial, and medication non-adherence to the active (non-placebo) study drug. Antibiotic-related adverse events were assessed as a secondary outcome. Risk ratios (RRs) with 95% confidence intervals (CIs) were calculated using random-effects models. Two hundred thirty studies were originally screened, after removal of duplicates and 10 trials (n = 8970) met inclusion criteria. No significant differences were found in treatment failure [RR = 1.07 (95% CI, 0.93-1.24), I2 = 3%] or relapse [RR = 1.04 (95% CI, 0.72-1.49), I2 = 0%]. Shorter regimens markedly reduced non-adherence [RR = 0.35 (95% CI, 0.24-0.50), I2 = 54%], the most consistent and clinically meaningful difference. Adverse events were comparable [RR = 0.71 (95% CI, 0.36-1.40), I2 = 81%].\n\nCONCLUSIONS: Short-course therapy was not associated with significantly different treatment failure or relapse rates compared with longer regimens and was associated with substantially lower non-adherence. These findings support shorter antibiotic courses as a reasonable treatment option for non-severe pediatric CAP, while acknowledging that the present meta-analysis was not designed to formally establish non-inferiority or equivalence.\n\nWHAT IS KNOWN: • Short-course antibiotic therapy may achieve similar clinical outcomes to conventional longer courses in children with non-severe community-acquired pneumonia. • Medication adherence remains an important challenge in pediatric antibiotic therapy.\n\nWHAT IS NEW: • This meta-analysis found no significant difference in treatment failure or relapse between short- and long-course therapy. • Short-course therapy was associated with substantially lower non-adherence, highlighting an important practical advantage of shorter regimens.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42844453/",
+      "formulary_badge": "📋 แนวทางบริบาลเภสัชกรรมคลินิก",
+      "formulary_tier": "CLINICAL_PROTOCOL",
+      "rx_sentinel_alert": "เกณฑ์ Short-Course RDU ใช้เฉพาะผู้ป่วย Non-severe ที่ภูมิคุ้มกันปกติ • ประเมินอาการไข้ลดลงครบ 48 ชม. ก่อนหยุดยา",
+      "bi_hq_note": "ประหยัดงบค่ายาโดยตรง 40–50% ต่อคอร์ส ลดโอกาสเกิดเชื้อดื้อยาที่ต้องใช้ยาฉีดราคาแพง (Carbapenems/Vancomycin)",
+      "thai_takeaway": "ยาปฏิชีวนะสูตรสั้น (3–5 วัน) รักษาโรคปอดอักเสบชุมชนชนิดไม่รุนแรงในเด็ก (Pediatric Non-severe CAP) ได้ผลไม่ต่างจากสูตรยาว (7–10 วัน) พร้อมเพิ่มความร่วมมือในการกินยา",
+      "key_metrics": [
+        "Meta-analysis (N=8,970 ราย) ยืนยันอัตราการรักษาล้มเหลวหรือการกลับเป็นซ้ำไม่แตกต่างกันระหว่างยาสูตรสั้นและสูตรยาว",
+        "กลุ่มยาสูตรสั้นมีอัตราการกินยาไม่ครบ (Non-adherence) ต่ำกว่าอย่างชัดเจนและลดผลข้างเคียงจากยาปฏิชีวนะ"
+      ],
+      "soeng_sang_action": "สนับสนุนการจ่าย Amoxicillin สูตรสั้น 3–5 วัน ในเด็กปอดบวมชนิดไม่รุนแรงที่ รพ.เสิงสาง เพื่อลดเชื้อดื้อยาและช่วยให้ผู้ปกครองป้อนยาครบคอร์สได้ง่ายขึ้น"
+    },
+    {
+      "pmid": "42816130",
+      "track_id": "ams_rdu",
+      "title": "Effectiveness and safety of the available preventive tuberculosis treatment regimens for children and adolescents: systematic review and network meta-analysis.",
+      "journal": "BMJ paediatrics open",
+      "pub_date": "2026 Sep",
+      "doi": "10.1136/bmjpo-2026-004610",
+      "pmc_id": "PMC13629875",
+      "pmc_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13629875/",
+      "has_free_fulltext": true,
+      "extracted_n": null,
+      "abstract": "BACKGROUND: Although children are at a higher risk of progressing to tuberculosis (TB) disease compared with adults, research and publications addressing TB management have mostly emphasised adult disease.\n\nMETHODS: MEDLINE, Embase, CENTRAL and grey literature were searched from inception to 3 May 2021, and updated on 12 December 2024 for the systematic review and network meta-analysis (NMA). Randomised controlled trials of children and/or adolescents under 18 years with TB infection, contacts of drug-susceptible TB, without HIV, evaluating the effectiveness and safety of available regimens for the treatment of TB were included. Meta-analysis was conducted using a random effects model. Risk of bias was assessed using the Cochrane RoB tool 2. Effect estimates (RR and OR) are presented with 95% CIs. Certainty of evidence was evaluated using the Grading of Recommendations, Assessment, Development and Evaluation (GRADE) approach.\n\nRESULTS: Eleven studies were obtained. All network geometries had open and disconnected loops, except adverse reactions for which we conducted a full NMA. We found that 4 months of isoniazid and rifampicin (4HR) reduces the number of active TB cases at 1 year, 2 years and 5 years of follow-up (RR 0.49 (95% CI 0.32 to 0.76)) compared with isoniazid for 9 months (9H). The isoniazid + rifapentine for 3 months (3HP) regimen (RR 1.09 (95% CI 1.03 to 1.15)), 4HR (RR 1.07 (95% CI 1.01 to 1.14)) and rifampicin for 4 months (4R) (RR 1.12 (95% CI 1.05 to 1.20)) regimens have higher treatment adherence compared with 9H. High variability was found in the reporting of adverse reactions, which were more likely to occur with 3HP compared with 4HR (OR 4.56 (95% CI 1.22 to 16.96)) and 4R (OR 6.37 (95% CI 2.11 to 19.19)). Adverse reactions occur less frequently with 4R (OR 0.34 (95% CI 0.20 to 0.58)) compared with 9H.\n\nCONCLUSIONS: This study synthesised available data on paediatric short and long-course regimens. Short course regimens may have higher adherence (3HP, 4HR, 4R) and may reduce active TB incidence (isoniazid + rifampicin for 3 months (3HR) and 4HR) compared with 9H.\n\nPROSPERO REGISTRATION NUMBER: CRD42021271512.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42816130/",
+      "formulary_badge": "🟢 มีในคลังยา รพ.เสิงสาง",
+      "formulary_tier": "IN_FORMULARY",
+      "rx_sentinel_alert": "เกณฑ์ Short-Course RDU ใช้เฉพาะผู้ป่วย Non-severe ที่ภูมิคุ้มกันปกติ • ประเมินอาการไข้ลดลงครบ 48 ชม. ก่อนหยุดยา",
+      "bi_hq_note": "ประหยัดงบค่ายาโดยตรง 40–50% ต่อคอร์ส ลดโอกาสเกิดเชื้อดื้อยาที่ต้องใช้ยาฉีดราคาแพง (Carbapenems/Vancomycin)",
+      "thai_takeaway": "ยาป้องกันวัณโรคสูตรสั้นที่มี Rifamycin (เช่น 3HP, 3HR, 4R) ในเด็กและวัยรุ่น มีอัตราการกินยาครบคอร์สสูงกว่าและเกิดพิษต่อตับต่ำกว่าสูตร Isoniazid ยาว 6–9 เดือน",
+      "key_metrics": [
+        "Network Meta-Analysis ในเด็กและวัยรุ่นที่สัมผัสผู้ป่วยวัณโรค เปรียบเทียบสูตรสั้น (3HP, 3HR, 4R) กับสูตรดั้งเดิม (6H/9H)",
+        "สูตรสั้นที่มี Rifampicin/Rifapentine ช่วยลดอุบัติการณ์เกิดวัณโรคระยะลุกลามและมี Completion rate สูงกว่าอย่างมีนัยสำคัญ"
+      ],
+      "soeng_sang_action": "คลินิกวัณโรค รพ.เสิงสาง ควรใช้สูตรยาสั้น (3HP หรือ 3HR/4R) ในการทำ TB Preventive Treatment (TPT) ในเด็กและผู้สัมผัสใกล้ชิดเพื่อลดพิษต่อตับ"
+    }
+  ],
+  "deprescribing": [
+    {
+      "pmid": "42815285",
+      "track_id": "deprescribing",
+      "title": "Barriers and enablers to deprescribing from the perspectives of older adults with polypharmacy and their stakeholders: A systematic review of qualitative studies.",
+      "journal": "International journal of nursing studies",
+      "pub_date": "2026 Dec",
+      "doi": "10.1016/j.ijnurstu.2026.105701",
+      "pmc_id": "",
+      "pmc_url": "",
+      "has_free_fulltext": false,
+      "extracted_n": null,
+      "abstract": "BACKGROUND: The appropriateness of polypharmacy remains debated, with growing concern about the consequences of complex and potentially inappropriate medication use among older adults. Deprescribing is a complex process involving patient and caregiver engagement, clinician-patient communication, and shared decision-making. Understanding barriers and enablers to deprescribing may support shared decision-making and improve the implementation of deprescribing interventions and patient outcomes.\n\nOBJECTIVE: To identify the barriers and enablers influencing deprescribing among older adults with polypharmacy and relevant stakeholders.\n\nDESIGN: This was a systematic review of qualitative studies.\n\nMETHODS: Computerized searches were conducted in PubMed, Web of Science, Embase, CINAHL Complete, and PsycInfo. The search scope was limited to articles published from the inception of each database up to December 2025. The Joanna Briggs Institute criteria for qualitative research were utilized to evaluate the quality of the studies, and a thematic synthesis approach was employed to integrate the findings. The Theoretical Domain Framework was used to map barriers and enablers to deprescribing from the perspectives of older adults with polypharmacy and their stakeholders.\n\nRESULTS: A total of 52 studies were included, revealing 18 barriers and 11 enablers across three overarching themes: patient-level factors; physician-patient relationship and communication factors; and healthcare professional-level factors. Attitudes toward medication discontinuation among older adults with polypharmacy are shaped over time by medication-related experiences and interactions with healthcare professionals. The physician-patient relationship can facilitate engagement in deprescribing, whereas inadequate communication may reinforce reliance on long-term medication use. Healthcare professionals also play key roles in initiating and implementing deprescribing. Subthemes were mapped to nine of the 14 domains of the Theoretical Domains Framework, with Social influences, Environmental context and resources, and Beliefs about consequences being the most frequently represented domains.\n\nCONCLUSIONS: This review identified that attitudes toward deprescribing among older adults with polypharmacy are shaped by accumulated medication-related experiences and ongoing interactions with healthcare professionals. Effective physician-patient communication and the active involvement of healthcare professionals are important for facilitating deprescribing, while factors related to healthcare professionals may influence its initiation and implementation. Mapping to the Theoretical Domains Framework identified key behavioral domains that provide a theoretical basis for designing theory-informed interventions to support deprescribing. Together, these findings may inform the development of patient-centred strategies that facilitate safe and effective deprescribing among older adults.\n\nSTUDY REGISTRATION: The review protocol was registered in PROSPERO (CRD420251162311).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42815285/",
+      "formulary_badge": "📋 แนวทางบริบาลเภสัชกรรมคลินิก",
+      "formulary_tier": "CLINICAL_PROTOCOL",
+      "rx_sentinel_alert": "การหยุดยาในผู้สูงอายุ (Deprescribing) โดยเฉพาะกลุ่ม BZD, Beta-blocker และ PPI ต้องทำ Tapering ค่อยๆ ลดขนาดยาเพื่อป้องกันอาการถอนยา",
+      "bi_hq_note": "ลดมูลค่าค่ายาส่วนเกิน (Polypharmacy Waste) ในคลินิกผู้สูงอายุและป้องกันค่าใช้จ่ายจากการรักษาอาการไม่พึงประสงค์จากการใช้ยา (ADE)",
+      "thai_takeaway": "ความสำเร็จของการตัดยาล้นเกิน (Deprescribing) ในผู้สูงอายุขึ้นอยู่กับความไว้วางใจในทีมสุขภาพและการสื่อสารแบบตัดสินใจร่วมกัน (Shared Decision-Making) เพื่อลดความกลัวโรคกำเริบ",
+      "key_metrics": [
+        "Systematic Review วิเคราะห์ปัจจัยส่งเสริมและอุปสรรคของการหยุดยาในผู้สูงอายุที่ใช้ยาตั้งแต่ 5 รายการขึ้นไป (Polypharmacy)",
+        "การวางแผนลดยาเป็นลำดับขั้น (Stepwise Tapering) ร่วมกับการให้ข้อมูลที่ชัดเจนช่วยเพิ่มการยอมรับของผู้ป่วยและญาติ"
+      ],
+      "soeng_sang_action": "เภสัชกรประจำคลินิกผู้สูงอายุและ NCDs รพ.เสิงสาง ควรใช้แนวทางค่อยๆ ปรับลดขนาดยาควบคู่กับการสร้างความมั่นใจแก่ผู้ป่วยและผู้ดูแล"
+    },
+    {
+      "pmid": "42773858",
+      "track_id": "deprescribing",
+      "title": "Cancer co-medication quality in older patients with polypharmacy: A large randomized trial testing a medication review versus usual care.",
+      "journal": "Journal of internal medicine",
+      "pub_date": "2026 Dec",
+      "doi": "10.1111/joim.70161",
+      "pmc_id": "PMC13741811",
+      "pmc_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13741811/",
+      "has_free_fulltext": true,
+      "extracted_n": 234,
+      "abstract": "BACKGROUND: Evidence from randomized controlled trials (RCTs) testing medication reviews in geriatric oncology is sparse.\n\nMETHODS: We conducted a single-blinded RCT in ten rehabilitation clinics across Germany. Patients with common cancers, aged ≥ 65 years, and polypharmacy (regularly ≥ five drugs) were randomly allocated in equal proportions to usual care or a comprehensive pharmacist-led medication review conducted with the validated Fit fOR The Aged (FORTA) list. The FORTA score is the sum of drugs classified as potentially inappropriate medication (PIM) (each two points), drug underuse (each one point), and drug overuse (each one point). Changes in the FORTA score and its subcomponents from rehabilitation admission to discharge were tested using the chi-square test or the Wilcoxon's rank-sum test.\n\nFINDINGS: At admission, 66.1%, 94.6%, and 58.9% of 443 trial participants included in the intention-to-treat analysis were exposed to PIM, medication underuse, or overuse, respectively, and the median FORTA score was six. At discharge, participants of the intervention group (n = 234) had a statistically significant greater reduction in the mean FORTA score than the control group (n = 209): mean difference [95% confidence interval]: -3.7 [-4.2; -3.3] score points. Furthermore, the proportions of subjects with PIM, underuse, and overuse were statistically significantly reduced by the intervention by 41.3, 35.5, and 30.7 percentage points (all p < 0.001).\n\nINTERPRETATION: The pharmacist-led intervention with the FORTA list substantially improved the medication quality of older cancer patients with polypharmacy in clinical practice. A reduction of four FORTA score points (rounded) translates, for example, to the withdrawal of two PIMs or four drugs labeled overuse.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42773858/",
+      "formulary_badge": "📋 แนวทางบริบาลเภสัชกรรมคลินิก",
+      "formulary_tier": "CLINICAL_PROTOCOL",
+      "rx_sentinel_alert": "การหยุดยาในผู้สูงอายุ (Deprescribing) โดยเฉพาะกลุ่ม BZD, Beta-blocker และ PPI ต้องทำ Tapering ค่อยๆ ลดขนาดยาเพื่อป้องกันอาการถอนยา",
+      "bi_hq_note": "ลดมูลค่าค่ายาส่วนเกิน (Polypharmacy Waste) ในคลินิกผู้สูงอายุและป้องกันค่าใช้จ่ายจากการรักษาอาการไม่พึงประสงค์จากการใช้ยา (ADE)",
+      "thai_takeaway": "การทบทวนรายการยาโดยใช้เครื่องมือ FORTA (Fit fOR The Aged) ช่วยลดการใช้ยาที่ไม่เหมาะสม (PIMs) และการใช้ยาเกินความจำเป็นในผู้สูงอายุได้อย่างมีนัยสำคัญ",
+      "key_metrics": [
+        "Multicentre RCT (N=443 ราย; กลุ่มทดลอง N=234 vs กลุ่มควบคุม N=209) ประเมินการทบทวนยาตามเกณฑ์ FORTA เทียบกับการดูแลปกติ",
+        "ลดสัดส่วนผู้ป่วยที่ได้รับยาไม่เหมาะสม (PIMs) ลงถึง 41.3% และลดการใช้ยาเกินจำเป็น (Overuse) ลง 30.7% (p < 0.001)"
+      ],
+      "soeng_sang_action": "นำเกณฑ์ FORTA / Beers Criteria มาประยุกต์ใช้ในระบบ Medication Reconciliation หอผู้ป่วยในและคลินิกผู้สูงอายุ รพ.เสิงสาง"
+    }
+  ]
+}

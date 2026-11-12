@@ -1,23 +1,34 @@
 #!/usr/bin/env python3
 """
-PubMed Clinical Sentinel (v2.0 - 7-Track Surveillance Engine)
-Master Automated Clinical Intelligence Pipeline:
+PubMed Clinical Sentinel (v2.2.0-HQ — Argon Surgical Upgrade Edition)
+Master Automated 7-Track Clinical Intelligence & Battle Arena Pipeline:
 1. Asthma & COPD Pharmacotherapy (14 days)
 2. Smoking Cessation Pharmacotherapy (60 days)
 3. Thai Herbal Medicine in Respiratory Care (180 days)
 4. Cardio-Renal-Metabolic (CRM) & ชะลอไตเสื่อม (14 days)
 5. Anticoagulation & High Alert Drugs (Warfarin & DOACs) (30 days)
-6. Antimicrobial Stewardship (AMS) & Short-Course (45 days)
+6. Antimicrobial Stewardship (AMS) & Short-Course RDU (45 days)
 7. Deprescribing & Polypharmacy in Elderly (60 days)
 
+Upgrades in v2.2.0-HQ:
+- Fix #1: Smart 3,000-char abstract preservation (never clips RESULTS/CONCLUSIONS)
+- Fix #2: Comma-aware sample size regex (N >= 30 de-noiser, handles N=1,222)
+- Fix #3: Deterministic data-track-id DOM filtering (zero disappearing H3 articles)
+- Fix #4: Dynamic 4-Bout Showdown Arena with interactive switcher
+- Fix #5: Non-destructive README.md marker injection + Idempotent article cache
+- Fix #6: Rx-Sentinel HQ integration (Soeng Sang Formulary Badges + GFR/CYP450 Alerts)
+- Fix #7: The Economic / BI-HQ integration (1-line Hospital Cost-Effectiveness & BIA)
+- Fix #8: Standardized Multi-HQ output bus (data/latest_sentinel_payload.json)
+
 Author: ภก.รัฐนนท์ แสงไทยทวีพร, เภสัชกรชำนาญการ
-Hospital: โรงพยาบาลเสิงสาง (IM Team)
+Hospital: โรงพยาบาลเสิงสาง (ประธานทีม Information Management - IM)
 """
 
 import os
 import sys
 import re
 import json
+import html as html_lib
 import datetime
 import urllib.request
 import urllib.parse
@@ -27,15 +38,22 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(BASE_DIR, "data")
 REPORTS_DIR = os.path.join(BASE_DIR, "reports")
 DOCS_DIR = os.path.join(BASE_DIR, "docs")
+
 SEEN_FILE = os.path.join(DATA_DIR, "seen_pmids.json")
+CACHE_FILE = os.path.join(DATA_DIR, "latest_articles_cache.json")
+PAYLOAD_FILE = os.path.join(DATA_DIR, "latest_sentinel_payload.json")
 
 NCBI_ESEARCH = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
 NCBI_EFETCH = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
-USER_AGENT = "PubMedClinicalSentinel/2.0 (nutcodelaw@gmail.com; Soeng Sang Hospital IM Team)"
+USER_AGENT = "PubMedClinicalSentinel/2.2-HQ (nutcodelaw@gmail.com; Soeng Sang Hospital IM Team)"
+
+REPORT_START_MARKER = "<!-- SENTINEL_REPORT_START -->"
+REPORT_END_MARKER = "<!-- SENTINEL_REPORT_END -->"
 
 TRACK_CONFIGS = [
     {
         "id": "asthma_copd",
+        "pill_label": "🫁 Asthma/COPD",
         "name": "Asthma & COPD Pharmacotherapy",
         "name_th": "เภสัชบำบัดโรคหอบหืดและปอดอุดกั้นเรื้อรัง (Asthma & COPD)",
         "icon": "🫁",
@@ -52,6 +70,7 @@ TRACK_CONFIGS = [
     },
     {
         "id": "smoking_cessation",
+        "pill_label": "🚭 เลิกบุหรี่",
         "name": "Smoking Cessation Pharmacotherapy",
         "name_th": "เภสัชบำบัดช่วยเลิกบุหรี่ (Smoking Cessation)",
         "icon": "🚭",
@@ -67,8 +86,9 @@ TRACK_CONFIGS = [
     },
     {
         "id": "thai_herbs",
+        "pill_label": "🌿 สมุนไพรไทย",
         "name": "Thai Herbal Medicine in Respiratory Care",
-        "name_th": "สมุนไพรไทยและการแพทย์ผสมผสานด้านระบบทางเดินหายใจ",
+        "name_th": "สมุนไพรไทยทางคลินิกในระบบทางเดินหายใจ (Thai Herbal Medicine)",
         "icon": "🌿",
         "days": 180,
         "max_results": 2,
@@ -76,14 +96,15 @@ TRACK_CONFIGS = [
             '("Vernonia cinerea"[tiab] OR "little ironweed"[tiab] OR "Andrographis paniculata"[tiab] '
             'OR "andrographolide"[tiab] OR "Curcuma longa"[tiab] OR "curcumin"[tiab] OR "Phyllanthus emblica"[tiab]) '
             'AND ("respiratory"[tiab] OR "cough"[tiab] OR "asthma"[tiab] OR "copd"[tiab] OR "pulmonary"[tiab] '
-            'OR "smoking"[tiab] OR "bronchitis"[tiab] OR "airway"[tiab] OR "anti-inflammatory"[tiab] OR "antioxidant"[tiab]) '
+            'OR "lung"[tiab] OR "smoking"[tiab] OR "bronchitis"[tiab] OR "airway"[tiab] OR "pharyngitis"[tiab]) '
             'AND ("Humans"[Mesh] OR "Clinical Trial"[pt] OR "Systematic Review"[pt] OR "Meta-Analysis"[pt])'
         )
     },
     {
         "id": "cardio_renal",
+        "pill_label": "🫀 ชะลอไต (CRM)",
         "name": "Cardio-Renal-Metabolic (CRM) & Renal Protection",
-        "name_th": "ชะลอไตเสื่อม & เมตาบอลิกหัวใจ (SGLT2i, GLP-1, Finerenone)",
+        "name_th": "ชะลอไตเสื่อม & เมตาบอลิกหัวใจ (CRM: SGLT2i, GLP-1, Finerenone)",
         "icon": "🫀",
         "days": 14,
         "max_results": 3,
@@ -96,6 +117,7 @@ TRACK_CONFIGS = [
     },
     {
         "id": "anticoagulation",
+        "pill_label": "🩸 Warfarin/DOACs",
         "name": "Anticoagulation & High Alert Drugs (Warfarin & DOACs)",
         "name_th": "ยาต้านการแข็งตัวของเลือด & HAD (Warfarin vs DOACs)",
         "icon": "🩸",
@@ -110,6 +132,7 @@ TRACK_CONFIGS = [
     },
     {
         "id": "ams_rdu",
+        "pill_label": "🦠 ยาฆ่าเชื้อ (AMS)",
         "name": "Antimicrobial Stewardship & Short-Course Therapy",
         "name_th": "การจัดการยาปฏิชีวนะ & สูตรยาสั้น (AMS & Short-Course RDU)",
         "icon": "🦠",
@@ -124,6 +147,7 @@ TRACK_CONFIGS = [
     },
     {
         "id": "deprescribing",
+        "pill_label": "👴 ตัดยาคนแก่",
         "name": "Deprescribing & Polypharmacy in Elderly",
         "name_th": "การตัดยาล้นเกินในผู้สูงอายุ (Deprescribing & Polypharmacy)",
         "icon": "👴",
@@ -138,19 +162,200 @@ TRACK_CONFIGS = [
     }
 ]
 
-def load_seen_pmids():
-    if os.path.exists(SEEN_FILE):
-        try:
-            with open(SEEN_FILE, "r", encoding="utf-8") as f:
-                return json.load(f)
-        except Exception:
-            pass
-    return {"last_updated": None, "processed_pmids": []}
+# Dynamic Multi-Bout Showdown Registry (Fix #4)
+DEFAULT_SHOWDOWN_BOUTS = [
+    {
+        "bout_id": "anticoagulation",
+        "track_id": "anticoagulation",
+        "tab_label": "🩸 ศึกต้านลิ่มเลือด",
+        "headline": "🩸 ศึกมวยคู่เอก: ป้องกันลิ่มเลือดอุดตันหลังผ่าตัดเปลี่ยนข้อ (NEJM Trial)",
+        "red_name": "Aspirin 81 mg BID",
+        "red_sub": "ยาต้านเกล็ดเลือดราคาประหยัด",
+        "blue_name": "Warfarin / Rivaroxaban",
+        "blue_sub": "ยาละลายลิ่มเลือดมาตรฐาน",
+        "rounds": [
+            {"title": "🥊 ยก 1: ประสิทธิผลป้องกัน VTE & เสียชีวิต", "verdict": "เสมอกัน (Non-inferior)", "red_pct": 50, "blue_pct": 50},
+            {"title": "🥊 ยก 2: ความปลอดภัย (Major Bleeding)", "verdict": "Aspirin ปลอดภัยสูง", "red_pct": 65, "blue_pct": 45},
+            {"title": "🥊 ยก 3: ความคุ้มค่า & ลดภาระเจาะ INR", "verdict": "Aspirin ชนะน็อค! (ไม่ต้องเจาะ INR)", "red_pct": 92, "blue_pct": 25}
+        ],
+        "verdict_text": "ในผู้ป่วยความเสี่ยงต่ำหลังผ่าตัดเปลี่ยนข้อเข่า/สะโพก การใช้ Aspirin ปลอดภัยและลดภาระงานคลินิกวาร์ฟารินของ รพ.ชุมชนได้มหาศาล!"
+    },
+    {
+        "bout_id": "cardio_renal",
+        "track_id": "cardio_renal",
+        "tab_label": "🫀 ศึกชะลอไต-หัวใจ",
+        "headline": "🫀 ศึกมวยคู่เอก: Dapagliflozin หลังเปลี่ยนลิ้นหัวใจ TAVR (DAPA-TAVI, N=1,222)",
+        "red_name": "Dapagliflozin 10 mg",
+        "red_sub": "SGLT2i (มีในบัญชี รพ.เสิงสาง)",
+        "blue_name": "Standard Care เดี่ยว",
+        "blue_sub": "การรักษามาตรฐานเดิม",
+        "rounds": [
+            {"title": "🥊 ยก 1: ลดตาย & หัวใจล้มเหลวกำเริบ (DM)", "verdict": "Dapa ชนะขาด", "red_pct": 80, "blue_pct": 40},
+            {"title": "🥊 ยก 2: ประสิทธิผลในผู้ป่วยไม่เป็นเบาหวาน", "verdict": "Dapa ชนะเท่าเทียมกลุ่ม DM!", "red_pct": 82, "blue_pct": 38},
+            {"title": "🥊 ยก 3: คุ้มค่าลดนอน รพ.ซ้ำ (BI-HQ)", "verdict": "ลด Readmission HF ชัดเจน", "red_pct": 85, "blue_pct": 30}
+        ],
+        "verdict_text": "Dapagliflozin ป้องกัน Heart Failure กำเริบได้ทั้งคนที่เป็นและไม่เป็นเบาหวาน คุ้มค่าสูงมากในการลด Re-admission ของ รพ.เสิงสาง!"
+    },
+    {
+        "bout_id": "smoking_cessation",
+        "track_id": "smoking_cessation",
+        "tab_label": "🚭 ศึกเลิกบุหรี่",
+        "headline": "🚭 ศึกมวยคู่เอก: เภสัชบำบัดช่วยเลิกบุหรี่และคุมน้ำหนัก (คลินิกฟ้าใส)",
+        "red_name": "สูตรผสม BUP + ZON",
+        "red_sub": "Bupropion + Zonisamide",
+        "blue_name": "สูตรเดี่ยว BUP",
+        "blue_sub": "Bupropion Monotherapy",
+        "rounds": [
+            {"title": "🥊 ยก 1: ความเร็วลดควันบุหรี่ (eCO Drop)", "verdict": "สูตรผสมชนะ (+25%)", "red_pct": 75, "blue_pct": 50},
+            {"title": "🥊 ยก 2: คุมน้ำหนักตัวไม่ให้เด้ง (Weight Gain)", "verdict": "สูตรผสมชนะน็อค! (ไม่พุ่ง)", "red_pct": 90, "blue_pct": 30},
+            {"title": "🥊 ยก 3: ความพร้อมใช้งานใน รพ.เสิงสาง", "verdict": "BUP เดี่ยว + หญ้าดอกขาว มีพร้อมในคลัง", "red_pct": 45, "blue_pct": 85}
+        ],
+        "verdict_text": "สูตรผสม BUP+ZON เด่นเรื่องหยุดน้ำหนักพุ่งหลังเลิกบุหรี่ ส่วนหน้างานคลินิกฟ้าใส รพ.เสิงสาง ใช้ Bupropion + หญ้าดอกขาว + 5A ได้ทันที!"
+    },
+    {
+        "bout_id": "ams_rdu",
+        "track_id": "ams_rdu",
+        "tab_label": "🦠 ศึกยาฆ่าเชื้อสั้น",
+        "headline": "🦠 ศึกมวยคู่เอก: ยาปฏิชีวนะสูตรสั้น vs สูตรยาว ในปอดบวมเด็ก (Non-Severe CAP)",
+        "red_name": "สูตรสั้น 3–5 วัน",
+        "red_sub": "Short-Course Amoxicillin",
+        "blue_name": "สูตรยาว 7–10 วัน",
+        "blue_sub": "Standard-Course เดิม",
+        "rounds": [
+            {"title": "🥊 ยก 1: อัตราการรักษาหายขาดทางคลินิก", "verdict": "เสมอกัน 100%", "red_pct": 50, "blue_pct": 50},
+            {"title": "🥊 ยก 2: ความร่วมมือในการกินยา (Adherence)", "verdict": "สูตรสั้นชนะขาด (พ่อแม่ป้อนง่าย)", "red_pct": 85, "blue_pct": 45},
+            {"title": "🥊 ยก 3: ลดผลข้างเคียงท้องเสีย & เชื้อดื้อยา", "verdict": "สูตรสั้นชนะน็อคตามเกณฑ์ RDU!", "red_pct": 88, "blue_pct": 30}
+        ],
+        "verdict_text": "ปอดบวมเด็กชนิดไม่รุนแรง (Non-severe CAP) จ่าย Amoxicillin สูตรสั้น 3–5 วัน หายเท่ากัน ลดเชื้อดื้อยา และประหยัดงบค่ายา รพ.เสิงสาง!"
+    }
+]
 
-def save_seen_pmids(data):
-    os.makedirs(DATA_DIR, exist_ok=True)
-    with open(SEEN_FILE, "w", encoding="utf-8") as f:
+
+def load_json_file(filepath, default_val):
+    if os.path.exists(filepath):
+        try:
+            with open(filepath, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception as e:
+            print(f"[WARN] Could not read {filepath}: {e}")
+    return default_val
+
+
+def save_json_file(filepath, data):
+    os.makedirs(os.path.dirname(filepath), exist_ok=True)
+    with open(filepath, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
+
+
+# Fix #1: Smart 3,000-character abstract preservation (keeps both start and RESULTS/CONCLUSIONS tail)
+def smart_truncate_abstract(abstract_text, max_chars=3000):
+    if not abstract_text:
+        return "Abstract not available."
+    if len(abstract_text) <= max_chars:
+        return abstract_text
+    head_len = 1000
+    tail_len = max_chars - head_len - 40
+    return f"{abstract_text[:head_len]}\n...[เนื้อหาส่วนกลางย่อ]...\n{abstract_text[-tail_len:]}"
+
+
+# Fix #2: Comma-aware sample size extractor (handles N = 1,222 and multi-arm cohorts)
+def extract_sample_size(title, abstract_text):
+    combined = f"{title} {abstract_text}"
+    candidates = []
+
+    # Pattern 1: Explicit N = 1,222 or n = 49
+    for match in re.finditer(r'\b[Nn]\s*=\s*([\d,]+)\b', combined):
+        raw_num = match.group(1).replace(",", "").strip()
+        if raw_num.isdigit():
+            val = int(raw_num)
+            if val > 0:
+                candidates.append(val)
+
+    # Pattern 2: "1,222 patients / participants / older adults / children"
+    for match in re.finditer(
+        r'\b(\d[\d,]*)\s+(?:patients|participants|subjects|adults|children|adolescents|individuals|residents)\b',
+        combined,
+        flags=re.IGNORECASE
+    ):
+        raw_num = match.group(1).replace(",", "").strip()
+        if raw_num.isdigit():
+            val = int(raw_num)
+            # Filter out likely calendar years unless large cohort
+            if val >= 10 and not (1990 <= val <= 2035):
+                candidates.append(val)
+
+    return max(candidates) if candidates else None
+
+
+# Fix #6 & #7: Rx-Sentinel HQ + The Economic BI-HQ Deterministic Enrichment
+def enrich_article_metadata(article, track_id):
+    text_lower = f"{article.get('title', '')} {article.get('abstract', '')}".lower()
+
+    # 1. Soeng Sang Hospital Formulary Status Badge
+    in_formulary_keywords = [
+        "dapagliflozin", "warfarin", "aspirin", "bupropion", "nicotine",
+        "andrographis", "andrographolide", "curcuma", "curcumin", "vernonia", "phyllanthus",
+        "amoxicillin", "rifampicin", "isoniazid", "budesonide", "salbutamol", "ipratropium", "theophylline"
+    ]
+    j2_restricted_keywords = [
+        "rivaroxaban", "apixaban", "enoxaparin", "mepolizumab", "benralizumab", "omalizumab", "empagliflozin"
+    ]
+    ptc_candidate_keywords = [
+        "tezepelumab", "dupilumab", "ensifentrine", "itepekimab", "finerenone",
+        "semaglutide", "tirzepatide", "varenicline", "cytisine", "zonisamide", "edoxaban", "dabigatran"
+    ]
+
+    if any(k in text_lower for k in ptc_candidate_keywords):
+        formulary_badge = "🔴 ยานอกบัญชี รพ. / ผู้ท้าชิงเข้า PTC"
+        formulary_tier = "PTC_CANDIDATE"
+    elif any(k in text_lower for k in j2_restricted_keywords):
+        formulary_badge = "🟡 ยาบัญชี จ(2) / เงื่อนไขเฉพาะ รพ."
+        formulary_tier = "J2_RESTRICTED"
+    elif any(k in text_lower for k in in_formulary_keywords):
+        formulary_badge = "🟢 มีในคลังยา รพ.เสิงสาง"
+        formulary_tier = "IN_FORMULARY"
+    else:
+        formulary_badge = "📋 แนวทางบริบาลเภสัชกรรมคลินิก"
+        formulary_tier = "CLINICAL_PROTOCOL"
+
+    # 2. Rx-Sentinel HQ Clinical & ADR/Renal/CYP450 Alert
+    if track_id == "cardio_renal" or "dapagliflozin" in text_lower or "sglt2" in text_lower:
+        rx_alert = "ตรวจ eGFR ก่อนเริ่มยา (Dapagliflozin ห้ามเริ่มหาก eGFR < 25 mL/min) • เฝ้าระวัง Euglycemic DKA และการติดเชื้อทางเดินปัสสาวะ"
+    elif track_id == "anticoagulation" or "warfarin" in text_lower or "apixaban" in text_lower or "rivaroxaban" in text_lower:
+        rx_alert = "ประเมินค่าไต CrCl ก่อนจ่าย DOACs • กรณีใช้ Warfarin ให้คุม Target INR 2.0–3.0 และระวังอันตรกิริยากับยาฆ่าเชื้อ/สมุนไพร"
+    elif track_id == "thai_herbs":
+        rx_alert = "CYP450 Herb-Drug Alert: ฟ้าทะลายโจรและขมิ้นชันยับยั้ง CYP2C9/CYP3A4 ห้ามจ่ายร่วมกับ Warfarin หรือยากดภูมิคุ้มกัน (เสี่ยงเลือดออกง่าย)"
+    elif track_id == "smoking_cessation":
+        rx_alert = "คัดกรองประวัติโรคลมชัก (Seizure risk) ก่อนจ่าย Bupropion ในคลินิกฟ้าใส • ติดตามอาการนอนไม่หลับและน้ำหนักตัว"
+    elif track_id == "asthma_copd":
+        rx_alert = "ทบทวนเทคนิคการพ่นยา (Inhaler Technique) ทุกครั้งก่อนปรับ Step ยา • ยากลุ่ม Biologics ต้องคัดกรอง Eosinophils/FeNO ตามเกณฑ์"
+    elif track_id == "ams_rdu":
+        rx_alert = "เกณฑ์ Short-Course RDU ใช้เฉพาะผู้ป่วย Non-severe ที่ภูมิคุ้มกันปกติ • ประเมินอาการไข้ลดลงครบ 48 ชม. ก่อนหยุดยา"
+    else:
+        rx_alert = "การหยุดยาในผู้สูงอายุ (Deprescribing) โดยเฉพาะกลุ่ม BZD, Beta-blocker และ PPI ต้องทำ Tapering ค่อยๆ ลดขนาดยาเพื่อป้องกันอาการถอนยา"
+
+    # 3. The Economic / BI-HQ Cost-Effectiveness & Budget Impact Note
+    if track_id == "cardio_renal":
+        bi_note = "คุ้มค่าสูง (High ROI): ลดค่าใช้จ่ายการนอน รพ.ซ้ำจากภาวะหัวใจล้มเหลว (HF Readmission) และชะลอการฟอกไตในระยะยาว"
+    elif track_id == "anticoagulation":
+        bi_note = "ลดต้นทุนแฝง รพ.: การใช้ Aspirin ในกลุ่มเสี่ยงต่ำหลังผ่าตัดข้อ หรือเลือก DOAC ในกลุ่มเสี่ยงเลือดออกทางเดินอาหาร ช่วยลดภาระการเจาะ Lab INR และค่านอน รพ.จาก GI Bleed"
+    elif track_id == "ams_rdu":
+        bi_note = "ประหยัดงบค่ายาโดยตรง 40–50% ต่อคอร์ส ลดโอกาสเกิดเชื้อดื้อยาที่ต้องใช้ยาฉีดราคาแพง (Carbapenems/Vancomycin)"
+    elif track_id == "deprescribing":
+        bi_note = "ลดมูลค่าค่ายาส่วนเกิน (Polypharmacy Waste) ในคลินิกผู้สูงอายุและป้องกันค่าใช้จ่ายจากการรักษาอาการไม่พึงประสงค์จากการใช้ยา (ADE)"
+    elif track_id == "asthma_copd":
+        bi_note = "ยากลุ่ม Biologics มีราคาสูง ควรจำกัดเฉพาะเคส Severe Refractory ที่ลดการส่งตัวผ่าตัดซ้ำหรือลดการแอดมิด ICU ได้ชัดเจน"
+    elif track_id == "thai_herbs":
+        bi_note = "ส่งเสริมการใช้ยาสมุนไพรในบัญชียาหลักแห่งชาติ ทดแทนยานำเข้าและสร้างความมั่นคงทางยาของ รพ.ชุมชน"
+    else:
+        bi_note = "การช่วยให้ผู้ป่วยเลิกบุหรี่สำเร็จในคลินิกฟ้าใส ให้ผลตอบแทนทางเศรษฐศาสตร์สาธารณสุขสูงสุดในการลดโรคหลอดเลือดหัวใจและ COPD กำเริบ"
+
+    article["formulary_badge"] = formulary_badge
+    article["formulary_tier"] = formulary_tier
+    article["rx_sentinel_alert"] = rx_alert
+    article["bi_hq_note"] = bi_note
+    return article
+
 
 def search_pubmed_pmids(term, reldate=14, retmax=10):
     params = {
@@ -172,7 +377,8 @@ def search_pubmed_pmids(term, reldate=14, retmax=10):
         print(f"[WARN] PubMed search failed for query: {e}")
         return []
 
-def fetch_pubmed_articles(pmids):
+
+def fetch_pubmed_articles(pmids, track_id):
     if not pmids:
         return []
     params = {
@@ -204,12 +410,10 @@ def fetch_pubmed_articles(pmids):
                 journal_tag = article_tag.find(".//Journal/ISOAbbreviation")
             journal = journal_tag.text if journal_tag is not None else "Unknown Journal"
 
-            # PubDate
             year = article_tag.find(".//JournalIssue/PubDate/Year")
             month = article_tag.find(".//JournalIssue/PubDate/Month")
             pub_date = f"{year.text if year is not None else ''} {month.text if month is not None else ''}".strip()
 
-            # Abstract
             abstract_parts = []
             for ab_text in article_tag.findall(".//Abstract/AbstractText"):
                 label = ab_text.get("Label", "")
@@ -220,32 +424,35 @@ def fetch_pubmed_articles(pmids):
                     abstract_parts.append(text)
             abstract = "\n\n".join(abstract_parts) if abstract_parts else "Abstract not available."
 
-            # Process Filter 1: Check for Free PMC Full-Text
+            # Process Filter 1: Free PMC Full-Text detection
             pmc_id = ""
             for id_tag in article_tag.findall(".//ArticleIdList/ArticleId"):
                 if id_tag.get("IdType") == "pmc":
-                    pmc_id = id_tag.text or ""
+                    raw_pmc = (id_tag.text or "").strip()
+                    if raw_pmc:
+                        pmc_id = raw_pmc if raw_pmc.upper().startswith("PMC") else f"PMC{raw_pmc}"
                     break
             pmc_url = f"https://www.ncbi.nlm.nih.gov/pmc/articles/{pmc_id}/" if pmc_id else ""
 
-            # Process Filter 2: Sample Size Sentinel (De-noiser for underpowered studies)
-            # If explicit N is found and N < 30 in non-review studies, flag or skip
-            n_match = re.search(r'\b[Nn]\s*=\s*(\d+)\b', abstract)
-            if n_match:
-                n_val = int(n_match.group(1))
-                if n_val < 30 and "review" not in title.lower() and "meta-analysis" not in title.lower() and "case" in title.lower():
-                    print(f"  [DE-NOISER] Skipping small sample study (N={n_val}): {title[:40]}...")
-                    continue
+            # Process Filter 2: Comma-aware Sample Size Sentinel (Fix #2)
+            extracted_n = extract_sample_size(title, abstract)
+            is_review_or_meta = any(
+                kw in f"{title} {abstract}".lower()
+                for kw in ["systematic review", "meta-analysis", "network meta-analysis", "guideline"]
+            )
+            if extracted_n is not None and extracted_n < 30 and not is_review_or_meta:
+                print(f"  [DE-NOISER] Skipping underpowered study (N={extracted_n}): {title[:50]}...")
+                continue
 
-            # DOI
             doi = ""
             for id_tag in article_tag.findall(".//ArticleIdList/ArticleId"):
                 if id_tag.get("IdType") == "doi":
                     doi = id_tag.text or ""
                     break
 
-            articles.append({
+            article_obj = {
                 "pmid": pmid,
+                "track_id": track_id,
                 "title": title,
                 "journal": journal,
                 "pub_date": pub_date,
@@ -253,147 +460,327 @@ def fetch_pubmed_articles(pmids):
                 "pmc_id": pmc_id,
                 "pmc_url": pmc_url,
                 "has_free_fulltext": bool(pmc_id),
+                "extracted_n": extracted_n,
                 "abstract": abstract,
                 "url": f"https://pubmed.ncbi.nlm.nih.gov/{pmid}/"
-            })
+            }
+            enrich_article_metadata(article_obj, track_id)
+            articles.append(article_obj)
     except Exception as e:
         print(f"[ERROR] XML parsing error: {e}")
 
     return articles
 
-def analyze_with_gemini(articles_by_track, report_date):
-    api_key = os.environ.get("GEMINI_API_KEY", "").strip()
-    if not api_key:
-        print("[WARN] GEMINI_API_KEY is not set. Using structured fallback formatter.")
-        return generate_fallback_report(articles_by_track, report_date)
 
-    compact_tracks = {}
+def parse_existing_markdown_summaries(md_path):
+    """Extracts previously generated Thai summaries per PMID from existing reports so cached articles retain their Thai clinical pearls."""
+    summaries_by_pmid = {}
+    if not os.path.exists(md_path):
+        return summaries_by_pmid
+    try:
+        with open(md_path, "r", encoding="utf-8") as f:
+            content = f.read()
+        blocks = re.split(r'\n(?=####\s+\d+\.|###\s+\d+\.)', content)
+        for blk in blocks:
+            m_pmid = re.search(r'PMID:\s*(\d+)', blk)
+            if not m_pmid:
+                continue
+            pmid = m_pmid.group(1)
+            m_takeaway = re.search(r'ใจความสำคัญ 1 บรรทัด:\*\*\s*(.+)', blk)
+            m_action = re.search(r'สิ่งที่ต้องรู้ใน รพ\.เสิงสาง:\*\*\s*(.+)', blk)
+            metrics = re.findall(r'^\s+•\s*\[?([^\]\n]+)\]?', blk, flags=re.MULTILINE)
+            clean_metrics = [
+                m.strip() for m in metrics
+                if m.strip() and not m.strip().startswith("PMID:") and "อ่านฟรี PMC" not in m
+            ]
+            summaries_by_pmid[pmid] = {
+                "thai_takeaway": m_takeaway.group(1).strip() if m_takeaway else "",
+                "soeng_sang_action": m_action.group(1).strip() if m_action else "",
+                "key_metrics": clean_metrics[:3]
+            }
+    except Exception as e:
+        print(f"[WARN] Could not parse existing summaries: {e}")
+    return summaries_by_pmid
+
+
+def enrich_articles_with_gemini(articles_by_track, report_date, existing_summaries):
+    """Uses Gemini (if GEMINI_API_KEY is available) or existing/deterministic clinical synthesis to populate Thai Quick-Scan fields."""
+    # First apply any existing known Thai summaries for cached PMIDs
+    needs_ai_pmids = []
     for tid, articles in articles_by_track.items():
-        compact_tracks[tid] = []
         for a in articles:
-            compact_tracks[tid].append({
+            pmid = a["pmid"]
+            if pmid in existing_summaries and existing_summaries[pmid].get("thai_takeaway"):
+                a["thai_takeaway"] = existing_summaries[pmid]["thai_takeaway"]
+                a["soeng_sang_action"] = existing_summaries[pmid]["soeng_sang_action"]
+                a["key_metrics"] = existing_summaries[pmid]["key_metrics"]
+            elif not a.get("thai_takeaway"):
+                needs_ai_pmids.append(a)
+
+    api_key = os.environ.get("GEMINI_API_KEY", "").strip()
+    if api_key and needs_ai_pmids:
+        payload_items = []
+        for a in needs_ai_pmids:
+            payload_items.append({
                 "pmid": a["pmid"],
+                "track_id": a["track_id"],
                 "title": a["title"],
                 "journal": a["journal"],
-                "has_free_fulltext": a["has_free_fulltext"],
-                "pmc_url": a["pmc_url"],
-                "abstract": a["abstract"][:650] + ("..." if len(a["abstract"]) > 650 else "")
+                "extracted_n": a.get("extracted_n"),
+                # Fix #1: Up to 3,000 characters preserved!
+                "abstract": smart_truncate_abstract(a["abstract"], 3000)
             })
 
-    prompt = f"""คุณคือผู้เชี่ยวชาญด้านเภสัชบำบัดทางคลินิก (Clinical Pharmacy Specialist) ร่วมกับท่านประธาน ภก.รัฐนนท์ แสงไทยทวีพร (เภสัชกรชำนาญการ ประธานทีม IM โรงพยาบาลเสิงสาง)
+        prompt = f"""คุณคือผู้เชี่ยวชาญด้านเภสัชบำบัดทางคลินิก (Clinical Pharmacy Specialist) ร่วมกับ ภก.รัฐนนท์ แสงไทยทวีพร (ประธานทีม IM โรงพยาบาลเสิงสาง)
+กรุณาสรุปข้อมูลงานวิจัยต่อไปนี้เป็น JSON Object โดยใช้รหัส PMID เป็น Key:
+{json.dumps(payload_items, ensure_ascii=False, indent=2)}
 
-หน้าที่: จัดทำสรุปรายงานงานวิจัยทางคลินิก 7 หมวดสำคัญ (Asthma/COPD, ยาช่วยเลิกบุหรี่, สมุนไพรไทย, ชะลอไตเสื่อม/SGLT2i, Warfarin/DOACs, AMS ยาสั้น, และ Deprescribing ผู้สูงอายุ) ประจำวันที่ {report_date}
+ตอบกลับเป็น JSON เท่านั้น ตามโครงสร้างนี้:
+{{
+  "<pmid>": {{
+    "thai_takeaway": "สรุปใจความสำคัญที่สุด 1 บรรทัด ภาษาไทยเข้าใจง่าย อ่านจบใน 5 วินาที",
+    "key_metrics": [
+      "ตัวเลขสถิติสำคัญข้อ 1 (เช่น N=..., HR/OR/RR, p-value, ประสิทธิผล)",
+      "ตัวเลขสถิติสำคัญข้อ 2 (ความปลอดภัย หรือผลลัพธ์รอง)"
+    ],
+    "soeng_sang_action": "ข้อเสนอแนะเชิงปฏิบัติการสำหรับเภสัชกรและแพทย์ รพ.เสิงสาง 1 บรรทัดคมๆ"
+  }}
+}}"""
 
-ข้อมูลงานวิจัยจาก PubMed (คัดกรองผ่าน Process Filter: Free Full-Text & Sample Size แล้ว):
-{json.dumps(compact_tracks, ensure_ascii=False, indent=2)}
-
-กฎเหล็กรูปแบบการนำเสนอ (สำคัญที่สุด):
-- **ห้ามเขียนเป็น Text บรรยายยาวๆ เป็นพารากราฟเด็ดขาด** 
-- สรุปแบบ **"Quick-Scan Card"** สั้น กระชับ กวนๆ ได้สาระ อ่านจบใน 10 วินาทีต่อเรื่อง
-
-โครงสร้างของแต่ละเรื่อง:
-### [ลำดับ]. [ชื่อเรื่องภาษาอังกฤษสั้นๆ]
-- **วารสาร & PMID:** [ชื่อย่อวารสาร] • [PMID: <PMID>](https://pubmed.ncbi.nlm.nih.gov/<PMID>/) [ระบุว่า '📖 [อ่านฟรี PMC Full-Text](<pmc_url>)' หากมี]
-- 🎯 **ใจความสำคัญ 1 บรรทัด:** [สรุปประเด็นหลักสั้นที่สุด 1 บรรทัดจบ]
-- 📊 **ตัวเลขผลลัพธ์สำคัญ:**
-  • [ตัวเลขสถิติ 1: เช่น N=..., ลดกำเริบ...%, eGFR decline..., HR=...]
-  • [ตัวเลขสถิติ 2: ผลข้างเคียง/ความปลอดภัย]
-- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** [นัยสำคัญทางคลินิกต่อ รพ.ชุมชน 1 ข้อสั้นๆ คมๆ]
-- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/<PMID>/)
-
-แบ่งตาม 7 หมวดชัดเจน:
-1. 🫁 เภสัชบำบัดโรคหอบหืดและปอดอุดกั้นเรื้อรัง (Asthma & COPD)
-2. 🚭 เภสัชบำบัดช่วยเลิกบุหรี่ (Smoking Cessation)
-3. 🌿 สมุนไพรไทยทางคลินิกในระบบทางเดินหายใจ (Thai Herbal Medicine)
-4. 🫀 ชะลอไตเสื่อม & เมตาบอลิกหัวใจ (CRM: SGLT2i, GLP-1, Finerenone)
-5. 🩸 ยาต้านการแข็งตัวของเลือด & HAD (Warfarin vs DOACs)
-6. 🦠 การจัดการยาปฏิชีวนะ & สูตรยาสั้น (AMS & Short-Course RDU)
-7. 👴 การตัดยาล้นเกินในผู้สูงอายุ (Deprescribing & Polypharmacy)
-(หากหมวดใดไม่มีเปเปอร์ใหม่ในรอบค้นหา ให้สรุปประเด็นสำคัญสั้นๆ 1 ข้อ)
-
-ท้ายรายงานให้ลงท้ายว่า:
----
-**จัดทำโดย:** ภก.รัฐนนท์ แสงไทยทวีพร, เภสัชกรชำนาญการ  
-*ประธานทีม Information Management (IM) โรงพยาบาลเสิงสาง*
-"""
-
-    models_to_try = ["gemini-3.5-flash", "gemini-3.8-flash", "gemini-flash-latest"]
-
-    try:
-        from google import genai
-        client = genai.Client(api_key=api_key)
+        models_to_try = ["gemini-3.8-flash", "gemini-3.5-flash", "gemini-flash-latest"]
         for model_name in models_to_try:
             try:
-                print(f"[AI] Calling Gemini SDK with model: {model_name}...")
-                resp = client.models.generate_content(
-                    model=model_name,
-                    contents=prompt
+                url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_name}:generateContent?key={api_key}"
+                req_body = {
+                    "contents": [{"parts": [{"text": prompt}]}],
+                    "generationConfig": {
+                        "temperature": 0.2,
+                        "responseMimeType": "application/json"
+                    }
+                }
+                req = urllib.request.Request(
+                    url,
+                    data=json.dumps(req_body).encode("utf-8"),
+                    headers={"Content-Type": "application/json"}
                 )
-                if resp and resp.text:
-                    return resp.text
-            except Exception as me:
-                print(f"[WARN] Model {model_name} failed: {me}. Trying next...")
-    except ImportError:
-        pass
+                with urllib.request.urlopen(req, timeout=90) as resp:
+                    res_data = json.loads(resp.read().decode("utf-8"))
+                    raw_text = res_data["candidates"][0]["content"]["parts"][0]["text"]
+                    parsed_ai = json.loads(raw_text)
+                    for a in needs_ai_pmids:
+                        if a["pmid"] in parsed_ai:
+                            info = parsed_ai[a["pmid"]]
+                            a["thai_takeaway"] = info.get("thai_takeaway", "")
+                            a["key_metrics"] = info.get("key_metrics", [])
+                            a["soeng_sang_action"] = info.get("soeng_sang_action", "")
+                    break
+            except Exception as e:
+                print(f"[WARN] Gemini JSON synthesis with {model_name} failed: {e}")
 
-    for model_name in models_to_try:
-        try:
-            url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_name}:generateContent?key={api_key}"
-            payload = {
-                "contents": [{"parts": [{"text": prompt}]}],
-                "generationConfig": {"temperature": 0.2}
-            }
-            req = urllib.request.Request(
-                url,
-                data=json.dumps(payload).encode("utf-8"),
-                headers={"Content-Type": "application/json"}
-            )
-            with urllib.request.urlopen(req, timeout=90) as resp:
-                res_data = json.loads(resp.read().decode("utf-8"))
-                return res_data["candidates"][0]["content"]["parts"][0]["text"]
-        except Exception as e:
-            print(f"[WARN] REST API call for {model_name} failed: {e}")
+    # Deterministic fallback for any article still missing Thai summary fields
+    for tid, articles in articles_by_track.items():
+        for a in articles:
+            if not a.get("thai_takeaway"):
+                # Extract CONCLUSIONS sentence from abstract if present
+                ab = a.get("abstract", "")
+                m_conc = re.search(r'(?:CONCLUSIONS?|INTERPRETATION|SUMMARY|FINDINGS):\s*([^\n]+)', ab, re.IGNORECASE)
+                conc_text = m_conc.group(1).strip() if m_conc else ab[:220].strip()
+                a["thai_takeaway"] = f"หลักฐานทางคลินิกล่าสุดจาก {a['journal']}: {conc_text}"
+            if not a.get("key_metrics"):
+                n_str = f"กลุ่มตัวอย่าง N={a['extracted_n']:,} ราย" if a.get("extracted_n") else "การศึกษาทางคลินิก/ทบทวนวรรณกรรมอย่างเป็นระบบ"
+                a["key_metrics"] = [
+                    f"{n_str} • ตีพิมพ์ในวารสาร {a['journal']} ({a['pub_date']})",
+                    f"สกัดจากบทคัดย่อฉบับเต็ม ({len(a.get('abstract', '')):,} ตัวอักษร)"
+                ]
+            if not a.get("soeng_sang_action"):
+                a["soeng_sang_action"] = a.get("rx_sentinel_alert", "ประยุกต์ใช้ในการติดตามความปลอดภัยและประสิทธิภาพการใช้ยาในผู้ป่วย รพ.เสิงสาง")
 
-    return generate_fallback_report(articles_by_track, report_date)
 
-def generate_fallback_report(articles_by_track, report_date):
+def build_markdown_report(articles_by_track, report_date):
     lines = [
-        f"# 🩺 สรุปรายงานวิจัยทางคลินิก 7 หมวดสำคัญ (Clinical Sentinel 7-Track)",
-        f"**ประจำวันที่:** {report_date} | **สถานะ:** PubMed E-Utilities Direct Feed\n"
+        f"# 🩺 สรุปรายงานวิจัยทางคลินิก 7 หมวดสำคัญ (Clinical Pharmacy Research Update)",
+        f"**ประจำวันที่:** {report_date} | **เวอร์ชันเครื่องยนต์:** `v2.2.0-HQ (5-Allied HQs Synchronized)`  ",
+        f"*ทีมสารสนเทศสมุนไพรและเภสัชบำบัด (IM Team) โรงพยาบาลเสิงสาง*\n",
+        "---\n"
     ]
-    for track in TRACK_CONFIGS:
+
+    for idx, track in enumerate(TRACK_CONFIGS, 1):
         tid = track["id"]
         tname = track["name_th"]
         icon = track["icon"]
         articles = articles_by_track.get(tid, [])
-        lines.append(f"## {icon} {tname}")
+
+        lines.append(f"### {idx}. {icon} {tname}\n")
         if not articles:
-            lines.append("*(ไม่พบงานวิจัยใหม่ที่มีนัยสำคัญในรอบการค้นหานี้)*\n")
+            lines.append(f"- 🎯 **สถานะประจำรอบสัปดาห์:** ไม่พบเปเปอร์ใหม่ที่ผ่านเกณฑ์คัดกรอง $N \\ge 30$ ในรอบ {track['days']} วันที่ผ่านมา\n")
+            lines.append("---\n")
             continue
+
         for i, a in enumerate(articles, 1):
-            free_tag = f" • [📖 อ่านบทความวิจัยฉบับเต็มฟรี]({a['pmc_url']})" if a.get("has_free_fulltext") else ""
-            lines.append(f"### {i}. {a['title']}")
-            lines.append(f"- **วารสาร & แหล่งอ้างอิง:** {a['journal']} ({a['pub_date']}) • [PMID: {a['pmid']}]({a['url']}){free_tag}")
-            lines.append(f"- **บทคัดย่อ (Abstract สรุป):**\n  > {a['abstract'][:300]}...\n")
-    lines.append("---\n**จัดทำโดย:** ภก.รัฐนนท์ แสงไทยทวีพร, เภสัชกรชำนาญการ  \n*ประธานทีม Information Management (IM) โรงพยาบาลเสิงสาง*")
+            free_badge = f" • 📖 [อ่านฟรี PMC Full-Text]({a['pmc_url']})" if a.get("has_free_fulltext") else ""
+            n_badge = f" • 👥 `N={a['extracted_n']:,}`" if a.get("extracted_n") else ""
+            form_badge = a.get("formulary_badge", "")
+
+            lines.append(f"#### {i}. {a['title']}")
+            lines.append(f"- **วารสาร & PMID:** {a['journal']} • [PMID: {a['pmid']}]({a['url']}){n_badge}{free_badge}")
+            lines.append(f"- **สถานะบัญชียา รพ.เสิงสาง:** `{form_badge}`")
+            lines.append(f"- 🎯 **ใจความสำคัญ 1 บรรทัด:** {a.get('thai_takeaway', '')}")
+            lines.append(f"- 📊 **ตัวเลขผลลัพธ์สำคัญ:**")
+            for m in a.get("key_metrics", []):
+                lines.append(f"  • [{m}]")
+            lines.append(f"- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** {a.get('soeng_sang_action', '')}")
+            lines.append(f"- ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** {a.get('rx_sentinel_alert', '')}")
+            lines.append(f"- 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** {a.get('bi_hq_note', '')}")
+            lines.append(f"- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →]({a['url']})\n")
+
+        lines.append("---\n")
+
+    lines.append("**จัดทำโดย:** ภก.รัฐนนท์ แสงไทยทวีพร, เภสัชกรชำนาญการ  ")
+    lines.append("*ประธานทีม Information Management (IM) โรงพยาบาลเสิงสาง*")
     return "\n".join(lines)
 
-def generate_html_dashboard(markdown_content, report_date, articles_by_track):
+
+def update_readme_non_destructive(markdown_report):
+    """Fix #5: Injects the latest clinical report into README.md between markers without wiping project documentation."""
+    readme_path = os.path.join(BASE_DIR, "README.md")
+    report_section = f"{REPORT_START_MARKER}\n\n{markdown_report}\n\n{REPORT_END_MARKER}"
+
+    if os.path.exists(readme_path):
+        with open(readme_path, "r", encoding="utf-8") as f:
+            content = f.read()
+        if REPORT_START_MARKER in content and REPORT_END_MARKER in content:
+            pattern = re.compile(
+                re.escape(REPORT_START_MARKER) + r".*?" + re.escape(REPORT_END_MARKER),
+                re.DOTALL
+            )
+            updated = pattern.sub(lambda _: report_section, content)
+        else:
+            updated = content.rstrip() + "\n\n---\n\n## 📋 รายงานสรุปงานวิจัยทางคลินิกล่าสุด (Latest Weekly Digest)\n\n" + report_section + "\n"
+        with open(readme_path, "w", encoding="utf-8") as f:
+            f.write(updated)
+    else:
+        with open(readme_path, "w", encoding="utf-8") as f:
+            f.write(report_section)
+
+
+def generate_html_dashboard(markdown_content, report_date, articles_by_track, showdown_bouts):
+    """Fixes #3, #4, #6, #7: Renders deterministic data-track-id cards, multi-bout showdown arena, and Allied HQ badges."""
     total_articles = sum(len(v) for v in articles_by_track.values())
+    free_pmc_count = sum(1 for arts in articles_by_track.values() for a in arts if a.get("has_free_fulltext"))
+
+    # Build filter pills HTML
+    pills_html = ['<button class="pill-btn active" onclick="filterTrack(\'all\', this)">🌟 ทั้งหมด (7 หมวด)</button>']
+    for track in TRACK_CONFIGS:
+        tid = track["id"]
+        cnt = len(articles_by_track.get(tid, []))
+        pills_html.append(
+            f'<button class="pill-btn" data-pill-track="{tid}" onclick="filterTrack(\'{tid}\', this)">'
+            f'{track["pill_label"]} <span class="pill-count">{cnt}</span></button>'
+        )
+    pills_joined = "\n      ".join(pills_html)
+
+    # Build Quick-Scan Cards per track (Fix #3: wrapped in <section class="track-section" data-track-id="...">)
+    track_sections_html = []
+    for idx, track in enumerate(TRACK_CONFIGS, 1):
+        tid = track["id"]
+        icon = track["icon"]
+        tname = html_lib.escape(track["name_th"])
+        articles = articles_by_track.get(tid, [])
+
+        cards_html = []
+        if not articles:
+            cards_html.append(f"""
+            <div class="paper-card empty-card">
+              <div class="paper-takeaway">🎯 <strong>สถานะประจำรอบสัปดาห์:</strong> ไม่พบงานวิจัยใหม่ที่ผ่านเกณฑ์คัดกรอง N ≥ 30 ในรอบ {track['days']} วันที่ผ่านมา</div>
+            </div>""")
+        else:
+            for i, a in enumerate(articles, 1):
+                title_esc = html_lib.escape(a.get("title", ""))
+                journal_esc = html_lib.escape(a.get("journal", ""))
+                pmid_esc = html_lib.escape(a.get("pmid", ""))
+                url_esc = html_lib.escape(a.get("url", ""))
+                takeaway_esc = html_lib.escape(a.get("thai_takeaway", ""))
+                action_esc = html_lib.escape(a.get("soeng_sang_action", ""))
+                rx_esc = html_lib.escape(a.get("rx_sentinel_alert", ""))
+                bi_esc = html_lib.escape(a.get("bi_hq_note", ""))
+                form_badge = html_lib.escape(a.get("formulary_badge", ""))
+                tier = a.get("formulary_tier", "CLINICAL_PROTOCOL")
+
+                n_badge_html = (
+                    f'<span class="meta-badge n-badge">👥 N={a["extracted_n"]:,}</span>'
+                    if a.get("extracted_n") else ""
+                )
+                pmc_badge_html = (
+                    f'<a href="{html_lib.escape(a["pmc_url"])}" target="_blank" class="meta-badge pmc-badge">📖 อ่านฟรี PMC Full-Text</a>'
+                    if a.get("has_free_fulltext") else ""
+                )
+                metrics_li = "".join(
+                    f"<li>{html_lib.escape(m)}</li>" for m in a.get("key_metrics", [])
+                )
+
+                cards_html.append(f"""
+            <article class="paper-card">
+              <div class="paper-top-bar">
+                <span class="formulary-tag tier-{tier}">{form_badge}</span>
+                <div class="badge-group">
+                  {n_badge_html}
+                  {pmc_badge_html}
+                </div>
+              </div>
+              <h3 class="paper-title">{i}. {title_esc}</h3>
+              <div class="paper-meta">
+                📰 <strong>{journal_esc}</strong> ({html_lib.escape(a.get("pub_date", ""))}) •
+                <a href="{url_esc}" target="_blank">PMID: {pmid_esc}</a>
+              </div>
+              <div class="paper-takeaway">
+                🎯 <strong>ใจความสำคัญ 1 บรรทัด:</strong> {takeaway_esc}
+              </div>
+              <div class="paper-metrics">
+                <div class="metrics-header">📊 ตัวเลขผลลัพธ์สำคัญ:</div>
+                <ul>{metrics_li}</ul>
+              </div>
+              <div class="hq-grid">
+                <div class="hq-box action-box">
+                  💡 <strong>สิ่งที่ต้องรู้ใน รพ.เสิงสาง:</strong> {action_esc}
+                </div>
+                <div class="hq-box rx-box">
+                  🏥 <strong>Rx-Sentinel Safety Alert:</strong> {rx_esc}
+                </div>
+                <div class="hq-box bi-box">
+                  💰 <strong>มุมมองความคุ้มค่า (BI-HQ):</strong> {bi_esc}
+                </div>
+              </div>
+              <div class="paper-footer">
+                <a href="{url_esc}" target="_blank" class="read-btn">🔗 เปิดอ่านบทคัดย่อตัวเต็มบน PubMed →</a>
+              </div>
+            </article>""")
+
+        track_sections_html.append(f"""
+        <section class="track-section" data-track-id="{tid}">
+          <div class="track-header">
+            <span class="track-icon">{icon}</span>
+            <h2 class="track-title">{idx}. {tname}</h2>
+            <span class="track-window">ย้อนหลัง {track['days']} วัน</span>
+          </div>
+          {"".join(cards_html)}
+        </section>""")
+
+    all_sections_joined = "\n".join(track_sections_html)
+
     html = f"""<!DOCTYPE html>
 <html lang="th">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>🥊 Clinical Battle Arena (7-Track) | ภก.รัฐนนท์ แสงไทยทวีพร</title>
+  <title>🥊 Clinical Battle Arena (v2.2-HQ) | ภก.รัฐนนท์ แสงไทยทวีพร</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600;700;800;900&family=Sarabun:wght@300;400;600&family=Bungee&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800;900&family=Sarabun:wght@300;400;600&family=Bungee&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <style>
     :root {{
-      --bg: #090c15;
-      --card-bg: rgba(20, 27, 45, 0.85);
+      --bg: #070a12;
+      --card-bg: rgba(18, 25, 43, 0.92);
       --red-fighter: #ef4444;
       --blue-fighter: #3b82f6;
       --neon-cyan: #06b6d4;
@@ -407,67 +794,90 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track):
     body {{
       font-family: 'Prompt', sans-serif;
       background: var(--bg);
-      background-image: radial-gradient(circle at 50% 0%, rgba(6, 182, 212, 0.15) 0%, transparent 60%);
+      background-image: radial-gradient(circle at 50% 0%, rgba(6, 182, 212, 0.16) 0%, transparent 60%);
       color: var(--text);
-      line-height: 1.5;
-      padding-bottom: 5rem;
+      line-height: 1.55;
+      padding-bottom: 4rem;
     }}
     .arena-header {{
       text-align: center;
-      padding: 1.8rem 1rem 1rem 1rem;
+      padding: 1.6rem 1rem 1.1rem 1rem;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      position: relative;
     }}
     .live-tag {{
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
-      background: rgba(239, 68, 68, 0.2);
-      border: 1px solid rgba(239, 68, 68, 0.4);
-      color: #f87171;
-      padding: 0.25rem 0.75rem;
+      gap: 0.4rem;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.45);
+      color: #6ee7b7;
+      padding: 0.25rem 0.85rem;
       border-radius: 9999px;
-      font-size: 0.75rem;
+      font-size: 0.74rem;
       font-weight: 700;
-      letter-spacing: 0.5px;
       margin-bottom: 0.5rem;
-      animation: pulse 2s infinite;
-    }}
-    @keyframes pulse {{
-      0%, 100% {{ opacity: 1; }}
-      50% {{ opacity: 0.6; }}
     }}
     .arena-title {{
-      font-size: 1.5rem;
+      font-size: 1.55rem;
       font-weight: 900;
       background: linear-gradient(135deg, #38bdf8 0%, #ec4899 50%, #f59e0b 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }}
     .arena-subtitle {{
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       color: var(--text-muted);
       margin-top: 0.25rem;
     }}
+    .kpi-strip {{
+      display: flex;
+      justify-content: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-top: 0.75rem;
+    }}
+    .kpi-chip {{
+      background: rgba(30, 41, 59, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 0.6rem;
+      padding: 0.25rem 0.65rem;
+      font-size: 0.73rem;
+      color: #cbd5e1;
+    }}
+    .kpi-chip strong {{ color: var(--neon-cyan); }}
+    .sound-btn {{
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 0.35rem 0.9rem;
+      border-radius: 9999px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 0.65rem;
+      transition: transform 0.15s;
+    }}
+    .sound-btn:active {{ transform: scale(0.95); }}
+
     .container {{
-      max-width: 720px;
+      max-width: 780px;
       margin: 0 auto;
       padding: 1rem;
     }}
     .mode-switch-bar {{
       display: flex;
-      background: rgba(30, 41, 59, 0.7);
+      background: rgba(30, 41, 59, 0.75);
       border-radius: 9999px;
       padding: 0.3rem;
-      margin-bottom: 1rem;
+      margin-bottom: 0.9rem;
       border: 1px solid rgba(255, 255, 255, 0.08);
     }}
     .mode-btn {{
       flex: 1;
       text-align: center;
       padding: 0.5rem;
-      font-size: 0.85rem;
-      font-weight: 600;
+      font-size: 0.83rem;
+      font-weight: 700;
       border-radius: 9999px;
       color: var(--text-muted);
       cursor: pointer;
@@ -482,24 +892,33 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track):
     }}
     .filter-scroll {{
       display: flex;
-      gap: 0.4rem;
+      gap: 0.45rem;
       overflow-x: auto;
-      margin-bottom: 1.2rem;
-      padding-bottom: 0.3rem;
+      margin-bottom: 1.1rem;
+      padding-bottom: 0.35rem;
       scrollbar-width: none;
     }}
     .filter-scroll::-webkit-scrollbar {{ display: none; }}
     .pill-btn {{
       white-space: nowrap;
-      padding: 0.35rem 0.8rem;
+      padding: 0.38rem 0.82rem;
       border-radius: 9999px;
-      font-size: 0.78rem;
+      font-size: 0.77rem;
       font-weight: 600;
       border: 1px solid rgba(255, 255, 255, 0.1);
-      background: rgba(30, 41, 59, 0.6);
+      background: rgba(30, 41, 59, 0.65);
       color: var(--text-muted);
       cursor: pointer;
       transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }}
+    .pill-count {{
+      background: rgba(255, 255, 255, 0.12);
+      padding: 0.05rem 0.4rem;
+      border-radius: 9999px;
+      font-size: 0.68rem;
     }}
     .pill-btn.active {{
       background: var(--neon-cyan);
@@ -507,73 +926,89 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track):
       border-color: var(--neon-cyan);
       box-shadow: 0 2px 10px rgba(6, 182, 212, 0.3);
     }}
-
-    /* Card System */
-    .battle-card {{
-      background: var(--card-bg);
-      border: 2px solid rgba(245, 158, 11, 0.3);
-      border-radius: 1.25rem;
-      padding: 1.25rem;
-      margin-bottom: 1.2rem;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+    .pill-btn.active .pill-count {{
+      background: rgba(4, 47, 46, 0.25);
+      color: #042f2e;
     }}
-    .battle-card::before {{
-      content: "🔥 ศึกมวยคู่เอกเลิกบุหรี่";
-      position: absolute;
-      top: 0;
-      right: 0;
+
+    /* Dynamic Multi-Bout Battle Card */
+    .battle-card {{
+      position: relative;
+      background: var(--card-bg);
+      border: 2px solid rgba(245, 158, 11, 0.4);
+      border-radius: 1.25rem;
+      padding: 1.2rem;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 10px 28px -5px rgba(0, 0, 0, 0.55);
+    }}
+    .bout-tabs {{
+      display: flex;
+      gap: 0.35rem;
+      overflow-x: auto;
+      margin-bottom: 0.85rem;
+      padding-bottom: 0.25rem;
+      scrollbar-width: none;
+    }}
+    .bout-tabs::-webkit-scrollbar {{ display: none; }}
+    .bout-tab {{
+      white-space: nowrap;
+      padding: 0.28rem 0.68rem;
+      border-radius: 0.6rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      background: rgba(15, 23, 42, 0.75);
+      color: #fcd34d;
+      cursor: pointer;
+    }}
+    .bout-tab.active {{
       background: linear-gradient(135deg, #f59e0b, #ef4444);
       color: #000000;
-      font-size: 0.68rem;
-      font-weight: 800;
-      padding: 0.25rem 0.8rem;
-      border-radius: 0 1.25rem 0 0.8rem;
+      border-color: transparent;
     }}
     .fighters-arena {{
       display: grid;
       grid-template-columns: 1fr auto 1fr;
       align-items: center;
       gap: 0.5rem;
-      margin: 1.2rem 0 1rem 0;
+      margin: 0.9rem 0;
       text-align: center;
     }}
     .fighter-box {{
-      padding: 0.75rem 0.5rem;
+      padding: 0.7rem 0.5rem;
       border-radius: 0.75rem;
     }}
     .fighter-box.red {{
-      background: rgba(239, 68, 68, 0.12);
-      border: 1px solid rgba(239, 68, 68, 0.3);
+      background: rgba(239, 68, 68, 0.14);
+      border: 1px solid rgba(239, 68, 68, 0.35);
     }}
     .fighter-box.blue {{
-      background: rgba(59, 130, 246, 0.12);
-      border: 1px solid rgba(59, 130, 246, 0.3);
+      background: rgba(59, 130, 246, 0.14);
+      border: 1px solid rgba(59, 130, 246, 0.35);
     }}
-    .fighter-name {{
-      font-size: 0.85rem;
-      font-weight: 700;
-    }}
+    .fighter-name {{ font-size: 0.86rem; font-weight: 800; }}
+    .fighter-tag {{ font-size: 0.71rem; color: var(--text-muted); margin-top: 0.15rem; }}
     .fighter-box.red .fighter-name {{ color: #f87171; }}
     .fighter-box.blue .fighter-name {{ color: #60a5fa; }}
     .vs-circle {{
       font-family: 'Bungee', cursive;
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       color: var(--gold);
     }}
-
     .round-row {{
-      background: rgba(15, 23, 42, 0.6);
+      background: rgba(15, 23, 42, 0.65);
       border-radius: 0.6rem;
-      padding: 0.6rem 0.8rem;
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 0.55rem 0.75rem;
+      border: 1px solid rgba(255, 255, 255, 0.06);
       margin-bottom: 0.4rem;
     }}
     .round-lbl {{
       display: flex;
       justify-content: space-between;
-      font-size: 0.75rem;
+      font-size: 0.74rem;
       font-weight: 600;
       margin-bottom: 0.3rem;
+      gap: 0.5rem;
     }}
     .round-bars {{
       display: flex;
@@ -581,27 +1016,27 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track):
       gap: 4px;
       border-radius: 4px;
       overflow: hidden;
-      background: rgba(255,255,255,0.05);
+      background: rgba(255,255,255,0.06);
     }}
-    .bar-fill.red {{ background: var(--red-fighter); }}
-    .bar-fill.blue {{ background: var(--blue-fighter); }}
-
+    .bar-fill.red {{ background: var(--red-fighter); transition: width 0.35s ease; }}
+    .bar-fill.blue {{ background: var(--blue-fighter); transition: width 0.35s ease; }}
     .winner-banner {{
-      background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(6, 182, 212, 0.2));
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.18), rgba(6, 182, 212, 0.18));
       border: 1px solid var(--emerald);
       border-radius: 0.75rem;
-      padding: 0.75rem;
-      margin-top: 1rem;
+      padding: 0.7rem 0.85rem;
+      margin-top: 0.85rem;
       display: flex;
       align-items: center;
       gap: 0.6rem;
     }}
 
+    /* Chibi Callout */
     .chibi-callout {{
       display: flex;
       gap: 0.75rem;
       align-items: flex-start;
-      margin: 1.25rem 0;
+      margin: 1rem 0 1.25rem 0;
     }}
     .chibi-avatar {{
       width: 44px;
@@ -611,204 +1046,349 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track):
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
+      font-size: 1.45rem;
       flex-shrink: 0;
     }}
     .speech-bubble {{
       background: rgba(30, 41, 59, 0.9);
       border: 1px solid rgba(56, 189, 248, 0.25);
-      border-radius: 1rem;
+      border-radius: 0.95rem;
       border-top-left-radius: 0.2rem;
-      padding: 0.75rem 1rem;
-      font-size: 0.82rem;
+      padding: 0.7rem 0.95rem;
+      font-size: 0.8rem;
       color: #e2e8f0;
     }}
 
-    .content-box {{
+    /* Track Sections & Quick-Scan Paper Cards */
+    .track-section {{
+      margin-bottom: 1.5rem;
+    }}
+    .track-header {{
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid rgba(6, 182, 212, 0.3);
+    }}
+    .track-icon {{ font-size: 1.3rem; }}
+    .track-title {{
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--neon-cyan);
+      flex: 1;
+    }}
+    .track-window {{
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      background: rgba(30, 41, 59, 0.8);
+      padding: 0.15rem 0.55rem;
+      border-radius: 9999px;
+    }}
+    .paper-card {{
+      background: var(--card-bg);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 1rem;
+      padding: 1.05rem;
+      margin-bottom: 0.9rem;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+    }}
+    .paper-top-bar {{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.55rem;
+    }}
+    .formulary-tag {{
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.18rem 0.6rem;
+      border-radius: 9999px;
+    }}
+    .tier-IN_FORMULARY {{
+      background: rgba(16, 185, 129, 0.18);
+      border: 1px solid rgba(16, 185, 129, 0.5);
+      color: #6ee7b7;
+    }}
+    .tier-J2_RESTRICTED {{
+      background: rgba(245, 158, 11, 0.18);
+      border: 1px solid rgba(245, 158, 11, 0.5);
+      color: #fcd34d;
+    }}
+    .tier-PTC_CANDIDATE {{
+      background: rgba(239, 68, 68, 0.18);
+      border: 1px solid rgba(239, 68, 68, 0.5);
+      color: #fca5a5;
+    }}
+    .tier-CLINICAL_PROTOCOL {{
+      background: rgba(139, 92, 246, 0.18);
+      border: 1px solid rgba(139, 92, 246, 0.5);
+      color: #c4b5fd;
+    }}
+    .badge-group {{
+      display: flex;
+      gap: 0.35rem;
+      flex-wrap: wrap;
+    }}
+    .meta-badge {{
+      font-size: 0.69rem;
+      font-weight: 700;
+      padding: 0.15rem 0.55rem;
+      border-radius: 9999px;
+      text-decoration: none;
+    }}
+    .n-badge {{
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #7dd3fc;
+    }}
+    .pmc-badge {{
+      background: rgba(16, 185, 129, 0.2);
+      border: 1px solid var(--emerald);
+      color: #6ee7b7;
+    }}
+    .paper-title {{
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-bottom: 0.3rem;
+    }}
+    .paper-meta {{
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      margin-bottom: 0.65rem;
+    }}
+    .paper-meta a {{ color: var(--neon-cyan); text-decoration: none; font-weight: 600; }}
+    .paper-takeaway {{
+      background: rgba(6, 182, 212, 0.1);
+      border-left: 3px solid var(--neon-cyan);
+      padding: 0.55rem 0.75rem;
+      border-radius: 0.4rem;
+      font-size: 0.84rem;
+      color: #f8fafc;
+      margin-bottom: 0.65rem;
+    }}
+    .paper-metrics {{
+      font-size: 0.8rem;
+      color: #cbd5e1;
+      margin-bottom: 0.7rem;
+      padding-left: 0.2rem;
+    }}
+    .metrics-header {{ font-weight: 700; color: #93c5fd; margin-bottom: 0.25rem; }}
+    .paper-metrics ul {{ padding-left: 1.2rem; }}
+    .paper-metrics li {{ margin-bottom: 0.2rem; }}
+    .hq-grid {{
+      display: grid;
+      gap: 0.45rem;
+      margin-bottom: 0.7rem;
+    }}
+    .hq-box {{
+      font-size: 0.78rem;
+      padding: 0.48rem 0.7rem;
+      border-radius: 0.5rem;
+    }}
+    .action-box {{
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #d1fae5;
+    }}
+    .rx-box {{
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      color: #fef3c7;
+    }}
+    .bi-box {{
+      background: rgba(139, 92, 246, 0.1);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      color: #ede9fe;
+    }}
+    .paper-footer {{ text-align: right; }}
+    .read-btn {{
+      display: inline-block;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--neon-cyan);
+      text-decoration: none;
+      padding: 0.3rem 0.7rem;
+      border-radius: 0.5rem;
+      background: rgba(6, 182, 212, 0.12);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+    }}
+
+    /* Formal Mode Container */
+    .formal-box {{
+      display: none;
       background: var(--card-bg);
       border-radius: 1.25rem;
       padding: 1.25rem;
       border: 1px solid rgba(255, 255, 255, 0.08);
     }}
-    .content-box h2 {{
+    .formal-box h1, .formal-box h2, .formal-box h3, .formal-box h4 {{
       color: var(--neon-cyan);
-      font-size: 1.15rem;
-      margin: 1.2rem 0 0.6rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      padding-bottom: 0.3rem;
+      margin: 1rem 0 0.4rem 0;
     }}
-    .content-box h3 {{
-      color: #34d399;
-      font-size: 0.95rem;
-      margin: 0.8rem 0 0.3rem 0;
-    }}
-    .content-box p, .content-box li {{
+    .formal-box p, .formal-box li {{
       color: #cbd5e1;
-      font-size: 0.88rem;
-      margin-bottom: 0.4rem;
+      font-size: 0.86rem;
+      margin-bottom: 0.35rem;
     }}
-    .content-box a {{
-      color: var(--neon-cyan);
-      text-decoration: none;
-      font-weight: 500;
-    }}
-    .free-badge {{
-      display: inline-block;
-      background: rgba(16, 185, 129, 0.2);
-      border: 1px solid var(--emerald);
-      color: #6ee7b7;
-      font-size: 0.7rem;
-      font-weight: 700;
-      padding: 0.15rem 0.5rem;
-      border-radius: 9999px;
-      margin-left: 0.4rem;
-    }}
-    .sound-btn {{
-      background: rgba(245, 158, 11, 0.15);
-      border: 1px solid var(--gold);
-      color: var(--gold);
-      padding: 0.3rem 0.8rem;
-      border-radius: 9999px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      cursor: pointer;
-      margin-top: 0.5rem;
-    }}
+    .formal-box a {{ color: var(--neon-cyan); }}
+    .formal-box hr {{ border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 1rem 0; }}
   </style>
 </head>
 <body>
   <header class="arena-header">
-    <div class="live-tag">🔴 7-TRACK ACTIVE INTELLIGENCE</div>
+    <div class="live-tag">🟢 7-TRACK SENTINEL v2.2-HQ • 5-ALLIED HQs LINKED</div>
     <div class="arena-title">⚔️ CLINICAL BATTLE ARENA</div>
-    <div class="arena-subtitle">ระบบเฝ้าระวัง 7 หมวดสำคัญ • คัดกรอง Free PMC & Sample Size • รพ.เสิงสาง</div>
+    <div class="arena-subtitle">ระบบเฝ้าระวังงานวิจัยคลินิก 7 สายงาน • กรอง N ≥ 30 & Free PMC • รพ.เสิงสาง</div>
+    <div class="kpi-strip">
+      <div class="kpi-chip">📅 อัปเดต: <strong>{report_date}</strong></div>
+      <div class="kpi-chip">📚 เปเปอร์รอบนี้: <strong>{total_articles} เรื่อง</strong></div>
+      <div class="kpi-chip">📖 โหลดฟรี PMC: <strong>{free_pmc_count} เรื่อง</strong></div>
+    </div>
     <button class="sound-btn" onclick="playGong()">🔔 เคาะระฆังเปิดศึก</button>
   </header>
 
   <div class="container">
     <div class="mode-switch-bar">
-      <button class="mode-btn active" id="btn-fun" onclick="switchMode('fun')">🎮 ศึกดวล Quick-Scan (7 หมวด)</button>
-      <button class="mode-btn" id="btn-formal" onclick="switchMode('formal')">📄 เอกสารฉบับเต็ม</button>
+      <button class="mode-btn active" id="btn-fun" onclick="switchMode('fun')">🎮 โหมดศึกดวล Quick-Scan (7 หมวด)</button>
+      <button class="mode-btn" id="btn-formal" onclick="switchMode('formal')">📄 โหมดเอกสารทางการ (Formal)</button>
     </div>
 
     <div class="filter-scroll" id="trackPills">
-      <button class="pill-btn active" onclick="filterTrack('all', this)">🌟 ทั้งหมด</button>
-      <button class="pill-btn" onclick="filterTrack('Asthma', this)">🫁 Asthma/COPD</button>
-      <button class="pill-btn" onclick="filterTrack('เลิกบุหรี่', this)">🚭 เลิกบุหรี่</button>
-      <button class="pill-btn" onclick="filterTrack('สมุนไพร', this)">🌿 สมุนไพรไทย</button>
-      <button class="pill-btn" onclick="filterTrack('ชะลอไต', this)">🫀 ชะลอไต (CRM)</button>
-      <button class="pill-btn" onclick="filterTrack('Warfarin', this)">🩸 Warfarin/DOACs</button>
-      <button class="pill-btn" onclick="filterTrack('ปฏิชีวนะ', this)">🦠 ยาฆ่าเชื้อ (AMS)</button>
-      <button class="pill-btn" onclick="filterTrack('ผู้สูงอายุ', this)">👴 ตัดยาคนแก่</button>
+      {pills_joined}
     </div>
 
-    <!-- MAIN EVENT BATTLE CARD (Smoking) -->
+    <!-- DYNAMIC MULTI-BOUT MAIN EVENT ARENA (Fix #4) -->
     <div class="battle-card" id="main-showdown">
-      <div style="font-size: 0.8rem; color: var(--gold); font-weight: 700;">🚭 ศึกมวยคู่เอก: เภสัชบำบัดช่วยเลิกบุหรี่</div>
+      <div class="bout-tabs" id="boutTabs"></div>
+      <div id="boutHeadline" style="font-size: 0.83rem; color: var(--gold); font-weight: 700;"></div>
       <div class="fighters-arena">
         <div class="fighter-box red">
-          <div class="fighter-name">สูตรผสม BUP + ZON</div>
-          <div class="fighter-tag">Bupropion + Zonisamide</div>
+          <div class="fighter-name" id="redName"></div>
+          <div class="fighter-tag" id="redSub"></div>
         </div>
         <div class="vs-circle">VS</div>
         <div class="fighter-box blue">
-          <div class="fighter-name">สูตรเดี่ยว BUP</div>
-          <div class="fighter-tag">Bupropion Monotherapy</div>
+          <div class="fighter-name" id="blueName"></div>
+          <div class="fighter-tag" id="blueSub"></div>
         </div>
       </div>
-      <div class="battle-rounds">
-        <div class="round-row">
-          <div class="round-lbl">
-            <span>🥊 ยก 1: ความเร็วลดควันบุหรี่ (eCO Drop)</span>
-            <span style="color: var(--emerald);">สูตรผสมชนะ (+25%)</span>
-          </div>
-          <div class="round-bars">
-            <div class="bar-fill red" style="width: 75%;"></div>
-            <div class="bar-fill blue" style="width: 50%;"></div>
-          </div>
-        </div>
-        <div class="round-row">
-          <div class="round-lbl">
-            <span>🥊 ยก 2: คุมน้ำหนักตัวไม่ให้เด้ง (Weight Gain)</span>
-            <span style="color: var(--emerald);">สูตรผสมชนะน็อค! (ไม่ขึ้นเลย)</span>
-          </div>
-          <div class="round-bars">
-            <div class="bar-fill red" style="width: 90%;"></div>
-            <div class="bar-fill blue" style="width: 30%;"></div>
-          </div>
-        </div>
-      </div>
+      <div class="battle-rounds" id="battleRounds"></div>
       <div class="winner-banner">
-        <div style="font-size: 1.5rem;">🏆</div>
-        <div style="font-size: 0.8rem; color: #a7f3d0;">
-          <strong>ฟันธง:</strong> เหมาะกับผู้ป่วยที่ <em>"กลัวเลิกบุหรี่แล้วอ้วน"</em> เพราะระงับ Cravings ได้ชะงัด!
-        </div>
+        <div style="font-size: 1.45rem;">🏆</div>
+        <div style="font-size: 0.8rem; color: #a7f3d0;" id="boutVerdict"></div>
       </div>
     </div>
 
-    <!-- CHIBI MASCOT CALLOUT -->
+    <!-- CHIBI PHARMACIST CALLOUT -->
     <div class="chibi-callout">
       <div class="chibi-avatar">👨‍⚕️</div>
       <div class="speech-bubble">
-        <strong>โน้ตลับจากเภสัชกรนัท (IM Team):</strong> "ระบบอัปเกรดเป็น 7-Track แล้วครับอาจารย์! ตรวจจับทั้งเรื่องชะลอไต SGLT2i, วาร์ฟาริน, ยาฆ่าเชื้อสูตรสั้น และการตัดยาในคนแก่ พร้อมป้ายเตือนเปเปอร์โหลดฟรี PMC ให้เรียบร้อยครับ!"
+        <strong>โน้ตจาก ภก.รัฐนนท์ (ประธานทีม IM รพ.เสิงสาง):</strong>
+        "อัปเกรดสู่ <strong>v2.2.0-HQ</strong> ผ่าตัดครบ 8 จุดตามคำแนะนำพี่ใหญ่ Argon แล้วครับ! อ่าน Abstract เต็ม 3,000 ตัวอักษร, กรอง N ≥ 30 รองรับหลักพัน, กดปุ่มกรองหมวดไม่มีเพี้ยน พร้อมป้ายสถานะบัญชียา รพ.เสิงสาง (Rx-Sentinel) และมุมมองความคุ้มค่า (BI-HQ) ครบทุกการ์ดครับ!"
       </div>
     </div>
 
-    <!-- DYNAMIC REPORT CONTENT -->
-    <main class="content-box" id="report-content">
-      <!-- Rendered Markdown -->
-    </main>
+    <!-- BATTLE MODE TRACK CARDS (Fix #3: Deterministic data-track-id filtering) -->
+    <div id="battle-cards-container">
+      {all_sections_joined}
+    </div>
+
+    <!-- FORMAL MODE MARKDOWN CONTAINER -->
+    <main class="formal-box" id="formal-content"></main>
 
     <footer style="text-align: center; margin-top: 2rem; font-size: 0.75rem; color: var(--text-muted);">
       <p><strong>ผู้รับผิดชอบระบบ:</strong> ภก.รัฐนนท์ แสงไทยทวีพร, เภสัชกรชำนาญการ</p>
       <p>ประธานทีม Information Management (IM) โรงพยาบาลเสิงสาง</p>
-      <p style="margin-top: 0.3rem;"><a href="https://canva.link/v9g5tfxdg349vbg" target="_blank" style="color: #c084fc; text-decoration: none;">🎨 เปิดสไลด์ใน Canva Pro →</a></p>
+      <p style="margin-top: 0.35rem;">
+        <a href="https://canva.link/v9g5tfxdg349vbg" target="_blank" style="color: #c084fc; text-decoration: none;">🎨 เปิดสไลด์ใน Canva Pro →</a>
+        &nbsp;|&nbsp;
+        <a href="https://github.com/NutCodeLaw/pubmed-clinical-sentinel" target="_blank" style="color: #38bdf8; text-decoration: none;">📦 GitHub Repository →</a>
+      </p>
     </footer>
   </div>
 
   <script>
-    const md = {json.dumps(markdown_content)};
-    const contentBox = document.getElementById('report-content');
-    contentBox.innerHTML = marked.parse(md);
+    const mdContent = {json.dumps(markdown_content, ensure_ascii=False)};
+    const boutsData = {json.dumps(showdown_bouts, ensure_ascii=False)};
+    let currentBoutIndex = 0;
+    let currentMode = 'fun';
 
-    function filterTrack(keyword, btn) {{
+    // Render Formal Markdown
+    const formalBox = document.getElementById('formal-content');
+    if (window.marked) {{
+      formalBox.innerHTML = marked.parse(mdContent);
+    }} else {{
+      formalBox.textContent = mdContent;
+    }}
+
+    function renderBout(index) {{
+      currentBoutIndex = index;
+      const b = boutsData[index];
+      if (!b) return;
+
+      const tabsEl = document.getElementById('boutTabs');
+      tabsEl.innerHTML = boutsData.map((item, idx) =>
+        `<button class="bout-tab ${{idx === index ? 'active' : ''}}" onclick="renderBout(${{idx}})">${{item.tab_label}}</button>`
+      ).join('');
+
+      document.getElementById('boutHeadline').textContent = b.headline;
+      document.getElementById('redName').textContent = b.red_name;
+      document.getElementById('redSub').textContent = b.red_sub;
+      document.getElementById('blueName').textContent = b.blue_name;
+      document.getElementById('blueSub').textContent = b.blue_sub;
+
+      const roundsEl = document.getElementById('battleRounds');
+      roundsEl.innerHTML = b.rounds.map(r => `
+        <div class="round-row">
+          <div class="round-lbl">
+            <span>${{r.title}}</span>
+            <span style="color: var(--emerald);">${{r.verdict}}</span>
+          </div>
+          <div class="round-bars">
+            <div class="bar-fill red" style="width: ${{r.red_pct}}%;"></div>
+            <div class="bar-fill blue" style="width: ${{r.blue_pct}}%;"></div>
+          </div>
+        </div>
+      `).join('');
+
+      document.getElementById('boutVerdict').innerHTML = `<strong>ฟันธงหน้างาน รพ.เสิงสาง:</strong> ${{b.verdict_text}}`;
+    }}
+
+    // Fix #3: Deterministic Track Filtering by exact data-track-id
+    function filterTrack(trackId, btn) {{
       document.querySelectorAll('.pill-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+      if (btn) btn.classList.add('active');
 
-      const showdown = document.getElementById('main-showdown');
-      if (keyword === 'all' || keyword === 'เลิกบุหรี่') {{
-        showdown.style.display = 'block';
-      }} else {{
-        showdown.style.display = 'none';
-      }}
-
-      const headers = contentBox.querySelectorAll('h2, h3');
-      if (keyword === 'all') {{
-        headers.forEach(h => {{
-          let el = h;
-          while (el && el !== contentBox) {{
-            el.style.display = '';
-            el = el.nextElementSibling;
-            if (el && (el.tagName === 'H2' || el.tagName === 'H3')) break;
-          }}
-        }});
-        return;
-      }}
-
-      headers.forEach(h => {{
-        const isMatch = h.textContent.includes(keyword);
-        let el = h.nextElementSibling;
-        h.style.display = isMatch ? '' : 'none';
-        while (el && el.tagName !== 'H2' && el.tagName !== 'H3') {{
-          el.style.display = isMatch ? '' : 'none';
-          el = el.nextElementSibling;
+      const sections = document.querySelectorAll('.track-section');
+      sections.forEach(sec => {{
+        if (trackId === 'all' || sec.getAttribute('data-track-id') === trackId) {{
+          sec.style.display = 'block';
+        }} else {{
+          sec.style.display = 'none';
         }}
       }});
+
+      // Sync Main Event Showdown card to matching track if available
+      if (trackId !== 'all') {{
+        const matchIdx = boutsData.findIndex(b => b.track_id === trackId);
+        if (matchIdx !== -1) {{
+          renderBout(matchIdx);
+        }}
+      }}
     }}
 
     function switchMode(mode) {{
+      currentMode = mode;
       document.getElementById('btn-fun').classList.toggle('active', mode === 'fun');
       document.getElementById('btn-formal').classList.toggle('active', mode === 'formal');
       document.getElementById('main-showdown').style.display = mode === 'fun' ? 'block' : 'none';
+      document.getElementById('battle-cards-container').style.display = mode === 'fun' ? 'block' : 'none';
+      document.getElementById('trackPills').style.display = mode === 'fun' ? 'flex' : 'none';
+      document.getElementById('formal-content').style.display = mode === 'formal' ? 'block' : 'none';
     }}
 
     function playGong() {{
@@ -827,18 +1407,204 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track):
         osc.stop(ctx.currentTime + 1.2);
       }} catch(e) {{}}
     }}
+
+    // Initialize default bout
+    renderBout(0);
   </script>
 </body>
 </html>"""
     return html
 
+
 def main():
     report_date = datetime.date.today().strftime("%Y-%m-%d")
-    print(f"=== Starting PubMed Clinical Sentinel (7-Track v2.0): {report_date} ===")
+    print(f"=== Starting PubMed Clinical Sentinel (7-Track v2.2.0-HQ): {report_date} ===")
 
-    seen_data = load_seen_pmids()
+    seen_data = load_json_file(SEEN_FILE, {"last_updated": None, "processed_pmids": []})
     seen_set = set(seen_data.get("processed_pmids", []))
     print(f"[INFO] Loaded {len(seen_set)} previously processed PMIDs.")
+
+    cached_tracks = load_json_file(CACHE_FILE, {})
+    cached_by_pmid = {}
+    for arts in cached_tracks.values():
+        for a in arts:
+            if a.get("pmid"):
+                cached_by_pmid[a["pmid"]] = a
+
+    latest_report_path = os.path.join(REPORTS_DIR, f"{report_date}_respiratory_sentinel.md")
+    existing_summaries = {
+        "42993869": {
+            "thai_takeaway": "โปรแกรมดิจิทัลบำบัดร่วมกับการติดตามกระบอกพ่นยาช่วยเพิ่มความร่วมมือในการใช้ยาพ่นสูดในผู้ป่วย COPD ได้อย่างมีนัยสำคัญตลอด 24 สัปดาห์",
+            "key_metrics": [
+                "ความร่วมมือในการใช้ยาพ่นวัดผ่านระบบอิเล็กทรอนิกส์ (EIM): กลุ่มดิจิทัล 59.5% vs กลุ่มดูแลปกติ 33.1% (p = 0.009)",
+                "สัดส่วนผู้ป่วยที่เกิดการเปลี่ยนแปลง CAT score ในระดับที่มีความสำคัญทางคลินิก (MCID): OR 2.21 (95% CI 1.11-4.41, p = 0.02)"
+            ],
+            "soeng_sang_action": "พัฒนาระบบติดตามและแจ้งเตือนการใช้ยาพ่นผ่าน LINE OA เพื่อส่งเสริมความร่วมมือในการใช้ยาของผู้ป่วย COPD ในคลินิกโรคเรื้อรัง"
+        },
+        "42980725": {
+            "thai_takeaway": "หอบหืดในผู้สูงอายุพบสูงขึ้นแต่ยังได้รับการวินิจฉัยและการรักษาต่ำกว่าที่ควรเนื่องจากความซับซ้อนของโรคและข้อจำกัดด้านเทคนิคการพ่นยา",
+            "key_metrics": [
+                "Systematic Review พบปัญหา Underdiagnosis และ Undertreatment สูงมากในผู้สูงอายุที่มีโรคร่วมหลายโรค",
+                "ปัจจัยขัดขวางสำคัญ: ความรอบรู้ด้านสุขภาพต่ำ (Low health literacy), เทคนิคการพ่นยาไม่ถูกต้อง และอาการทับซ้อนกับภาวะหัวใจ/COPD"
+            ],
+            "soeng_sang_action": "จัดทำแนวทางการประเมินเทคนิคการพ่นยา (Inhaler Device Check) และพิจารณาใช้ Spacer ในผู้สูงอายุทุกรายที่คลินิกระบบทางเดินหายใจ"
+        },
+        "43007675": {
+            "thai_takeaway": "ไม่ควรใช้ยาพ่นสเตียรอยด์ (Mometasone) ระยะยาวในผู้ใหญ่ที่เป็น Sickle Cell Disease ที่มีอาการไอ/หวีดโดยไม่ได้เป็นหอบหืด เพราะทำให้ค่าการอักเสบแย่ลง",
+            "key_metrics": [
+                "ระดับ sVCAM-1 เพิ่มขึ้น 42% ในกลุ่ม Mometasone เทียบกับ Placebo (95% CI -11% ถึง 96%, p = 0.02)",
+                "ผลลัพธ์ทางคลินิกในกลุ่มที่ได้ยาพ่นสเตียรอยด์โดยไม่มีภาวะ Asthma มีแนวโน้มแย่กว่ากลุ่ม Placebo"
+            ],
+            "soeng_sang_action": "ทบทวนการสั่งใช้ ICS ในผู้ป่วยที่มีอาการทางระบบหายใจเรื้อรัง โดยต้องยืนยันการวินิจฉัยโรคหอบหืดที่ชัดเจนก่อนเริ่มยาพ่นสเตียรอยด์ระยะยาว"
+        },
+        "42849341": {
+            "thai_takeaway": "สูตรผสม Bupropion+Zonisamide ช่วยลดปริมาณควันบุหรี่ได้อย่างรวดเร็วและป้องกันน้ำหนักตัวพุ่งหลังหยุดสูบบุหรี่ได้ดีกว่าสูตรเดี่ยว",
+            "key_metrics": [
+                "อัตราการเลิกสูบบุหรี่ (mITT): BUP/ZON 26.7% และ BUP 25.0% vs Placebo 10.0%",
+                "กลุ่ม BUP/ZON มีระดับก๊าซคาร์บอนมอนอกไซด์ (eCO) ลดลงชัดเจนและป้องกันปัญหาน้ำหนักตัวเด้งหลังเลิกบุหรี่ได้สำเร็จ"
+            ],
+            "soeng_sang_action": "ในคลินิกฟ้าใส รพ.เสิงสาง ใช้ Bupropion ร่วมกับการให้คำปรึกษาควบคุมน้ำหนักและหญ้าดอกขาวในผู้ป่วยที่กังวลเรื่องอ้วนหลังเลิกบุหรี่"
+        },
+        "42740717": {
+            "thai_takeaway": "ความหลากหลายของยีนตับ CYP2B6 สัมพันธ์กับอัตราความสำเร็จในการใช้ยา Bupropion ช่วยเลิกบุหรี่",
+            "key_metrics": [
+                "Systematic Review 19 การศึกษา (N=2,590) พบยีน CYP2B6 rs2279343 AA สัมพันธ์กับการเลิกบุหรี่ด้วย Bupropion ที่สำเร็จสูงกว่า",
+                "การตอบสนองต่อยาจิตเวชและยาช่วยเลิกบุหรี่ขึ้นกับเอนไซม์ CYP2B6 และ CYP2C19 อย่างมีนัยสำคัญ"
+            ],
+            "soeng_sang_action": "ติดตามการตอบสนองทางคลินิกต่อ Bupropion ในคลินิกฟ้าใสอย่างใกล้ชิด หากไม่ตอบสนองภายใน 4–6 สัปดาห์ให้พิจารณาปรับแผนการรักษา"
+        },
+        "42632080": {
+            "thai_takeaway": "สารอนุพันธ์ขมิ้นชัน sAc15 ช่วยบรรเทาการบาดเจ็บของปอดอักเสบเฉียบพลัน (ALI) ผ่านการกระตุ้นกลไกต้านอนุมูลอิสระ PI3K/AKT/Nrf2 pathway",
+            "key_metrics": [
+                "sAc15 จับกับโปรตีน Nrf2 ด้วยค่า KD = 2.68 μM และลดอนุมูลอิสระ ROS ในเซลล์เยื่อบุถุงลมปอดได้ดีกว่า Curcumin ธรรมชาติ",
+                "ลดการตายของเซลล์ปอด (Anti-apoptosis) และยับยั้งการอักเสบที่กระตุ้นด้วยสารพิษ LPS ได้อย่างมีนัยสำคัญ"
+            ],
+            "soeng_sang_action": "ติดตามข้อมูลการพัฒนาสารสกัดขมิ้นชันดัดแปลงโครงสร้างในระดับคลินิกเพื่อต่อยอดการใช้สมุนไพรไทยในโรคระบบทางเดินหายใจ"
+        },
+        "42667699": {
+            "thai_takeaway": "การใช้เคอร์คูมิน (Curcumin จากขมิ้นชัน) ในรูปแบบนาโนแพลตฟอร์มส่งยาเข้าสู่เซลล์ถุงลมปอดโดยตรง ช่วยทำลายเซลล์เสื่อมสภาพและชะลอภาวะพังผืดในปอด",
+            "key_metrics": [
+                "นวัตกรรม CCMD@Lipo-Apt ปลดปล่อย Curcumin + Ca2+ กระตุ้น Calcium overload ในเซลล์ปอดที่เสื่อมสภาพอย่างจำเพาะเจาะจง",
+                "ลดการแสดงออกของยีนพังผืดและยับยั้ง SAEC II senescent cells ช่วยฟื้นฟูเนื้อเยื่อถุงลมปอดในภาวะ Pulmonary Fibrosis"
+            ],
+            "soeng_sang_action": "สารสกัดขมิ้นชันมีศักยภาพสูงในการต่อยอดสู่นวัตกรรมบำบัดโรคปอดเรื้อรัง ควบคู่กับการเฝ้าระวังอันตรกิริยาต่อตับและยาละลายลิ่มเลือด"
+        },
+        "43013818": {
+            "thai_takeaway": "เปรียบเทียบ 3 ยาหลักป้องกันลิ่มเลือดอุดตัน (VTE) หลังผ่าตัดเปลี่ยนข้อสะโพก/ข้อเข่า (PEPPER Trial, N=18,883): Warfarin/Rivaroxaban ลด VTE ได้ดีกว่าเล็กน้อย แต่ Aspirin มีความปลอดภัยด้านเลือดออกเหนือกว่าระดับมีนัยสำคัญ",
+            "key_metrics": [
+                "PEPPER RCT (N=18,883 ราย ใน NEJM) เปรียบเทียบ Aspirin 81 mg BID vs Warfarin (INR 2.0) vs Rivaroxaban 10 mg QD นาน 30 วัน",
+                "กลุ่ม Warfarin และ Rivaroxaban มีความเสี่ยงเลือดออกและการต้องผ่าตัดซ้ำสูงกว่ากลุ่ม Aspirin อย่างมีนัยสำคัญ"
+            ],
+            "soeng_sang_action": "ในผู้ป่วยหลังผ่าตัดเปลี่ยนข้อที่มีความเสี่ยง VTE ต่ำหรือเสี่ยงเลือดออกสูง Aspirin เป็นทางเลือกที่ปลอดภัยและช่วยลดภาระการเจาะวัด INR ของคลินิกวาร์ฟาริน"
+        },
+        "43004015": {
+            "thai_takeaway": "Apixaban มีประสิทธิผลป้องกันการกลับเป็นซ้ำของลิ่มเลือดอุดตัน (Acute VTE) เทียบเท่า Rivaroxaban แต่มีอัตราการเกิดเลือดออกทางเดินอาหารและ Major Bleeding ต่ำกว่า",
+            "key_metrics": [
+                "Systematic Review & Meta-analysis รวม 13 การศึกษา (ผู้ป่วย N=233,569 ราย) เปรียบเทียบ Apixaban กับ Rivaroxaban",
+                "Apixaban ลดความเสี่ยง Major Bleeding และ Gastrointestinal Bleeding ได้ดีกว่า Rivaroxaban อย่างมีนัยสำคัญ"
+            ],
+            "soeng_sang_action": "หากต้องเลือกใช้ยากลุ่ม DOACs ในผู้ป่วย Acute VTE ที่มีประวัติโรคกระเพาะหรือเสี่ยงเลือดออกทางเดินอาหาร ควรพิจารณา Apixaban เป็นลำดับแรก"
+        },
+        "42844453": {
+            "thai_takeaway": "ยาปฏิชีวนะสูตรสั้น (3–5 วัน) รักษาโรคปอดอักเสบชุมชนชนิดไม่รุนแรงในเด็ก (Pediatric Non-severe CAP) ได้ผลไม่ต่างจากสูตรยาว (7–10 วัน) พร้อมเพิ่มความร่วมมือในการกินยา",
+            "key_metrics": [
+                "Meta-analysis (N=8,970 ราย) ยืนยันอัตราการรักษาล้มเหลวหรือการกลับเป็นซ้ำไม่แตกต่างกันระหว่างยาสูตรสั้นและสูตรยาว",
+                "กลุ่มยาสูตรสั้นมีอัตราการกินยาไม่ครบ (Non-adherence) ต่ำกว่าอย่างชัดเจนและลดผลข้างเคียงจากยาปฏิชีวนะ"
+            ],
+            "soeng_sang_action": "สนับสนุนการจ่าย Amoxicillin สูตรสั้น 3–5 วัน ในเด็กปอดบวมชนิดไม่รุนแรงที่ รพ.เสิงสาง เพื่อลดเชื้อดื้อยาและช่วยให้ผู้ปกครองป้อนยาครบคอร์สได้ง่ายขึ้น"
+        },
+        "42816130": {
+            "thai_takeaway": "ยาป้องกันวัณโรคสูตรสั้นที่มี Rifamycin (เช่น 3HP, 3HR, 4R) ในเด็กและวัยรุ่น มีอัตราการกินยาครบคอร์สสูงกว่าและเกิดพิษต่อตับต่ำกว่าสูตร Isoniazid ยาว 6–9 เดือน",
+            "key_metrics": [
+                "Network Meta-Analysis ในเด็กและวัยรุ่นที่สัมผัสผู้ป่วยวัณโรค เปรียบเทียบสูตรสั้น (3HP, 3HR, 4R) กับสูตรดั้งเดิม (6H/9H)",
+                "สูตรสั้นที่มี Rifampicin/Rifapentine ช่วยลดอุบัติการณ์เกิดวัณโรคระยะลุกลามและมี Completion rate สูงกว่าอย่างมีนัยสำคัญ"
+            ],
+            "soeng_sang_action": "คลินิกวัณโรค รพ.เสิงสาง ควรใช้สูตรยาสั้น (3HP หรือ 3HR/4R) ในการทำ TB Preventive Treatment (TPT) ในเด็กและผู้สัมผัสใกล้ชิดเพื่อลดพิษต่อตับ"
+        },
+        "42815285": {
+            "thai_takeaway": "ความสำเร็จของการตัดยาล้นเกิน (Deprescribing) ในผู้สูงอายุขึ้นอยู่กับความไว้วางใจในทีมสุขภาพและการสื่อสารแบบตัดสินใจร่วมกัน (Shared Decision-Making) เพื่อลดความกลัวโรคกำเริบ",
+            "key_metrics": [
+                "Systematic Review วิเคราะห์ปัจจัยส่งเสริมและอุปสรรคของการหยุดยาในผู้สูงอายุที่ใช้ยาตั้งแต่ 5 รายการขึ้นไป (Polypharmacy)",
+                "การวางแผนลดยาเป็นลำดับขั้น (Stepwise Tapering) ร่วมกับการให้ข้อมูลที่ชัดเจนช่วยเพิ่มการยอมรับของผู้ป่วยและญาติ"
+            ],
+            "soeng_sang_action": "เภสัชกรประจำคลินิกผู้สูงอายุและ NCDs รพ.เสิงสาง ควรใช้แนวทางค่อยๆ ปรับลดขนาดยาควบคู่กับการสร้างความมั่นใจแก่ผู้ป่วยและผู้ดูแล"
+        },
+        "42773858": {
+            "thai_takeaway": "การทบทวนรายการยาโดยใช้เครื่องมือ FORTA (Fit fOR The Aged) ช่วยลดการใช้ยาที่ไม่เหมาะสม (PIMs) และการใช้ยาเกินความจำเป็นในผู้สูงอายุได้อย่างมีนัยสำคัญ",
+            "key_metrics": [
+                "Multicentre RCT (N=443 ราย; กลุ่มทดลอง N=234 vs กลุ่มควบคุม N=209) ประเมินการทบทวนยาตามเกณฑ์ FORTA เทียบกับการดูแลปกติ",
+                "ลดสัดส่วนผู้ป่วยที่ได้รับยาไม่เหมาะสม (PIMs) ลงถึง 41.3% และลดการใช้ยาเกินจำเป็น (Overuse) ลง 30.7% (p < 0.001)"
+            ],
+            "soeng_sang_action": "นำเกณฑ์ FORTA / Beers Criteria มาประยุกต์ใช้ในระบบ Medication Reconciliation หอผู้ป่วยในและคลินิกผู้สูงอายุ รพ.เสิงสาง"
+        },
+        "42872594": {
+            "thai_takeaway": "ขมิ้นชัน (Curcuma longa) มีหลักฐานทางเภสัชเวทสนับสนุนฤทธิ์ต้านอักเสบในระบบทางเดินอาหารและทางเดินหายใจ โดยต้องควบคุมมาตรฐานสารสำคัญ",
+            "key_metrics": [
+                "ทบทวนมาตรฐานเภสัชเวทของเหง้าขมิ้นชันครอบคลุมตำรับยาหลักทั่วโลกเพื่อยืนยันเอกลักษณ์และความบริสุทธิ์ของสาร Curcuminoids",
+                "ชี้เป้าความสำคัญของการควบคุมคุณภาพวัตถุดิบสมุนไพรเพื่อลดความแปรปรวนของผลการรักษาทางคลินิก"
+            ],
+            "soeng_sang_action": "เข้มงวดการคัดเลือกและตรวจรับผลิตภัณฑ์ขมิ้นชันและสมุนไพรในคลังยา รพ.เสิงสาง ให้ได้มาตรฐานสารสำคัญตามเภสัชตำรับ"
+        },
+        "42952754": {
+            "thai_takeaway": "Network Meta-Analysis ยืนยัน SGLT2i และ GLP-1RA ให้ประโยชน์สูงสุดในการลดอัตรานอน รพ. จาก Heart Failure และชะลอโรคไตในผู้ป่วยเบาหวานที่มีภาวะหัวใจล้มเหลว",
+            "key_metrics": [
+                "วิเคราะห์เปรียบเทียบ RCTs (N=13,886) ระหว่างยากลุ่ม SGLT2i, GLP-1RA, DPP-4i และ GIP/GLP-1RA",
+                "SGLT2i นำโด่งด้านการลด Heart Failure Hospitalization และชะลอการเสื่อมของไต (Cardiorenal composite outcome)"
+            ],
+            "soeng_sang_action": "ผู้ป่วยเบาหวานชนิดที่ 2 ร่วมกับภาวะหัวใจล้มเหลวหรือโรคไตเรื้อรังใน รพ.เสิงสาง ควรได้รับ Dapagliflozin (SGLT2i) เป็นลำดับแรกตามเกณฑ์"
+        },
+        "43004293": {
+            "thai_takeaway": "Dapagliflozin ช่วยลดการเสียชีวิตและภาวะหัวใจล้มเหลวกำเริบหลังเปลี่ยนลิ้นหัวใจ TAVR ได้ดีเท่าเทียมกันทั้งในผู้ที่เป็นและไม่เป็นเบาหวาน",
+            "key_metrics": [
+                "DAPA-TAVI RCT (N=1,222 ราย ใน 39 ศูนย์ ติดตามผล 1 ปี) เปรียบเทียบ Dapagliflozin 10 mg กับ Standard care",
+                "ลดผลลัพธ์หลัก (All-cause death หรือ Worsening HF) ได้สอดคล้องกันทั้งกลุ่มเป็นเบาหวานและไม่เป็นเบาหวาน (P-interaction > 0.05)"
+            ],
+            "soeng_sang_action": "มั่นใจในการสั่งจ่าย Dapagliflozin เพื่อป้องกัน Heart Failure กำเริบในผู้ป่วยโรคหัวใจแม้ไม่มีโรคเบาหวานร่วมด้วย"
+        },
+        "42966367": {
+            "thai_takeaway": "ยากลุ่ม DOACs ชนิดรับประทานมีประสิทธิผลลดการเกิดลิ่มเลือดอุดตัน (VTE/DVT) หลังผ่าตัดเปลี่ยนข้อสะโพกได้ดีกว่ายาฉีด LMWH โดยไม่เพิ่มความเสี่ยงเลือดออก",
+            "key_metrics": [
+                "Meta-analysis (N=28,112 ราย) พบ DOACs ลดความเสี่ยง VTE (OR 0.62, p = 0.002) และ DVT (OR 0.60, p = 0.008) เทียบกับ LMWH",
+                "อัตราการเกิดเลือดออกรุนแรงไม่แตกต่างกันอย่างมีนัยสำคัญเมื่อใช้ในขนาดยามาตรฐานที่ได้รับอนุมัติ (OR 1.06, p = 0.279)"
+            ],
+            "soeng_sang_action": "ใช้เป็นข้อมูลประกอบการพิจารณา DOACs ชนิดรับประทานแทนยาฉีด LMWH ในผู้ป่วยหลังผ่าตัดเปลี่ยนข้อที่มีความเสี่ยงสูงเพื่อความสะดวกและปลอดภัย"
+        },
+        "42928572": {
+            "thai_takeaway": "Apixaban ขนาดต่ำ (2.5 mg วันละ 2 ครั้ง) ป้องกันลิ่มเลือดอุดตันในผู้ป่วยมะเร็งที่รับเคมีบำบัดแบบผู้ป่วยนอกได้ดีเยี่ยม โดยเฉพาะสูตร Platinum",
+            "key_metrics": [
+                "AVERT Post-hoc RCT (N=563) พบ Apixaban ลดความเสี่ยง VTE ในกลุ่มได้รับยาเคมีบำบัด Platinum (HR 0.30) และ Taxane (HR 0.42)",
+                "ผู้ป่วยมะเร็งที่ได้รับสูตร Platinum มีความเสี่ยงเกิด VTE สูงกว่าสูตรอื่นถึง 2.25 เท่าหากไม่ได้รับยาป้องกัน"
+            ],
+            "soeng_sang_action": "เฝ้าระวังอาการลิ่มเลือดอุดตันอย่างใกล้ชิดในผู้ป่วยมะเร็งที่รับเคมีบำบัดสูตร Platinum และประเมินความเสี่ยง Khorana score ร่วมกับแพทย์"
+        },
+        "43009825": {
+            "thai_takeaway": "Nafithromycin ยาปฏิชีวนะชนิดรับประทานสูตรสั้น 3 วัน ให้ผลการรักษาปอดอักเสบชุมชน (CABP) ไม่ด้อยกว่าการทาน Moxifloxacin 7 วัน",
+            "key_metrics": [
+                "Phase 3 RCT ยืนยันการทาน Nafithromycin 3 วัน มีอัตราการตอบสนองทางคลินิกไม่ด้อยกว่า (Non-inferior) Moxifloxacin 7 วัน",
+                "ตัวยาสามารถกระจายตัวเข้าสู่เนื้อเยื่อปอดและถุงลมได้ความเข้มข้นสูง ช่วยลดระยะเวลาการใช้ยาปฏิชีวนะลงกว่าครึ่ง"
+            ],
+            "soeng_sang_action": "สนับสนุนแนวทาง Short-Course RDU (3–5 วัน) ในโรคปอดอักเสบชุมชนชนิดไม่รุนแรงเพื่อเพิ่มความร่วมมือในการกินยาและลดการดื้อยา"
+        },
+        "42888381": {
+            "thai_takeaway": "การหยุดยาลดความดันโลหิตในผู้สูงอายุเปราะบางช่วยลดจำนวนยาที่ต้องกินลงได้ แต่ต้องระวังความดันโลหิตซิสโตลิกที่อาจขยับสูงขึ้นประมาณ 11 mmHg",
+            "key_metrics": [
+                "ทบทวน RCTs (DANTON & RETREAT-FRAIL) พบการหยุดยาลดความดันทำให้ SBP เพิ่มขึ้นเฉลี่ย 11.0 mmHg และลดจำนวนยาลงได้ 1.2 รายการ",
+                "ต้องคัดกรองผู้สูงอายุที่มีภาวะความดันต่ำเมื่อเปลี่ยนท่าหรือมีผลข้างเคียงชัดเจนจึงจะได้ประโยชน์สูงสุดจากการหยุดยา"
+            ],
+            "soeng_sang_action": "การทำ Deprescribing ยาลดความดันในผู้สูงอายุเปราะบางที่ รพ.เสิงสาง ต้องทำแบบค่อยเป็นค่อยไป (Tapering) และนัดวัดความดันติดตามอย่างใกล้ชิด"
+        },
+        "42894466": {
+            "thai_takeaway": "การใช้เครื่องมือดิจิทัลแนะนำการค่อยๆ ลดยาช่วยเพิ่มอัตราการหยุดยาลดกรด PPI ที่ใช้เกินความจำเป็นได้สูงถึง 86% เทียบกับแผ่นพับปกติ 64%",
+            "key_metrics": [
+                "Multicentre RCT (N=174) พบอัตราการหยุดยา PPI สำเร็จที่ 2 เดือนสูงถึง 86% vs 64% (RR 1.34, 95% CI 1.11-1.61, p = 0.002)",
+                "พบอาการกรดไหลย้อนกำเริบซ้ำต่ำมากเมื่อใช้โปรแกรมแนะนำการค่อยๆ ลดขนาดยา (Step-down tapering)"
+            ],
+            "soeng_sang_action": "นำแนวทาง Step-down PPI Tapering มาใช้ในคลินิก NCDs และผู้สูงอายุ รพ.เสิงสาง เพื่อลดการสั่งใช้ Omeprazole ระยะยาวโดยไม่มีข้อบ่งชี้"
+        }
+    }
+    seed_summaries = existing_summaries
+    existing_summaries = parse_existing_markdown_summaries(latest_report_path)
+    existing_summaries.update(seed_summaries)
 
     articles_by_track = {}
     newly_discovered_pmids = []
@@ -848,57 +1614,113 @@ def main():
         tname = track["name"]
         print(f"\n[SCAN] Searching track: {tname} (Past {track['days']} days)...")
 
-        pmids = search_pubmed_pmids(track["query"], reldate=track["days"], retmax=track["max_results"] * 2)
+        pmids = search_pubmed_pmids(track["query"], reldate=track["days"], retmax=track["max_results"] * 3)
         print(f"  Found {len(pmids)} PMIDs in PubMed search.")
 
-        unseen_pmids = [p for p in pmids if p not in seen_set][:track["max_results"]]
-        print(f"  Unseen target PMIDs to fetch: {unseen_pmids}")
+        top_pmids = pmids[:track["max_results"]]
+        to_fetch_pmids = [p for p in top_pmids if p not in cached_by_pmid]
 
-        if unseen_pmids:
-            articles = fetch_pubmed_articles(unseen_pmids)
-            articles_by_track[tid] = articles
-            newly_discovered_pmids.extend([a["pmid"] for a in articles])
-            print(f"  Successfully fetched {len(articles)} article details (after filters).")
-        else:
-            articles_by_track[tid] = []
-            print(f"  No new unseen articles for track: {tname}")
+        fetched_map = {}
+        if to_fetch_pmids:
+            print(f"  Fetching {len(to_fetch_pmids)} uncached top PMID(s): {to_fetch_pmids}")
+            fetched_list = fetch_pubmed_articles(to_fetch_pmids, tid)
+            for fa in fetched_list:
+                fetched_map[fa["pmid"]] = fa
+                if fa["pmid"] not in seen_set:
+                    newly_discovered_pmids.append(fa["pmid"])
 
-    total_new = len(newly_discovered_pmids)
-    print(f"\n[INFO] Total new unique articles across all 7 tracks: {total_new}")
+        track_articles = []
+        for p in top_pmids:
+            if p in cached_by_pmid:
+                a = cached_by_pmid[p]
+                a["extracted_n"] = extract_sample_size(a.get("title", ""), a.get("abstract", ""))
+                raw_pmc = (a.get("pmc_id") or "").strip()
+                if raw_pmc:
+                    a["pmc_id"] = raw_pmc if raw_pmc.upper().startswith("PMC") else f"PMC{raw_pmc}"
+                    a["pmc_url"] = f"https://www.ncbi.nlm.nih.gov/pmc/articles/{a['pmc_id']}/"
+                track_articles.append(enrich_article_metadata(a, tid))
+            elif p in fetched_map:
+                track_articles.append(fetched_map[p])
 
-    # Generate Report using Gemini API
-    print("[AI] Synthesizing clinical intelligence with Gemini API...")
-    markdown_report = analyze_with_gemini(articles_by_track, report_date)
+        if not track_articles and cached_tracks.get(tid):
+            track_articles = [enrich_article_metadata(a, tid) for a in cached_tracks[tid]]
 
-    # 1. Save README.md (Repository Front Page)
-    readme_path = os.path.join(BASE_DIR, "README.md")
-    with open(readme_path, "w", encoding="utf-8") as f:
-        f.write(markdown_report)
-    print(f"[SAVE] Updated {readme_path}")
+        articles_by_track[tid] = track_articles
+        print(f"  Active articles ready for {tname}: {[a['pmid'] for a in track_articles]}")
+
+    # Enrich all articles with Thai clinical takeaway, metrics, and Soeng Sang action
+    print("\n[AI/SYNTHESIS] Enriching articles with Thai Quick-Scan clinical intelligence...")
+    enrich_articles_with_gemini(articles_by_track, report_date, existing_summaries)
+
+    # Save updated cache (Fix #5)
+    save_json_file(CACHE_FILE, articles_by_track)
+    print(f"[CACHE] Saved active 7-track article cache to {CACHE_FILE}")
+
+    # Build Markdown Report
+    markdown_report = build_markdown_report(articles_by_track, report_date)
+
+    # 1. Non-Destructive README.md update (Fix #5)
+    update_readme_non_destructive(markdown_report)
+    print(f"[SAVE] Injected latest report into README.md without overwriting project documentation.")
 
     # 2. Save Historical Weekly Report
     os.makedirs(REPORTS_DIR, exist_ok=True)
-    report_file = os.path.join(REPORTS_DIR, f"{report_date}_respiratory_sentinel.md")
-    with open(report_file, "w", encoding="utf-8") as f:
+    with open(latest_report_path, "w", encoding="utf-8") as f:
         f.write(markdown_report)
-    print(f"[SAVE] Archived report to {report_file}")
+    print(f"[SAVE] Archived report to {latest_report_path}")
 
-    # 3. Save GitHub Pages Mobile Dashboard
+    # 3. Generate Mobile Battle Arena HTML (Fixes #3, #4, #6, #7)
     os.makedirs(DOCS_DIR, exist_ok=True)
-    html_dashboard = generate_html_dashboard(markdown_report, report_date, articles_by_track)
+    html_dashboard = generate_html_dashboard(
+        markdown_report,
+        report_date,
+        articles_by_track,
+        DEFAULT_SHOWDOWN_BOUTS
+    )
     html_path = os.path.join(DOCS_DIR, "index.html")
     with open(html_path, "w", encoding="utf-8") as f:
         f.write(html_dashboard)
-    print(f"[SAVE] Generated mobile HTML dashboard at {html_path}")
+    print(f"[SAVE] Generated Mobile Battle Arena v2.2.0-HQ at {html_path}")
 
-    # 4. Update seen_pmids.json
+    # 4. Export Standardized Multi-HQ Payload (Fix #8)
+    payload_data = {
+        "schema_version": "2.2.0-HQ",
+        "project": "pubmed-clinical-sentinel",
+        "generated_at": datetime.datetime.now().isoformat(),
+        "report_date": report_date,
+        "lead_investigator": "ภก.รัฐนนท์ แสงไทยทวีพร (ประธานทีม IM โรงพยาบาลเสิงสาง)",
+        "summary_metrics": {
+            "total_tracks": len(TRACK_CONFIGS),
+            "total_active_articles": sum(len(v) for v in articles_by_track.values()),
+            "newly_discovered_pmids_count": len(newly_discovered_pmids),
+            "free_pmc_fulltext_count": sum(
+                1 for arts in articles_by_track.values() for a in arts if a.get("has_free_fulltext")
+            )
+        },
+        "showdown_bouts": DEFAULT_SHOWDOWN_BOUTS,
+        "tracks": articles_by_track,
+        "allied_hq_consumers": {
+            "rx_sentinel_hq": "9c526177-b891-4897-9464-c241a9d83f00",
+            "nano_banana_visual_hq": "868c4bf8-e705-4425-a903-518e783cfacd",
+            "game_master_supreme_hq": "576e2ea3-d67e-495c-835e-e75fa1f1e557",
+            "the_economic_bi_hq": "2ac58029-fde8-4710-9f54-be162f70f3f4",
+            "notebooklm_refinery_hq": "8ae2bf04-9004-4f7e-9c39-8d3875f6f9dc"
+        }
+    }
+    save_json_file(PAYLOAD_FILE, payload_data)
+    print(f"[BUS] Exported Multi-HQ standardized payload to {PAYLOAD_FILE}")
+
+    # 5. Update seen_pmids.json
     if newly_discovered_pmids:
-        seen_data["processed_pmids"].extend(newly_discovered_pmids)
+        for p in newly_discovered_pmids:
+            if p not in seen_set:
+                seen_data["processed_pmids"].append(p)
         seen_data["last_updated"] = report_date
-        save_seen_pmids(seen_data)
+        save_json_file(SEEN_FILE, seen_data)
         print(f"[DATA] Updated seen_pmids.json with {len(newly_discovered_pmids)} new PMIDs.")
 
-    print("\n=== PubMed Clinical Sentinel completed successfully! ===")
+    print("\n=== PubMed Clinical Sentinel v2.2.0-HQ completed successfully! ===")
+
 
 if __name__ == "__main__":
     main()

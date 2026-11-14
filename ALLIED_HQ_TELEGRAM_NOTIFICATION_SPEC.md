@@ -153,7 +153,7 @@ def send_telegram_alert(text: str, parse_mode: str = "HTML") -> bool:
 | Repository | งานและระบบแจ้งเตือน | กำหนดเวลาบน Actions | ความถี่ & เวลาส่งจริง (BKK) | สถานะ |
 |---|---|:---:|:---:|:---:|
 | `pubmed-clinical-sentinel` | 7-Track Clinical Surveillance & Boxing Arena | `cron: '0 1 * * 1'` | **ทุกวันจันทร์ 08:00 น. (Weekly)** | Active ✅ |
-| `market-sherlock` | Weekly Candlestick Macro Strategy & Cockpit | `cron: '50 0 * * 1-5'` | **ทุกวันจันทร์ 08:00 น. (Weekly + Rollover)** | Active ✅ |
+| `market-sherlock` | Weekly Candlestick Macro Strategy & Cockpit | `cron: '0 1 * * 1-5'` | **ทุกวันจันทร์ 08:00 น. (Weekly + Rollover)** | Active ✅ |
 
 การตั้งค่า GitHub Secrets สำหรับทุก Repository ใน Cluster (**Settings > Secrets and variables > Actions**):
 * `TELEGRAM_BOT_TOKEN` = `8845047207:AAFgu6i0Rg3U4uaFfBDtLEVkAVokCYpq2Vk`

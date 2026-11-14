@@ -390,11 +390,16 @@ def extract_evidence_badge(title, abstract_text, extracted_n=None):
         elif raw_val in NUMBER_WORDS:
             study_count = NUMBER_WORDS[raw_val]
 
-    # Detect study design keywords
-    is_nma = "network meta-analysis" in combined_lower or "nma" in combined_lower
+    # Detect study design keywords (word-boundary regex avoids substrings like 'unmatched' matching 'nma')
+    is_nma = "network meta-analysis" in combined_lower or bool(re.search(r"\bnma\b", combined_lower))
     is_sr = "systematic review" in combined_lower
     is_ma = "meta-analysis" in combined_lower or "meta analysis" in combined_lower
-    is_rct = "randomized" in combined_lower or "randomised" in combined_lower or "rct" in combined_lower or "clinical trial" in combined_lower
+    is_rct = (
+        "randomized" in combined_lower
+        or "randomised" in combined_lower
+        or bool(re.search(r"\brct\b", combined_lower))
+        or "clinical trial" in combined_lower
+    )
     is_qualitative = "qualitative" in combined_lower
     is_guideline = "guideline" in combined_lower or "consensus" in combined_lower or "recommendations" in combined_lower
     is_animal = any(kw in combined_lower for kw in ["mouse model", "mice", "rat model", "rats", "in vivo", "bleomycin-induced"])

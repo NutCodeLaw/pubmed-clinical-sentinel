@@ -869,16 +869,20 @@ def enrich_articles_with_gemini(articles_by_track, report_date, existing_summari
   }}
 }}"""
 
-        models_to_try = ["gemini-3.8-flash", "gemini-3.5-flash", "gemini-flash-latest"]
+        # Prioritizes cost-efficient GA Flash-Lite for clinical JSON extraction, with non-deprecated Flash fallbacks
+        models_to_try = ["gemini-3.5-flash-lite", "gemini-3.8-flash", "gemini-3.6-flash", "gemini-flash-latest"]
         for model_name in models_to_try:
             try:
                 url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_name}:generateContent?key={api_key}"
+                gen_cfg = {
+                    "temperature": 0.2,
+                    "responseMimeType": "application/json",
+                }
+                if "lite" not in model_name:
+                    gen_cfg["thinkingConfig"] = {"thinkingLevel": "LOW"}
                 req_body = {
                     "contents": [{"parts": [{"text": prompt}]}],
-                    "generationConfig": {
-                        "temperature": 0.2,
-                        "responseMimeType": "application/json"
-                    }
+                    "generationConfig": gen_cfg,
                 }
                 req = urllib.request.Request(
                     url,
@@ -887,6 +891,12 @@ def enrich_articles_with_gemini(articles_by_track, report_date, existing_summari
                 )
                 with urllib.request.urlopen(req, timeout=90) as resp:
                     res_data = json.loads(resp.read().decode("utf-8"))
+                    um = res_data.get("usageMetadata", {})
+                    print(
+                        f"[INFO] Gemini model={model_name} | "
+                        f"prompt={um.get('promptTokenCount', 0)} out={um.get('candidatesTokenCount', 0)} "
+                        f"think={um.get('thoughtsTokenCount', 0)}"
+                    )
                     raw_text = res_data["candidates"][0]["content"]["parts"][0]["text"]
                     parsed_ai = json.loads(raw_text)
                     for a in needs_ai_pmids:

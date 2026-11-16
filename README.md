@@ -105,7 +105,7 @@ python scripts/sentinel.py
 <!-- SENTINEL_REPORT_START -->
 
 # 🩺 สรุปรายงานวิจัยทางคลินิก 7 หมวดสำคัญ (Clinical Pharmacy Research Update)
-**ประจำวันที่:** 2026-11-13 | **เวอร์ชันเครื่องยนต์:** `v2.2.0-HQ (5-Allied HQs Synchronized)`  
+**ประจำวันที่:** 2026-11-16 | **เวอร์ชันเครื่องยนต์:** `v2.2.0-HQ (5-Allied HQs Synchronized)`  
 *ทีมสารสนเทศสมุนไพรและเภสัชบำบัด (IM Team) โรงพยาบาลเสิงสาง*
 
 ---
@@ -164,18 +164,6 @@ python scripts/sentinel.py
 - 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** การช่วยให้ผู้ป่วยเลิกบุหรี่สำเร็จในคลินิกฟ้าใส ให้ผลตอบแทนทางเศรษฐศาสตร์สาธารณสุขสูงสุดในการลดโรคหลอดเลือดหัวใจและ COPD กำเริบ
 - 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42849341/)
 
-#### 2. The influence of pharmacogenetics on the treatment-related outcomes of antidepressants and antipsychotics in Brazil: a systematic review.
-- **วารสาร & PMID:** Pharmacogenomics • [PMID: 42740717](https://pubmed.ncbi.nlm.nih.gov/42740717/) • `📚 Meta-Analysis • 👥 N=2,590` • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13671432/)
-- **สถานะบัญชียา รพ.เสิงสาง:** `🟢 มีในคลังยา รพ.เสิงสาง`
-- 🎯 **ใจความสำคัญ 1 บรรทัด:** ความหลากหลายของยีนตับ CYP2B6 สัมพันธ์กับอัตราความสำเร็จในการใช้ยา Bupropion ช่วยเลิกบุหรี่
-- 📊 **ตัวเลขผลลัพธ์สำคัญ:**
-  • [Systematic Review 19 การศึกษา (N=2,590) พบยีน CYP2B6 rs2279343 AA สัมพันธ์กับการเลิกบุหรี่ด้วย Bupropion ที่สำเร็จสูงกว่า]
-  • [การตอบสนองต่อยาจิตเวชและยาช่วยเลิกบุหรี่ขึ้นกับเอนไซม์ CYP2B6 และ CYP2C19 อย่างมีนัยสำคัญ]
-- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** ติดตามการตอบสนองทางคลินิกต่อ Bupropion ในคลินิกฟ้าใสอย่างใกล้ชิด หากไม่ตอบสนองภายใน 4–6 สัปดาห์ให้พิจารณาปรับแผนการรักษา
-- ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** คัดกรองประวัติโรคลมชัก (Seizure risk) ก่อนจ่าย Bupropion ในคลินิกฟ้าใส • ติดตามอาการนอนไม่หลับและน้ำหนักตัว
-- 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** การช่วยให้ผู้ป่วยเลิกบุหรี่สำเร็จในคลินิกฟ้าใส ให้ผลตอบแทนทางเศรษฐศาสตร์สาธารณสุขสูงสุดในการลดโรคหลอดเลือดหัวใจและ COPD กำเริบ
-- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42740717/)
-
 ---
 
 ### 3. 🌿 สมุนไพรไทยทางคลินิกในระบบทางเดินหายใจ (Thai Herbal Medicine in Respiratory Care)
@@ -208,19 +196,7 @@ python scripts/sentinel.py
 
 ### 4. 🫀 ชะลอไตเสื่อม & เมตาบอลิกหัวใจ (Cardio-Renal CRM: SGLT2i, GLP-1RA, Finerenone)
 
-#### 1. Network and pairwise meta-analysis of the effects of novel hypoglycemic agents on cardiorenal outcomes in patients with type 2 diabetes and heart failure.
-- **วารสาร & PMID:** Frontiers in endocrinology • [PMID: 42952754](https://pubmed.ncbi.nlm.nih.gov/42952754/) • `📚 10 Studies (SR/NMA) • 👥 N=13,886` • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13713430/)
-- **สถานะบัญชียา รพ.เสิงสาง:** `📋 แนวทางบริบาลเภสัชกรรมคลินิก`
-- 🎯 **ใจความสำคัญ 1 บรรทัด:** Network Meta-Analysis ยืนยัน SGLT2i และ GLP-1RA ให้ประโยชน์สูงสุดในการลดอัตรานอน รพ. จาก Heart Failure และชะลอโรคไตในผู้ป่วยเบาหวานที่มีภาวะหัวใจล้มเหลว
-- 📊 **ตัวเลขผลลัพธ์สำคัญ:**
-  • [วิเคราะห์เปรียบเทียบ RCTs (N=13,886) ระหว่างยากลุ่ม SGLT2i, GLP-1RA, DPP-4i และ GIP/GLP-1RA]
-  • [SGLT2i นำโด่งด้านการลด Heart Failure Hospitalization และชะลอการเสื่อมของไต (Cardiorenal composite outcome)]
-- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** ผู้ป่วยเบาหวานชนิดที่ 2 ร่วมกับภาวะหัวใจล้มเหลวหรือโรคไตเรื้อรังใน รพ.เสิงสาง ควรได้รับ Dapagliflozin (SGLT2i) เป็นลำดับแรกตามเกณฑ์
-- ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** ตรวจ eGFR ก่อนเริ่มยา (Dapagliflozin ห้ามเริ่มหาก eGFR < 25 mL/min) • เฝ้าระวัง Euglycemic DKA และการติดเชื้อทางเดินปัสสาวะ
-- 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** คุ้มค่าสูง (High ROI): ลดค่าใช้จ่ายการนอน รพ.ซ้ำจากภาวะหัวใจล้มเหลว (HF Readmission) และชะลอการฟอกไตในระยะยาว
-- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42952754/)
-
-#### 2. Influence of diabetes mellitus on dapagliflozin response after transcatheter aortic valve replacement (TAVR): insights from the DAPA-TAVI trial.
+#### 1. Influence of diabetes mellitus on dapagliflozin response after transcatheter aortic valve replacement (TAVR): insights from the DAPA-TAVI trial.
 - **วารสาร & PMID:** Cardiovascular diabetology • [PMID: 43004293](https://pubmed.ncbi.nlm.nih.gov/43004293/) • `👥 N=1,222 (RCT)` • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13746418/)
 - **สถานะบัญชียา รพ.เสิงสาง:** `🟢 มีในคลังยา รพ.เสิงสาง`
 - 🎯 **ใจความสำคัญ 1 บรรทัด:** Dapagliflozin ช่วยลดการเสียชีวิตและภาวะหัวใจล้มเหลวกำเริบหลังเปลี่ยนลิ้นหัวใจ TAVR ได้ดีเท่าเทียมกันทั้งในผู้ที่เป็นและไม่เป็นเบาหวาน
@@ -236,8 +212,20 @@ python scripts/sentinel.py
 
 ### 5. 🩸 ยาต้านการแข็งตัวของเลือด & HAD (Warfarin vs DOACs)
 
-#### 1. Prevention of Venous Thromboembolism after Total Hip or Knee Replacement.
-- **วารสาร & PMID:** The New England journal of medicine • [PMID: 43013818](https://pubmed.ncbi.nlm.nih.gov/43013818/) • `👥 N=18,883 (RCT)`
+#### 1. Dual antithrombic therapy with DOAC plus ticagrelor versus DOAC plus clopidogrel after PCI: results from the ReDUAL PCI real life registry-based randomized controlled trial.
+- **วารสาร & PMID:** International journal of cardiology • [PMID: 42906822](https://pubmed.ncbi.nlm.nih.gov/42906822/) • `👥 N=850 (RCT)`
+- **สถานะบัญชียา รพ.เสิงสาง:** `📋 แนวทางบริบาลเภสัชกรรมคลินิก`
+- 🎯 **ใจความสำคัญ 1 บรรทัด:** การใช้ยา DOAC + Ticagrelor หลังทำ PCI มีแนวโน้มเลือดออกรุนแรงสูงกว่า Clopidogrel โดยไม่ลดหลอดเลือดอุดตันเพิ่ม
+- 📊 **ตัวเลขผลลัพธ์สำคัญ:**
+  • [N = 109 (จากเป้าหมาย 850, ยุติการศึกษาเร็วกว่ากำหนด)]
+  • [Major bleeding: DOAC + Ticagrelor 9.4% vs DOAC + Clopidogrel 1.8%]
+- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** รพ.เสิงสาง แนะนำเลือกใช้ Dual therapy ด้วย DOAC + Clopidogrel เป็นอันดับแรกเพื่อความปลอดภัย เลี่ยง Ticagrelor เว้นแต่มีข้อบ่งชี้ชัดเจน
+- ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** ประเมินค่าไต CrCl ก่อนจ่าย DOACs • กรณีใช้ Warfarin ให้คุม Target INR 2.0–3.0 และระวังอันตรกิริยากับยาฆ่าเชื้อ/สมุนไพร
+- 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** ลดต้นทุนแฝง รพ.: การใช้ Aspirin ในกลุ่มเสี่ยงต่ำหลังผ่าตัดข้อ หรือเลือก DOAC ในกลุ่มเสี่ยงเลือดออกทางเดินอาหาร ช่วยลดภาระการเจาะ Lab INR และค่านอน รพ.จาก GI Bleed
+- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42906822/)
+
+#### 2. Prevention of Venous Thromboembolism after Total Hip or Knee Replacement.
+- **วารสาร & PMID:** The New England journal of medicine • [PMID: 43013818](https://pubmed.ncbi.nlm.nih.gov/43013818/) • `👥 N=18,883`
 - **สถานะบัญชียา รพ.เสิงสาง:** `🟡 ยาบัญชี จ(2) / เงื่อนไขเฉพาะ รพ.`
 - 🎯 **ใจความสำคัญ 1 บรรทัด:** เปรียบเทียบ 3 ยาหลักป้องกันลิ่มเลือดอุดตัน (VTE) หลังผ่าตัดเปลี่ยนข้อสะโพก/ข้อเข่า (PEPPER Trial, N=18,883): Warfarin/Rivaroxaban ลด VTE ได้ดีกว่าเล็กน้อย แต่ Aspirin มีความปลอดภัยด้านเลือดออกเหนือกว่าระดับมีนัยสำคัญ
 - 📊 **ตัวเลขผลลัพธ์สำคัญ:**
@@ -247,18 +235,6 @@ python scripts/sentinel.py
 - ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** ประเมินค่าไต CrCl ก่อนจ่าย DOACs • กรณีใช้ Warfarin ให้คุม Target INR 2.0–3.0 และระวังอันตรกิริยากับยาฆ่าเชื้อ/สมุนไพร
 - 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** ลดต้นทุนแฝง รพ.: การใช้ Aspirin ในกลุ่มเสี่ยงต่ำหลังผ่าตัดข้อ หรือเลือก DOAC ในกลุ่มเสี่ยงเลือดออกทางเดินอาหาร ช่วยลดภาระการเจาะ Lab INR และค่านอน รพ.จาก GI Bleed
 - 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/43013818/)
-
-#### 2. Efficacy and safety of apixaban versus rivaroxaban in acute venous thromboembolism: a systematic review and meta-analysis.
-- **วารสาร & PMID:** European journal of clinical pharmacology • [PMID: 43004015](https://pubmed.ncbi.nlm.nih.gov/43004015/) • `📚 13 Studies (SR/MA) • 👥 N=233,569` • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7556153/)
-- **สถานะบัญชียา รพ.เสิงสาง:** `🟡 ยาบัญชี จ(2) / เงื่อนไขเฉพาะ รพ.`
-- 🎯 **ใจความสำคัญ 1 บรรทัด:** Apixaban มีประสิทธิผลป้องกันการกลับเป็นซ้ำของลิ่มเลือดอุดตัน (Acute VTE) เทียบเท่า Rivaroxaban แต่มีอัตราการเกิดเลือดออกทางเดินอาหารและ Major Bleeding ต่ำกว่า
-- 📊 **ตัวเลขผลลัพธ์สำคัญ:**
-  • [Systematic Review & Meta-analysis รวม 13 การศึกษา (ผู้ป่วย N=233,569 ราย) เปรียบเทียบ Apixaban กับ Rivaroxaban]
-  • [Apixaban ลดความเสี่ยง Major Bleeding และ Gastrointestinal Bleeding ได้ดีกว่า Rivaroxaban อย่างมีนัยสำคัญ]
-- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** หากต้องเลือกใช้ยากลุ่ม DOACs ในผู้ป่วย Acute VTE ที่มีประวัติโรคกระเพาะหรือเสี่ยงเลือดออกทางเดินอาหาร ควรพิจารณา Apixaban เป็นลำดับแรก
-- ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** ประเมินค่าไต CrCl ก่อนจ่าย DOACs • กรณีใช้ Warfarin ให้คุม Target INR 2.0–3.0 และระวังอันตรกิริยากับยาฆ่าเชื้อ/สมุนไพร
-- 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** ลดต้นทุนแฝง รพ.: การใช้ Aspirin ในกลุ่มเสี่ยงต่ำหลังผ่าตัดข้อ หรือเลือก DOAC ในกลุ่มเสี่ยงเลือดออกทางเดินอาหาร ช่วยลดภาระการเจาะ Lab INR และค่านอน รพ.จาก GI Bleed
-- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/43004015/)
 
 ---
 
@@ -276,17 +252,17 @@ python scripts/sentinel.py
 - 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** ประหยัดงบค่ายาโดยตรง 40–50% ต่อคอร์ส ลดโอกาสเกิดเชื้อดื้อยาที่ต้องใช้ยาฉีดราคาแพง (Carbapenems/Vancomycin)
 - 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42844453/)
 
-#### 2. Effectiveness and safety of the available preventive tuberculosis treatment regimens for children and adolescents: systematic review and network meta-analysis.
-- **วารสาร & PMID:** BMJ paediatrics open • [PMID: 42816130](https://pubmed.ncbi.nlm.nih.gov/42816130/) • `📚 11 Studies (SR/NMA)` • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13629875/)
-- **สถานะบัญชียา รพ.เสิงสาง:** `🟢 มีในคลังยา รพ.เสิงสาง`
-- 🎯 **ใจความสำคัญ 1 บรรทัด:** ยาป้องกันวัณโรคสูตรสั้นที่มี Rifamycin (เช่น 3HP, 3HR, 4R) ในเด็กและวัยรุ่น มีอัตราการกินยาครบคอร์สสูงกว่าและเกิดพิษต่อตับต่ำกว่าสูตร Isoniazid ยาว 6–9 เดือน
+#### 2. Nafithromycin in community-acquired bacterial pneumonia: a focused systematic review of the human clinical development program.
+- **วารสาร & PMID:** BMC infectious diseases • [PMID: 43009825](https://pubmed.ncbi.nlm.nih.gov/43009825/) • `📚 4 Studies (SR/MA)` • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6812437/)
+- **สถานะบัญชียา รพ.เสิงสาง:** `📋 แนวทางบริบาลเภสัชกรรมคลินิก`
+- 🎯 **ใจความสำคัญ 1 บรรทัด:** Nafithromycin ยาปฏิชีวนะชนิดรับประทานสูตรสั้น 3 วัน ให้ผลการรักษาปอดอักเสบชุมชน (CABP) ไม่ด้อยกว่าการทาน Moxifloxacin 7 วัน
 - 📊 **ตัวเลขผลลัพธ์สำคัญ:**
-  • [Network Meta-Analysis ในเด็กและวัยรุ่นที่สัมผัสผู้ป่วยวัณโรค เปรียบเทียบสูตรสั้น (3HP, 3HR, 4R) กับสูตรดั้งเดิม (6H/9H)]
-  • [สูตรสั้นที่มี Rifampicin/Rifapentine ช่วยลดอุบัติการณ์เกิดวัณโรคระยะลุกลามและมี Completion rate สูงกว่าอย่างมีนัยสำคัญ]
-- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** คลินิกวัณโรค รพ.เสิงสาง ควรใช้สูตรยาสั้น (3HP หรือ 3HR/4R) ในการทำ TB Preventive Treatment (TPT) ในเด็กและผู้สัมผัสใกล้ชิดเพื่อลดพิษต่อตับ
+  • [Phase 3 RCT ยืนยันการทาน Nafithromycin 3 วัน มีอัตราการตอบสนองทางคลินิกไม่ด้อยกว่า (Non-inferior) Moxifloxacin 7 วัน]
+  • [ตัวยาสามารถกระจายตัวเข้าสู่เนื้อเยื่อปอดและถุงลมได้ความเข้มข้นสูง ช่วยลดระยะเวลาการใช้ยาปฏิชีวนะลงกว่าครึ่ง]
+- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** สนับสนุนแนวทาง Short-Course RDU (3–5 วัน) ในโรคปอดอักเสบชุมชนชนิดไม่รุนแรงเพื่อเพิ่มความร่วมมือในการกินยาและลดการดื้อยา
 - ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** เกณฑ์ Short-Course RDU ใช้เฉพาะผู้ป่วย Non-severe ที่ภูมิคุ้มกันปกติ • ประเมินอาการไข้ลดลงครบ 48 ชม. ก่อนหยุดยา
 - 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** ประหยัดงบค่ายาโดยตรง 40–50% ต่อคอร์ส ลดโอกาสเกิดเชื้อดื้อยาที่ต้องใช้ยาฉีดราคาแพง (Carbapenems/Vancomycin)
-- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42816130/)
+- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/43009825/)
 
 ---
 

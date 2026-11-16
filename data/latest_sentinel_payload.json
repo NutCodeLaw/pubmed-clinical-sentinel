@@ -1,14 +1,14 @@
 {
   "schema_version": "2.2.0-HQ",
   "project": "pubmed-clinical-sentinel",
-  "generated_at": "2026-11-13T00:23:55.145530",
-  "report_date": "2026-11-13",
+  "generated_at": "2026-11-16T02:21:02.132856",
+  "report_date": "2026-11-16",
   "lead_investigator": "ภก.รัฐนนท์ แสงไทยทวีพร (ประธานทีม IM โรงพยาบาลเสิงสาง)",
   "summary_metrics": {
     "total_tracks": 7,
-    "total_active_articles": 15,
-    "newly_discovered_pmids_count": 0,
-    "free_pmc_fulltext_count": 8
+    "total_active_articles": 13,
+    "newly_discovered_pmids_count": 2,
+    "free_pmc_fulltext_count": 5
   },
   "showdown_bouts": [
     {
@@ -356,31 +356,6 @@
         ],
         "soeng_sang_action": "ในคลินิกฟ้าใส รพ.เสิงสาง ใช้ Bupropion ร่วมกับการให้คำปรึกษาควบคุมน้ำหนักและหญ้าดอกขาวในผู้ป่วยที่กังวลเรื่องอ้วนหลังเลิกบุหรี่",
         "evidence_badge": "👥 N=60 (RCT)"
-      },
-      {
-        "pmid": "42740717",
-        "track_id": "smoking_cessation",
-        "title": "The influence of pharmacogenetics on the treatment-related outcomes of antidepressants and antipsychotics in Brazil: a systematic review.",
-        "journal": "Pharmacogenomics",
-        "pub_date": "2026 Aug",
-        "doi": "10.1080/14622416.2026.2729992",
-        "pmc_id": "PMC13671432",
-        "pmc_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13671432/",
-        "has_free_fulltext": true,
-        "extracted_n": 2590,
-        "abstract": "INTRODUCTION: Pharmacogenetics investigates how genetic variability influences drug response, with particular relevance in psychiatry, where treatment often requires trial-and-error approaches. However, most pharmacogenetic evidence derives from predominantly European populations, limiting its applicability to admixed populations like Brazil's. This study aimed to synthesize evidence on genetic determinants of antidepressant and antipsychotic treatment outcomes in Brazilian populations.\n\nMETHODS: PubMed, Embase, BVS/Bireme and Google Scholar were systematically searched up to January 2026. Two reviewers screened studies and assessed quality. Eligible studies were observational, conducted in Brazil, evaluating pharmacogenetic influences on adults using antidepressants or antipsychotics.\n\nRESULTS: 19 papers were included, comprising 2,590 participants; 46% females. In schizophrenia, variants in CYP2C19, DRD1, DRD2, and CYP1A2 were associated with clozapine safety and response. In bipolar disorder, GAD1 variants were linked to lower Glu/GABA ratio. In major depressive disorder, all CYP2C19 ultrarapid metabolizers required combination therapy to achieve remission. For smoking cessation, CYP2B6 rs2279343 AA showed greater success with bupropion. In obsessive-compulsive disorder, HTR2A and HTR1B variants were associated with differential treatment response.\n\nCONCLUSION: Brazilian studies report relevant gene-drug associations, but sample limitations reduce generalizability. Therefore, routine pharmacogenetic testing in Brazilian psychiatric practice remains premature.\n\nREGISTRATION NUMBER: PROSPERO CRD42024533782.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42740717/",
-        "formulary_badge": "🟢 มีในคลังยา รพ.เสิงสาง",
-        "formulary_tier": "IN_FORMULARY",
-        "rx_sentinel_alert": "คัดกรองประวัติโรคลมชัก (Seizure risk) ก่อนจ่าย Bupropion ในคลินิกฟ้าใส • ติดตามอาการนอนไม่หลับและน้ำหนักตัว",
-        "bi_hq_note": "การช่วยให้ผู้ป่วยเลิกบุหรี่สำเร็จในคลินิกฟ้าใส ให้ผลตอบแทนทางเศรษฐศาสตร์สาธารณสุขสูงสุดในการลดโรคหลอดเลือดหัวใจและ COPD กำเริบ",
-        "thai_takeaway": "ความหลากหลายของยีนตับ CYP2B6 สัมพันธ์กับอัตราความสำเร็จในการใช้ยา Bupropion ช่วยเลิกบุหรี่",
-        "key_metrics": [
-          "Systematic Review 19 การศึกษา (N=2,590) พบยีน CYP2B6 rs2279343 AA สัมพันธ์กับการเลิกบุหรี่ด้วย Bupropion ที่สำเร็จสูงกว่า",
-          "การตอบสนองต่อยาจิตเวชและยาช่วยเลิกบุหรี่ขึ้นกับเอนไซม์ CYP2B6 และ CYP2C19 อย่างมีนัยสำคัญ"
-        ],
-        "soeng_sang_action": "ติดตามการตอบสนองทางคลินิกต่อ Bupropion ในคลินิกฟ้าใสอย่างใกล้ชิด หากไม่ตอบสนองภายใน 4–6 สัปดาห์ให้พิจารณาปรับแผนการรักษา",
-        "evidence_badge": "📚 Meta-Analysis • 👥 N=2,590"
       }
     ],
     "thai_herbs": [
@@ -437,31 +412,6 @@
     ],
     "cardio_renal": [
       {
-        "pmid": "42952754",
-        "track_id": "cardio_renal",
-        "title": "Network and pairwise meta-analysis of the effects of novel hypoglycemic agents on cardiorenal outcomes in patients with type 2 diabetes and heart failure.",
-        "journal": "Frontiers in endocrinology",
-        "pub_date": "2026",
-        "doi": "10.3389/fendo.2026.1955431",
-        "pmc_id": "PMC13713430",
-        "pmc_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13713430/",
-        "has_free_fulltext": true,
-        "extracted_n": 13886,
-        "abstract": "OBJECTIVE: This study aims to evaluate the cardiovascular and renal benefits of novel hypoglycemic agents, including glucagon-like peptide-1 receptor agonists (GLP-1RAs), dipeptidyl peptidase-4 inhibitors (DPP-4is), sodium-glucose cotransporter-2 inhibitors (SGLT-2is), and glucose-dependent insulinotropic polypeptide/glucagon-like peptide-1 dual receptor agonists (GIP/GLP-1RAs) in patients with type 2 diabetes mellitus (T2DM) and heart failure (HF).\n\nMETHODS: Systematic literature searches were conducted in MEDLINE, Embase, ClinicalTrials.gov, and Cochrane Central Register of Controlled Trials (CENTRAL) from inception to 30 April 2026. Randomized controlled trials (RCTs) for cardiovascular outcomes (CVOTs) or post hoc analyses of CVOTs comparing SGLT-2is, DPP-4is, GLP-1RAs, or GIP/GLP-1RAs in patients with T2DM and HF were selected. Network meta-analysis was used for indirect comparisons, with results presented as hazard ratios (HRs) and 95% confidence intervals (CIs).\n\nRESULTS: A total of 10 RCTs and two post hoc analyses of CVOTs involving 13,886 patients were included. Compared with placebo, SGLT-2is (HR [95% CI]: 0.75 [0.68, 0.82]) and GLP-1RAs (HR [95% CI]: 0.77 [0.61, 0.97]) both significantly reduced the risk of HF-related composite endpoints in patients with T2DM and HF. No statistically significant difference was observed between SGLT-2is and GLP-1RAs (HR [95% CI]: 0.98 [0.76, 1.25]). SGLT-2is also reduced the risk of HF worsening (HR [95% CI]: 0.72 [0.53, 0.96]), HF hospitalization (HR [95% CI]: 0.74 [0.66, 0.83]), and cardiovascular (CV) death (HR [95% CI]: 0.87 [0.77, 0.98]). For all-cause death, SGLT-2is showed a trend toward reduced risk compared to placebo, but this difference did not reach statistical significance (HR [95% CI]: 0.83 [0.67, 1.02]). For the renal composite outcome, SGLT-2is did not demonstrate a statistically significant benefit (HR [95% CI]: 0.76 [0.51, 1.14]).\n\nCONCLUSION: Optimal clinical management of T2DM requires a comprehensive assessment of cardiovascular and renal comorbidities. This network meta-analysis indicates that SGLT-2is significantly reduce the risk of HF-related composite endpoints and CV death in T2DM patients with HF, although their renoprotective effect does not reach statistical significance. GLP-1RAs also demonstrate beneficial effects on HF-related composite endpoints. These findings suggest that both SGLT-2is and GLP-1RAs are preferred glycemic control strategies for improving cardiovascular outcomes in T2DM patients with HF, while further evidence is needed to confirm their definitive renal benefits.\n\nSYSTEMATIC REVIEW REGISTRATION: https://www.crd.york.ac.uk/PROSPERO/view/CRD42026142123, identifier: CRD420261421235.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42952754/",
-        "formulary_badge": "📋 แนวทางบริบาลเภสัชกรรมคลินิก",
-        "formulary_tier": "CLINICAL_PROTOCOL",
-        "rx_sentinel_alert": "ตรวจ eGFR ก่อนเริ่มยา (Dapagliflozin ห้ามเริ่มหาก eGFR < 25 mL/min) • เฝ้าระวัง Euglycemic DKA และการติดเชื้อทางเดินปัสสาวะ",
-        "bi_hq_note": "คุ้มค่าสูง (High ROI): ลดค่าใช้จ่ายการนอน รพ.ซ้ำจากภาวะหัวใจล้มเหลว (HF Readmission) และชะลอการฟอกไตในระยะยาว",
-        "thai_takeaway": "Network Meta-Analysis ยืนยัน SGLT2i และ GLP-1RA ให้ประโยชน์สูงสุดในการลดอัตรานอน รพ. จาก Heart Failure และชะลอโรคไตในผู้ป่วยเบาหวานที่มีภาวะหัวใจล้มเหลว",
-        "soeng_sang_action": "ผู้ป่วยเบาหวานชนิดที่ 2 ร่วมกับภาวะหัวใจล้มเหลวหรือโรคไตเรื้อรังใน รพ.เสิงสาง ควรได้รับ Dapagliflozin (SGLT2i) เป็นลำดับแรกตามเกณฑ์",
-        "key_metrics": [
-          "วิเคราะห์เปรียบเทียบ RCTs (N=13,886) ระหว่างยากลุ่ม SGLT2i, GLP-1RA, DPP-4i และ GIP/GLP-1RA",
-          "SGLT2i นำโด่งด้านการลด Heart Failure Hospitalization และชะลอการเสื่อมของไต (Cardiorenal composite outcome)"
-        ],
-        "evidence_badge": "📚 10 Studies (SR/NMA) • 👥 N=13,886"
-      },
-      {
         "pmid": "43004293",
         "track_id": "cardio_renal",
         "title": "Influence of diabetes mellitus on dapagliflozin response after transcatheter aortic valve replacement (TAVR): insights from the DAPA-TAVI trial.",
@@ -489,6 +439,31 @@
     ],
     "anticoagulation": [
       {
+        "pmid": "42906822",
+        "track_id": "anticoagulation",
+        "title": "Dual antithrombic therapy with DOAC plus ticagrelor versus DOAC plus clopidogrel after PCI: results from the ReDUAL PCI real life registry-based randomized controlled trial.",
+        "journal": "International journal of cardiology",
+        "pub_date": "2027 Jan",
+        "doi": "10.1016/j.ijcard.2026.135007",
+        "pmc_id": "",
+        "pmc_url": "",
+        "has_free_fulltext": false,
+        "extracted_n": 850,
+        "abstract": "BACKGROUND: Balancing thrombotic and bleeding risk in patients requiring direct oral anticoagulation (DOAC) after percutaneous coronary intervention (PCI) remains challenging. This study evaluated the safety of dual antithrombotic therapy with DOAC plus ticagrelor compared with DOAC plus clopidogrel in patients undergoing PCI for acute coronary syndrome or with high thrombotic risk.\n\nMETHODS: The ReDUAL PCI Real Life study was a Dutch, open-label, multicentre, registry-based randomized controlled trial within the Southeast Netherlands Heart Registry (ZON-HR), aiming to enrol 850 patients. Patients requiring DOAC were randomized 1:1 to DOAC plus ticagrelor or DOAC plus clopidogrel after PCI. The primary endpoint was any bleeding (BARC ≥2) at 1 year. Secondary endpoints included major adverse cardiac and cerebrovascular events (MACCE), and net adverse clinical events (NACE: MACCE plus major bleeding). Outcomes were compared with a non-randomized ZON-HR cohort eligible for inclusion.\n\nRESULTS: The study was terminated prematurely due to slow recruitment, with 109 patients randomized (53 ticagrelor, 56 clopidogrel). Overall bleeding rates were similar between ticagrelor and clopidogrel (13.2% vs 14.3%). Major bleeding (9.4% vs 1.8%), MACCE (13.2% vs 5.4%), and NACE (20.8% vs 7.1%) occurred more frequently with ticagrelor, without statistical significance. In 397 eligible non-randomized clopidogrel-treated patients, major bleeding rate was 3.4%, MACCE occurred in 12.5% and NACE in 14.5%.\n\nCONCLUSIONS: In patients undergoing PCI requiring oral anticoagulation, DOAC plus ticagrelor showed similar overall bleeding but numerical increase in major bleeding without apparent ischemic benefit compared with DOAC plus clopidogrel. This prematurely terminated study was underpowered, limiting abilities to draw definitive conclusions.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42906822/",
+        "evidence_badge": "👥 N=850 (RCT)",
+        "formulary_badge": "📋 แนวทางบริบาลเภสัชกรรมคลินิก",
+        "formulary_tier": "CLINICAL_PROTOCOL",
+        "rx_sentinel_alert": "ประเมินค่าไต CrCl ก่อนจ่าย DOACs • กรณีใช้ Warfarin ให้คุม Target INR 2.0–3.0 และระวังอันตรกิริยากับยาฆ่าเชื้อ/สมุนไพร",
+        "bi_hq_note": "ลดต้นทุนแฝง รพ.: การใช้ Aspirin ในกลุ่มเสี่ยงต่ำหลังผ่าตัดข้อ หรือเลือก DOAC ในกลุ่มเสี่ยงเลือดออกทางเดินอาหาร ช่วยลดภาระการเจาะ Lab INR และค่านอน รพ.จาก GI Bleed",
+        "thai_takeaway": "การใช้ยา DOAC + Ticagrelor หลังทำ PCI มีแนวโน้มเลือดออกรุนแรงสูงกว่า Clopidogrel โดยไม่ลดหลอดเลือดอุดตันเพิ่ม",
+        "key_metrics": [
+          "N = 109 (จากเป้าหมาย 850, ยุติการศึกษาเร็วกว่ากำหนด)",
+          "Major bleeding: DOAC + Ticagrelor 9.4% vs DOAC + Clopidogrel 1.8%"
+        ],
+        "soeng_sang_action": "รพ.เสิงสาง แนะนำเลือกใช้ Dual therapy ด้วย DOAC + Clopidogrel เป็นอันดับแรกเพื่อความปลอดภัย เลี่ยง Ticagrelor เว้นแต่มีข้อบ่งชี้ชัดเจน"
+      },
+      {
         "pmid": "43013818",
         "track_id": "anticoagulation",
         "title": "Prevention of Venous Thromboembolism after Total Hip or Knee Replacement.",
@@ -511,32 +486,7 @@
           "กลุ่ม Warfarin และ Rivaroxaban มีความเสี่ยงเลือดออกและการต้องผ่าตัดซ้ำสูงกว่ากลุ่ม Aspirin อย่างมีนัยสำคัญ"
         ],
         "soeng_sang_action": "ในผู้ป่วยหลังผ่าตัดเปลี่ยนข้อที่มีความเสี่ยง VTE ต่ำหรือเสี่ยงเลือดออกสูง Aspirin เป็นทางเลือกที่ปลอดภัยและช่วยลดภาระการเจาะวัด INR ของคลินิกวาร์ฟาริน",
-        "evidence_badge": "👥 N=18,883 (RCT)"
-      },
-      {
-        "pmid": "43004015",
-        "track_id": "anticoagulation",
-        "title": "Efficacy and safety of apixaban versus rivaroxaban in acute venous thromboembolism: a systematic review and meta-analysis.",
-        "journal": "European journal of clinical pharmacology",
-        "pub_date": "2026 Nov",
-        "doi": "10.1007/s00228-026-04220-6",
-        "pmc_id": "PMC7556153",
-        "pmc_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7556153/",
-        "has_free_fulltext": true,
-        "extracted_n": 233569,
-        "abstract": "BACKGROUND: Apixaban and rivaroxaban are used direct oral anticoagulants for acute venous thromboembolism (VTE), but their comparative efficacy and safety remain uncertain. We compared outcomes with apixaban versus rivaroxaban in adults with acute VTE.\n\nMETHODS: PubMed, Embase, and Cochrane CENTRAL were searched from inception to April 2026 for comparative studies in adults with acute VTE. Random-effects meta-analyses generated risk ratios (RRs) with 95% confidence intervals (CIs); heterogeneity was assessed using I2, and certainty using GRADE.\n\nRESULTS: Thirteen studies involving 233,569 participants were included. Most evidence came from observational studies, with only one randomized clinical trial contributing to the evidence base. Apixaban showed a non-significant reduction in recurrent VTE (10 studies; 203,462 participants; RR 0.82, 95% CI 0.64-1.05). Recurrent DVT was lower with apixaban (2 studies; 37,941 participants; RR 0.88, 95% CI 0.79-0.98), whereas recurrent PE (3 studies; 45,561 participants; RR 0.78, 95% CI 0.09-6.53) and all-cause mortality (6 studies; 149,742 participants; RR 0.99, 95% CI 0.79-1.23) did not differ significantly. Apixaban was associated with lower major bleeding (13 studies; 221,840 participants; RR 0.75, 95% CI 0.57-0.99), CRNMB (5 studies; 29,530 participants; RR 0.63, 95% CI 0.53-0.75), and gastrointestinal bleeding (4 studies; 56,160 participants; RR 0.68, 95% CI 0.62-0.75). Intracranial bleeding was not significantly different (3 studies; 55,470 participants; RR 0.71, 95% CI 0.24-2.13). Certainty ranged from low to very low.\n\nCONCLUSIONS: Apixaban and rivaroxaban showed broadly comparable efficacy, while apixaban may offer a more favorable bleeding profile. Findings should be interpreted cautiously because of heterogeneity, observational evidence, and low-to-very-low certainty.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/43004015/",
-        "formulary_badge": "🟡 ยาบัญชี จ(2) / เงื่อนไขเฉพาะ รพ.",
-        "formulary_tier": "J2_RESTRICTED",
-        "rx_sentinel_alert": "ประเมินค่าไต CrCl ก่อนจ่าย DOACs • กรณีใช้ Warfarin ให้คุม Target INR 2.0–3.0 และระวังอันตรกิริยากับยาฆ่าเชื้อ/สมุนไพร",
-        "bi_hq_note": "ลดต้นทุนแฝง รพ.: การใช้ Aspirin ในกลุ่มเสี่ยงต่ำหลังผ่าตัดข้อ หรือเลือก DOAC ในกลุ่มเสี่ยงเลือดออกทางเดินอาหาร ช่วยลดภาระการเจาะ Lab INR และค่านอน รพ.จาก GI Bleed",
-        "thai_takeaway": "Apixaban มีประสิทธิผลป้องกันการกลับเป็นซ้ำของลิ่มเลือดอุดตัน (Acute VTE) เทียบเท่า Rivaroxaban แต่มีอัตราการเกิดเลือดออกทางเดินอาหารและ Major Bleeding ต่ำกว่า",
-        "key_metrics": [
-          "Systematic Review & Meta-analysis รวม 13 การศึกษา (ผู้ป่วย N=233,569 ราย) เปรียบเทียบ Apixaban กับ Rivaroxaban",
-          "Apixaban ลดความเสี่ยง Major Bleeding และ Gastrointestinal Bleeding ได้ดีกว่า Rivaroxaban อย่างมีนัยสำคัญ"
-        ],
-        "soeng_sang_action": "หากต้องเลือกใช้ยากลุ่ม DOACs ในผู้ป่วย Acute VTE ที่มีประวัติโรคกระเพาะหรือเสี่ยงเลือดออกทางเดินอาหาร ควรพิจารณา Apixaban เป็นลำดับแรก",
-        "evidence_badge": "📚 13 Studies (SR/MA) • 👥 N=233,569"
+        "evidence_badge": "👥 N=18,883"
       }
     ],
     "ams_rdu": [
@@ -566,29 +516,29 @@
         "evidence_badge": "📚 10 Studies (SR/MA) • 👥 N=8,970"
       },
       {
-        "pmid": "42816130",
+        "pmid": "43009825",
         "track_id": "ams_rdu",
-        "title": "Effectiveness and safety of the available preventive tuberculosis treatment regimens for children and adolescents: systematic review and network meta-analysis.",
-        "journal": "BMJ paediatrics open",
-        "pub_date": "2026 Sep",
-        "doi": "10.1136/bmjpo-2026-004610",
-        "pmc_id": "PMC13629875",
-        "pmc_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13629875/",
+        "title": "Nafithromycin in community-acquired bacterial pneumonia: a focused systematic review of the human clinical development program.",
+        "journal": "BMC infectious diseases",
+        "pub_date": "2026 Aug",
+        "doi": "10.1186/s12879-026-14194-6",
+        "pmc_id": "PMC6812437",
+        "pmc_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6812437/",
         "has_free_fulltext": true,
         "extracted_n": null,
-        "abstract": "BACKGROUND: Although children are at a higher risk of progressing to tuberculosis (TB) disease compared with adults, research and publications addressing TB management have mostly emphasised adult disease.\n\nMETHODS: MEDLINE, Embase, CENTRAL and grey literature were searched from inception to 3 May 2021, and updated on 12 December 2024 for the systematic review and network meta-analysis (NMA). Randomised controlled trials of children and/or adolescents under 18 years with TB infection, contacts of drug-susceptible TB, without HIV, evaluating the effectiveness and safety of available regimens for the treatment of TB were included. Meta-analysis was conducted using a random effects model. Risk of bias was assessed using the Cochrane RoB tool 2. Effect estimates (RR and OR) are presented with 95% CIs. Certainty of evidence was evaluated using the Grading of Recommendations, Assessment, Development and Evaluation (GRADE) approach.\n\nRESULTS: Eleven studies were obtained. All network geometries had open and disconnected loops, except adverse reactions for which we conducted a full NMA. We found that 4 months of isoniazid and rifampicin (4HR) reduces the number of active TB cases at 1 year, 2 years and 5 years of follow-up (RR 0.49 (95% CI 0.32 to 0.76)) compared with isoniazid for 9 months (9H). The isoniazid + rifapentine for 3 months (3HP) regimen (RR 1.09 (95% CI 1.03 to 1.15)), 4HR (RR 1.07 (95% CI 1.01 to 1.14)) and rifampicin for 4 months (4R) (RR 1.12 (95% CI 1.05 to 1.20)) regimens have higher treatment adherence compared with 9H. High variability was found in the reporting of adverse reactions, which were more likely to occur with 3HP compared with 4HR (OR 4.56 (95% CI 1.22 to 16.96)) and 4R (OR 6.37 (95% CI 2.11 to 19.19)). Adverse reactions occur less frequently with 4R (OR 0.34 (95% CI 0.20 to 0.58)) compared with 9H.\n\nCONCLUSIONS: This study synthesised available data on paediatric short and long-course regimens. Short course regimens may have higher adherence (3HP, 4HR, 4R) and may reduce active TB incidence (isoniazid + rifampicin for 3 months (3HR) and 4HR) compared with 9H.\n\nPROSPERO REGISTRATION NUMBER: CRD42021271512.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42816130/",
-        "formulary_badge": "🟢 มีในคลังยา รพ.เสิงสาง",
-        "formulary_tier": "IN_FORMULARY",
+        "abstract": "BACKGROUND: Nafithromycin is a novel lactone ketolide being developed as a short-course oral treatment for community-acquired bacterial pneumonia (CABP). Its clinical development program includes early pharmacokinetic studies in healthy adults and later-phase efficacy trials in patients with CABP. This systematic review aimed to synthesize the available human clinical evidence on its pharmacology, safety, and efficacy.\n\nMETHODS: This systematic review was conducted in accordance with PRISMA 2020 and registered in PROSPERO (CRD420261367133). PubMed/MEDLINE, Embase, Scopus, CENTRAL, ClinicalTrials.gov, and the Clinical Trials Registry - India were searched from inception to 12 April 2026. Clinical studies evaluating nafithromycin in humans at any stage of development were eligible. Study selection and data extraction were performed independently by two reviewers. Given heterogeneity in study phase, design, population, and outcomes, findings were synthesized narratively.\n\nRESULTS: Four studies were included: two Phase 1 studies in healthy adults, one Phase 2 randomized comparative study, and one Phase 3 randomized non-inferiority trial in adults with CABP. Early-phase studies suggested that nafithromycin was generally well tolerated in the short term and had pharmacokinetic properties supportive of once-daily dosing, including high pulmonary exposure in epithelial lining fluid and alveolar macrophages. In the Phase 2 study, early clinical response rates were high with both 3-day and 5-day nafithromycin regimens. In the Phase 3 trial conducted in India, a 3-day oral nafithromycin regimen was non-inferior to 7-day moxifloxacin for early clinical response at Day 4, with no severe TEAEs, serious TEAEs, or deaths reported in either treatment arm. However, the evidence base remains limited in size and geographic diversity, and data in older adults, patients with renal or hepatic impairment, and microbiologically confirmed macrolide-resistant pneumococcal disease were sparse.\n\nCONCLUSIONS: Nafithromycin is a short-course oral candidate for CABP with supportive early clinical and pharmacokinetic data, but the current evidence base remains limited. Further evidence is needed to clarify its generalisability, rare or delayed safety profile, and effectiveness in microbiologically confirmed macrolide-resistant pneumococcal disease.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43009825/",
+        "evidence_badge": "📚 4 Studies (SR/MA)",
+        "formulary_badge": "📋 แนวทางบริบาลเภสัชกรรมคลินิก",
+        "formulary_tier": "CLINICAL_PROTOCOL",
         "rx_sentinel_alert": "เกณฑ์ Short-Course RDU ใช้เฉพาะผู้ป่วย Non-severe ที่ภูมิคุ้มกันปกติ • ประเมินอาการไข้ลดลงครบ 48 ชม. ก่อนหยุดยา",
         "bi_hq_note": "ประหยัดงบค่ายาโดยตรง 40–50% ต่อคอร์ส ลดโอกาสเกิดเชื้อดื้อยาที่ต้องใช้ยาฉีดราคาแพง (Carbapenems/Vancomycin)",
-        "thai_takeaway": "ยาป้องกันวัณโรคสูตรสั้นที่มี Rifamycin (เช่น 3HP, 3HR, 4R) ในเด็กและวัยรุ่น มีอัตราการกินยาครบคอร์สสูงกว่าและเกิดพิษต่อตับต่ำกว่าสูตร Isoniazid ยาว 6–9 เดือน",
+        "thai_takeaway": "Nafithromycin ยาปฏิชีวนะชนิดรับประทานสูตรสั้น 3 วัน ให้ผลการรักษาปอดอักเสบชุมชน (CABP) ไม่ด้อยกว่าการทาน Moxifloxacin 7 วัน",
+        "soeng_sang_action": "สนับสนุนแนวทาง Short-Course RDU (3–5 วัน) ในโรคปอดอักเสบชุมชนชนิดไม่รุนแรงเพื่อเพิ่มความร่วมมือในการกินยาและลดการดื้อยา",
         "key_metrics": [
-          "Network Meta-Analysis ในเด็กและวัยรุ่นที่สัมผัสผู้ป่วยวัณโรค เปรียบเทียบสูตรสั้น (3HP, 3HR, 4R) กับสูตรดั้งเดิม (6H/9H)",
-          "สูตรสั้นที่มี Rifampicin/Rifapentine ช่วยลดอุบัติการณ์เกิดวัณโรคระยะลุกลามและมี Completion rate สูงกว่าอย่างมีนัยสำคัญ"
-        ],
-        "soeng_sang_action": "คลินิกวัณโรค รพ.เสิงสาง ควรใช้สูตรยาสั้น (3HP หรือ 3HR/4R) ในการทำ TB Preventive Treatment (TPT) ในเด็กและผู้สัมผัสใกล้ชิดเพื่อลดพิษต่อตับ",
-        "evidence_badge": "📚 11 Studies (SR/NMA)"
+          "Phase 3 RCT ยืนยันการทาน Nafithromycin 3 วัน มีอัตราการตอบสนองทางคลินิกไม่ด้อยกว่า (Non-inferior) Moxifloxacin 7 วัน",
+          "ตัวยาสามารถกระจายตัวเข้าสู่เนื้อเยื่อปอดและถุงลมได้ความเข้มข้นสูง ช่วยลดระยะเวลาการใช้ยาปฏิชีวนะลงกว่าครึ่ง"
+        ]
       }
     ],
     "deprescribing": [

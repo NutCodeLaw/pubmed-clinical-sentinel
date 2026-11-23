@@ -1,56 +1,6 @@
 {
   "asthma_copd": [
     {
-      "pmid": "42993869",
-      "track_id": "asthma_copd",
-      "title": "Effectiveness of a Multicomponent Digital Therapeutic Program on Inhaled Medication Adherence in Chronic Obstructive Pulmonary Disease: Pilot Randomized Controlled Trial.",
-      "journal": "JMIR mHealth and uHealth",
-      "pub_date": "2026 Nov",
-      "doi": "10.2196/98870",
-      "pmc_id": "PMC13742779",
-      "pmc_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13742779/",
-      "has_free_fulltext": true,
-      "extracted_n": 158,
-      "abstract": "BACKGROUND: Poor medication adherence is a critical impediment to effective chronic obstructive pulmonary disease (COPD) management and remains challenging to track in routine care. Digital therapeutic interventions may improve chronic disease management through remote monitoring and patient education. However, most existing digital interventions focus on individual components of disease management, and evidence from longer-term pragmatic randomized controlled trials evaluating integrated digital therapeutics in routine clinical practice remains limited.\n\nOBJECTIVE: This study aimed to evaluate the effectiveness of a multicomponent digital therapeutic program combining electronic inhaler monitoring (EIM) with behavioral support in improving medication adherence and symptom-related outcomes among patients with COPD prescribed pressurized metered-dose inhalers, and to assess patient engagement and implementation in routine clinical practice.\n\nMETHODS: In this prospective, open-label, unblinded, randomized controlled trial, patients with COPD prescribed pressurized metered-dose inhalers were enrolled and randomized in a 2:1 ratio to either the intervention group or the control group. All participants received an EIM device to objectively record inhaler use throughout the 24-week study period. Patients in the intervention group also received personalized medication reminders from the EIM, adherence feedback, educational content, and clinician-supported follow-up through an integrated digital management platform based on EIM-derived data, whereas the control group received usual care. The primary outcome was medication adherence over 24 weeks. Secondary outcomes included exacerbations, COPD symptoms, quality of life, and lung function.\n\nRESULTS: A total of 158 participants were randomized, including 106 in the intervention group and 52 in the control group. The median monitoring coverage was 161.5 (IQR 86.3-168.0) days during the follow-up period. The self-reported adherence measured using the Test of Adherence to Inhalers showed no significant between-group differences at any follow-up time point. However, the electronically monitored adherence was significantly higher in the intervention group than in the control group (59.5% vs 33.1%, P=.009). Adherence declined over time in both groups, decreasing from 85.3% during weeks 0 to 4 to 43.0% during weeks 12 to 24 in the intervention group and from 76.8% to 11.9% in the control group over the same intervals, resulting in a progressively larger between-group difference over follow-up. No significant differences were observed in exacerbations, health-related quality of life, symptom burden, lung function, or mental health outcomes. In an exploratory analysis, a significantly greater proportion of participants in the intervention group achieved the minimal clinically important difference in the COPD Assessment Test score than in the control group (odds ratio 2.21, 95% CI 1.11-4.41; P=.02).\n\nCONCLUSIONS: The multicomponent digital therapeutic program significantly improved objective medication adherence in patients with COPD over 24 weeks. While most clinical outcomes did not differ significantly between groups, the higher proportion of participants achieving a clinically meaningful improvement in the COPD Assessment Test score warrants further investigation.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42993869/",
-      "formulary_badge": "📋 แนวทางบริบาลเภสัชกรรมคลินิก",
-      "formulary_tier": "CLINICAL_PROTOCOL",
-      "rx_sentinel_alert": "ทบทวนเทคนิคการพ่นยา (Inhaler Technique) ทุกครั้งก่อนปรับ Step ยา • ยากลุ่ม Biologics ต้องคัดกรอง Eosinophils/FeNO ตามเกณฑ์",
-      "bi_hq_note": "ยากลุ่ม Biologics มีราคาสูง ควรจำกัดเฉพาะเคส Severe Refractory ที่ลดการส่งตัวผ่าตัดซ้ำหรือลดการแอดมิด ICU ได้ชัดเจน",
-      "thai_takeaway": "โปรแกรมดิจิทัลบำบัดร่วมกับการติดตามกระบอกพ่นยาช่วยเพิ่มความร่วมมือในการใช้ยาพ่นสูดในผู้ป่วย COPD ได้อย่างมีนัยสำคัญตลอด 24 สัปดาห์",
-      "key_metrics": [
-        "ความร่วมมือในการใช้ยาพ่นวัดผ่านระบบอิเล็กทรอนิกส์ (EIM): กลุ่มดิจิทัล 59.5% vs กลุ่มดูแลปกติ 33.1% (p = 0.009)",
-        "สัดส่วนผู้ป่วยที่เกิดการเปลี่ยนแปลง CAT score ในระดับที่มีความสำคัญทางคลินิก (MCID): OR 2.21 (95% CI 1.11-4.41, p = 0.02)"
-      ],
-      "soeng_sang_action": "พัฒนาระบบติดตามและแจ้งเตือนการใช้ยาพ่นผ่าน LINE OA เพื่อส่งเสริมความร่วมมือในการใช้ยาของผู้ป่วย COPD ในคลินิกโรคเรื้อรัง",
-      "evidence_badge": "👥 N=158 (RCT)"
-    },
-    {
-      "pmid": "42980725",
-      "track_id": "asthma_copd",
-      "title": "Asthma in Older Adults: A Systematic Review of Real-World Burden and Outcomes.",
-      "journal": "Current allergy and asthma reports",
-      "pub_date": "2026 Nov",
-      "doi": "10.1007/s11882-026-01304-2",
-      "pmc_id": "PMC13736361",
-      "pmc_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13736361/",
-      "has_free_fulltext": true,
-      "extracted_n": null,
-      "abstract": "PURPOSE OF REVIEW: This review examines asthma in older adults over the past decade, focusing on epidemiology, diagnostic challenges, and current management. It also explores why asthma remains underdiagnosed and undertreated in this population.\n\nRECENT FINDINGS: Asthma prevalence is increasing among older adults worldwide, particularly in developed regions and Asia, yet underdiagnosis and undertreatment remain common. Diagnostic complexity is driven by atypical presentations, comorbidities, overlapping COPD features, and limitations of standard diagnostic criteria. Patient-related barriers include low health literacy, poor inhaler technique, symptom misattribution, psychological comorbidity, and limited social support. Access to biologic therapies remains uneven, and precision medicine approaches for older adults are lacking. Asthma in older adults is an important and underrecognized public health issue. Better awareness, age-adapted diagnostic protocols, improved inhaler education, and more integrated management of comorbidities are needed to improve outcomes and quality of life.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42980725/",
-      "formulary_badge": "📋 แนวทางบริบาลเภสัชกรรมคลินิก",
-      "formulary_tier": "CLINICAL_PROTOCOL",
-      "rx_sentinel_alert": "ทบทวนเทคนิคการพ่นยา (Inhaler Technique) ทุกครั้งก่อนปรับ Step ยา • ยากลุ่ม Biologics ต้องคัดกรอง Eosinophils/FeNO ตามเกณฑ์",
-      "bi_hq_note": "ยากลุ่ม Biologics มีราคาสูง ควรจำกัดเฉพาะเคส Severe Refractory ที่ลดการส่งตัวผ่าตัดซ้ำหรือลดการแอดมิด ICU ได้ชัดเจน",
-      "thai_takeaway": "หอบหืดในผู้สูงอายุพบสูงขึ้นแต่ยังได้รับการวินิจฉัยและการรักษาต่ำกว่าที่ควรเนื่องจากความซับซ้อนของโรคและข้อจำกัดด้านเทคนิคการพ่นยา",
-      "key_metrics": [
-        "Systematic Review พบปัญหา Underdiagnosis และ Undertreatment สูงมากในผู้สูงอายุที่มีโรคร่วมหลายโรค",
-        "ปัจจัยขัดขวางสำคัญ: ความรอบรู้ด้านสุขภาพต่ำ (Low health literacy), เทคนิคการพ่นยาไม่ถูกต้อง และอาการทับซ้อนกับภาวะหัวใจ/COPD"
-      ],
-      "soeng_sang_action": "จัดทำแนวทางการประเมินเทคนิคการพ่นยา (Inhaler Device Check) และพิจารณาใช้ Spacer ในผู้สูงอายุทุกรายที่คลินิกระบบทางเดินหายใจ",
-      "evidence_badge": "📚 Systematic Review"
-    },
-    {
       "pmid": "43007675",
       "track_id": "asthma_copd",
       "title": "Inhaled Corticosteroids and Sickle Cell Disease Severity in Adults Without Asthma: A Randomized Clinical Trial.",
@@ -74,6 +24,56 @@
       ],
       "soeng_sang_action": "ทบทวนการสั่งใช้ ICS ในผู้ป่วยที่มีอาการทางระบบหายใจเรื้อรัง โดยต้องยืนยันการวินิจฉัยโรคหอบหืดที่ชัดเจนก่อนเริ่มยาพ่นสเตียรอยด์ระยะยาว",
       "evidence_badge": "👥 N=77 (RCT)"
+    },
+    {
+      "pmid": "43035707",
+      "track_id": "asthma_copd",
+      "title": "Elarekibep, an inhaled Anticalin protein, targets IL-4Rα locally: first-in-human randomized phase 1 trials of a novel potential therapeutic class in asthma.",
+      "journal": "Respiratory research",
+      "pub_date": "2026 Aug",
+      "doi": "10.1186/s12931-026-03854-5",
+      "pmc_id": "PMC13772527",
+      "pmc_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13772527/",
+      "has_free_fulltext": true,
+      "extracted_n": 148,
+      "abstract": "BACKGROUND: Elarekibep (AZD1402/PRS-060) is an Anticalin, a new class of inhaled therapeutic proteins, which has been engineered to inhibit interleukin-4 receptor α-subunit (IL-4Rα) signalling, a key target in asthma.\n\nMETHODS: Two phase 1 randomized, first-in-human, dose-escalating, single-blind studies (NCT03384290; NCT03574805) investigated single ascending doses (SADs) or multiple ascending doses (MADs) of elarekibep compared with placebo. In the SAD study, healthy participants received a single inhaled dose of elarekibep 0.1-160 mg, intravenous doses of 1 mg or 2 mg, or matched placebo. In the MAD study, participants with mild asthma and elevated fractional exhaled nitric oxide (FeNO) received inhaled doses of elarekibep 0.2-60 mg or placebo twice daily for 10 or 17 days (single dose on day 10 in all but one cohort), continuously or intermittently.\n\nRESULTS: In total, 148 participants were enrolled across both studies. No safety concerns were reported. Treatment-emergent adverse events were experienced by 34.7% (elarekibep, 35.2%; placebo, 33.3%) and 81.6% (elarekibep, 75.9%; placebo, 95.5%) of SAD and MAD study participants, respectively. Elarekibep was absorbed after inhalation, with dose-related increases in systemic exposure detectable with doses greater than or equal to 6 mg. In both studies, systemic exposure resulted in decreased levels of phosphorylated signal transducer and activator of transcription 6, a biomarker for systemic IL-4Rα target engagement. In the MAD study, rapid reductions of FeNO were demonstrated with doses greater than or equal to 2 mg, indicating pulmonary target engagement.\n\nCONCLUSIONS: Elarekibep was well tolerated in both studies and demonstrated pulmonary and systemic target engagement. Elarekibep was investigated further in a phase 2a study (NCT04643158).\n\nTRIAL REGISTRATION: NCT03384290. Registered 26 November 2017, https://clinicaltrials.gov/ct2/show/NCT03384290 . NCT03574805. Registered 2 July 2018, https://clinicaltrials.gov/ct2/show/NCT03574805 .",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43035707/",
+      "evidence_badge": "👥 N=148 (RCT)",
+      "formulary_badge": "📋 แนวทางบริบาลเภสัชกรรมคลินิก",
+      "formulary_tier": "CLINICAL_PROTOCOL",
+      "rx_sentinel_alert": "ทบทวนเทคนิคการพ่นยา (Inhaler Technique) ทุกครั้งก่อนปรับ Step ยา • ยากลุ่ม Biologics ต้องคัดกรอง Eosinophils/FeNO ตามเกณฑ์",
+      "bi_hq_note": "ยากลุ่ม Biologics มีราคาสูง ควรจำกัดเฉพาะเคส Severe Refractory ที่ลดการส่งตัวผ่าตัดซ้ำหรือลดการแอดมิด ICU ได้ชัดเจน",
+      "thai_takeaway": "ยาพ่นใหม่ Elarekibep จับตัวรับ IL-4Rα ในปอดได้ดี ปลอดภัย ในผู้ป่วยหืด",
+      "key_metrics": [
+        "N = 148 คน",
+        "ลดค่า FeNO ได้อย่างรวดเร็วที่ขนาดยา ≥ 2 มก."
+      ],
+      "soeng_sang_action": "รอติดตามผลการศึกษา Phase 2a เพิ่มเติมเพื่อประยุกต์ใช้ในอนาคต"
+    },
+    {
+      "pmid": "43040297",
+      "track_id": "asthma_copd",
+      "title": "Uncovering the heterogeneous effect of inhaled corticosteroids on COPD exacerbations with causal machine learning.",
+      "journal": "Respiratory research",
+      "pub_date": "2026 Jul",
+      "doi": "10.1186/s12931-026-03799-9",
+      "pmc_id": "PMC13776476",
+      "pmc_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13776476/",
+      "has_free_fulltext": true,
+      "extracted_n": null,
+      "abstract": "BACKGROUND: High blood eosinophil counts can predict an enhanced response to inhaled corticosteroids (ICS) in patients with chronic obstructive pulmonary disease (COPD), but additional insight in treatment effect heterogeneity is needed to optimize clinical disease management. We investigated if causal machine learning models can detect heterogeneity in the effect of two ICS-containing therapies on both time to first exacerbation and exacerbation rate, and if this approach can identify additional predictors of ICS response.\n\nMETHODS: Baseline characteristics from patients in the fluticasone furoate/umeclidinium/vilanterol (FF/U/V) and U/V arms of the InforMing the PAthway of COPD Treatment (IMPACT) trial (ClinicalTrials.gov identifier NCT02164513) were used to train a causal survival forest to estimate the effect of fluticasone furoate (an ICS) on time to first exacerbation for each patient. Similarly, a causal forest was trained for exacerbation rate. Results were averaged over 100 train and validation sets in a Monte-Carlo cross-validation approach. The analysis was repeated for a comparison of the FF/V and U/V arms.\n\nRESULTS: This analysis included 4048 FF/U/V, 4034 FF/V and 2025 U/V patients. Significant p-values for AUTOC (area under the targeting operator characteristic) curve indicated that all models ranked patients well according to individualized treatment and that significant heterogeneity was detected in the effect of ICS on both exacerbation outcomes. Respiratory symptoms, reversibility of airflow limitation and lung function, in addition to eosinophils, were identified as important predictors by all models. The contribution of additional predictors in determining the effect of ICS was most apparent for patients at the lower end of the eosinophil spectrum.\n\nCONCLUSIONS: This hypothesis-generating secondary analysis of IMPACT detected significant heterogeneity in the effect of ICS and indicated that, in addition to eosinophils, other clinical patient characteristics also contribute to the prediction of ICS response on both time to first exacerbation and exacerbation rate. The causal machine learning approach in this analysis can identify treatment effect predictors and patterns of response, to enhance insight in COPD disease phenotypes and heterogeneous treatment effects.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43040297/",
+      "evidence_badge": "📑 Clinical Evidence Review",
+      "formulary_badge": "📋 แนวทางบริบาลเภสัชกรรมคลินิก",
+      "formulary_tier": "CLINICAL_PROTOCOL",
+      "rx_sentinel_alert": "ทบทวนเทคนิคการพ่นยา (Inhaler Technique) ทุกครั้งก่อนปรับ Step ยา • ยากลุ่ม Biologics ต้องคัดกรอง Eosinophils/FeNO ตามเกณฑ์",
+      "bi_hq_note": "ยากลุ่ม Biologics มีราคาสูง ควรจำกัดเฉพาะเคส Severe Refractory ที่ลดการส่งตัวผ่าตัดซ้ำหรือลดการแอดมิด ICU ได้ชัดเจน",
+      "thai_takeaway": "การเรียนรู้ของเครื่องเชิงสาเหตุช่วยชี้ว่า อาการและสมรรถภาพปอดร่วมกับอีโอซิโนฟิล ช่วยทำนายการตอบสนองต่อยาพ่นสเตียรอยด์ใน COPD ได้ดีขึ้น",
+      "key_metrics": [
+        "N = 4,048 (FF/U/V), 4,034 (FF/V), และ 2,025 (U/V)",
+        "ตรวจพบความแตกต่างของการตอบสนองต่อยาสเตียรอยด์อย่างมีนัยสำคัญทางสถิติ"
+      ],
+      "soeng_sang_action": "พิจารณาปัจจัยทางคลินิกอื่นๆ ร่วมกับค่า eosinophil ในเลือดเมื่อจะปรับใช้ยา ICS ในผู้ป่วย COPD"
     }
   ],
   "smoking_cessation": [
@@ -101,6 +101,31 @@
       ],
       "soeng_sang_action": "ในคลินิกฟ้าใส รพ.เสิงสาง ใช้ Bupropion ร่วมกับการให้คำปรึกษาควบคุมน้ำหนักและหญ้าดอกขาวในผู้ป่วยที่กังวลเรื่องอ้วนหลังเลิกบุหรี่",
       "evidence_badge": "👥 N=60 (RCT)"
+    },
+    {
+      "pmid": "43058784",
+      "track_id": "smoking_cessation",
+      "title": "A novel harm reduction approach for oncology outpatients who smoke and refuse traditional tobacco treatment: a protocol for a type 1 hybrid effectiveness-implementation trial.",
+      "journal": "Addiction science & clinical practice",
+      "pub_date": "2026 Aug",
+      "doi": "10.1186/s13722-026-00717-8",
+      "pmc_id": "PMC13784046",
+      "pmc_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13784046/",
+      "has_free_fulltext": true,
+      "extracted_n": null,
+      "abstract": "BACKGROUND: Smoking rates are high among patients in cancer care, and improving quit rates among these patients is critical for improving survival outcomes. Yet, many oncology outpatients do not receive tobacco treatment, and a sizeable portion even refuse available evidence-based resources. E-cigarettes deliver lower levels of known carcinogens compared to cigarettes, and several rigorous trials have shown higher quit rates among people who receive e-cigarettes compared to those who receive nicotine replacement therapy. Switching from cigarettes to e-cigarettes reduces exposure to carcinogens and may be an appealing harm reduction intervention for patients in cancer care who refuse traditional treatment. The present protocol describes an ongoing type 1 hybrid effectiveness-implementation trial among oncology outpatients at an NCI-designated cancer center to compare rates of switching to e-cigarettes to standard care, and advance understanding of key barriers and facilitators of implementation processes.\n\nMETHODS: Adults who smoke cigarettes and refuse all components of traditional tobacco treatment through an opt-out tobacco treatment service are randomized to receive either (1) a 13-week supply of e-cigarettes and a workbook for switching to e-cigarettes or (2) a workbook for quitting smoking. Participants assigned to e-cigarettes are instructed to set a switch date within two weeks of randomization, to use their e-cigarette ad libitum in advance of their switch date, and to stop smoking cigarettes and exclusively use their e-cigarette on their switch date. Participants complete biweekly assessments through the end of product provision and additional follow ups through 6 months. The primary outcome is complete switching (7-day point prevalence abstinence confirmed by expired breath carbon monoxide ≤ 5ppm) at 6 Months. Secondary outcomes include implementation processes, biomarkers of cancer risk, and health-related quality of life.\n\nDISCUSSION: This study examines a novel approach to harm reduction among oncology outpatients who refuse traditional tobacco treatment. Integrating effectiveness and implementation results helps to engage this population in harm reduction and provides critical evidence to refine delivery and planning for implementation. The proposed trial is highly significant, regardless of the results, and has the potential to influence harm-reduction approaches to tobacco use among patients in cancer care.\n\nTRIAL REGISTRATION: The current study was registered on clinicaltrials.gov on June 26, 2025 (NCT07039292).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43058784/",
+      "evidence_badge": "👥 Clinical Trial (RCT)",
+      "formulary_badge": "🟢 มีในคลังยา รพ.เสิงสาง",
+      "formulary_tier": "IN_FORMULARY",
+      "rx_sentinel_alert": "คัดกรองประวัติโรคลมชัก (Seizure risk) ก่อนจ่าย Bupropion ในคลินิกฟ้าใส • ติดตามอาการนอนไม่หลับและน้ำหนักตัว",
+      "bi_hq_note": "การช่วยให้ผู้ป่วยเลิกบุหรี่สำเร็จในคลินิกฟ้าใส ให้ผลตอบแทนทางเศรษฐศาสตร์สาธารณสุขสูงสุดในการลดโรคหลอดเลือดหัวใจและ COPD กำเริบ",
+      "thai_takeaway": "โครงการวิจัยใช้บุหรี่ไฟฟ้าช่วยลดอันตรายในผู้ป่วยมะเร็งที่สูบบุหรี่และปฏิเสธวิธีเลิกบุหรี่แบบดั้งเดิม",
+      "key_metrics": [
+        "ออกแบบการศึกษาแบบ Type 1 hybrid effectiveness-implementation",
+        "วัดผลหลักที่การเลิกสูบบุหรี่สำเร็จยืนยันด้วยคาร์บอนมอนำออกไซด์ที่ 6 เดือน"
+      ],
+      "soeng_sang_action": "ติดตามข้อมูลความปลอดภัยและประสิทธิผลจากงานวิจัยนี้เพื่อเป็นแนวทางลดอันตรายในอนาคต"
     }
   ],
   "thai_herbs": [
@@ -157,6 +182,31 @@
   ],
   "cardio_renal": [
     {
+      "pmid": "43058673",
+      "track_id": "cardio_renal",
+      "title": "SGLT2 inhibitors and cardiorenal outcomes across operationally mapped cardiovascular-kidney-metabolic syndrome stages 2-3 and stage 4: a systematic review and meta-analysis.",
+      "journal": "BMC endocrine disorders",
+      "pub_date": "2026 Aug",
+      "doi": "10.1186/s12902-026-02478-6",
+      "pmc_id": "PMC13786859",
+      "pmc_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13786859/",
+      "has_free_fulltext": true,
+      "extracted_n": 73220,
+      "abstract": "BACKGROUND: Sodium-glucose cotransporter 2 (SGLT2) inhibitors reduce heart failure and kidney events across diverse cardiometabolic populations. The cardiovascular-kidney-metabolic (CKM) framework offers a clinically relevant way to view these linked conditions, but randomized evidence has not been synthesized across this continuum. We assessed cardiorenal effects across two operationally mapped CKM stage groups.\n\nMETHODS: We searched PubMed/MEDLINE, Web of Science, Embase, and CENTRAL to February 25, 2026, for randomized controlled trials of an SGLT2 inhibitor versus placebo or usual care. Trial populations or mutually exclusive published subgroups were categorized as CKM stages 2-3 or CKM stage 4. No single primary outcome was prespecified; five outcomes were registered as main outcomes, and all-cause mortality was registered as a secondary outcome. The six time-to-event outcomes were pooled using REML random-effects models. Prespecified sensitivity analyses examined model choice, exclusion of SOLOIST-WHF-whose selected efficacy result was judged at high risk of bias-kidney endpoint definitions, leave-one-out stability, and small-study effects.\n\nRESULTS: Nineteen reports representing 11 parent randomized controlled trials (73,220 participants) were included: 18,547 in CKM stages 2-3 and 54,673 in CKM stage 4. Composite heart failure, hospitalization for heart failure, and kidney outcomes favored SGLT2 inhibitors in stages 2-3 and stage 4: HRs 0.80 (95% CI 0.68-0.93) and 0.77 (0.73-0.81; P for group difference = 0.65); 0.61 (0.48-0.77) and 0.71 (0.66-0.76; p = 0.24); and 0.61 (0.52-0.71) and 0.64 (0.54-0.75; p = 0.64), respectively. CKM stage 4 estimates for MACE and mortality were more precise. No group-difference test was significant. Sensitivity analyses were stable; an exploratory all-cause-mortality Egger test gave p = 0.025.\n\nCONCLUSIONS: Heart failure and kidney estimates favored SGLT2 inhibitors in both groups. No statistically detectable between-group difference was observed; however, CKM stages 2-3 analyses relied on four estimates and were less precise, so the findings should not be interpreted as evidence of equivalent treatment effects.\n\nSYSTEMATIC REVIEW REGISTRATION: PROSPERO CRD420261305463.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43058673/",
+      "evidence_badge": "📚 SR/MA • 👥 N=73,220",
+      "formulary_badge": "📋 แนวทางบริบาลเภสัชกรรมคลินิก",
+      "formulary_tier": "CLINICAL_PROTOCOL",
+      "rx_sentinel_alert": "ตรวจ eGFR ก่อนเริ่มยา (Dapagliflozin ห้ามเริ่มหาก eGFR < 25 mL/min) • เฝ้าระวัง Euglycemic DKA และการติดเชื้อทางเดินปัสสาวะ",
+      "bi_hq_note": "คุ้มค่าสูง (High ROI): ลดค่าใช้จ่ายการนอน รพ.ซ้ำจากภาวะหัวใจล้มเหลว (HF Readmission) และชะลอการฟอกไตในระยะยาว",
+      "thai_takeaway": "ยา SGLT2i ลดความเสี่ยงโรคหัวใจล้มเหลวและโรคไตในผู้ป่วย CKM syndrome ระยะ 2-4 อย่างชัดเจน",
+      "key_metrics": [
+        "N = 73,220 คนจาก 11 การศึกษา",
+        "HR 0.77 (0.73-0.81) สำหรับเหตุการณ์หัวใจล้มเหลวในระยะ 4"
+      ],
+      "soeng_sang_action": "สนับสนุนการใช้ SGLT2 inhibitors ในผู้ป่วย CKM syndrome ตามข้อบ่งใช้เพื่อป้องกันโรคหัวใจและไต"
+    },
+    {
       "pmid": "43004293",
       "track_id": "cardio_renal",
       "title": "Influence of diabetes mellitus on dapagliflozin response after transcatheter aortic valve replacement (TAVR): insights from the DAPA-TAVI trial.",
@@ -184,54 +234,54 @@
   ],
   "anticoagulation": [
     {
-      "pmid": "42906822",
+      "pmid": "43056610",
       "track_id": "anticoagulation",
-      "title": "Dual antithrombic therapy with DOAC plus ticagrelor versus DOAC plus clopidogrel after PCI: results from the ReDUAL PCI real life registry-based randomized controlled trial.",
-      "journal": "International journal of cardiology",
-      "pub_date": "2027 Jan",
-      "doi": "10.1016/j.ijcard.2026.135007",
-      "pmc_id": "",
-      "pmc_url": "",
-      "has_free_fulltext": false,
-      "extracted_n": 850,
-      "abstract": "BACKGROUND: Balancing thrombotic and bleeding risk in patients requiring direct oral anticoagulation (DOAC) after percutaneous coronary intervention (PCI) remains challenging. This study evaluated the safety of dual antithrombotic therapy with DOAC plus ticagrelor compared with DOAC plus clopidogrel in patients undergoing PCI for acute coronary syndrome or with high thrombotic risk.\n\nMETHODS: The ReDUAL PCI Real Life study was a Dutch, open-label, multicentre, registry-based randomized controlled trial within the Southeast Netherlands Heart Registry (ZON-HR), aiming to enrol 850 patients. Patients requiring DOAC were randomized 1:1 to DOAC plus ticagrelor or DOAC plus clopidogrel after PCI. The primary endpoint was any bleeding (BARC ≥2) at 1 year. Secondary endpoints included major adverse cardiac and cerebrovascular events (MACCE), and net adverse clinical events (NACE: MACCE plus major bleeding). Outcomes were compared with a non-randomized ZON-HR cohort eligible for inclusion.\n\nRESULTS: The study was terminated prematurely due to slow recruitment, with 109 patients randomized (53 ticagrelor, 56 clopidogrel). Overall bleeding rates were similar between ticagrelor and clopidogrel (13.2% vs 14.3%). Major bleeding (9.4% vs 1.8%), MACCE (13.2% vs 5.4%), and NACE (20.8% vs 7.1%) occurred more frequently with ticagrelor, without statistical significance. In 397 eligible non-randomized clopidogrel-treated patients, major bleeding rate was 3.4%, MACCE occurred in 12.5% and NACE in 14.5%.\n\nCONCLUSIONS: In patients undergoing PCI requiring oral anticoagulation, DOAC plus ticagrelor showed similar overall bleeding but numerical increase in major bleeding without apparent ischemic benefit compared with DOAC plus clopidogrel. This prematurely terminated study was underpowered, limiting abilities to draw definitive conclusions.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42906822/",
-      "evidence_badge": "👥 N=850 (RCT)",
-      "formulary_badge": "📋 แนวทางบริบาลเภสัชกรรมคลินิก",
-      "formulary_tier": "CLINICAL_PROTOCOL",
-      "rx_sentinel_alert": "ประเมินค่าไต CrCl ก่อนจ่าย DOACs • กรณีใช้ Warfarin ให้คุม Target INR 2.0–3.0 และระวังอันตรกิริยากับยาฆ่าเชื้อ/สมุนไพร",
-      "bi_hq_note": "ลดต้นทุนแฝง รพ.: การใช้ Aspirin ในกลุ่มเสี่ยงต่ำหลังผ่าตัดข้อ หรือเลือก DOAC ในกลุ่มเสี่ยงเลือดออกทางเดินอาหาร ช่วยลดภาระการเจาะ Lab INR และค่านอน รพ.จาก GI Bleed",
-      "thai_takeaway": "การใช้ยา DOAC + Ticagrelor หลังทำ PCI มีแนวโน้มเลือดออกรุนแรงสูงกว่า Clopidogrel โดยไม่ลดหลอดเลือดอุดตันเพิ่ม",
-      "key_metrics": [
-        "N = 109 (จากเป้าหมาย 850, ยุติการศึกษาเร็วกว่ากำหนด)",
-        "Major bleeding: DOAC + Ticagrelor 9.4% vs DOAC + Clopidogrel 1.8%"
-      ],
-      "soeng_sang_action": "รพ.เสิงสาง แนะนำเลือกใช้ Dual therapy ด้วย DOAC + Clopidogrel เป็นอันดับแรกเพื่อความปลอดภัย เลี่ยง Ticagrelor เว้นแต่มีข้อบ่งชี้ชัดเจน"
-    },
-    {
-      "pmid": "43013818",
-      "track_id": "anticoagulation",
-      "title": "Prevention of Venous Thromboembolism after Total Hip or Knee Replacement.",
-      "journal": "The New England journal of medicine",
-      "pub_date": "2026 Nov",
-      "doi": "10.1056/NEJMoa2602435",
-      "pmc_id": "",
-      "pmc_url": "",
-      "has_free_fulltext": false,
-      "extracted_n": 18883,
-      "abstract": "BACKGROUND: Studies comparing aspirin with anticoagulants for venous thromboembolism (VTE) prophylaxis after total hip or knee arthroplasty have had conflicting results.\n\nMETHODS: In a comparative-effectiveness noninferiority trial, we randomly assigned patients undergoing elective hip or knee arthroplasty to receive aspirin (81 mg twice daily), warfarin (to a target international normalized ratio of 2.0), or rivaroxaban (10 mg daily) for 30 days. The composite primary effectiveness outcome (death from any cause or symptomatic VTE) and primary safety outcome (bleeding, reoperation for wound problems, or myocardial infarction) were evaluated through 6 months in a blinded fashion. The noninferiority margin for the risk difference was 0.69 percentage points.\n\nRESULTS: Among 18,883 participants who had undergone randomization, 15,317 (7214 with hip arthroplasty and 8103 with knee arthroplasty) were included in the primary per-protocol analysis. A primary effectiveness outcome event occurred in 77 of 6090 participants (1.26%) in the aspirin group, in 52 of 4231 (1.23%) in the warfarin group, and in 47 of 4996 (0.94%) in the rivaroxaban group; a primary safety outcome event occurred in 177 (2.91%), 142 (3.36%), and 174 (3.48%), respectively. In pairwise comparisons, 6-month risks of a primary effectiveness outcome event were 1.24% and 0.94% for aspirin versus rivaroxaban (difference, 0.30 percentage points; 95% confidence interval [CI], -0.20 to 0.81); 1.24% and 1.01% for aspirin versus warfarin (difference, 0.23 percentage points; 95% CI, -0.34 to 0.81); and 1.13% and 1.10% for warfarin versus rivaroxaban (difference, 0.03 percentage points; 95% CI, -0.57 to 0.63). Risks of a primary safety outcome event were 3.70% and 3.02% for rivaroxaban versus aspirin (difference, 0.68 percentage points; 95% CI, -0.04 to 1.41); 3.65% and 2.88% for warfarin versus aspirin (difference, 0.77 percentage points; 95% CI, -0.04 to 1.58); and 3.59% and 3.61% for rivaroxaban versus warfarin (difference, -0.02 percentage points; 95% CI, -0.89 to 0.85). Intention-to-treat analyses yielded similar results.\n\nCONCLUSIONS: Aspirin prophylaxis after total hip or knee arthroplasty was not noninferior to rivaroxaban or warfarin with respect to death or symptomatic VTE. Warfarin and rivaroxaban were not noninferior to aspirin for safety. (Funded by the Patient-Centered Outcomes Research Institute; PEPPER ClinicalTrials.gov number, NCT02810704.).",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/43013818/",
+      "title": "Apixaban reduces hepatic decompensation in patients with cirrhosis (ApiHep): A randomized controlled trial.",
+      "journal": "Hepatology communications",
+      "pub_date": "2026 Dec",
+      "doi": "10.1097/HC9.0000000000001088",
+      "pmc_id": "PMC13787776",
+      "pmc_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13787776/",
+      "has_free_fulltext": true,
+      "extracted_n": null,
+      "abstract": "BACKGROUND: Evolving data suggest that anticoagulation is safe in cirrhosis and may improve decompensation-free survival in select patients. This study aimed to assess the efficacy and safety of the direct oral anticoagulant apixaban in patients with cirrhosis.\n\nMETHODS: In this open-label randomized controlled trial with blinded endpoint assessment, adult patients (18-60y) with cirrhosis (Child-Pugh B7-C10) without splenoportal axis thrombosis were randomized (1:1) to receive apixaban (2.5 mg twice daily) along with standard medical therapy (SMT) or SMT alone for 12 months. The primary outcome was the comparison of the proportion of patients with hepatic decompensation at 1 year. Secondary outcomes included frequency of liver-related events, overall and liver-related mortality, and adverse events (AEs).\n\nRESULTS: One hundred thirty-four patients (mean age 43.4±9.5 y; Child-Pugh B/C:115/19) were randomized (67 Apixaban+SMT and 67 SMT). Patients receiving apixaban experienced significantly lower rates of hepatic decompensation compared with SMT (33.1% vs. 54.3%; absolute risk reduction 21.2% [95% CI: 4.5%-38.2%]; p=0.013). Although rates of ascites (6.4% vs. 17.4%), HE (21.2% vs. 36.0%), and variceal bleeding (7.5% vs. 14.6%) were lower among patients receiving Apixaban+SMT as compared with SMT alone, the differences were not statistically significant. No significant between-group differences in all-cause and liver-related mortality at 1 year were noted. There were no significant between-group differences in AEs (55.2% vs. 53.7%), any bleeding (41.8% vs. 46.3%), and major bleeding (9.0% vs. 11.9%) events.\n\nCONCLUSIONS: Apixaban significantly reduced hepatic decompensation events without increasing hemorrhagic episodes in Child-Pugh B7-C10 cirrhosis (CTRI/2023/09/058018).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43056610/",
+      "evidence_badge": "👥 Clinical Trial (RCT)",
       "formulary_badge": "🟡 ยาบัญชี จ(2) / เงื่อนไขเฉพาะ รพ.",
       "formulary_tier": "J2_RESTRICTED",
       "rx_sentinel_alert": "ประเมินค่าไต CrCl ก่อนจ่าย DOACs • กรณีใช้ Warfarin ให้คุม Target INR 2.0–3.0 และระวังอันตรกิริยากับยาฆ่าเชื้อ/สมุนไพร",
       "bi_hq_note": "ลดต้นทุนแฝง รพ.: การใช้ Aspirin ในกลุ่มเสี่ยงต่ำหลังผ่าตัดข้อ หรือเลือก DOAC ในกลุ่มเสี่ยงเลือดออกทางเดินอาหาร ช่วยลดภาระการเจาะ Lab INR และค่านอน รพ.จาก GI Bleed",
-      "thai_takeaway": "เปรียบเทียบ 3 ยาหลักป้องกันลิ่มเลือดอุดตัน (VTE) หลังผ่าตัดเปลี่ยนข้อสะโพก/ข้อเข่า (PEPPER Trial, N=18,883): Warfarin/Rivaroxaban ลด VTE ได้ดีกว่าเล็กน้อย แต่ Aspirin มีความปลอดภัยด้านเลือดออกเหนือกว่าระดับมีนัยสำคัญ",
+      "thai_takeaway": "ยา Apixaban ช่วยลดภาวะตับวายระยะ decompensation ในผู้ป่วยโรคตับแข็งโดยไม่เพิ่มความเสี่ยงเลือดออก",
       "key_metrics": [
-        "PEPPER RCT (N=18,883 ราย ใน NEJM) เปรียบเทียบ Aspirin 81 mg BID vs Warfarin (INR 2.0) vs Rivaroxaban 10 mg QD นาน 30 วัน",
-        "กลุ่ม Warfarin และ Rivaroxaban มีความเสี่ยงเลือดออกและการต้องผ่าตัดซ้ำสูงกว่ากลุ่ม Aspirin อย่างมีนัยสำคัญ"
+        "N = 134 คน (Apixaban 67, SMT 67)",
+        "ลดภาวะตับ decompensation เหลือ 33.1% เทียบกับ 54.3% (p=0.013)"
       ],
-      "soeng_sang_action": "ในผู้ป่วยหลังผ่าตัดเปลี่ยนข้อที่มีความเสี่ยง VTE ต่ำหรือเสี่ยงเลือดออกสูง Aspirin เป็นทางเลือกที่ปลอดภัยและช่วยลดภาระการเจาะวัด INR ของคลินิกวาร์ฟาริน",
-      "evidence_badge": "👥 N=18,883"
+      "soeng_sang_action": "พิจารณาความคุ้มค่าและความปลอดภัยร่วมกับแพทย์ผู้เชี่ยวชาญก่อนใช้ในผู้ป่วยตับแข็ง Child-Pugh B-C"
+    },
+    {
+      "pmid": "43043490",
+      "track_id": "anticoagulation",
+      "title": "Pharmacological strategies for hemodialysis arteriovenous fistula and graft patency: an access-stratified systematic review and network meta-analysis.",
+      "journal": "European journal of clinical pharmacology",
+      "pub_date": "2026 Nov",
+      "doi": "10.1007/s00228-026-04228-y",
+      "pmc_id": "",
+      "pmc_url": "",
+      "has_free_fulltext": false,
+      "extracted_n": null,
+      "abstract": "BACKGROUND: Pharmacological therapies target different stages of hemodialysis access failure. We compared treatments separately in arteriovenous fistulas (AVFs) and grafts (AVGs), accounting for differences in outcomes and follow-up.\n\nMETHODS: This PROSPERO-registered review (CRD420261411441) followed PRISMA 2020 and PRISMA-NMA guidance. PubMed, Embase, CENTRAL/Cochrane records, and ClinicalTrials.gov were searched through May 31, 2026. Two reviewers independently screened records, extracted data, and assessed RoB 2. Separate random-effects frequentist network meta-analyses were supplemented by time-restricted analyses and exploratory follow-up meta-regression.\n\nRESULTS: Among 1,557 records, 31 reports were included; 23 trial datasets contributed to the primary analyses (15 AVF and 8 AVG). In AVFs, ticlopidine (OR, 0.37; 95% CI, 0.18-0.76) and clopidogrel (0.49; 0.24-0.97) may reduce predominantly early access failure (low certainty); estimates remained favorable at follow-up of 8 weeks or less. Larger single-trial effects for heparin plus anisodamine and clopidogrel plus a prostacyclin analog were very uncertain. Fish oil showed no clear AVF benefit. In AVGs, apixaban may reduce thrombosis (0.12; 0.03-0.41; low certainty), but its interval widened to 0.007-1.94 in the approximately 12-month subset. The aspirin estimate (3.35; 1.21-9.27) was very uncertain and imprecise under timing restrictions.\n\nCONCLUSIONS: Ticlopidine and clopidogrel may reduce early AVF failure without established improvement in functional maturation. AVG apixaban findings require confirmation, and the effect of aspirin remains very uncertain. Interpretation depends on the clinical outcome, follow-up, and bleeding risk.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43043490/",
+      "evidence_badge": "📚 Network Meta-Analysis (NMA)",
+      "formulary_badge": "🟡 ยาบัญชี จ(2) / เงื่อนไขเฉพาะ รพ.",
+      "formulary_tier": "J2_RESTRICTED",
+      "rx_sentinel_alert": "ประเมินค่าไต CrCl ก่อนจ่าย DOACs • กรณีใช้ Warfarin ให้คุม Target INR 2.0–3.0 และระวังอันตรกิริยากับยาฆ่าเชื้อ/สมุนไพร",
+      "bi_hq_note": "ลดต้นทุนแฝง รพ.: การใช้ Aspirin ในกลุ่มเสี่ยงต่ำหลังผ่าตัดข้อ หรือเลือก DOAC ในกลุ่มเสี่ยงเลือดออกทางเดินอาหาร ช่วยลดภาระการเจาะ Lab INR และค่านอน รพ.จาก GI Bleed",
+      "thai_takeaway": "ยาต้านเกล็ดเลือด Ticlopidine และ Clopidogrel อาจช่วยลดภาวะเส้นฟิสทูล่าล้มเหลวระยะแรกในผู้ป่วยฟอกไต",
+      "key_metrics": [
+        "วิเคราะห์จาก 31 รายงาน (15 AVF และ 8 AVG)",
+        "Ticlopidine (OR 0.37) และ Clopidogrel (OR 0.49) ลดการอุดตันระยะแรกใน AVF"
+      ],
+      "soeng_sang_action": "ระมัดระวังการใช้ยาต้านเกล็ดเลือดเพื่อป้องกัน AVF/AVG โดยต้องประเมินความเสี่ยงเลือดออกร่วมด้วย"
     }
   ],
   "ams_rdu": [

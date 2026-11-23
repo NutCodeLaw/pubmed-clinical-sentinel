@@ -105,38 +105,14 @@ python scripts/sentinel.py
 <!-- SENTINEL_REPORT_START -->
 
 # 🩺 สรุปรายงานวิจัยทางคลินิก 7 หมวดสำคัญ (Clinical Pharmacy Research Update)
-**ประจำวันที่:** 2026-11-16 | **เวอร์ชันเครื่องยนต์:** `v2.2.0-HQ (5-Allied HQs Synchronized)`  
+**ประจำวันที่:** 2026-11-23 | **เวอร์ชันเครื่องยนต์:** `v2.2.0-HQ (5-Allied HQs Synchronized)`  
 *ทีมสารสนเทศสมุนไพรและเภสัชบำบัด (IM Team) โรงพยาบาลเสิงสาง*
 
 ---
 
 ### 1. 🫁 เภสัชบำบัดโรคหอบหืดและปอดอุดกั้นเรื้อรัง (Asthma & COPD Pharmacotherapy)
 
-#### 1. Effectiveness of a Multicomponent Digital Therapeutic Program on Inhaled Medication Adherence in Chronic Obstructive Pulmonary Disease: Pilot Randomized Controlled Trial.
-- **วารสาร & PMID:** JMIR mHealth and uHealth • [PMID: 42993869](https://pubmed.ncbi.nlm.nih.gov/42993869/) • `👥 N=158 (RCT)` • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13742779/)
-- **สถานะบัญชียา รพ.เสิงสาง:** `📋 แนวทางบริบาลเภสัชกรรมคลินิก`
-- 🎯 **ใจความสำคัญ 1 บรรทัด:** โปรแกรมดิจิทัลบำบัดร่วมกับการติดตามกระบอกพ่นยาช่วยเพิ่มความร่วมมือในการใช้ยาพ่นสูดในผู้ป่วย COPD ได้อย่างมีนัยสำคัญตลอด 24 สัปดาห์
-- 📊 **ตัวเลขผลลัพธ์สำคัญ:**
-  • [ความร่วมมือในการใช้ยาพ่นวัดผ่านระบบอิเล็กทรอนิกส์ (EIM): กลุ่มดิจิทัล 59.5% vs กลุ่มดูแลปกติ 33.1% (p = 0.009)]
-  • [สัดส่วนผู้ป่วยที่เกิดการเปลี่ยนแปลง CAT score ในระดับที่มีความสำคัญทางคลินิก (MCID): OR 2.21 (95% CI 1.11-4.41, p = 0.02)]
-- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** พัฒนาระบบติดตามและแจ้งเตือนการใช้ยาพ่นผ่าน LINE OA เพื่อส่งเสริมความร่วมมือในการใช้ยาของผู้ป่วย COPD ในคลินิกโรคเรื้อรัง
-- ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** ทบทวนเทคนิคการพ่นยา (Inhaler Technique) ทุกครั้งก่อนปรับ Step ยา • ยากลุ่ม Biologics ต้องคัดกรอง Eosinophils/FeNO ตามเกณฑ์
-- 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** ยากลุ่ม Biologics มีราคาสูง ควรจำกัดเฉพาะเคส Severe Refractory ที่ลดการส่งตัวผ่าตัดซ้ำหรือลดการแอดมิด ICU ได้ชัดเจน
-- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42993869/)
-
-#### 2. Asthma in Older Adults: A Systematic Review of Real-World Burden and Outcomes.
-- **วารสาร & PMID:** Current allergy and asthma reports • [PMID: 42980725](https://pubmed.ncbi.nlm.nih.gov/42980725/) • `📚 Systematic Review` • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13736361/)
-- **สถานะบัญชียา รพ.เสิงสาง:** `📋 แนวทางบริบาลเภสัชกรรมคลินิก`
-- 🎯 **ใจความสำคัญ 1 บรรทัด:** หอบหืดในผู้สูงอายุพบสูงขึ้นแต่ยังได้รับการวินิจฉัยและการรักษาต่ำกว่าที่ควรเนื่องจากความซับซ้อนของโรคและข้อจำกัดด้านเทคนิคการพ่นยา
-- 📊 **ตัวเลขผลลัพธ์สำคัญ:**
-  • [Systematic Review พบปัญหา Underdiagnosis และ Undertreatment สูงมากในผู้สูงอายุที่มีโรคร่วมหลายโรค]
-  • [ปัจจัยขัดขวางสำคัญ: ความรอบรู้ด้านสุขภาพต่ำ (Low health literacy), เทคนิคการพ่นยาไม่ถูกต้อง และอาการทับซ้อนกับภาวะหัวใจ/COPD]
-- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** จัดทำแนวทางการประเมินเทคนิคการพ่นยา (Inhaler Device Check) และพิจารณาใช้ Spacer ในผู้สูงอายุทุกรายที่คลินิกระบบทางเดินหายใจ
-- ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** ทบทวนเทคนิคการพ่นยา (Inhaler Technique) ทุกครั้งก่อนปรับ Step ยา • ยากลุ่ม Biologics ต้องคัดกรอง Eosinophils/FeNO ตามเกณฑ์
-- 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** ยากลุ่ม Biologics มีราคาสูง ควรจำกัดเฉพาะเคส Severe Refractory ที่ลดการส่งตัวผ่าตัดซ้ำหรือลดการแอดมิด ICU ได้ชัดเจน
-- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42980725/)
-
-#### 3. Inhaled Corticosteroids and Sickle Cell Disease Severity in Adults Without Asthma: A Randomized Clinical Trial.
+#### 1. Inhaled Corticosteroids and Sickle Cell Disease Severity in Adults Without Asthma: A Randomized Clinical Trial.
 - **วารสาร & PMID:** JAMA network open • [PMID: 43007675](https://pubmed.ncbi.nlm.nih.gov/43007675/) • `👥 N=77 (RCT)`
 - **สถานะบัญชียา รพ.เสิงสาง:** `📋 แนวทางบริบาลเภสัชกรรมคลินิก`
 - 🎯 **ใจความสำคัญ 1 บรรทัด:** ไม่ควรใช้ยาพ่นสเตียรอยด์ (Mometasone) ระยะยาวในผู้ใหญ่ที่เป็น Sickle Cell Disease ที่มีอาการไอ/หวีดโดยไม่ได้เป็นหอบหืด เพราะทำให้ค่าการอักเสบแย่ลง
@@ -147,6 +123,30 @@ python scripts/sentinel.py
 - ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** ทบทวนเทคนิคการพ่นยา (Inhaler Technique) ทุกครั้งก่อนปรับ Step ยา • ยากลุ่ม Biologics ต้องคัดกรอง Eosinophils/FeNO ตามเกณฑ์
 - 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** ยากลุ่ม Biologics มีราคาสูง ควรจำกัดเฉพาะเคส Severe Refractory ที่ลดการส่งตัวผ่าตัดซ้ำหรือลดการแอดมิด ICU ได้ชัดเจน
 - 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/43007675/)
+
+#### 2. Elarekibep, an inhaled Anticalin protein, targets IL-4Rα locally: first-in-human randomized phase 1 trials of a novel potential therapeutic class in asthma.
+- **วารสาร & PMID:** Respiratory research • [PMID: 43035707](https://pubmed.ncbi.nlm.nih.gov/43035707/) • `👥 N=148 (RCT)` • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13772527/)
+- **สถานะบัญชียา รพ.เสิงสาง:** `📋 แนวทางบริบาลเภสัชกรรมคลินิก`
+- 🎯 **ใจความสำคัญ 1 บรรทัด:** ยาพ่นใหม่ Elarekibep จับตัวรับ IL-4Rα ในปอดได้ดี ปลอดภัย ในผู้ป่วยหืด
+- 📊 **ตัวเลขผลลัพธ์สำคัญ:**
+  • [N = 148 คน]
+  • [ลดค่า FeNO ได้อย่างรวดเร็วที่ขนาดยา ≥ 2 มก.]
+- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** รอติดตามผลการศึกษา Phase 2a เพิ่มเติมเพื่อประยุกต์ใช้ในอนาคต
+- ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** ทบทวนเทคนิคการพ่นยา (Inhaler Technique) ทุกครั้งก่อนปรับ Step ยา • ยากลุ่ม Biologics ต้องคัดกรอง Eosinophils/FeNO ตามเกณฑ์
+- 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** ยากลุ่ม Biologics มีราคาสูง ควรจำกัดเฉพาะเคส Severe Refractory ที่ลดการส่งตัวผ่าตัดซ้ำหรือลดการแอดมิด ICU ได้ชัดเจน
+- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/43035707/)
+
+#### 3. Uncovering the heterogeneous effect of inhaled corticosteroids on COPD exacerbations with causal machine learning.
+- **วารสาร & PMID:** Respiratory research • [PMID: 43040297](https://pubmed.ncbi.nlm.nih.gov/43040297/) • `📑 Clinical Evidence Review` • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13776476/)
+- **สถานะบัญชียา รพ.เสิงสาง:** `📋 แนวทางบริบาลเภสัชกรรมคลินิก`
+- 🎯 **ใจความสำคัญ 1 บรรทัด:** การเรียนรู้ของเครื่องเชิงสาเหตุช่วยชี้ว่า อาการและสมรรถภาพปอดร่วมกับอีโอซิโนฟิล ช่วยทำนายการตอบสนองต่อยาพ่นสเตียรอยด์ใน COPD ได้ดีขึ้น
+- 📊 **ตัวเลขผลลัพธ์สำคัญ:**
+  • [N = 4,048 (FF/U/V), 4,034 (FF/V), และ 2,025 (U/V)]
+  • [ตรวจพบความแตกต่างของการตอบสนองต่อยาสเตียรอยด์อย่างมีนัยสำคัญทางสถิติ]
+- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** พิจารณาปัจจัยทางคลินิกอื่นๆ ร่วมกับค่า eosinophil ในเลือดเมื่อจะปรับใช้ยา ICS ในผู้ป่วย COPD
+- ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** ทบทวนเทคนิคการพ่นยา (Inhaler Technique) ทุกครั้งก่อนปรับ Step ยา • ยากลุ่ม Biologics ต้องคัดกรอง Eosinophils/FeNO ตามเกณฑ์
+- 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** ยากลุ่ม Biologics มีราคาสูง ควรจำกัดเฉพาะเคส Severe Refractory ที่ลดการส่งตัวผ่าตัดซ้ำหรือลดการแอดมิด ICU ได้ชัดเจน
+- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/43040297/)
 
 ---
 
@@ -163,6 +163,18 @@ python scripts/sentinel.py
 - ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** คัดกรองประวัติโรคลมชัก (Seizure risk) ก่อนจ่าย Bupropion ในคลินิกฟ้าใส • ติดตามอาการนอนไม่หลับและน้ำหนักตัว
 - 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** การช่วยให้ผู้ป่วยเลิกบุหรี่สำเร็จในคลินิกฟ้าใส ให้ผลตอบแทนทางเศรษฐศาสตร์สาธารณสุขสูงสุดในการลดโรคหลอดเลือดหัวใจและ COPD กำเริบ
 - 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42849341/)
+
+#### 2. A novel harm reduction approach for oncology outpatients who smoke and refuse traditional tobacco treatment: a protocol for a type 1 hybrid effectiveness-implementation trial.
+- **วารสาร & PMID:** Addiction science & clinical practice • [PMID: 43058784](https://pubmed.ncbi.nlm.nih.gov/43058784/) • `👥 Clinical Trial (RCT)` • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13784046/)
+- **สถานะบัญชียา รพ.เสิงสาง:** `🟢 มีในคลังยา รพ.เสิงสาง`
+- 🎯 **ใจความสำคัญ 1 บรรทัด:** โครงการวิจัยใช้บุหรี่ไฟฟ้าช่วยลดอันตรายในผู้ป่วยมะเร็งที่สูบบุหรี่และปฏิเสธวิธีเลิกบุหรี่แบบดั้งเดิม
+- 📊 **ตัวเลขผลลัพธ์สำคัญ:**
+  • [ออกแบบการศึกษาแบบ Type 1 hybrid effectiveness-implementation]
+  • [วัดผลหลักที่การเลิกสูบบุหรี่สำเร็จยืนยันด้วยคาร์บอนมอนำออกไซด์ที่ 6 เดือน]
+- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** ติดตามข้อมูลความปลอดภัยและประสิทธิผลจากงานวิจัยนี้เพื่อเป็นแนวทางลดอันตรายในอนาคต
+- ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** คัดกรองประวัติโรคลมชัก (Seizure risk) ก่อนจ่าย Bupropion ในคลินิกฟ้าใส • ติดตามอาการนอนไม่หลับและน้ำหนักตัว
+- 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** การช่วยให้ผู้ป่วยเลิกบุหรี่สำเร็จในคลินิกฟ้าใส ให้ผลตอบแทนทางเศรษฐศาสตร์สาธารณสุขสูงสุดในการลดโรคหลอดเลือดหัวใจและ COPD กำเริบ
+- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/43058784/)
 
 ---
 
@@ -196,7 +208,19 @@ python scripts/sentinel.py
 
 ### 4. 🫀 ชะลอไตเสื่อม & เมตาบอลิกหัวใจ (Cardio-Renal CRM: SGLT2i, GLP-1RA, Finerenone)
 
-#### 1. Influence of diabetes mellitus on dapagliflozin response after transcatheter aortic valve replacement (TAVR): insights from the DAPA-TAVI trial.
+#### 1. SGLT2 inhibitors and cardiorenal outcomes across operationally mapped cardiovascular-kidney-metabolic syndrome stages 2-3 and stage 4: a systematic review and meta-analysis.
+- **วารสาร & PMID:** BMC endocrine disorders • [PMID: 43058673](https://pubmed.ncbi.nlm.nih.gov/43058673/) • `📚 SR/MA • 👥 N=73,220` • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13786859/)
+- **สถานะบัญชียา รพ.เสิงสาง:** `📋 แนวทางบริบาลเภสัชกรรมคลินิก`
+- 🎯 **ใจความสำคัญ 1 บรรทัด:** ยา SGLT2i ลดความเสี่ยงโรคหัวใจล้มเหลวและโรคไตในผู้ป่วย CKM syndrome ระยะ 2-4 อย่างชัดเจน
+- 📊 **ตัวเลขผลลัพธ์สำคัญ:**
+  • [N = 73,220 คนจาก 11 การศึกษา]
+  • [HR 0.77 (0.73-0.81) สำหรับเหตุการณ์หัวใจล้มเหลวในระยะ 4]
+- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** สนับสนุนการใช้ SGLT2 inhibitors ในผู้ป่วย CKM syndrome ตามข้อบ่งใช้เพื่อป้องกันโรคหัวใจและไต
+- ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** ตรวจ eGFR ก่อนเริ่มยา (Dapagliflozin ห้ามเริ่มหาก eGFR < 25 mL/min) • เฝ้าระวัง Euglycemic DKA และการติดเชื้อทางเดินปัสสาวะ
+- 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** คุ้มค่าสูง (High ROI): ลดค่าใช้จ่ายการนอน รพ.ซ้ำจากภาวะหัวใจล้มเหลว (HF Readmission) และชะลอการฟอกไตในระยะยาว
+- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/43058673/)
+
+#### 2. Influence of diabetes mellitus on dapagliflozin response after transcatheter aortic valve replacement (TAVR): insights from the DAPA-TAVI trial.
 - **วารสาร & PMID:** Cardiovascular diabetology • [PMID: 43004293](https://pubmed.ncbi.nlm.nih.gov/43004293/) • `👥 N=1,222 (RCT)` • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13746418/)
 - **สถานะบัญชียา รพ.เสิงสาง:** `🟢 มีในคลังยา รพ.เสิงสาง`
 - 🎯 **ใจความสำคัญ 1 บรรทัด:** Dapagliflozin ช่วยลดการเสียชีวิตและภาวะหัวใจล้มเหลวกำเริบหลังเปลี่ยนลิ้นหัวใจ TAVR ได้ดีเท่าเทียมกันทั้งในผู้ที่เป็นและไม่เป็นเบาหวาน
@@ -212,29 +236,29 @@ python scripts/sentinel.py
 
 ### 5. 🩸 ยาต้านการแข็งตัวของเลือด & HAD (Warfarin vs DOACs)
 
-#### 1. Dual antithrombic therapy with DOAC plus ticagrelor versus DOAC plus clopidogrel after PCI: results from the ReDUAL PCI real life registry-based randomized controlled trial.
-- **วารสาร & PMID:** International journal of cardiology • [PMID: 42906822](https://pubmed.ncbi.nlm.nih.gov/42906822/) • `👥 N=850 (RCT)`
-- **สถานะบัญชียา รพ.เสิงสาง:** `📋 แนวทางบริบาลเภสัชกรรมคลินิก`
-- 🎯 **ใจความสำคัญ 1 บรรทัด:** การใช้ยา DOAC + Ticagrelor หลังทำ PCI มีแนวโน้มเลือดออกรุนแรงสูงกว่า Clopidogrel โดยไม่ลดหลอดเลือดอุดตันเพิ่ม
-- 📊 **ตัวเลขผลลัพธ์สำคัญ:**
-  • [N = 109 (จากเป้าหมาย 850, ยุติการศึกษาเร็วกว่ากำหนด)]
-  • [Major bleeding: DOAC + Ticagrelor 9.4% vs DOAC + Clopidogrel 1.8%]
-- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** รพ.เสิงสาง แนะนำเลือกใช้ Dual therapy ด้วย DOAC + Clopidogrel เป็นอันดับแรกเพื่อความปลอดภัย เลี่ยง Ticagrelor เว้นแต่มีข้อบ่งชี้ชัดเจน
-- ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** ประเมินค่าไต CrCl ก่อนจ่าย DOACs • กรณีใช้ Warfarin ให้คุม Target INR 2.0–3.0 และระวังอันตรกิริยากับยาฆ่าเชื้อ/สมุนไพร
-- 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** ลดต้นทุนแฝง รพ.: การใช้ Aspirin ในกลุ่มเสี่ยงต่ำหลังผ่าตัดข้อ หรือเลือก DOAC ในกลุ่มเสี่ยงเลือดออกทางเดินอาหาร ช่วยลดภาระการเจาะ Lab INR และค่านอน รพ.จาก GI Bleed
-- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/42906822/)
-
-#### 2. Prevention of Venous Thromboembolism after Total Hip or Knee Replacement.
-- **วารสาร & PMID:** The New England journal of medicine • [PMID: 43013818](https://pubmed.ncbi.nlm.nih.gov/43013818/) • `👥 N=18,883`
+#### 1. Apixaban reduces hepatic decompensation in patients with cirrhosis (ApiHep): A randomized controlled trial.
+- **วารสาร & PMID:** Hepatology communications • [PMID: 43056610](https://pubmed.ncbi.nlm.nih.gov/43056610/) • `👥 Clinical Trial (RCT)` • 📖 [อ่านฟรี PMC Full-Text](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13787776/)
 - **สถานะบัญชียา รพ.เสิงสาง:** `🟡 ยาบัญชี จ(2) / เงื่อนไขเฉพาะ รพ.`
-- 🎯 **ใจความสำคัญ 1 บรรทัด:** เปรียบเทียบ 3 ยาหลักป้องกันลิ่มเลือดอุดตัน (VTE) หลังผ่าตัดเปลี่ยนข้อสะโพก/ข้อเข่า (PEPPER Trial, N=18,883): Warfarin/Rivaroxaban ลด VTE ได้ดีกว่าเล็กน้อย แต่ Aspirin มีความปลอดภัยด้านเลือดออกเหนือกว่าระดับมีนัยสำคัญ
+- 🎯 **ใจความสำคัญ 1 บรรทัด:** ยา Apixaban ช่วยลดภาวะตับวายระยะ decompensation ในผู้ป่วยโรคตับแข็งโดยไม่เพิ่มความเสี่ยงเลือดออก
 - 📊 **ตัวเลขผลลัพธ์สำคัญ:**
-  • [PEPPER RCT (N=18,883 ราย ใน NEJM) เปรียบเทียบ Aspirin 81 mg BID vs Warfarin (INR 2.0) vs Rivaroxaban 10 mg QD นาน 30 วัน]
-  • [กลุ่ม Warfarin และ Rivaroxaban มีความเสี่ยงเลือดออกและการต้องผ่าตัดซ้ำสูงกว่ากลุ่ม Aspirin อย่างมีนัยสำคัญ]
-- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** ในผู้ป่วยหลังผ่าตัดเปลี่ยนข้อที่มีความเสี่ยง VTE ต่ำหรือเสี่ยงเลือดออกสูง Aspirin เป็นทางเลือกที่ปลอดภัยและช่วยลดภาระการเจาะวัด INR ของคลินิกวาร์ฟาริน
+  • [N = 134 คน (Apixaban 67, SMT 67)]
+  • [ลดภาวะตับ decompensation เหลือ 33.1% เทียบกับ 54.3% (p=0.013)]
+- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** พิจารณาความคุ้มค่าและความปลอดภัยร่วมกับแพทย์ผู้เชี่ยวชาญก่อนใช้ในผู้ป่วยตับแข็ง Child-Pugh B-C
 - ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** ประเมินค่าไต CrCl ก่อนจ่าย DOACs • กรณีใช้ Warfarin ให้คุม Target INR 2.0–3.0 และระวังอันตรกิริยากับยาฆ่าเชื้อ/สมุนไพร
 - 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** ลดต้นทุนแฝง รพ.: การใช้ Aspirin ในกลุ่มเสี่ยงต่ำหลังผ่าตัดข้อ หรือเลือก DOAC ในกลุ่มเสี่ยงเลือดออกทางเดินอาหาร ช่วยลดภาระการเจาะ Lab INR และค่านอน รพ.จาก GI Bleed
-- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/43013818/)
+- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/43056610/)
+
+#### 2. Pharmacological strategies for hemodialysis arteriovenous fistula and graft patency: an access-stratified systematic review and network meta-analysis.
+- **วารสาร & PMID:** European journal of clinical pharmacology • [PMID: 43043490](https://pubmed.ncbi.nlm.nih.gov/43043490/) • `📚 Network Meta-Analysis (NMA)`
+- **สถานะบัญชียา รพ.เสิงสาง:** `🟡 ยาบัญชี จ(2) / เงื่อนไขเฉพาะ รพ.`
+- 🎯 **ใจความสำคัญ 1 บรรทัด:** ยาต้านเกล็ดเลือด Ticlopidine และ Clopidogrel อาจช่วยลดภาวะเส้นฟิสทูล่าล้มเหลวระยะแรกในผู้ป่วยฟอกไต
+- 📊 **ตัวเลขผลลัพธ์สำคัญ:**
+  • [วิเคราะห์จาก 31 รายงาน (15 AVF และ 8 AVG)]
+  • [Ticlopidine (OR 0.37) และ Clopidogrel (OR 0.49) ลดการอุดตันระยะแรกใน AVF]
+- 💡 **สิ่งที่ต้องรู้ใน รพ.เสิงสาง:** ระมัดระวังการใช้ยาต้านเกล็ดเลือดเพื่อป้องกัน AVF/AVG โดยต้องประเมินความเสี่ยงเลือดออกร่วมด้วย
+- ⚠️ **คำเตือนเภสัชกร (Rx-Sentinel HQ):** ประเมินค่าไต CrCl ก่อนจ่าย DOACs • กรณีใช้ Warfarin ให้คุม Target INR 2.0–3.0 และระวังอันตรกิริยากับยาฆ่าเชื้อ/สมุนไพร
+- 💰 **มุมมองความคุ้มค่า & งบประมาณ (BI-HQ):** ลดต้นทุนแฝง รพ.: การใช้ Aspirin ในกลุ่มเสี่ยงต่ำหลังผ่าตัดข้อ หรือเลือก DOAC ในกลุ่มเสี่ยงเลือดออกทางเดินอาหาร ช่วยลดภาระการเจาะ Lab INR และค่านอน รพ.จาก GI Bleed
+- 🔗 **ลิงก์ศึกษาต่อ:** [คลิกเปิดอ่านบทคัดย่อตัวเต็มบน PubMed →](https://pubmed.ncbi.nlm.nih.gov/43043490/)
 
 ---
 

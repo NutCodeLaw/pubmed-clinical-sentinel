@@ -1130,46 +1130,446 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
 <html lang="th">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>🥊 Clinical Battle Arena (v2.2-HQ) | ภก.รัฐนนท์ แสงไทยทวีพร</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    try {{
+      var t = localStorage.getItem('hq_theme');
+      var m = document.querySelector('meta[name="color-scheme"]');
+      if (t === 'light' || t === 'sepia' || t === 'dark') {{
+        document.documentElement.setAttribute('data-theme', t);
+        if (m) m.content = (t === 'dark' ? 'dark' : 'light');
+      }} else if (m) {{
+        m.content = 'light dark';
+      }}
+    }} catch (e) {{}}
+  </script>
+  <title>⚔️ Clinical Battle Arena (v2.3-HQ) | ภก.รัฐนนท์ แสงไทยทวีพร</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800;900&family=Sarabun:wght@300;400;600&family=Bungee&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800;900&family=Sarabun:wght@400;500;600;700&family=Bungee&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <style>
+    /* Modern Web 2026 Color Scheme Root + 3 Tailored Themes (Apple Light / Claude Sepia / Linear Dark) */
     :root {{
-      --bg: #070a12;
-      --card-bg: rgba(18, 25, 43, 0.92);
-      --red-fighter: #ef4444;
-      --blue-fighter: #3b82f6;
-      --neon-cyan: #06b6d4;
-      --gold: #f59e0b;
-      --emerald: #10b981;
-      --purple: #8b5cf6;
-      --text: #f8fafc;
-      --text-muted: #94a3b8;
+      color-scheme: light dark;
+      --bg: #f5f5f7;
+      --card-bg: #ffffff;
+      --surface-elevated: #fafafc;
+      --surface-inset: #efeff4;
+      --border: #e0e0e0;
+      --text: #1d1d1f;
+      --text-secondary: #333333;
+      --text-muted: #6e6e73;
+      --accent: #0066cc;
+      --neon-cyan: #0066cc;
+      --gold: #b45309;
+      --emerald: #047857;
+      --red-fighter: #dc2626;
+      --blue-fighter: #0066cc;
+      --purple: #6d28d9;
+      --glass-bg: rgba(255, 255, 255, 0.86);
+      --hero-glow: radial-gradient(circle at 50% 0%, rgba(0, 102, 204, 0.08) 0%, transparent 60%);
+      --card-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+      --card-hover-shadow: 0 10px 24px rgba(15, 23, 42, 0.1);
+      --header-title-grad: linear-gradient(135deg, #0066cc 0%, #1d1d1f 55%, #b45309 100%);
+      --scrollbar-thumb: #b4b4bb;
+      --scrollbar-track: #efeff4;
+      --tone-emerald-bg: #ecfdf5;
+      --tone-emerald-border: #a7f3d0;
+      --tone-emerald-ink: #065f46;
+      --tone-amber-bg: #fffbeb;
+      --tone-amber-border: #fde68a;
+      --tone-amber-ink: #92400e;
+      --tone-rose-bg: #fef2f2;
+      --tone-rose-border: #fecaca;
+      --tone-rose-ink: #991b1b;
+      --tone-violet-bg: #f5f3ff;
+      --tone-violet-border: #ddd6fe;
+      --tone-violet-ink: #5b21b6;
+      --tone-cyan-bg: #eff6ff;
+      --tone-cyan-border: #bfdbfe;
+      --tone-cyan-ink: #1e40af;
     }}
+    :root:has(> head > meta[name="color-scheme"][content="dark"]) {{ color-scheme: dark; }}
+    :root:has(> head > meta[name="color-scheme"][content="light"]) {{ color-scheme: light; }}
+
+    @media (prefers-color-scheme: dark) {{
+      html:not([data-theme]) {{
+        --bg: #010102;
+        --card-bg: #0f1011;
+        --surface-elevated: #141516;
+        --surface-inset: #18191a;
+        --border: #23252a;
+        --text: #f7f8f8;
+        --text-secondary: #d0d6e0;
+        --text-muted: #8a8f98;
+        --accent: #5e6ad2;
+        --neon-cyan: #38bdf8;
+        --gold: #fbbf24;
+        --emerald: #34d399;
+        --red-fighter: #f87171;
+        --blue-fighter: #60a5fa;
+        --purple: #a78bfa;
+        --glass-bg: rgba(15, 16, 17, 0.86);
+        --hero-glow: radial-gradient(circle at 50% 0%, rgba(94, 106, 210, 0.16) 0%, transparent 60%);
+        --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+        --card-hover-shadow: 0 10px 28px rgba(0, 0, 0, 0.65);
+        --header-title-grad: linear-gradient(135deg, #38bdf8 0%, #c084fc 50%, #fbbf24 100%);
+        --scrollbar-thumb: #3e3e44;
+        --scrollbar-track: #0f1011;
+        --tone-emerald-bg: rgba(16, 185, 129, 0.14);
+        --tone-emerald-border: rgba(16, 185, 129, 0.4);
+        --tone-emerald-ink: #a7f3d0;
+        --tone-amber-bg: rgba(245, 158, 11, 0.14);
+        --tone-amber-border: rgba(245, 158, 11, 0.4);
+        --tone-amber-ink: #fde68a;
+        --tone-rose-bg: rgba(239, 68, 68, 0.14);
+        --tone-rose-border: rgba(239, 68, 68, 0.4);
+        --tone-rose-ink: #fca5a5;
+        --tone-violet-bg: rgba(139, 92, 246, 0.15);
+        --tone-violet-border: rgba(139, 92, 246, 0.4);
+        --tone-violet-ink: #ddd6fe;
+        --tone-cyan-bg: rgba(56, 189, 248, 0.13);
+        --tone-cyan-border: rgba(56, 189, 248, 0.35);
+        --tone-cyan-ink: #bae6fd;
+      }}
+    }}
+
+    html[data-theme="sepia"] {{
+      --bg: #f5f0e8;
+      --card-bg: #faf9f5;
+      --surface-elevated: #efe9de;
+      --surface-inset: #e8e0d2;
+      --border: #dfd6c7;
+      --text: #141413;
+      --text-secondary: #3d3d3a;
+      --text-muted: #6c6a64;
+      --accent: #a9583e;
+      --neon-cyan: #a9583e;
+      --gold: #9a5b13;
+      --emerald: #2f6f4f;
+      --red-fighter: #b83b3b;
+      --blue-fighter: #2c628c;
+      --purple: #6f4e8c;
+      --glass-bg: rgba(250, 249, 245, 0.9);
+      --hero-glow: radial-gradient(circle at 50% 0%, rgba(204, 120, 92, 0.12) 0%, transparent 60%);
+      --card-shadow: 0 4px 16px rgba(61, 45, 25, 0.07);
+      --card-hover-shadow: 0 8px 24px rgba(61, 45, 25, 0.12);
+      --header-title-grad: linear-gradient(135deg, #a9583e 0%, #141413 55%, #9a5b13 100%);
+      --scrollbar-thumb: #b5aa97;
+      --scrollbar-track: #efe9de;
+      --tone-emerald-bg: #e7f0ea;
+      --tone-emerald-border: #a7cab5;
+      --tone-emerald-ink: #1e4b34;
+      --tone-amber-bg: #f7eedc;
+      --tone-amber-border: #dfc28e;
+      --tone-amber-ink: #70410b;
+      --tone-rose-bg: #f9e6e4;
+      --tone-rose-border: #e3b2ad;
+      --tone-rose-ink: #7f2323;
+      --tone-violet-bg: #efeaf6;
+      --tone-violet-border: #cbbce0;
+      --tone-violet-ink: #4b3163;
+      --tone-cyan-bg: #f6ebe5;
+      --tone-cyan-border: #dfb7a6;
+      --tone-cyan-ink: #7c3822;
+    }}
+
+    html[data-theme="dark"] {{
+      --bg: #010102;
+      --card-bg: #0f1011;
+      --surface-elevated: #141516;
+      --surface-inset: #18191a;
+      --border: #23252a;
+      --text: #f7f8f8;
+      --text-secondary: #d0d6e0;
+      --text-muted: #8a8f98;
+      --accent: #5e6ad2;
+      --neon-cyan: #38bdf8;
+      --gold: #fbbf24;
+      --emerald: #34d399;
+      --red-fighter: #f87171;
+      --blue-fighter: #60a5fa;
+      --purple: #a78bfa;
+      --glass-bg: rgba(15, 16, 17, 0.86);
+      --hero-glow: radial-gradient(circle at 50% 0%, rgba(94, 106, 210, 0.16) 0%, transparent 60%);
+      --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+      --card-hover-shadow: 0 10px 28px rgba(0, 0, 0, 0.65);
+      --header-title-grad: linear-gradient(135deg, #38bdf8 0%, #c084fc 50%, #fbbf24 100%);
+      --scrollbar-thumb: #3e3e44;
+      --scrollbar-track: #0f1011;
+      --tone-emerald-bg: rgba(16, 185, 129, 0.14);
+      --tone-emerald-border: rgba(16, 185, 129, 0.4);
+      --tone-emerald-ink: #a7f3d0;
+      --tone-amber-bg: rgba(245, 158, 11, 0.14);
+      --tone-amber-border: rgba(245, 158, 11, 0.4);
+      --tone-amber-ink: #fde68a;
+      --tone-rose-bg: rgba(239, 68, 68, 0.14);
+      --tone-rose-border: rgba(239, 68, 68, 0.4);
+      --tone-rose-ink: #fca5a5;
+      --tone-violet-bg: rgba(139, 92, 246, 0.15);
+      --tone-violet-border: rgba(139, 92, 246, 0.4);
+      --tone-violet-ink: #ddd6fe;
+      --tone-cyan-bg: rgba(56, 189, 248, 0.13);
+      --tone-cyan-border: rgba(56, 189, 248, 0.35);
+      --tone-cyan-ink: #bae6fd;
+    }}
+
+    :root {{
+      accent-color: var(--accent);
+      scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+    }}
+    ::selection {{
+      background: var(--accent);
+      color: #ffffff;
+    }}
+
     * {{ box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }}
+    html {{ overflow-y: auto; scroll-behavior: smooth; }}
     body {{
-      font-family: 'Prompt', sans-serif;
-      background: var(--bg);
-      background-image: radial-gradient(circle at 50% 0%, rgba(6, 182, 212, 0.16) 0%, transparent 60%);
+      font-family: 'Prompt', 'Sarabun', sans-serif;
+      background-color: var(--bg);
+      background-image: var(--hero-glow);
       color: var(--text);
-      line-height: 1.55;
+      line-height: 1.58;
       padding-bottom: 4rem;
+      overflow-x: hidden;
     }}
+    .tabular-nums {{ font-variant-numeric: tabular-nums; }}
+
+    :where(a:any-link, button, input, select):focus-visible {{
+      outline: 3px solid var(--accent);
+      outline-offset: 2px;
+    }}
+
+    @media (prefers-reduced-motion: reduce) {{
+      ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) {{
+        animation: none !important;
+      }}
+      html {{ scroll-behavior: auto; }}
+    }}
+
+    /* Sticky Top Glass Bar + Scroll-Driven Reading Progress */
+    .top-utility-bar {{
+      position: sticky;
+      top: 0;
+      z-index: 800;
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }}
+    .top-utility-inner {{
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 6px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+    }}
+    .util-brand {{
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      min-width: 0;
+    }}
+    .util-actions {{
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }}
+    .theme-seg-wrap {{
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      background: var(--surface-inset);
+      border: 1px solid var(--border);
+      padding: 2px;
+      border-radius: 10px;
+    }}
+    .theme-seg-btn {{
+      appearance: none;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-family: inherit;
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 8px;
+      cursor: pointer;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }}
+    .theme-seg-btn.is-active {{
+      background: var(--card-bg);
+      color: var(--accent);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.14);
+    }}
+    .util-search-btn {{
+      appearance: none;
+      background: var(--surface-elevated);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 5px 9px;
+      border-radius: 10px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      white-space: nowrap;
+    }}
+    .util-search-btn:hover {{ border-color: var(--accent); }}
+    .kbd-hint {{
+      font-size: 0.68rem;
+      padding: 1px 4px;
+      border-radius: 4px;
+      background: var(--surface-inset);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-family: monospace;
+    }}
+    .lbl-compact {{ display: none; }}
+    @media (max-width: 540px) {{
+      .lbl-full-sepia {{ display: none; }}
+      .lbl-compact {{ display: inline; }}
+      .kbd-hint {{ display: none; }}
+      .util-brand-text {{ display: none; }}
+      .theme-seg-btn {{ padding: 4px 7px; font-size: 0.72rem; }}
+    }}
+    @media (pointer: coarse) {{
+      .theme-seg-btn, .util-search-btn {{ min-height: 40px; }}
+    }}
+
+    .reading-progress {{
+      height: 3px;
+      width: 100%;
+      background: linear-gradient(90deg, var(--accent), var(--emerald));
+      transform-origin: 0 50%;
+      transform: scaleX(0);
+    }}
+    @keyframes grow-progress {{
+      from {{ transform: scaleX(0); }}
+      to {{ transform: scaleX(1); }}
+    }}
+    @media (prefers-reduced-motion: no-preference) {{
+      @supports (animation-timeline: scroll()) {{
+        .reading-progress {{
+          animation: grow-progress auto linear;
+          animation-timeline: scroll(root);
+        }}
+      }}
+    }}
+
+    /* Native Quick Jump Modal Dialog */
+    dialog#quick-jump-dialog {{
+      margin: auto;
+      width: min(560px, 92vw);
+      max-height: 82dvh;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--card-bg);
+      color: var(--text);
+      padding: 0;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+      overflow: hidden;
+    }}
+    dialog#quick-jump-dialog:modal {{
+      overscroll-behavior: contain;
+    }}
+    dialog#quick-jump-dialog::backdrop {{
+      background: rgba(15, 23, 42, 0.56);
+      backdrop-filter: blur(4px);
+    }}
+    .qj-head {{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface-elevated);
+    }}
+    .qj-title {{ font-size: 0.92rem; font-weight: 800; color: var(--text); }}
+    .qj-close {{
+      appearance: none;
+      background: var(--surface-inset);
+      border: 1px solid var(--border);
+      color: var(--text);
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 800;
+    }}
+    .qj-search-wrap {{ padding: 12px 16px 8px; }}
+    .qj-input {{
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface-elevated);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.9rem;
+    }}
+    .qj-list {{
+      max-height: 55dvh;
+      overflow-y: auto;
+      padding: 4px 12px 14px;
+      display: grid;
+      gap: 6px;
+    }}
+    .qj-item {{
+      appearance: none;
+      width: 100%;
+      text-align: left;
+      background: var(--surface-elevated);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 9px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      font-family: inherit;
+      font-size: 0.83rem;
+    }}
+    .qj-item:hover, .qj-item:focus-visible {{ border-color: var(--accent); }}
+    .qj-item-tag {{
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--tone-cyan-bg);
+      padding: 2px 7px;
+      border-radius: 999px;
+      flex-shrink: 0;
+    }}
+
     .arena-header {{
       text-align: center;
-      padding: 1.6rem 1rem 1.1rem 1rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 1.5rem 1rem 1.15rem 1rem;
+      border-bottom: 1px solid var(--border);
     }}
     .live-tag {{
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      background: rgba(16, 185, 129, 0.15);
-      border: 1px solid rgba(16, 185, 129, 0.45);
-      color: #6ee7b7;
+      background: var(--tone-emerald-bg);
+      border: 1px solid var(--tone-emerald-border);
+      color: var(--tone-emerald-ink);
       padding: 0.25rem 0.85rem;
       border-radius: 9999px;
       font-size: 0.74rem;
@@ -1177,38 +1577,39 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
       margin-bottom: 0.5rem;
     }}
     .arena-title {{
-      font-size: 1.55rem;
+      font-size: clamp(1.35rem, 4vw, 1.85rem);
       font-weight: 900;
-      background: linear-gradient(135deg, #38bdf8 0%, #ec4899 50%, #f59e0b 100%);
+      background: var(--header-title-grad);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }}
     .arena-subtitle {{
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       color: var(--text-muted);
       margin-top: 0.25rem;
     }}
     .kpi-strip {{
       display: flex;
       justify-content: center;
-      gap: 0.6rem;
+      gap: 0.55rem;
       flex-wrap: wrap;
       margin-top: 0.75rem;
     }}
     .kpi-chip {{
-      background: rgba(30, 41, 59, 0.75);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 0.6rem;
-      padding: 0.25rem 0.65rem;
-      font-size: 0.73rem;
-      color: #cbd5e1;
+      background: var(--surface-elevated);
+      border: 1px solid var(--border);
+      border-radius: 0.65rem;
+      padding: 0.28rem 0.7rem;
+      font-size: 0.74rem;
+      color: var(--text-secondary);
+      font-variant-numeric: tabular-nums;
     }}
-    .kpi-chip strong {{ color: var(--neon-cyan); }}
+    .kpi-chip strong {{ color: var(--accent); }}
     .sound-btn {{
-      background: rgba(245, 158, 11, 0.15);
-      border: 1px solid var(--gold);
-      color: var(--gold);
-      padding: 0.35rem 0.9rem;
+      background: var(--tone-amber-bg);
+      border: 1px solid var(--tone-amber-border);
+      color: var(--tone-amber-ink);
+      padding: 0.38rem 0.95rem;
       border-radius: 9999px;
       font-size: 0.76rem;
       font-weight: 700;
@@ -1219,22 +1620,22 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
     .sound-btn:active {{ transform: scale(0.95); }}
 
     .container {{
-      max-width: 780px;
+      max-width: 820px;
       margin: 0 auto;
       padding: 1rem;
     }}
     .mode-switch-bar {{
       display: flex;
-      background: rgba(30, 41, 59, 0.75);
+      background: var(--surface-inset);
       border-radius: 9999px;
-      padding: 0.3rem;
+      padding: 0.28rem;
       margin-bottom: 0.9rem;
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border);
     }}
     .mode-btn {{
       flex: 1;
       text-align: center;
-      padding: 0.5rem;
+      padding: 0.52rem;
       font-size: 0.83rem;
       font-weight: 700;
       border-radius: 9999px;
@@ -1245,9 +1646,9 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
       transition: all 0.2s ease;
     }}
     .mode-btn.active {{
-      background: linear-gradient(135deg, #0284c7, #06b6d4);
+      background: var(--accent);
       color: #ffffff;
-      box-shadow: 0 2px 10px rgba(6, 182, 212, 0.3);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
     }}
     .filter-scroll {{
       display: flex;
@@ -1260,13 +1661,13 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
     .filter-scroll::-webkit-scrollbar {{ display: none; }}
     .pill-btn {{
       white-space: nowrap;
-      padding: 0.38rem 0.82rem;
+      padding: 0.4rem 0.85rem;
       border-radius: 9999px;
       font-size: 0.77rem;
       font-weight: 600;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      background: rgba(30, 41, 59, 0.65);
-      color: var(--text-muted);
+      border: 1px solid var(--border);
+      background: var(--surface-elevated);
+      color: var(--text-secondary);
       cursor: pointer;
       transition: all 0.2s;
       display: inline-flex;
@@ -1274,31 +1675,32 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
       gap: 0.35rem;
     }}
     .pill-count {{
-      background: rgba(255, 255, 255, 0.12);
-      padding: 0.05rem 0.4rem;
+      background: var(--surface-inset);
+      color: var(--text-muted);
+      padding: 0.05rem 0.42rem;
       border-radius: 9999px;
       font-size: 0.68rem;
+      font-variant-numeric: tabular-nums;
     }}
     .pill-btn.active {{
-      background: var(--neon-cyan);
-      color: #042f2e;
-      border-color: var(--neon-cyan);
-      box-shadow: 0 2px 10px rgba(6, 182, 212, 0.3);
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
     }}
     .pill-btn.active .pill-count {{
-      background: rgba(4, 47, 46, 0.25);
-      color: #042f2e;
+      background: rgba(255, 255, 255, 0.22);
+      color: #ffffff;
     }}
 
     /* Dynamic Multi-Bout Battle Card */
     .battle-card {{
       position: relative;
       background: var(--card-bg);
-      border: 2px solid rgba(245, 158, 11, 0.4);
+      border: 1.5px solid var(--tone-amber-border);
       border-radius: 1.25rem;
       padding: 1.2rem;
       margin-bottom: 1.2rem;
-      box-shadow: 0 10px 28px -5px rgba(0, 0, 0, 0.55);
+      box-shadow: var(--card-shadow);
     }}
     .bout-tabs {{
       display: flex;
@@ -1311,18 +1713,18 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
     .bout-tabs::-webkit-scrollbar {{ display: none; }}
     .bout-tab {{
       white-space: nowrap;
-      padding: 0.28rem 0.68rem;
+      padding: 0.3rem 0.7rem;
       border-radius: 0.6rem;
       font-size: 0.72rem;
       font-weight: 700;
-      border: 1px solid rgba(245, 158, 11, 0.3);
-      background: rgba(15, 23, 42, 0.75);
-      color: #fcd34d;
+      border: 1px solid var(--tone-amber-border);
+      background: var(--tone-amber-bg);
+      color: var(--tone-amber-ink);
       cursor: pointer;
     }}
     .bout-tab.active {{
-      background: linear-gradient(135deg, #f59e0b, #ef4444);
-      color: #000000;
+      background: linear-gradient(135deg, var(--gold), var(--red-fighter));
+      color: #ffffff;
       border-color: transparent;
     }}
     .fighters-arena {{
@@ -1338,36 +1740,38 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
       border-radius: 0.75rem;
     }}
     .fighter-box.red {{
-      background: rgba(239, 68, 68, 0.14);
-      border: 1px solid rgba(239, 68, 68, 0.35);
+      background: var(--tone-rose-bg);
+      border: 1px solid var(--tone-rose-border);
     }}
     .fighter-box.blue {{
-      background: rgba(59, 130, 246, 0.14);
-      border: 1px solid rgba(59, 130, 246, 0.35);
+      background: var(--tone-cyan-bg);
+      border: 1px solid var(--tone-cyan-border);
     }}
     .fighter-name {{ font-size: 0.86rem; font-weight: 800; }}
     .fighter-tag {{ font-size: 0.71rem; color: var(--text-muted); margin-top: 0.15rem; }}
-    .fighter-box.red .fighter-name {{ color: #f87171; }}
-    .fighter-box.blue .fighter-name {{ color: #60a5fa; }}
+    .fighter-box.red .fighter-name {{ color: var(--red-fighter); }}
+    .fighter-box.blue .fighter-name {{ color: var(--blue-fighter); }}
     .vs-circle {{
       font-family: 'Bungee', cursive;
       font-size: 1.15rem;
       color: var(--gold);
     }}
     .round-row {{
-      background: rgba(15, 23, 42, 0.65);
-      border-radius: 0.6rem;
+      background: var(--surface-elevated);
+      border-radius: 0.65rem;
       padding: 0.55rem 0.75rem;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      margin-bottom: 0.4rem;
+      border: 1px solid var(--border);
+      margin-bottom: 0.42rem;
     }}
     .round-lbl {{
       display: flex;
       justify-content: space-between;
-      font-size: 0.74rem;
+      font-size: 0.75rem;
       font-weight: 600;
-      margin-bottom: 0.3rem;
+      color: var(--text);
+      margin-bottom: 0.32rem;
       gap: 0.5rem;
+      font-variant-numeric: tabular-nums;
     }}
     .round-bars {{
       display: flex;
@@ -1375,19 +1779,24 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
       gap: 4px;
       border-radius: 4px;
       overflow: hidden;
-      background: rgba(255,255,255,0.06);
+      background: var(--surface-inset);
     }}
     .bar-fill.red {{ background: var(--red-fighter); transition: width 0.35s ease; }}
     .bar-fill.blue {{ background: var(--blue-fighter); transition: width 0.35s ease; }}
     .winner-banner {{
-      background: linear-gradient(135deg, rgba(16, 185, 129, 0.18), rgba(6, 182, 212, 0.18));
-      border: 1px solid var(--emerald);
+      background: var(--tone-emerald-bg);
+      border: 1px solid var(--tone-emerald-border);
+      color: var(--tone-emerald-ink);
       border-radius: 0.75rem;
       padding: 0.7rem 0.85rem;
       margin-top: 0.85rem;
       display: flex;
       align-items: center;
       gap: 0.6rem;
+    }}
+    .winner-banner-text {{
+      font-size: 0.82rem;
+      color: var(--tone-emerald-ink);
     }}
 
     /* Chibi Callout */
@@ -1401,7 +1810,7 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
       width: 44px;
       height: 44px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+      background: linear-gradient(135deg, var(--accent), var(--purple));
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1409,13 +1818,15 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
       flex-shrink: 0;
     }}
     .speech-bubble {{
-      background: rgba(30, 41, 59, 0.9);
-      border: 1px solid rgba(56, 189, 248, 0.25);
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
       border-radius: 0.95rem;
       border-top-left-radius: 0.2rem;
-      padding: 0.7rem 0.95rem;
-      font-size: 0.8rem;
-      color: #e2e8f0;
+      padding: 0.75rem 0.95rem;
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      box-shadow: var(--card-shadow);
     }}
 
     /* Track Sections & Quick-Scan Paper Cards */
@@ -1427,30 +1838,32 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
       align-items: center;
       gap: 0.5rem;
       margin-bottom: 0.75rem;
-      padding-bottom: 0.4rem;
-      border-bottom: 1px solid rgba(6, 182, 212, 0.3);
+      padding-bottom: 0.45rem;
+      border-bottom: 1px solid var(--border);
     }}
     .track-icon {{ font-size: 1.3rem; }}
     .track-title {{
       font-size: 1.05rem;
       font-weight: 800;
-      color: var(--neon-cyan);
+      color: var(--accent);
       flex: 1;
     }}
     .track-window {{
       font-size: 0.7rem;
       color: var(--text-muted);
-      background: rgba(30, 41, 59, 0.8);
+      background: var(--surface-elevated);
+      border: 1px solid var(--border);
       padding: 0.15rem 0.55rem;
       border-radius: 9999px;
+      font-variant-numeric: tabular-nums;
     }}
     .paper-card {{
       background: var(--card-bg);
-      border: 1px solid rgba(255, 255, 255, 0.09);
+      border: 1px solid var(--border);
       border-radius: 1rem;
       padding: 1.05rem;
       margin-bottom: 0.9rem;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+      box-shadow: var(--card-shadow);
     }}
     .paper-top-bar {{
       display: flex;
@@ -1467,24 +1880,24 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
       border-radius: 9999px;
     }}
     .tier-IN_FORMULARY {{
-      background: rgba(16, 185, 129, 0.18);
-      border: 1px solid rgba(16, 185, 129, 0.5);
-      color: #6ee7b7;
+      background: var(--tone-emerald-bg);
+      border: 1px solid var(--tone-emerald-border);
+      color: var(--tone-emerald-ink);
     }}
     .tier-J2_RESTRICTED {{
-      background: rgba(245, 158, 11, 0.18);
-      border: 1px solid rgba(245, 158, 11, 0.5);
-      color: #fcd34d;
+      background: var(--tone-amber-bg);
+      border: 1px solid var(--tone-amber-border);
+      color: var(--tone-amber-ink);
     }}
     .tier-PTC_CANDIDATE {{
-      background: rgba(239, 68, 68, 0.18);
-      border: 1px solid rgba(239, 68, 68, 0.5);
-      color: #fca5a5;
+      background: var(--tone-rose-bg);
+      border: 1px solid var(--tone-rose-border);
+      color: var(--tone-rose-ink);
     }}
     .tier-CLINICAL_PROTOCOL {{
-      background: rgba(139, 92, 246, 0.18);
-      border: 1px solid rgba(139, 92, 246, 0.5);
-      color: #c4b5fd;
+      background: var(--tone-violet-bg);
+      border: 1px solid var(--tone-violet-border);
+      color: var(--tone-violet-ink);
     }}
     .badge-group {{
       display: flex;
@@ -1497,21 +1910,22 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
       padding: 0.15rem 0.55rem;
       border-radius: 9999px;
       text-decoration: none;
+      font-variant-numeric: tabular-nums;
     }}
     .n-badge {{
-      background: rgba(56, 189, 248, 0.15);
-      border: 1px solid rgba(56, 189, 248, 0.4);
-      color: #7dd3fc;
+      background: var(--tone-cyan-bg);
+      border: 1px solid var(--tone-cyan-border);
+      color: var(--tone-cyan-ink);
     }}
     .pmc-badge {{
-      background: rgba(16, 185, 129, 0.2);
-      border: 1px solid var(--emerald);
-      color: #6ee7b7;
+      background: var(--tone-emerald-bg);
+      border: 1px solid var(--tone-emerald-border);
+      color: var(--tone-emerald-ink);
     }}
     .paper-title {{
       font-size: 0.96rem;
       font-weight: 700;
-      color: #f1f5f9;
+      color: var(--text);
       margin-bottom: 0.3rem;
     }}
     .paper-meta {{
@@ -1519,23 +1933,24 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
       color: var(--text-muted);
       margin-bottom: 0.65rem;
     }}
-    .paper-meta a {{ color: var(--neon-cyan); text-decoration: none; font-weight: 600; }}
+    .paper-meta a {{ color: var(--accent); text-decoration: none; font-weight: 600; }}
     .paper-takeaway {{
-      background: rgba(6, 182, 212, 0.1);
-      border-left: 3px solid var(--neon-cyan);
+      background: var(--tone-cyan-bg);
+      border-left: 3px solid var(--accent);
       padding: 0.55rem 0.75rem;
-      border-radius: 0.4rem;
+      border-radius: 0.45rem;
       font-size: 0.84rem;
-      color: #f8fafc;
+      color: var(--text);
       margin-bottom: 0.65rem;
     }}
     .paper-metrics {{
       font-size: 0.8rem;
-      color: #cbd5e1;
+      color: var(--text-secondary);
       margin-bottom: 0.7rem;
       padding-left: 0.2rem;
+      font-variant-numeric: tabular-nums;
     }}
-    .metrics-header {{ font-weight: 700; color: #93c5fd; margin-bottom: 0.25rem; }}
+    .metrics-header {{ font-weight: 700; color: var(--accent); margin-bottom: 0.25rem; }}
     .paper-metrics ul {{ padding-left: 1.2rem; }}
     .paper-metrics li {{ margin-bottom: 0.2rem; }}
     .hq-grid {{
@@ -1545,35 +1960,35 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
     }}
     .hq-box {{
       font-size: 0.78rem;
-      padding: 0.48rem 0.7rem;
+      padding: 0.5rem 0.7rem;
       border-radius: 0.5rem;
     }}
     .action-box {{
-      background: rgba(16, 185, 129, 0.1);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      color: #d1fae5;
+      background: var(--tone-emerald-bg);
+      border: 1px solid var(--tone-emerald-border);
+      color: var(--tone-emerald-ink);
     }}
     .rx-box {{
-      background: rgba(245, 158, 11, 0.1);
-      border: 1px solid rgba(245, 158, 11, 0.3);
-      color: #fef3c7;
+      background: var(--tone-amber-bg);
+      border: 1px solid var(--tone-amber-border);
+      color: var(--tone-amber-ink);
     }}
     .bi-box {{
-      background: rgba(139, 92, 246, 0.1);
-      border: 1px solid rgba(139, 92, 246, 0.3);
-      color: #ede9fe;
+      background: var(--tone-violet-bg);
+      border: 1px solid var(--tone-violet-border);
+      color: var(--tone-violet-ink);
     }}
     .paper-footer {{ text-align: right; }}
     .read-btn {{
       display: inline-block;
       font-size: 0.76rem;
       font-weight: 700;
-      color: var(--neon-cyan);
+      color: var(--accent);
       text-decoration: none;
-      padding: 0.3rem 0.7rem;
+      padding: 0.32rem 0.75rem;
       border-radius: 0.5rem;
-      background: rgba(6, 182, 212, 0.12);
-      border: 1px solid rgba(6, 182, 212, 0.3);
+      background: var(--tone-cyan-bg);
+      border: 1px solid var(--tone-cyan-border);
     }}
 
     /* Formal Mode Container */
@@ -1582,25 +1997,27 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
       background: var(--card-bg);
       border-radius: 1.25rem;
       padding: 1.25rem;
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border);
+      box-shadow: var(--card-shadow);
     }}
     .formal-box h1, .formal-box h2, .formal-box h3, .formal-box h4 {{
-      color: var(--neon-cyan);
+      color: var(--accent);
       margin: 1rem 0 0.4rem 0;
     }}
     .formal-box p, .formal-box li {{
-      color: #cbd5e1;
+      color: var(--text-secondary);
       font-size: 0.86rem;
       margin-bottom: 0.35rem;
     }}
-    .formal-box a {{ color: var(--neon-cyan); }}
-    .formal-box hr {{ border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 1rem 0; }}
+    .formal-box a {{ color: var(--accent); }}
+    .formal-box hr {{ border: none; border-top: 1px solid var(--border); margin: 1rem 0; }}
 
-    /* Championship Deck Grid (Clean, Punchy, Fun for Battle Mode) */
+    /* Championship Deck Grid */
     .deck-header {{
       margin: 1.1rem 0 0.8rem 0;
       padding: 0.65rem 0.9rem;
-      background: rgba(30, 41, 59, 0.55);
+      background: var(--surface-elevated);
+      border: 1px solid var(--border);
       border-radius: 0.8rem;
       border-left: 3px solid var(--gold);
     }}
@@ -1613,7 +2030,7 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
       gap: 0.4rem;
     }}
     .deck-subtitle {{
-      font-size: 0.73rem;
+      font-size: 0.74rem;
       color: var(--text-muted);
       margin-top: 0.2rem;
     }}
@@ -1630,16 +2047,17 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
     }}
     .champ-card {{
       background: var(--card-bg);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border);
       border-radius: 1rem;
       padding: 0.95rem;
+      box-shadow: var(--card-shadow);
       transition: all 0.2s ease;
       cursor: pointer;
     }}
     .champ-card:hover {{
-      border-color: rgba(6, 182, 212, 0.45);
+      border-color: var(--accent);
       transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+      box-shadow: var(--card-hover-shadow);
     }}
     .champ-header {{
       display: flex;
@@ -1650,20 +2068,20 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
     .champ-tag {{
       font-size: 0.72rem;
       font-weight: 700;
-      color: var(--neon-cyan);
-      background: rgba(6, 182, 212, 0.12);
+      color: var(--tone-cyan-ink);
+      background: var(--tone-cyan-bg);
       padding: 0.18rem 0.55rem;
       border-radius: 9999px;
-      border: 1px solid rgba(6, 182, 212, 0.3);
+      border: 1px solid var(--tone-cyan-border);
     }}
     .champ-status {{
       font-size: 0.68rem;
       font-weight: 700;
-      color: var(--gold);
-      background: rgba(245, 158, 11, 0.12);
+      color: var(--tone-amber-ink);
+      background: var(--tone-amber-bg);
       padding: 0.15rem 0.5rem;
       border-radius: 9999px;
-      border: 1px solid rgba(245, 158, 11, 0.25);
+      border: 1px solid var(--tone-amber-border);
     }}
     .champ-matchup {{
       display: grid;
@@ -1671,31 +2089,31 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
       align-items: center;
       gap: 0.4rem;
       text-align: center;
-      background: rgba(15, 23, 42, 0.65);
+      background: var(--surface-elevated);
       border-radius: 0.65rem;
       padding: 0.55rem 0.4rem;
       margin-bottom: 0.55rem;
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
     }}
     .champ-fighter {{
       font-size: 0.76rem;
       font-weight: 700;
       line-height: 1.25;
     }}
-    .champ-fighter.red {{ color: #fca5a5; }}
-    .champ-fighter.blue {{ color: #93c5fd; }}
+    .champ-fighter.red {{ color: var(--red-fighter); }}
+    .champ-fighter.blue {{ color: var(--blue-fighter); }}
     .champ-vs {{
       font-family: 'Bungee', cursive;
       font-size: 0.8rem;
       color: var(--gold);
     }}
     .champ-verdict {{
-      font-size: 0.78rem;
-      color: #f1f5f9;
-      line-height: 1.4;
-      background: rgba(6, 182, 212, 0.08);
-      border-left: 3px solid var(--neon-cyan);
-      padding: 0.45rem 0.65rem;
+      font-size: 0.79rem;
+      color: var(--text);
+      line-height: 1.42;
+      background: var(--tone-cyan-bg);
+      border-left: 3px solid var(--accent);
+      padding: 0.48rem 0.65rem;
       border-radius: 0.4rem;
       margin-bottom: 0.65rem;
     }}
@@ -1703,26 +2121,26 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
       text-align: right;
     }}
     .champ-read-btn {{
-      background: rgba(255, 255, 255, 0.07);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      color: #cbd5e1;
+      background: var(--surface-elevated);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
       font-size: 0.72rem;
       font-weight: 600;
-      padding: 0.32rem 0.65rem;
+      padding: 0.34rem 0.7rem;
       border-radius: 0.5rem;
       cursor: pointer;
       transition: all 0.2s;
     }}
     .champ-read-btn:hover {{
-      background: rgba(6, 182, 212, 0.2);
-      border-color: var(--neon-cyan);
-      color: #ffffff;
+      background: var(--tone-cyan-bg);
+      border-color: var(--accent);
+      color: var(--accent);
     }}
 
     /* Formal Box Styles */
     .formal-header-card {{
-      background: rgba(15, 23, 42, 0.75);
-      border: 1px solid rgba(6, 182, 212, 0.35);
+      background: var(--surface-elevated);
+      border: 1px solid var(--border);
       border-radius: 1rem;
       padding: 1.1rem;
       margin-bottom: 1.2rem;
@@ -1733,18 +2151,16 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
       gap: 0.75rem;
       margin-bottom: 0.85rem;
     }}
-    .formal-crest {{
-      font-size: 2rem;
-    }}
+    .formal-crest {{ font-size: 2rem; }}
     .formal-heading {{
       font-size: 1.05rem;
       font-weight: 800;
-      color: #ffffff;
+      color: var(--text);
       margin: 0 !important;
     }}
     .formal-subheading {{
       font-size: 0.74rem;
-      color: var(--neon-cyan);
+      color: var(--accent);
       margin: 0.15rem 0 0 0 !important;
     }}
     .formal-meta-grid {{
@@ -1752,19 +2168,18 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 0.5rem;
       font-size: 0.75rem;
-      color: #cbd5e1;
-      background: rgba(0, 0, 0, 0.25);
+      color: var(--text-secondary);
+      background: var(--surface-inset);
       padding: 0.6rem 0.8rem;
       border-radius: 0.6rem;
+      font-variant-numeric: tabular-nums;
     }}
     .formal-divider {{
       border: none;
-      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      border-top: 1px solid var(--border);
       margin: 1.5rem 0;
     }}
-    .formal-section-header {{
-      margin-bottom: 1rem;
-    }}
+    .formal-section-header {{ margin-bottom: 1rem; }}
     .formal-section-title {{
       font-size: 1.05rem;
       font-weight: 800;
@@ -1775,41 +2190,76 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
       font-size: 0.75rem;
       color: var(--text-muted);
     }}
-    .highlight-flash {{
-      animation: flash-highlight 1.8s ease;
-    }}
+    .highlight-flash {{ animation: flash-highlight 1.8s ease; }}
     @keyframes flash-highlight {{
-      0% {{ box-shadow: 0 0 0 4px var(--neon-cyan); }}
+      0% {{ box-shadow: 0 0 0 4px var(--accent); }}
       100% {{ box-shadow: none; }}
+    }}
+    .footer-link-canva {{ color: var(--purple); text-decoration: none; font-weight: 600; }}
+    .footer-link-repo {{ color: var(--accent); text-decoration: none; font-weight: 600; }}
+
+    /* White-Paper Clean Print Normalization (GW-K02) */
+    @media print {{
+      html, body {{
+        color-scheme: light !important;
+        background: #ffffff !important;
+        color: #0f172a !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }}
+      .no-print, dialog, .sound-btn, .mode-switch-bar, .filter-scroll, .bout-tabs {{ display: none !important; }}
+      .battle-card, .paper-card, .champ-card, .formal-box {{
+        background: #ffffff !important;
+        color: #0f172a !important;
+        border-color: #cbd5e1 !important;
+        box-shadow: none !important;
+        break-inside: avoid;
+      }}
+      #formal-content {{ display: block !important; }}
     }}
   </style>
 </head>
 <body>
+  <nav class="top-utility-bar no-print" aria-label="แถบเครื่องมือและสลับธีมสี">
+    <div class="top-utility-inner">
+      <div class="util-brand">⚔️ <span class="util-brand-text">Clinical Sentinel • รพ.เสิงสาง</span></div>
+      <div class="util-actions">
+        <div class="theme-seg-wrap" role="group" aria-label="เลือกโหมดสีหน้าจอ">
+          <button type="button" class="theme-seg-btn" data-theme-btn="light" aria-pressed="false" onclick="setTheme('light')">☀️ สว่าง</button>
+          <button type="button" class="theme-seg-btn" data-theme-btn="sepia" aria-pressed="false" onclick="setTheme('sepia')">📖 <span class="lbl-full-sepia">ถนอมสายตา</span><span class="lbl-compact">ถนอม</span></button>
+          <button type="button" class="theme-seg-btn" data-theme-btn="dark" aria-pressed="false" onclick="setTheme('dark')">🌙 มืด</button>
+        </div>
+        <button type="button" id="quick-jump-btn" class="util-search-btn" aria-label="ค้นหาและกระโดดหมวด">🔍 <kbd class="kbd-hint">⌘K</kbd></button>
+      </div>
+    </div>
+    <div id="reading-progress" class="reading-progress" aria-hidden="true"></div>
+  </nav>
+
   <header class="arena-header">
     <div class="live-tag">🟢 7-TRACK CLINICAL SENTINEL • 5-ALLIED HQs LINKED</div>
-    <div class="arena-title">⚔️ CLINICAL BATTLE ARENA</div>
-    <div class="arena-subtitle">ระบบเฝ้าระวังหลักฐานเชิงประจักษ์ 7 สายงานคลินิก • กรองเฉพาะงานวิจัยคุณภาพ N ≥ 30 & Free PMC • รพ.เสิงสาง</div>
+    <h1 class="arena-title">⚔️ CLINICAL BATTLE ARENA</h1>
+    <div class="arena-subtitle">ระบบเฝ้าระวังหลักฐานเชิงประจักษ์ 7 สายงานคลินิก • กรองเฉพาะงานวิจัยคุณภาพ N ≥ 30 &amp; Free PMC • รพ.เสิงสาง</div>
     <div class="kpi-strip">
       <div class="kpi-chip">📅 อัปเดตล่าสุด: <strong>{report_date}</strong></div>
       <div class="kpi-chip">📚 เปเปอร์ผ่านเกณฑ์: <strong>{total_articles} เรื่อง</strong></div>
       <div class="kpi-chip">📖 PMC Full-Text: <strong>อ่านฟรี {free_pmc_count} เรื่อง</strong></div>
     </div>
-    <button class="sound-btn" onclick="playGong()">🔔 เคาะระฆังเปิดศึก (Fight Bell)</button>
+    <button type="button" class="sound-btn no-print" onclick="playGong()">🔔 เคาะระฆังเปิดศึก (Fight Bell)</button>
   </header>
 
   <div class="container">
-    <div class="mode-switch-bar">
-      <button class="mode-btn active" id="btn-fun" onclick="switchMode('fun')">🥊 โหมดศึกดวล Quick-Scan (7 หมวด)</button>
-      <button class="mode-btn" id="btn-formal" onclick="switchMode('formal')">📑 โหมดเอกสารทางการ (Formal Dossier)</button>
+    <div class="mode-switch-bar no-print">
+      <button type="button" class="mode-btn active" id="btn-fun" onclick="switchMode('fun')">🥊 โหมดศึกดวล Quick-Scan (7 หมวด)</button>
+      <button type="button" class="mode-btn" id="btn-formal" onclick="switchMode('formal')">📑 โหมดเอกสารทางการ (Formal Dossier)</button>
     </div>
 
-    <div class="filter-scroll" id="trackPills">
+    <div class="filter-scroll no-print" id="trackPills">
       {pills_joined}
     </div>
 
     <!-- DYNAMIC MULTI-BOUT MAIN EVENT ARENA (Fix #4) -->
     <div class="battle-card" id="main-showdown">
-      <div class="bout-tabs" id="boutTabs"></div>
+      <div class="bout-tabs no-print" id="boutTabs"></div>
       <div id="boutHeadline" style="font-size: 0.83rem; color: var(--gold); font-weight: 700;"></div>
       <div class="fighters-arena">
         <div class="fighter-box red">
@@ -1825,7 +2275,7 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
       <div class="battle-rounds" id="battleRounds"></div>
       <div class="winner-banner">
         <div style="font-size: 1.45rem;">🏆</div>
-        <div style="font-size: 0.8rem; color: #a7f3d0;" id="boutVerdict"></div>
+        <div class="winner-banner-text" id="boutVerdict"></div>
       </div>
     </div>
 
@@ -1856,7 +2306,7 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
           <div class="formal-crest">🏛️</div>
           <div>
             <h2 class="formal-heading">เอกสารรายงานทางการ: การเฝ้าระวังหลักฐานเชิงประจักษ์ 7 สายงานคลินิก (Evidence Surveillance Dossier)</h2>
-            <p class="formal-subheading">กลุ่มงานเภสัชกรรมและคุ้มครองผู้บริโภค • คณะกรรมการเภสัชกรรมและการบำบัด (PTC) & ทีม IM โรงพยาบาลเสิงสาง</p>
+            <p class="formal-subheading">กลุ่มงานเภสัชกรรมและคุ้มครองผู้บริโภค • คณะกรรมการเภสัชกรรมและการบำบัด (PTC) &amp; ทีม IM โรงพยาบาลเสิงสาง</p>
           </div>
         </div>
         <div class="formal-meta-grid">
@@ -1872,7 +2322,7 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
 
       <hr class="formal-divider">
 
-      <!-- Full Track Sections with 14 Paper Cards (Moved from Battle Mode!) -->
+      <!-- Full Track Sections with Paper Cards -->
       <div class="formal-evidence-section">
         <div class="formal-section-header">
           <h3 class="formal-section-title">📑 รายการบทคัดย่อและบทวิเคราะห์เชิงลึกประจำสายงาน (Clinical Evidence Cards)</h3>
@@ -1884,16 +2334,27 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
       </div>
     </main>
 
-    <footer style="text-align: center; margin-top: 2rem; font-size: 0.75rem; color: var(--text-muted);">
+    <footer style="text-align: center; margin-top: 2rem; font-size: 0.76rem; color: var(--text-muted);">
       <p><strong>ผู้รับผิดชอบระบบ:</strong> ภก.รัฐนนท์ แสงไทยทวีพร, เภสัชกรชำนาญการ</p>
       <p>ประธานทีม Information Management (IM) โรงพยาบาลเสิงสาง</p>
       <p style="margin-top: 0.35rem;">
-        <a href="https://canva.link/v9g5tfxdg349vbg" target="_blank" style="color: #c084fc; text-decoration: none;">🎨 เปิดสไลด์ใน Canva Pro →</a>
+        <a href="https://canva.link/v9g5tfxdg349vbg" target="_blank" class="footer-link-canva">🎨 เปิดสไลด์ใน Canva Pro →</a>
         &nbsp;|&nbsp;
-        <a href="https://github.com/NutCodeLaw/pubmed-clinical-sentinel" target="_blank" style="color: #38bdf8; text-decoration: none;">📦 GitHub Repository →</a>
+        <a href="https://github.com/NutCodeLaw/pubmed-clinical-sentinel" target="_blank" class="footer-link-repo">📦 GitHub Repository →</a>
       </p>
     </footer>
   </div>
+
+  <dialog id="quick-jump-dialog" closedby="any" aria-labelledby="qj-dialog-title">
+    <div class="qj-head">
+      <div id="qj-dialog-title" class="qj-title">🔍 ค้นหาและกระโดดหมวด (Clinical Sentinel)</div>
+      <button type="button" id="qj-close-btn" class="qj-close" aria-label="ปิดหน้าต่างค้นหา">✕</button>
+    </div>
+    <div class="qj-search-wrap">
+      <input type="search" id="qj-search-input" class="qj-input" placeholder="พิมพ์ชื่อยา, โรค, คู่ดวล, หรือเลือกธีมสี..." autocomplete="off">
+    </div>
+    <div id="qj-results-list" class="qj-list"></div>
+  </dialog>
 
   <script>
     const mdContent = {md_escaped};
@@ -1902,6 +2363,75 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
     let currentMode = 'fun';
     let currentTrackFilter = 'all';
     let gongCtx = null;
+
+    function getEffectiveTheme() {{
+      try {{
+        const saved = localStorage.getItem('hq_theme');
+        if (saved === 'light' || saved === 'sepia' || saved === 'dark') return saved;
+      }} catch (e) {{}}
+      return (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+    }}
+
+    function syncThemeUI() {{
+      const active = getEffectiveTheme();
+      document.querySelectorAll('[data-theme-btn]').forEach((btn) => {{
+        const isMatch = btn.getAttribute('data-theme-btn') === active;
+        btn.classList.toggle('is-active', isMatch);
+        btn.setAttribute('aria-pressed', String(isMatch));
+      }});
+    }}
+
+    function setTheme(theme) {{
+      if (!['light', 'sepia', 'dark'].includes(theme)) theme = 'light';
+      const apply = () => {{
+        document.documentElement.setAttribute('data-theme', theme);
+        const metaCS = document.querySelector('meta[name="color-scheme"]');
+        if (metaCS) metaCS.content = (theme === 'dark' ? 'dark' : 'light');
+        try {{ localStorage.setItem('hq_theme', theme); }} catch (e) {{}}
+        syncThemeUI();
+      }};
+      if (typeof document.startViewTransition === 'function') {{
+        document.startViewTransition(apply);
+      }} else {{
+        apply();
+      }}
+    }}
+
+    window.addEventListener('storage', (e) => {{
+      if (e.key === 'hq_theme') {{
+        const v = e.newValue;
+        const metaCS = document.querySelector('meta[name="color-scheme"]');
+        if (v === 'light' || v === 'sepia' || v === 'dark') {{
+          document.documentElement.setAttribute('data-theme', v);
+          if (metaCS) metaCS.content = (v === 'dark' ? 'dark' : 'light');
+        }} else {{
+          document.documentElement.removeAttribute('data-theme');
+          if (metaCS) metaCS.content = 'light dark';
+        }}
+        syncThemeUI();
+      }}
+    }});
+
+    if (window.matchMedia) {{
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {{
+        let saved = null;
+        try {{ saved = localStorage.getItem('hq_theme'); }} catch (e) {{}}
+        if (!saved) syncThemeUI();
+      }});
+    }}
+    syncThemeUI();
+
+    if (!CSS.supports('animation-timeline', 'scroll()')) {{
+      const progEl = document.getElementById('reading-progress');
+      const onScroll = () => {{
+        if (!progEl) return;
+        const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+        const pct = Math.max(0, Math.min(1, window.scrollY / max));
+        progEl.style.transform = `scaleX(${{pct}})`;
+      }};
+      window.addEventListener('scroll', onScroll, {{ passive: true }});
+      onScroll();
+    }}
 
     // Render Formal Markdown
     const formalMarkdownEl = document.getElementById('formal-markdown-body');
@@ -1920,7 +2450,7 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
 
       const tabsEl = document.getElementById('boutTabs');
       tabsEl.innerHTML = boutsData.map((item, idx) =>
-        `<button class="bout-tab ${{idx === index ? 'active' : ''}}" onclick="renderBout(${{idx}})">${{item.tab_label}}</button>`
+        `<button type="button" class="bout-tab ${{idx === index ? 'active' : ''}}" onclick="renderBout(${{idx}})">${{item.tab_label}}</button>`
       ).join('');
 
       document.getElementById('boutHeadline').textContent = b.headline;
@@ -1933,7 +2463,7 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
       roundsEl.innerHTML = b.rounds.map(r => `
         <div class="round-row">
           <div class="round-lbl">
-            <span>${{r.title}}${{r.evidence_math ? ` <span style="font-size: 0.72rem; color: var(--neon-cyan); opacity: 0.85;">📊 ${{r.evidence_math}}</span>` : ''}}</span>
+            <span>${{r.title}}${{r.evidence_math ? ` <span style="font-size: 0.72rem; color: var(--accent); opacity: 0.9;">📊 ${{r.evidence_math}}</span>` : ''}}</span>
             <span style="color: var(--emerald);">${{r.verdict}}</span>
           </div>
           <div class="round-bars">
@@ -1990,12 +2520,12 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
       currentMode = mode;
       document.getElementById('btn-fun').classList.toggle('active', mode === 'fun');
       document.getElementById('btn-formal').classList.toggle('active', mode === 'formal');
-      
+
       const isFun = (mode === 'fun');
       document.getElementById('main-showdown').style.display = isFun ? 'block' : 'none';
       document.getElementById('battle-cards-container').style.display = isFun ? 'block' : 'none';
       document.getElementById('formal-content').style.display = isFun ? 'none' : 'block';
-      
+
       filterTrack(currentTrackFilter, null);
     }}
 
@@ -2044,6 +2574,113 @@ def generate_html_dashboard(markdown_content, report_date, articles_by_track, sh
         osc.stop(gongCtx.currentTime + 1.2);
       }} catch(e) {{}}
     }}
+
+    // Quick Jump Native <dialog> Palette
+    (function initQuickJump() {{
+      const dlg = document.getElementById('quick-jump-dialog');
+      const btn = document.getElementById('quick-jump-btn');
+      const closeBtn = document.getElementById('qj-close-btn');
+      const input = document.getElementById('qj-search-input');
+      const list = document.getElementById('qj-results-list');
+      if (!dlg || !btn || !input || !list) return;
+
+      if (!('closedBy' in HTMLDialogElement.prototype)) {{
+        dlg.addEventListener('click', (e) => {{
+          if (e.target !== dlg) return;
+          const r = dlg.getBoundingClientRect();
+          if (r.top <= e.clientY && e.clientY <= r.top + r.height && r.left <= e.clientX && e.clientX <= r.left + r.width) return;
+          dlg.close();
+        }});
+      }}
+
+      const items = [
+        {{ label: '☀️ สลับเป็นโหมดสว่าง (Apple Daylight)', tag: 'Theme', action: () => setTheme('light') }},
+        {{ label: '📖 สลับเป็นโหมดถนอมสายตา (Claude Sepia)', tag: 'Theme', action: () => setTheme('sepia') }},
+        {{ label: '🌙 สลับเป็นโหมดมืด (Linear Dark)', tag: 'Theme', action: () => setTheme('dark') }},
+        {{ label: '🥊 โหมดศึกดวล Quick-Scan (7 หมวด)', tag: 'Mode', action: () => switchMode('fun') }},
+        {{ label: '📑 โหมดเอกสารทางการ (Formal Dossier)', tag: 'Mode', action: () => switchMode('formal') }},
+      ];
+
+      boutsData.forEach((b, idx) => {{
+        items.push({{
+          label: `⚔️ ${{b.tab_label}} — ${{b.red_name}} vs ${{b.blue_name}}`,
+          tag: 'Bout',
+          action: () => {{
+            switchMode('fun');
+            renderBout(idx);
+            document.getElementById('main-showdown').scrollIntoView({{ behavior: 'smooth', block: 'start' }});
+          }}
+        }});
+      }});
+
+      document.querySelectorAll('#formal-track-cards .paper-card').forEach((card) => {{
+        const titleEl = card.querySelector('.paper-title');
+        const sec = card.closest('.track-section');
+        const tid = sec ? sec.getAttribute('data-track-id') : 'all';
+        if (titleEl) {{
+          items.push({{
+            label: `📄 ${{titleEl.textContent.trim()}}`,
+            tag: 'Paper',
+            action: () => {{
+              switchMode('formal');
+              filterTrack(tid, document.querySelector(`.pill-btn[data-pill-track="${{tid}}"]`));
+              setTimeout(() => {{
+                card.scrollIntoView({{ behavior: 'smooth', block: 'center' }});
+                card.classList.add('highlight-flash');
+                setTimeout(() => card.classList.remove('highlight-flash'), 1800);
+              }}, 120);
+            }}
+          }});
+        }}
+      }});
+
+      let filtered = items;
+      function renderList(q) {{
+        const norm = (q || '').trim().toLowerCase();
+        filtered = norm ? items.filter(it => it.label.toLowerCase().includes(norm) || it.tag.toLowerCase().includes(norm)) : items.slice(0, 18);
+        list.replaceChildren();
+        filtered.forEach((it) => {{
+          const b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'qj-item';
+          const spLabel = document.createElement('span');
+          spLabel.textContent = it.label;
+          const spTag = document.createElement('span');
+          spTag.className = 'qj-item-tag';
+          spTag.textContent = it.tag;
+          b.appendChild(spLabel);
+          b.appendChild(spTag);
+          b.addEventListener('click', () => {{ dlg.close(); it.action(); }});
+          list.appendChild(b);
+        }});
+      }}
+
+      function openDlg() {{
+        input.value = '';
+        renderList('');
+        dlg.showModal();
+        setTimeout(() => input.focus(), 40);
+      }}
+
+      btn.addEventListener('click', openDlg);
+      if (closeBtn) closeBtn.addEventListener('click', () => dlg.close());
+      input.addEventListener('input', () => renderList(input.value));
+      input.addEventListener('keydown', (e) => {{
+        if (e.key === 'Enter' && filtered.length > 0) {{
+          e.preventDefault();
+          dlg.close();
+          filtered[0].action();
+        }}
+      }});
+      document.addEventListener('keydown', (e) => {{
+        if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {{
+          const tag = document.activeElement ? document.activeElement.tagName : '';
+          if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+          e.preventDefault();
+          if (dlg.open) dlg.close(); else openDlg();
+        }}
+      }});
+    }})();
 
     // Initialize default bout
     renderBout(0);
